@@ -4,11 +4,12 @@ import Home from "./pages/home";
 function App() {
   return (
     <>
-      <Routes>
+       <Routes>
         {/* created an empty home page for testing */}
         <Route path="/home" element={<Home />} />
       </Routes>
-      ={" "}
+      {" "} 
+
     </>
   );
 }
