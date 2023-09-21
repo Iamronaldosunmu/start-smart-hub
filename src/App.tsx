@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -7,8 +8,11 @@ function App() {
       <Routes>
         {/* created an empty home page for testing */}
         <Route path="/home" element={<Home />} />
-      </Routes>
-      ={" "}
+        <Route path="/AboutUs" element={<AboutUs/>} />
+
+      </Routes>{" "}
+
+
     </>
   );
 }
