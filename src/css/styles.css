@@ -1,0 +1,12 @@
+.quotation-marked::before {
+    content: '“'; 
+    display: inline-block;
+    margin-right: 0.25rem; 
+  }
+  
+  .quotation-marked::after {
+    content: '”'; 
+    display: inline-block;
+    margin-left: 0.25rem; 
+  }
+  

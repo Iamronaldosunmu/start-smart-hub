@@ -8,6 +8,8 @@ export default {
     extend: {
       backgroundColor:{
         '#FFF3EE': 'FFF3EE',
+        'custom-purple': '#331B3B',
+        'hover-custom-purple': "#6e3a65"
       },
       backgroundImage: {
         'hero-pattern': "url('/src/assets/Section.png')",
@@ -15,6 +17,9 @@ export default {
       screens: {
         'large': '740px',
         'small': '370px',
+      },
+      colors: {
+        'custom-purple': "#331B3B"
       }
     },
   },
