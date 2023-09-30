@@ -5,34 +5,25 @@ const ContactUs = () => {
   return (
     <div>
       <div className="flex justify-center items-center flex-col mb-9">
-        <h1 className="mb-5 text-4xl font-bold text-custom-purple">Contact Us</h1>
+        <h1 className="mb-5 text-4xl font-bold text-custom-purple">
+          Contact Us
+        </h1>
         <p>Got any questions or thoughts? We're just a message away!</p>
       </div>
       <div className="grid grid-cols-2 mb-20">
         <Form />
-        {/* <div className="flex">
-          <div className="flex justify-center w-2/3 items-center">
+        <div className="flex relative">
+          <div className="absolute top-0 bottom-1/4 right-1/3 z-10">
             <img
               src="/src/assets/map.png"
-              className="h-2/3 flex w-full object-cover"
+              className="h-full object-cover"
               alt=""
-            />  
+            />
           </div>
-          <div className="flex  w-2/3 h-full bg-custom-purple"></div>
-        </div> */}
-        <div className="flex">
-  <div className="flex justify-center w-2/3 h-full items-center">
-    <img
-      src="/src/assets/map.png"
-      className="h-2/3 w-full object-cover"
-      alt=""
-    />
-  </div>
-  <div className="flex w-2/3 h-full bg-custom-purple"></div>
-</div>
-
+          <div className="flex w-1/2 top-0 left-1/2 bottom-0 bg-custom-purple absolute right-0 "></div>
+        </div>
       </div>
-      <ContactUsFooter/>
+      <ContactUsFooter />
     </div>
   );
 };

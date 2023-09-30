@@ -13,6 +13,7 @@ export default {
       },
       backgroundImage: {
         'hero-pattern': "url('/src/assets/Section.png')",
+        'EventImage': "url('src/assets/event.png')"
       },
       screens: {
         'large': '740px',

@@ -10,3 +10,7 @@
     margin-left: 0.25rem; 
   }
   
+  .list--tick {
+    list-style-image: url(../assets/checkIcon.png);
+    padding-left: 2rem;
+  }
