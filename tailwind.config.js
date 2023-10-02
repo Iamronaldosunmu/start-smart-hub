@@ -13,7 +13,8 @@ export default {
       },
       backgroundImage: {
         'hero-pattern': "url('/src/assets/Section.png')",
-        'EventImage': "url('src/assets/event.png')"
+        'EventImage': "url('src/assets/event.png')",
+        'ServiceGrid': "url('src/assets/img1.png')",
       },
       screens: {
         'large': '740px',

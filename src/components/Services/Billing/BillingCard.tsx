@@ -1,4 +1,6 @@
-import '../../css/styles.css'
+import '../../../css/styles.css';
+
+
 interface BillingCardProps{
     type: string;
     price: number;
@@ -8,7 +10,7 @@ interface BillingCardProps{
 
 const BillingFree = ({type, price, description, proText}: BillingCardProps) => {
   return (
-    <div className='mr-7'>
+    <div className='lg:mr-7 mb-7 px-5 lg:px-0 sm:px-10'>
         <div className='px-6 border shadow rounded-xl'>
             <h1 className='font-semibold text-3xl mb-3 mt-4'>{type}</h1>
             <p className='mb-3 text-2xl'>${price}</p>

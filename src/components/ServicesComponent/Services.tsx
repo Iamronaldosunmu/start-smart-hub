@@ -1,11 +1,11 @@
 const Services = () => {
   return (
-    <div>
-      <div className="flex mt-5">
-        <div className="flex flex-col items-center mt-4  w-1/3 ">
-          <button className="border border-gray-500 px-5 py-3 rounded-3xl text-gray-500 text-xl">
+    <div className="">
+      <div className="lg:flex mt-5">
+        <div className="lg:flex flex-col items-left  mt-4 lg:w-1/2 mb-7 ">
+          <p className="border border-gray-500 px-5 py-3   rounded-3xl w-fit text-gray-500 lg:text-xl">
             Our Services
-          </button>
+          </p>
         </div>
         <div className="">
           <ol className="list-decimal px-4  text-gray-500">

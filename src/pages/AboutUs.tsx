@@ -1,4 +1,4 @@
-import Hero from "../components/Hero";
+import Hero from "../components/Services/Hero";
 import TextSection from "../components/BodyText";
 import GridComponent from "../components/Grid";
 import Bookings from "../components/Booking";
