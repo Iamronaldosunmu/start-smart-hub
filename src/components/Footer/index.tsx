@@ -19,8 +19,8 @@ const Footer = () => {
   ];
 
   return (
-    <div className="">
-      <div className="border border-gray-300 sm:mb-20 mb-10"></div>
+    <>
+      <div className="border-b-[0.5px] border-black sm:mb-20 mb-10"></div>
       <footer className="flex flex-row gap-8 lg:px-20 sm:px-10 px-2 lg:mb-16 mb-10 w-full sm:justify-between">
         <div className=" mb-3 flex-shrink-0">
           <img
@@ -70,7 +70,7 @@ const Footer = () => {
           ©2021 Andrew Cooper International, Inc. All rights reserved.
         </p>
       </div>
-    </div>
+    </>
   );
 };
 

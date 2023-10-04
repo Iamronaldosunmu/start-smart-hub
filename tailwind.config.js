@@ -5,6 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+			poppins: ["Poppins", "sans-serif"],
+			inter: ["Inter", "sans-serif"],
+			DMSans: ["DM Sans", "sans-serif"],
+		},
     extend: {
       backgroundColor:{
         '#FFF3EE': 'FFF3EE',

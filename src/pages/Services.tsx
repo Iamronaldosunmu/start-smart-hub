@@ -21,12 +21,11 @@ const Services: React.FC = () => {
       </BodyContainer>
       <Grid />
       <BodyContainer>
-        {/* <Services /> */}
         <Service
           number={1}
           imageUrl="/src/assets/service.png"
           title="Resume building"
-          text="We craft compelling and tailored resumes that highlight your skills, experiences and achievements to make a lasting impression on emlpyers."
+          text="We craft compelling and tailored resumes that highlight your skills, experiences and achievements to make a lasting impression on employers."
         />
         <Service
           number={2}

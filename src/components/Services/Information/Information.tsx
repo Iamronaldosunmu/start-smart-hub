@@ -13,14 +13,14 @@ const Information = () => {
           <img src="/src/assets/Group.png" alt="" />
         </div>
         <div className="mt-10 order-[-1] lg:order-1">
-          <h2 className="lg:text-4xl text-3xl font-bold mb-7">
+          <h2 className="lg:text-4xl text-3xl font-bold mb-5 text-[#331B3B]">
             Are You <br className="lg:block hidden" /> Someone Who?
           </h2>
-          <p className="lg:text-lg text-base mb-4">
+          <p className="lg:text-lg text-base mb-4 font-poppins font-medium">
             Do any of these sound familiar? <br /> Perfect. You’ve found just
             the help you need!
           </p>
-          <div className="">
+          <div>
             <ul className="list-image-ellipse text-left lg:text-lg sm:text-base text-sm ">
               {ListTexts.map((text: string) => (
                 <ListText text={text} />

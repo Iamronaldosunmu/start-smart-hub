@@ -4,15 +4,14 @@ import "../Toggle/Toggle.css";
 
 const Billing = () => {
   return (
-    <div className="bg-gray-50 ">
+    <div className="mt-10">
       <div className="flex justify-center flex-col items-center">
         <h1 className="text-5xl text-center font-semibold mb-12 ">
-          Our Pricing
+          Our <br /> Pricing
         </h1>
-
-        <div className="text-gray-500 sm:text-sm text-xs flex items-center">
+        <div className="text-gray-500 sm:text-sm text-xs flex items-center gap-x-2 mx-auto">
           <span className="sm:mr-2 mr-1">Billed Monthly</span>
-          <Toggle />
+          <Toggle /> {/* Fix Later */}
           <span className="sm:ml-2 ml-1 colored-text">
             Billed yearly (save 15%)
           </span>
