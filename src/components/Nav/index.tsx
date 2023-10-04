@@ -11,14 +11,14 @@ const Nav = () => {
 	];
 	return (
 		<nav className="bg-white fixed z-50 top-0 w-full">
-			<Container className="flex h-[72px] items-center justify-between">
+			<Container className="hidden lg:flex h-[72px] items-center justify-between">
 				<div className="flex gap-x-2 items-center">
 					<img
-						src="/src/assets/logo.png"
+						src="/assets/logo.png"
 						alt=""
 					/>
 					<img
-						src="/src/assets/logo-name.svg"
+						src="/assets/logo-name.svg"
 						alt=""
 					/>
 				</div>
@@ -39,6 +39,18 @@ const Nav = () => {
 					))}
 				</div>
 				<button className="py-2 px-6 bg-[#FFA077] text-[#171717] rounded-[10px] font-medium">Book a Call</button>
+			</Container>
+			<Container className="flex lg:hidden justify-between h-10 items-center">
+				<img
+					className="w-[36px] h-10 object-cover"
+					src="/assets/logo.png"
+					alt=""
+				/>
+				<div className="mobile-nav lg:hidden flex">
+					<div className="nav-rect"></div>
+					<div className="nav-rect"></div>
+					<div className="nav-rect"></div>
+				</div>
 			</Container>
 		</nav>
 	);

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -8,19 +9,49 @@ body {
 	font-family: "Roboto", sans-serif;
 }
 
-.noScrollBar {
-	scrollbar-width: none;
-	-ms-overflow-style: none; /* IE and Edge */
-	scrollbar-width: none; /* Firefox */
-	-webkit-overflow-scrolling: touch; /* Safari */
+/* Remove Input Styles */
+button:hover,
+button:focus {
+	outline: none;
 }
 
-.noScrollBar::-webkit-scrollbar-thumb {
-	background-color: transparent;
-	border-radius: 0.25em;
+input:hover,
+input:focus,
+input:active {
+	outline: none;
 }
 
-.noScrollBar::-webkit-scrollbar {
-	width: 0.5em;
-	background-color: transparent;
+/* CheckBox Styles */
+input[type="radio"] {
+	width: 15px;
+	height: 15px;
+}
+
+/* Mobile Nav Styles */
+.mobile-nav {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	width: 18px;
+}
+
+.nav-rect {
+	width: 100%;
+	height: 2px;
+	background-color: black;
+	border-radius: 2px;
+	transition: all 0.3s;
+}
+
+/* Scroll Animation */
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-50%);
+	}
+}
+.animate-scroll {
+	animation: scroll 15s linear infinite;
 }
