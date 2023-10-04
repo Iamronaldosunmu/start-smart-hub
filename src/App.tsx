@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Consultation from "./pages/consultation";
-import Nav from "./components/nav";
+import Nav from "./components/Nav";
 
 function App() {
 	return (

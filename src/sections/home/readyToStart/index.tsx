@@ -3,7 +3,7 @@ import TextContainer from "../../../components/textContainer";
 
 const ReadyToStart = () => {
 	return (
-		<section className="relative bg-[#00998A] max-h-[482px] py-16 lg:py-20 w-full flex items-center mt-14 lg:mt-[152px]">
+		<section className="relative bg-[#00998A] max-h-[482px] py-16 lg:py-20 w-full flex items-center mt-14 lg:mt-20">
 			<Container className="text-center">
 				<TextContainer>
 					<h2 className="text-[#FBF5FD] text-[24px] lg:text-[40px] font-bold">
