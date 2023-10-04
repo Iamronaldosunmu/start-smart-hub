@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import Container from "../container";
 
 const Nav = () => {
@@ -22,23 +21,16 @@ const Nav = () => {
 						alt=""
 					/>
 				</div>
-				<div className="flex justify-between gap-x-14">
-					{navItems.map((item, index) => (
-						<NavLink
-							key={index}
-							className="mx-3"
-							to={item.path}
-						>
-							{({ isActive }) => (
-								<>
-									<span className="font-semibold text-base px-1 text-[#171717]">{item.text}</span>
-									<div className={`bg-[#F29176] ${isActive ? "w-full" : "w-0"} h-1 rounded-lg transition-all duration-500`}></div>
-								</>
-							)}
-						</NavLink>
-					))}
+				<div className="flex items-center gap-x-6">
+					<div className="flex gap-x-6 font-mulish">
+						{navItems.map((item, index) => (
+							<div key={index}>
+								<span className="xl:text-lg cursor-pointer font-medium text-[#1A202C]">{item.text}</span>
+							</div>
+						))}
+					</div>
+					<button className=" leading-7 py-2 px-5 text-white bg-[#4B8CEA] rounded-[10px] font-medium shadow-[0px_2px_4px_0px_#4b8cea4a]">Book a Call</button>
 				</div>
-				<button className="py-2 px-6 bg-[#FFA077] text-[#171717] rounded-[10px] font-medium">Book a Call</button>
 			</Container>
 			<Container className="flex lg:hidden justify-between h-10 items-center">
 				<img

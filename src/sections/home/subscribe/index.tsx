@@ -2,7 +2,7 @@ import Container from "../../../components/container";
 
 const Subscribe = () => {
 	return (
-		<section className="py-20 text-center bg-[#FAEDE8] mt-14 border-b border-black">
+		<section className="relative py-20 text-center bg-[#FFF2EC] mt-14 border-b border-black">
 			<Container className="flex flex-col items-center">
 				<h2 className="text-[44px] font-bold">Stay in the loop!</h2>
 				<p className="text-[#606060] mt-5 text-base xl:text-xl leading-[32px]">

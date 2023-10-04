@@ -6,6 +6,7 @@ export default {
 			poppins: ["Poppins", "sans-serif"],
 			inter: ["Inter", "sans-serif"],
 			DMSans: ["DM Sans", "sans-serif"],
+			mulish: ["Mulish", "sans-serif"],
 		},
 		extend: {},
 	},
