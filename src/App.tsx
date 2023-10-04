@@ -5,11 +5,11 @@ import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
-      <Routes>
-        <Route path="/services" element={<Services />} />
-        <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
-      </Routes>
+    <Routes>
+      <Route path="/services" element={<Services />} />
+      <Route path="/about-us" element={<AboutUs />} />
+      <Route path="/contact-us" element={<ContactUs />} />
+    </Routes>
   );
 }
 
