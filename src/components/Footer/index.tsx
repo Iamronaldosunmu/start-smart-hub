@@ -1,56 +1,72 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   const footerItems = [
-    { label: "HOME", link: "#" },
-    { label: "JOB APPLICATION", link: "#" },
-    { label: "TERMS AND CONDITION", link: "#" },
-    { label: "ABOUT", link: "#" },
-    { label: "JOB SEARCH", link: "#" },
-    { label: "CONTACT", link: "#" },
-    { label: "SERVICES", link: "#" },
-    { label: "EVENTS", link: "#" },
+    [
+      { label: "Home", link: "/" },
+      { label: "About", link: "/about" },
+      { label: "Services", link: "/services" },
+      { label: "Events", link: "/events" },
+    ],
+    [
+      { label: "Job application", link: "/job-applications" },
+      { label: "Job search", link: "/job-search" },
+    ],
+    [
+      { label: "Terms and conditions", link: "/terms-and-conditions" },
+      { label: "Contact", link: "/contact" },
+    ],
   ];
 
   return (
-    <div className="text-gray-400 ">
-      <div className="border border-black lg:mb-20 mb-10"></div>
-      <footer className="flex flex-row lg:px-20 sm:px-10 px-5 lg:mb-16 mb-10">
-        <div className=" mb-3 w-1/3">
+    <div className="">
+      <div className="border border-gray-300 sm:mb-20 mb-10"></div>
+      <footer className="flex flex-row gap-8 lg:px-20 sm:px-10 px-2 lg:mb-16 mb-10 w-full sm:justify-between">
+        <div className=" mb-3 flex-shrink-0">
           <img
             src="/src/assets/mobile-icon.png"
-            className="justify-end"
+            className="justify-end "
             alt=""
           />
         </div>
-        <div className="lg:flex">
-          <div className="grid grid-cols-3 text-black text-xs mb-6   sm:mb-0 sm:w-full sm:gap-1 gap- items-start justify-end">
-            {footerItems.map((item, index) => (
-              <a
-                href={item.link}
-                className="hover:text-gray-400 mb-4 mr-4"
-                key={index}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-          <div className="flex mt-5 lg:justify-start items-start justify-center">
-            <a href="">
-              <img src="/src/assets/facebook.png" alt="" />
-            </a>
-            <a href="">
-              <img src="/src/assets/twitter.png" alt="" />
-            </a>
-            <a href="">
-              <img src="/src/assets/youtube.png" alt="" />
-            </a>
-            <a href="">
-              <img src="/src/assets/instagram.png" alt="" />
-            </a>
+        <div className="flex flex-col items-center w-full lg:w-auto lg:px-20">
+          <div className="flex flex-col lg:flex-row lg:gap-7 sm:gap-5 gap-2  justify-between w-full">
+            <div className="flex lg:gap-7 sm:gap-5 gap-2 flex-wrap lg:mr-10 justify-between w-full">
+              {footerItems.map((footerItem) => (
+                <ul className="lg:leading-7 leading-6 block">
+                  {footerItem.map((item, index) => (
+                    <li className="block">
+                      <Link
+                        to={item.link}
+                        className="hover:text-[#606060] text-xs whitespace-nowrap"
+                        key={index}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
+            <div className="flex mt-5 lg:mt-0  items-start  justify-center">
+              <Link to="" className="flex-shrink-0">
+                <img src="/src/assets/facebook.png" alt="" />
+              </Link>
+              <Link to="" className="flex-shrink-0">
+                <img src="/src/assets/twitter.png" alt="" />
+              </Link>
+              <Link to="" className="flex-shrink-0">
+                <img src="/src/assets/youtube.png" alt="" />
+              </Link>
+              <Link to="" className="flex-shrink-0">
+                <img src="/src/assets/instagram.png" alt="" />
+              </Link>
+            </div>
           </div>
         </div>
       </footer>
       <div className="flex justify-center items-center mb-5">
-        <p className="text-xs text-center px-5">
+        <p className="text-xs text-center px-5 text-gray-500">
           ©2021 Andrew Cooper International, Inc. All rights reserved.
         </p>
       </div>

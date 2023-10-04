@@ -6,7 +6,7 @@ interface ServiceProps {
 }
 const Service = ({ title, text, imageUrl, number }: ServiceProps) => {
   return (
-    <div className="px-10">
+    <div className="lg:px-10">
       <div className="border border-gray-300 border- mb-3  mt-8 lg:mb-10"></div>
       <div className="text-gray-500 border inline p-2 px-5 mb-10  rounded-xl">
         {number}

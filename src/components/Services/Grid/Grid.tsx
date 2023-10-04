@@ -7,7 +7,7 @@ const Grid = () => {
             <p className="mb-8 text-3xl font-semibold">
               Here's what you can expect from us...
             </p>
-            <ul className="line-logo text-xs sm:text-sm lg:text-lg">
+            <ul className="line-logo text-base lg:text-lg">
               <li>Personalized guidance, empathy and support</li>
               <li>Expertise and insights</li>
               <li>Transparent communication</li>
@@ -20,7 +20,7 @@ const Grid = () => {
         <div className="w-full hidden lg:block">
           <img
             src="/src/assets/img1.png"
-            className="w-full max-h-[500px] object-cover"
+            className="w-full max-h-[500px] object-fill"
             alt=""
           />
         </div>

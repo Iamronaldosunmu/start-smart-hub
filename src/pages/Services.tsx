@@ -1,6 +1,5 @@
 import Hero from "../components/HomeHero/Hero";
 import Service from "../components/ServicesComponent/Service";
-import Services from "../components/ServicesComponent/Services";
 import Bookings from "../components/Booking";
 import Footer from "../components/Footer";
 import Billing from "../components/Services/Billing/Billing";
@@ -10,7 +9,6 @@ import BodyContainer from "../components/Container/BodyContainer";
 import Information from "../components/Services/Information/Information";
 import Grid from "../components/Services/Grid/Grid";
 
-
 const Home: React.FC = () => {
   return (
     <>
@@ -19,12 +17,11 @@ const Home: React.FC = () => {
       </Container>
       <Goals />
       <BodyContainer>
-        <Information/>
+        <Information />
       </BodyContainer>
-       <Grid/>
+      <Grid />
       <BodyContainer>
-       
-        <Services />
+        {/* <Services /> */}
         <Service
           number={1}
           imageUrl="/src/assets/service.png"
@@ -85,12 +82,10 @@ const Home: React.FC = () => {
           title="Career/personal development coaching"
           text="We offer personalized guidance, unwavering support, and tailored strategies to accelerate your professional growth and help you achieve your career goals and personal breakthroughs."
         />
-        
-
       </BodyContainer>
       <Billing />
-        <Bookings />
-        <Footer />
+      <Bookings />
+      <Footer />
     </>
   );
 };

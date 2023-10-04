@@ -21,8 +21,11 @@ export default {
         'small': '370px',
       },
       colors: {
-        'custom-purple': "#331B3B"
-      }
+        'custom-purple': "#331B3B",
+        'billing-purple': '#9E77ED'
+      },
+
+
     },
   },
   plugins: [],

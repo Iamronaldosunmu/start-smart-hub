@@ -8,7 +8,7 @@ const AboutUs = () => {
   return (
     <>
       <Hero />
-      <div className="bg-red-100">
+      <div className="bg-red-50">
         <TextSection
           heading="Hello, I'm Doyin!"
           paragraphs={[
@@ -40,9 +40,7 @@ const AboutUs = () => {
           ]}
         />
       </div>
-      <div className="mb-20">
-        <Bookings />
-      </div>
+      <Bookings />
       <Footer />
     </>
   );

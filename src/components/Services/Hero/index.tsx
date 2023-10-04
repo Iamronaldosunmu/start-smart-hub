@@ -21,31 +21,7 @@ const Hero = () => {
         </div>
         <div className="flex justify-center items-center">
           <div className="relative sm:ml-10">
-            <div className="large:hidden">
-              <img
-                src="/src/assets/img1.png"
-                alt="Bigger Image"
-                className="max-w-full"
-              />
-              <div className="flex justify-end small:mr-10">
-                <img
-                  src="/src/assets/Doyin Adetona.png"
-                  className="justify-center"
-                  alt=""
-                />
-              </div>
-              <img
-                src="/src/assets/img2.png"
-                alt="Smaller Image"
-                className="absolute bottom-0 z-1 right-15 -mb-5  -mr-10 w-1/3 h-1/4 "
-              />
-            </div>
-            <img
-              src="/src/assets/DesktopHeroImage.png"
-              hidden
-              className="large:block"
-              alt=""
-            />
+            <img src="/src/assets/group2.png" className="" alt="" />
           </div>
         </div>
       </div>

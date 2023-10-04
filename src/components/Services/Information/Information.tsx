@@ -1,31 +1,32 @@
+import ListText from "./ListText";
+
 const Information = () => {
+  const ListTexts = [
+    "Are you’re charting a new course in a different city/country or have rounded up your International studies?",
+    "Feeling stuck in your current job and ready for a career makeover?",
+    "landing interviews feels like a magic trick you can’t quite master?",
+  ];
   return (
     <div className="lg:mt-20">
-      <div className="grid lg:grid-cols-2 w-full">
-        <div className="flex items-center justify-center z-50 relative">
+      <div className="grid lg:grid-cols-2 w-full gap-6">
+        <div className="flex items-center  justify-center">
           <img src="/src/assets/Group.png" alt="" />
         </div>
-        <div className="mt-10">
-          <h2 className="text-4xl font-bold mb-7">
+        <div className="mt-10 order-[-1] lg:order-1">
+          <h2 className="lg:text-4xl text-3xl font-bold mb-7">
             Are You <br className="lg:block hidden" /> Someone Who?
           </h2>
-          <p className="text-lg mb-4">
+          <p className="lg:text-lg text-base mb-4">
             Do any of these sound familiar? <br /> Perfect. You’ve found just
             the help you need!
           </p>
-          <ul className="list-disc ml-6 text-left text-lg">
-            <li className="mb-5">
-              Are you charting a new course in a different city/country or have
-              rounded up your International studies?
-            </li>
-            <li className="mb-5">
-              Feeling stuck in your current job and ready for a career makeover?
-            </li>
-            <li className="mb-5">
-              Landing interviews feels like a magic trick you can’t quite
-              master?
-            </li>
-          </ul>
+          <div className="">
+            <ul className="list-image-ellipse text-left lg:text-lg sm:text-base text-sm ">
+              {ListTexts.map((text: string) => (
+                <ListText text={text} />
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
