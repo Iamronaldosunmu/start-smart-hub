@@ -1,17 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Services";
+import Services from "./pages/Services";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
-
-
-
 
 function App() {
   return (
     <>
       <Routes>
         {/* created an empty home page for testing */}
-        <Route path="/home" element={<Home />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>{" "}

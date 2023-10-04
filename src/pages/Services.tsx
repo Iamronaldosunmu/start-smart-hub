@@ -9,7 +9,7 @@ import BodyContainer from "../components/Container/BodyContainer";
 import Information from "../components/Services/Information/Information";
 import Grid from "../components/Services/Grid/Grid";
 
-const Home: React.FC = () => {
+const Services: React.FC = () => {
   return (
     <>
       <Container>
@@ -90,4 +90,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Services;
