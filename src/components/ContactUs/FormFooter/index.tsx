@@ -1,26 +1,26 @@
 const FormFooter = () => {
   return (
     <div className="mt-4">
-      <div className="flex justify-between text-sm">
-        <div className="flex">
-          <img src="/src/assets/phone.png" className="mr-2 h-10 w-10 object-cover" alt="" />
+      <div className="flex justify-between lg:text-sm max-w-full text-xs  flex-wrap  gap-y-5">
+        <div className="flex sm:mr-7">
+          <div className="flex justify-center flex-shrink-0 items-center mr-2 "><img src="/src/assets/phone.svg" className="flex-shrink-0 lg:h-10 w-full object-cover" alt="" /></div>
           <div>
             <p>PHONE</p>
-            <p className="text-custom-purple">03 5432 1234</p>
+            <p className="text-custom-pink whitespace-nowrap">03 5432 1234</p>
           </div>
         </div>
-        <div className="flex">
-          <img src="/src/assets/fax.png" className="mr-2 h-10 w-10 object-cover" alt="" />
+        <div className="flex mr-7">
+          <div className="flex justify-center items-center mr-2 flex-shrink-0 "><img src="/src/assets/fax.svg" className=" lg:h-10 w-full object-cover" alt="" /></div>
           <div>
             <p>FAX</p>
-            <p className="text-custom-purple">03 5432 1234</p>
+            <p className="text-custom-pink whitespace-nowrap">03 5432 1234</p>
           </div>
         </div>
-        <div className="flex">
-          <img src="/src/assets/mail.png" className="mr-2 h-10 w-10 object-cover" alt="" />
-          <div>
+        <div className="flex ">
+          <div className="flex justify-center items-center mr-2 flex-shrink-0"><img src="/src/assets/mail.svg" className=" lg:h-10 w-full object-cover" alt="" /></div>
+          <div className="flex flex-col flex-wrap">
             <p>EMAIL</p>
-            <p className="text-custom-purple">info@marcc.com.au</p>
+            <p className="text-custom-pink">info@marcc.com.au</p>
           </div>
         </div>
       </div>

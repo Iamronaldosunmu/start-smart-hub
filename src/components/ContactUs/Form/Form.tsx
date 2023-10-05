@@ -27,14 +27,16 @@ const Form = () => {
   };
 
   return (
-    <div className="ml-auto p-20">
-      <h1 className="text-5xl font-bold mb-7">
-        Get in <span className="text-custom-purple">Touch</span>
-      </h1>
-      <p className="mb-9">
-        Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu leo
-        molestie vel, ornare non id blandit netus.
-      </p>
+    <div className="ml-auto ">
+      <div className="text-center lg:text-left">
+        <h1 className="lg:text-5xl sm:text-4xl text-3xl font-bold mb-7">
+          Get in <span className="text-custom-pink ">Touch</span>
+        </h1>
+        <p className="mb-9">
+          Enim tempor eget pharetra facilisis sed maecenas adipiscing. Eu leo
+          molestie vel, ornare non id blandit netus.
+        </p>
+      </div>
       <form onSubmit={handleSubmit(handleFormSubmit)}>
         <div className="mb-4">
           <input
@@ -83,7 +85,7 @@ const Form = () => {
             <option value="jason">jason</option>
           </select>
         </div>
-        <button className="py-2 w-full bg-custom-purple hover:bg-hover-custom-purple transition duration-300 ease-in-out text-white">
+        <button className="py-2 w-full bg-custom-pink transition duration-300 ease-in-out text-white">
           Send
         </button>
 

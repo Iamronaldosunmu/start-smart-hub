@@ -21,9 +21,10 @@ export default {
         'small': '370px',
       },
       colors: {
-        'custom-purple': "#331B3B",
+        'custom-pink' : '#DD5471',
         'billing-purple': '#9E77ED'
       },
+      
 
 
     },

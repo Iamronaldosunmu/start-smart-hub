@@ -1,3 +1,5 @@
+import Group2Img from "../../../assets/group2.png";
+
 const Hero = () => {
   return (
     <div className="p-5 large:p-20">
@@ -21,7 +23,7 @@ const Hero = () => {
         </div>
         <div className="flex justify-center items-center">
           <div className="relative sm:ml-10">
-            <img src="/src/assets/group2.png" className="" alt="" />
+            <img src={Group2Img} className="" alt="" />
           </div>
         </div>
       </div>
