@@ -1,6 +1,6 @@
 import { FC } from "react";
-import Container from "../container";
 import { motion } from "framer-motion";
+import Container from "../Container";
 
 interface Props {
 	pages: number[];

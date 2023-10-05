@@ -1,10 +1,11 @@
-import Container from "../container";
+import { Link } from "react-router-dom";
+import Container from "../Container";
 
 const Nav = () => {
 	const navItems = [
-		{ text: "Home", path: "" },
-		{ text: "About", path: "" },
-		{ text: "Services", path: "" },
+		{ text: "Home", path: "/" },
+		{ text: "About", path: "/about-us" },
+		{ text: "Services", path: "/services" },
 		{ text: "Events", path: "" },
 		{ text: "Contact", path: "" },
 	];
@@ -24,15 +25,19 @@ const Nav = () => {
 				<div className="flex items-center gap-x-6">
 					<div className="flex gap-x-6 font-mulish">
 						{navItems.map((item, index) => (
-							<div key={index}>
-								<span className="xl:text-lg cursor-pointer font-medium text-[#1A202C]">{item.text}</span>
-							</div>
+							<Link
+								key={index}
+								to={item.path}
+								className="xl:text-lg cursor-pointer font-medium text-[#1A202C]"
+							>
+								{item.text}
+							</Link>
 						))}
 					</div>
 					<button className=" leading-7 py-2 px-5 text-white bg-[#4B8CEA] rounded-[10px] font-medium shadow-[0px_2px_4px_0px_#4b8cea4a]">Book a Call</button>
 				</div>
 			</Container>
-			<Container className="flex lg:hidden justify-between h-10 items-center">
+			<Container className="flex lg:hidden justify-between h-12 items-center">
 				<img
 					className="w-[36px] h-10 object-cover"
 					src="/assets/logo.png"

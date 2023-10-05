@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Container from "../../../components/container";
+import Container from "../../../components/Container";
 
 const Testimonials = () => {
 	const [pages] = useState([1, 2, 3, 4]);
 	return (
-		<Container className="flex flex-col justify-center items-center mt-14 gap-y-[30px] font-poppins">
+		<Container className="flex flex-col justify-center items-center mt-14 gap-y-[30px] font-poppins lg:mt-[100px]">
 			<h2 className="text-[40px] text-center font-medium">Client Testimonials</h2>
 			<div className="overflow-hidden rounded-full w-[100px] h-[100px]">
 				<img

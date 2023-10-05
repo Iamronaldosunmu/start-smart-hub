@@ -6,8 +6,18 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+	margin: 0;
+}
+
 body {
 	font-family: "Roboto", sans-serif;
+}
+
+/* Unselectble Images */
+img {
+	pointer-events: none;
+	user-select: none;
 }
 
 /* Remove Input Styles */
@@ -74,4 +84,53 @@ input[type="radio"]:checked {
 }
 .animate-scroll {
 	animation: scroll 15s linear infinite;
+}
+
+/* Toggle Styles */
+.Toogle {
+	font-family: sans-serif;
+	text-align: center;
+}
+
+.switch {
+	width: 70px;
+	height: 40px;
+	background-color: #9e77ed;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	border-radius: 50px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.switch[data-isOn="true"] {
+	justify-content: flex-end;
+}
+.colored-text {
+	color: #9e77ed;
+}
+.handle {
+	width: 30px;
+	height: 30px;
+	background-color: white;
+	border-radius: 50px;
+}
+
+/* Quototation Mark  */
+.quotation-marked::before {
+	content: "“";
+	display: inline-block;
+	margin-right: 0.25rem;
+}
+
+.quotation-marked::after {
+	content: "”";
+	display: inline-block;
+	margin-left: 0.25rem;
+}
+
+.list--tick {
+	list-style-image: url(../assets/checkIcon.png);
+	padding-left: 2rem;
 }

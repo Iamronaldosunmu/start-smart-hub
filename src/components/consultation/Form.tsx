@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Container from "../container";
 import MiniNav from "./MiniNav";
 import { CheckBoxList, Input, InputList } from "./inputs";
+import Container from "../Container";
 
 const options1 = ["Promotion within current job", "Transition to a new role or industry", "Improve job satisfaction", "Other (please specify): ___________________"];
 

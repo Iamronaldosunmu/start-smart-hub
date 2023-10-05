@@ -9,7 +9,7 @@ import UpcomingEvents from "../sections/home/upcomingEvents";
 
 const Home: React.FC = () => {
 	return (
-		<div className="mt-[116px] lg:mt-[133px]">
+		<div className="mt-[96px] lg:mt-[133px]">
 			<Hero />
 			<ReadyToStart />
 			<MeetTheFounder />
@@ -18,7 +18,6 @@ const Home: React.FC = () => {
 			<UpcomingEvents />
 			<Testimonials />
 			<Subscribe />
-			{/* <Footer /> */}
 		</div>
 	);
 };

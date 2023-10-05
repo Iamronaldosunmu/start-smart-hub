@@ -1,20 +1,36 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Services from "./pages/Services";
-import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
 import Consultation from "./pages/consultation";
+import Nav from "./components/Nav";
+import Footer from "./sections/footer";
 
 function App() {
-  return (
-      <Routes>
-		<Route path="/" element={<Home />} />
-		<Route path="/consultation" element={<Consultation />}/>
-        <Route path="/services" element={<Services />} />
-        <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
-      </Routes>
-  );
+	return (
+		<>
+			<Nav />
+			<Routes>
+				<Route
+					path="/"
+					element={<Home />}
+				/>
+				<Route
+					path="/about-us"
+					element={<AboutUs />}
+				/>
+				<Route
+					path="/consultation"
+					element={<Consultation />}
+				/>
+				<Route
+					path="/services"
+					element={<Services />}
+				/>
+			</Routes>
+			<Footer />
+		</>
+	);
 }
 
 export default App;
