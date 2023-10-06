@@ -5,7 +5,7 @@ const FormFooter = () => {
 				<div className="flex sm:mr-7">
 					<div className="flex justify-center flex-shrink-0 items-center mr-2 ">
 						<img
-							src="/src/assets/phone.svg"
+							src="/assets/phone.svg"
 							className="flex-shrink-0 lg:h-10 w-full object-cover"
 							alt=""
 						/>
