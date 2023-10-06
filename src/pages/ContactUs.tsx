@@ -4,7 +4,7 @@ import Map from "../components/ContactUs/Map";
 
 const ContactUs = () => {
 	return (
-		<div className="w-[100vw] flex justify-center">
+		<div className="w-[100vw] flex justify-center mt-10">
 			<div className="w-full max-w-[1440px] self-stretch">
 				<div className="flex justify-center items-center flex-col mb-9 px-5">
 					<h1 className="mb-5 text-4xl font-bold  mt-14 ">Contact Us</h1>
