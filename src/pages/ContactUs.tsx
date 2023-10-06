@@ -1,6 +1,6 @@
 import Form from "../components/ContactUs/Form/Form";
 import Footer from "../components/Footer";
-import Map from "../components/ContactUs/Map/Map";
+import Map from "../components/ContactUs/Map";
 
 const ContactUs = () => {
 	return (
