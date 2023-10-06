@@ -1,7 +1,7 @@
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
-// import FormFooter from "../FormFooter";
+import FormFooter from "./FormFooter";
 
 const schema = z.object({
   name: z.string().min(3),
@@ -89,7 +89,7 @@ const Form = () => {
           Send
         </button>
 
-        {/* <FormFooter /> */}
+        <FormFooter />
       </form>
     </div>
   );

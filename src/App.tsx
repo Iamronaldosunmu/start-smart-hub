@@ -33,6 +33,7 @@ function App() {
 					path="/services"
 					element={<Services />}
 				/>
+				{/* <Route path="/contact-us" element={<Contac} */}
 			</Routes>
 			{pathname !== "/" && <Footer />}
 		</>
