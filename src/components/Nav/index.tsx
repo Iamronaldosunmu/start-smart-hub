@@ -7,7 +7,7 @@ const Nav = () => {
 		{ text: "About", path: "/about-us" },
 		{ text: "Services", path: "/services" },
 		{ text: "Events", path: "" },
-		{ text: "Contact", path: "" },
+		{ text: "Contact", path: "/contact-us" },
 	];
 	return (
 		<nav className="bg-white fixed z-50 top-0 w-full">

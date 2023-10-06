@@ -6,6 +6,7 @@ import Consultation from "./pages/consultation";
 import Nav from "./components/Nav";
 import Footer from "./sections/footer";
 import Loader from "./pages/Loader";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
 	const { pathname } = useLocation();
@@ -33,7 +34,7 @@ function App() {
 					path="/services"
 					element={<Services />}
 				/>
-				{/* <Route path="/contact-us" element={<Contac} */}
+				<Route path="/contact-us" element={<ContactUs />} />
 			</Routes>
 			{pathname !== "/" && <Footer />}
 		</>
