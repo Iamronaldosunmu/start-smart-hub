@@ -1,5 +1,5 @@
 import Bookings from "../components/Booking";
-import Container from "../components/Container";
+import Container from "../components/container";
 import Hero from "../components/HomeHero/Hero";
 import Service from "../components/ServicesComponent/Service";
 import Goals from "../sections/services/Goals/Goals";

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import TextContainer from "../../../components/textContainer";
-import Container from "../../../components/Container";
+import Container from "../../../components/container";
 
 const UnlockYourPotential = () => {
 	const [plans] = useState([1, 2, 3, 4, 5, 6]);

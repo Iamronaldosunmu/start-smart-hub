@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Container from "../../../components/Container";
+import Container from "../../../components/container";
 
 const Testimonials = () => {
 	const [pages] = useState([1, 2, 3, 4]);

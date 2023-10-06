@@ -1,4 +1,4 @@
-import Container from "../../../components/Container";
+import Container from "../../../components/container";
 import ListText from "./ListText";
 
 const Information = () => {

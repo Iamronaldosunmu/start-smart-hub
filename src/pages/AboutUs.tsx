@@ -1,6 +1,6 @@
 import TextSection from "../components/BodyText";
 import Bookings from "../components/Booking";
-import Container from "../components/Container";
+import Container from "../components/container";
 import GridComponent from "../components/Grid";
 import Hero from "../sections/services/Hero";
 
