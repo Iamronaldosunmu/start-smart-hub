@@ -12,7 +12,7 @@ const FormFooter = () => {
 					</div>
 					<div>
 						<p>PHONE</p>
-						<p className="text-custom-pink whitespace-nowrap">03 5432 1234</p>
+						<p className="text-[#DD5471] whitespace-nowrap">03 5432 1234</p>
 					</div>
 				</div>
 				<div className="flex mr-7">
@@ -25,7 +25,7 @@ const FormFooter = () => {
 					</div>
 					<div>
 						<p>FAX</p>
-						<p className="text-custom-pink whitespace-nowrap">03 5432 1234</p>
+						<p className="text-[#DD5471] whitespace-nowrap">03 5432 1234</p>
 					</div>
 				</div>
 				<div className="flex ">
@@ -38,7 +38,7 @@ const FormFooter = () => {
 					</div>
 					<div className="flex flex-col flex-wrap">
 						<p>EMAIL</p>
-						<p className="text-custom-pink">info@marcc.com.au</p>
+						<p className="text-[#DD5471]">info@marcc.com.au</p>
 					</div>
 				</div>
 			</div>
