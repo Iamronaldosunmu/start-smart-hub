@@ -3,7 +3,7 @@ import Container from "../container";
 
 const Nav = () => {
 	const navItems = [
-		{ text: "Home", path: "/" },
+		{ text: "Home", path: "/home" },
 		{ text: "About", path: "/about-us" },
 		{ text: "Services", path: "/services" },
 		{ text: "Events", path: "" },

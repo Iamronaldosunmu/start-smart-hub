@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/home";
 import Services from "./pages/Services";
 import AboutUs from "./pages/AboutUs";
@@ -8,9 +8,10 @@ import Footer from "./sections/footer";
 import Loader from "./pages/Loader";
 
 function App() {
+	const { pathname } = useLocation();
 	return (
 		<>
-			<Nav />
+			{pathname !== "/" && <Nav />}
 			<Routes>
 				<Route
 					path="/"
@@ -33,7 +34,7 @@ function App() {
 					element={<Services />}
 				/>
 			</Routes>
-			<Footer />
+			{pathname !== "/" && <Footer />}
 		</>
 	);
 }

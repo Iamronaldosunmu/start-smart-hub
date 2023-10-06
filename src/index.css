@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -133,4 +134,9 @@ input[type="radio"]:checked {
 .list--tick {
 	list-style-image: url(../assets/checkIcon.png);
 	padding-left: 2rem;
+}
+
+/* Loader styles */
+poppins-font {
+	font-family: "Poppins", sans-serif;
 }
