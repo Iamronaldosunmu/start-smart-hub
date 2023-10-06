@@ -1,0 +1,104 @@
+import { Link } from "react-router-dom";
+import Container from "../../components/Container";
+
+const Footer = () => {
+	const footerItems = [
+		[
+			{ label: "Home", link: "/" },
+			{ label: "About", link: "/about" },
+			{ label: "Services", link: "/services" },
+			{ label: "Events", link: "/events" },
+		],
+		[
+			{ label: "Job application", link: "/job-applications" },
+			{ label: "Job search", link: "/job-search" },
+		],
+		[
+			{ label: "Terms and conditions", link: "/terms-and-conditions" },
+			{ label: "Contact", link: "/contact" },
+		],
+	];
+
+	const socials = ["facebook.svg", "twitter.svg", "youtube.svg", "instagram.svg"];
+
+	return (
+		<section>
+			<div className="border-b-[0.5px] border-black sm:mb-20 mb-10 mt-10"></div>
+			<Container>
+				<footer className="flex flex-row gap-8 lg:mb-16 mb-10 w-full sm:justify-between">
+					<div className="flex-shrink-0 w-[36px] h-[29px]">
+						<img
+							src="/assets/logo.png"
+							className="justify-end "
+							alt=""
+						/>
+					</div>
+					<div className="flex flex-col items-center w-full lg:w-auto lg:px-20">
+						<div className="flex flex-col lg:flex-row lg:gap-7 sm:gap-5 gap-2 justify-between w-full">
+							<div className="flex lg:gap-7 sm:gap-5 gap-2 flex-wrap lg:mr-10 justify-between w-full">
+								{footerItems.map((footerItem, index) => (
+									<ul
+										key={`${footerItem} ${index}`}
+										className="lg:leading-7 leading-6 block"
+									>
+										{footerItem.map((item, index) => (
+											<li
+												key={index}
+												className="block"
+											>
+												<Link
+													to={item.link}
+													className="text-[#606060] text-sm whitespace-nowrap"
+													key={index}
+												>
+													{item.label}
+												</Link>
+											</li>
+										))}
+									</ul>
+								))}
+								<div className="w-full mx-auto">
+									<div className="hidden mt-5 lg:mt-0 items-center gap-x-10 lg:gap-x-20 justify-center lg:flex">
+										{socials.map((item, index) => (
+											<Link
+												key={index}
+												to=""
+												className="flex w-7 lg:w-5 lg:h-5 h-7"
+											>
+												<img
+													className="w-full h-full object-cover"
+													src={`/assets/${item}`}
+													alt=""
+												/>
+											</Link>
+										))}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+				<div className="flex mt-5 lg:mt-0 items-center gap-x-10 lg:gap-x-20 justify-center lg:hidden">
+					{socials.map((item, index) => (
+						<Link
+							key={index}
+							to=""
+							className="flex w-7 h-7"
+						>
+							<img
+								className="w-full h-full object-cover"
+								src={`/assets/${item}`}
+								alt=""
+							/>
+						</Link>
+					))}
+				</div>
+				<div className="flex justify-center items-center mb-5 mt-10">
+					<p className="text-xs text-center font-inter opacity-50 px-5 text-[#606060]">©2021 Andrew Cooper International, Inc. All rights reserved.</p>
+				</div>
+			</Container>
+		</section>
+	);
+};
+
+export default Footer;
