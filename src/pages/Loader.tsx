@@ -54,6 +54,7 @@ const RightIcon = () => {
 		</svg>
 	);
 };
+
 const Loader = () => {
 	const [showText, setShowText] = useState(false);
 	const [fadeOut, setFadeOut] = useState(false);

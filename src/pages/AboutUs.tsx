@@ -1,19 +1,20 @@
 import TextSection from "../components/BodyText";
 import Bookings from "../components/Booking";
-import Container from "../components/Container";
+import Container from "../components/container";
 import GridComponent from "../components/Grid";
+import PageContainer from "../components/PageContainer";
 import Hero from "../sections/services/Hero";
 
 const AboutUs = () => {
 	return (
-		<div className="mt-[96px] lg:mt-[133px]">
+		<PageContainer className="mt-[96px] lg:mt-[133px]">
 			<Hero />
 			<section className="bg-[#FFF3EE] mt-8 lg:mt-12 py-20">
 				<Container className="grid gap-y-12 lg:gap-y-[90px]">
 					<TextSection
 						heading="Hello, I'm Doyin!"
 						paragraphs={[
-							"I’m the founder of StartSmart Hub. With over a decade of experience as a senior tech recruiter and career coach, I’ve had the privilege of providing compassionate guidiance to individuals at every stage of their careers.",
+							"I’m the founder of StartSmart Hub. With over a decade of experience as a senior tech recruiter and career coach, I’ve had the privilege of providing compassionate guidiance to inPageContainerals at every stage of their careers.",
 							"Whether you’re a recent graduate embarking on your professional journey, in the midst of a mid-career transition, a high-school student uncertain about your academic path, or a newcomer navigating a new job market, I’m here to be your dediacted partner on your career expedition.",
 						]}
 					/>
@@ -38,7 +39,7 @@ const AboutUs = () => {
 				/>
 			</Container>
 			<Bookings />
-		</div>
+		</PageContainer>
 	);
 };
 

@@ -1,4 +1,4 @@
-import Container from "../../../components/Container";
+import Container from "../../../components/container";
 import TextAnimation from "../../../components/TextAnimation";
 
 const Goals = () => {

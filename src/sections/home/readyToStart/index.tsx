@@ -1,5 +1,4 @@
-import Container from "../../../components/Container";
-import TextAnimation from "../../../components/TextAnimation";
+import Container from "../../../components/container";
 
 const ReadyToStart = () => {
 	return (

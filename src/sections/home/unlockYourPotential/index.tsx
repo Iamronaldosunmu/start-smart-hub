@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import TextContainer from "../../../components/textContainer";
-import Container from "../../../components/Container";
+import Container from "../../../components/container";
 import TextAnimation from "../../../components/TextAnimation";
 
 const UnlockYourPotential = () => {

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Container from "../../../components/Container";
+import Container from "../../../components/container";
 
 const SeenOn = () => {
 	const images: string[] = ["parents-magazine.png", "grief-out-loud.jpg", "authority-magazine.png", "widow-we-do-now.png", "grief-2-growth.jpg", "psychology-today.jpg"];

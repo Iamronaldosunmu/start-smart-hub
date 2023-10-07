@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Container from "../../../components/Container";
+import Container from "../../../components/container";
 
 const Hero = () => {
 	return (
