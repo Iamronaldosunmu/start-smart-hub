@@ -27,12 +27,12 @@ const Form = () => {
   };
 
   return (
-		<div className="ml-auto ">
+		<div className="ml-auto font-poppins ">
 			<div className="text-center lg:text-left">
-				<h1 className="lg:text-5xl sm:text-4xl text-3xl font-bold mb-7">
+				<h1 className="lg:text-5xl sm:text-4xl text-3xl font-bold mb-7 font-poppins">
 					Get in <span className="text-[#DD5471] ">Touch</span>
 				</h1>
-				<p className="mb-9">
+				<p className="mb-9 font-poppins">
 					Let's meet you <br />
 					We are delighted to be a part of your success story
 				</p>
@@ -44,7 +44,7 @@ const Form = () => {
 						id="name"
 						{...register("name")}
 						placeholder="Name"
-						className="border py-2 w-full px-3 border-gray-300 outline-none"
+						className="border md:py-4 py-2 w-full px-3 border-gray-300 outline-none"
 					/>
 
 					{errors.name && <p className="text-red-500">{errors.name.message}</p>}
@@ -56,7 +56,7 @@ const Form = () => {
 						id="email"
 						{...register("email")}
 						placeholder="Email"
-						className="border py-2 w-full px-3 border-gray-300 outline-none"
+						className="border md:py-4 py-2 w-full px-3 border-gray-300 outline-none"
 					/>
 					{errors.email && <p className="text-red-500">{errors.email.message}</p>}
 				</div>
@@ -66,13 +66,13 @@ const Form = () => {
 						id="phone"
 						{...register("phoneNo")}
 						placeholder="Phone number"
-						className="border w-full py-2 px-3 border-gray-300 outline-none"
+						className="border md:py-4 w-full py-2 px-3 border-gray-300 outline-none"
 					/>
 					{errors.phoneNo && <p className="text-red-500">{errors.phoneNo.message}</p>}
 				</div>
 				<div className="mb-7">
 					<select
-						className="border w-full py-2 px-3 border-gray-300 outline-none"
+						className="border md:py-4 w-full py-2 px-3 border-gray-300 outline-none"
 						id="referralMethod"
 					>
 						<option value="">How did you find us?</option>
@@ -81,7 +81,7 @@ const Form = () => {
 						<option value="jason">jason</option>
 					</select>
 				</div>
-				<button className="py-2 w-full bg-[#DD5471] transition duration-300 ease-in-out text-white">Send</button>
+				<button className=" md:py-4 py-2 w-full bg-[#DD5471] transition duration-300 ease-in-out text-white">Send</button>
 
 				<FormFooter />
 			</form>

@@ -23,7 +23,7 @@ const TextAnimation: React.FC<TextAnimationProps> = ({ text, className }) => {
 				return (
 					<div
 						key={index}
-						className="overflow-hidden flex "
+						className="overflow-hidden flex  "
 					>
 						{word.split("").map((letter: string, index: number) => {
 							return (
