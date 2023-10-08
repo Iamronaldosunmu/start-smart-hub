@@ -1,10 +1,11 @@
 import Form from "../components/ContactUs/Form/Form";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import Map from "../components/ContactUs/Map";
+import PageContainer from "../components/PageContainer";
 
 const ContactUs = () => {
 	return (
-		<div className="w-[100vw] flex justify-center mt-10">
+		<PageContainer className="w-[100vw] flex justify-center mt-14 lg:mt-[100px]">
 			<div className="w-full max-w-[1440px] self-stretch">
 				<div className="flex justify-center items-center flex-col mb-9 px-5">
 					<h1 className="mb-5 text-4xl font-bold  mt-14 ">Contact Us</h1>
@@ -19,9 +20,9 @@ const ContactUs = () => {
 					</div>
 					<div className="w-[20vw] self-end bg-[#183A4A] hidden lg:block h-full max-h-[904px] z-10 absolute max-w-[426px] right-0 top-0" />
 				</div>
-				<Footer />
+				{/* <Footer /> */}
 			</div>
-		</div>
+		</PageContainer>
 	);
 };
 

@@ -1,6 +1,7 @@
 import Bookings from "../components/Booking";
 import Container from "../components/container";
 import Hero from "../components/HomeHero/Hero";
+import PageContainer from "../components/PageContainer";
 import Service from "../components/ServicesComponent/Service";
 import Goals from "../sections/services/Goals/Goals";
 import Grid from "../sections/services/Grid/Grid";
@@ -8,7 +9,7 @@ import Information from "../sections/services/Information/Information";
 
 const Services: React.FC = () => {
 	return (
-		<div className="mt-[96px] lg:mt-[133px]">
+		<PageContainer className="mt-[96px] lg:mt-[133px]">
 			<Hero />
 			<Goals />
 			<Information />
@@ -77,7 +78,7 @@ const Services: React.FC = () => {
 			</Container>
 			{/* <Billing /> */}
 			<Bookings />
-		</div>
+		</PageContainer>
 	);
 };
 

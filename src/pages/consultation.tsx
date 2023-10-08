@@ -1,8 +1,9 @@
+import PageContainer from "../components/PageContainer";
 import Form from "../components/consultation/Form";
 
 const Consultation = () => {
 	return (
-		<div className="mt-10 lg:mt-[72px]">
+		<PageContainer className="mt-10 lg:mt-[72px]">
 			<img
 				className="h-[300px] w-full object-cover hidden lg:block"
 				src="/assets/header.png"
@@ -14,7 +15,7 @@ const Consultation = () => {
 				alt=""
 			/>
 			<Form />
-		</div>
+		</PageContainer>
 	);
 };
 

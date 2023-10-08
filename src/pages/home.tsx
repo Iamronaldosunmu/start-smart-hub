@@ -1,3 +1,4 @@
+import PageContainer from "../components/PageContainer";
 import Hero from "../sections/home/hero";
 import MeetTheFounder from "../sections/home/meetTheFounder";
 import ReadyToStart from "../sections/home/readyToStart";
@@ -9,7 +10,7 @@ import UpcomingEvents from "../sections/home/upcomingEvents";
 
 const Home: React.FC = () => {
 	return (
-		<div className="mt-[96px] lg:mt-[133px]">
+		<PageContainer className="mt-[96px] lg:mt-[133px]">
 			<Hero />
 			<ReadyToStart />
 			<MeetTheFounder />
@@ -18,7 +19,7 @@ const Home: React.FC = () => {
 			<UpcomingEvents />
 			<Testimonials />
 			<Subscribe />
-		</div>
+		</PageContainer>
 	);
 };
 

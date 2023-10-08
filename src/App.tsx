@@ -7,35 +7,70 @@ import Nav from "./components/Nav";
 import Footer from "./sections/footer";
 import Loader from "./pages/Loader";
 import ContactUs from "./pages/ContactUs";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
+import Lenis from "@studio-freight/lenis";
 
 function App() {
 	const { pathname } = useLocation();
+	useEffect(() => {
+		AOS.init({ once: true });
+	}, []);
+
+	useEffect(() => {
+		const lenis = new Lenis();
+
+		function raf(time: any) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
+
+		requestAnimationFrame(raf);
+	});
+
+	// Automatically scrolls to top whenever pathname changes
+	useEffect(() => {
+		setTimeout(() => {
+			window.scrollTo(0, 0);
+		}, 300);
+	}, [pathname]);
+
 	return (
 		<>
 			{pathname !== "/" && <Nav />}
-			<Routes>
-				<Route
-					path="/"
-					element={<Loader />}
-				/>
-				<Route
-					path="/home"
-					element={<Home />}
-				/>
-				<Route
-					path="/about-us"
-					element={<AboutUs />}
-				/>
-				<Route
-					path="/consultation"
-					element={<Consultation />}
-				/>
-				<Route
-					path="/services"
-					element={<Services />}
-				/>
-				<Route path="/contact-us" element={<ContactUs />} />
-			</Routes>
+			<AnimatePresence
+				mode="wait"
+				initial={true}
+			>
+				<Routes>
+					<Route
+						path="/"
+						element={<Loader />}
+					/>
+					<Route
+						path="/home"
+						element={<Home />}
+					/>
+					<Route
+						path="/about-us"
+						element={<AboutUs />}
+					/>
+					<Route
+						path="/consultation"
+						element={<Consultation />}
+					/>
+					<Route
+						path="/services"
+						element={<Services />}
+					/>
+					<Route
+						path="/contact-us"
+						element={<ContactUs />}
+					/>
+				</Routes>
+			</AnimatePresence>
 			{pathname !== "/" && <Footer />}
 		</>
 	);
