@@ -2,10 +2,10 @@ import Container from "../../../components/container";
 import TextAnimation from "../../../components/TextAnimation";
 
 interface EventProps {
-	title: string;
-	tag: string;
-	status: string;
-	date: Date;
+	title?: string;
+	tag?: string;
+	status?: string;
+	date?: Date;
 }
 
 const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {

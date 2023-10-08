@@ -10,19 +10,18 @@ const Map = ({ position = [43.651070, -79.347015] }: Props) => {
 		<div className="relative z-0 h-full">
 			<div className="w-full h-full">
 				<MapContainer
-					center={[51.505, -0.09]}
+					center={position}
 					zoom={13}
 					scrollWheelZoom={false}
 					style={{ height: "100%" }}
+					zoomControl={false}
 				>
 					<TileLayer
-						attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+						attribution="&copy; 2021 Andrew Cooper International, Inc. All rights reserved."
 						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 					/>
 					<Marker position={position}>
-						<Popup>
-							A pretty CSS3 popup. <br /> Easily customizable.
-						</Popup>
+						<Popup>This is our main branch at Toronto, ON, Canada</Popup>
 					</Marker>
 				</MapContainer>
 			</div>

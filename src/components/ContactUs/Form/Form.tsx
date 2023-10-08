@@ -81,7 +81,7 @@ const Form = () => {
 						<option value="jason">jason</option>
 					</select>
 				</div>
-				<button className=" md:py-4 py-2 w-full bg-[#DD5471] transition duration-300 ease-in-out text-white">Send</button>
+				<button className=" md:py-4 py-2 w-full bg-[#DD5471] lg:mb-10 mb-5 transition duration-300 ease-in-out text-white">Send</button>
 
 				<FormFooter />
 			</form>
