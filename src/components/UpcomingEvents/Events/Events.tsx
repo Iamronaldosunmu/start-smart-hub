@@ -103,9 +103,6 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 						</div>
 
 						<button
-							data-aos="fade-up"
-							data-aos-duration="700"
-							data-aos-delay="1500"
 							className="font-medium md:font-bold mt-5 rounded-lg lg:text-lg max-w-[200px] px-9 py-4  border-2 border-black hover:bg-black hover:text-white font-inter focus:bg-black focus:text-white transition-colors duration-500"
 						>
 							Apply Now
