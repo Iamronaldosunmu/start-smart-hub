@@ -76,7 +76,8 @@ function App() {
 					/>
 				</Routes>
 			</AnimatePresence>
-			{pathname !== "/" && <Footer />}
+			{/* {pathname !== "/" && <Footer />} */}
+			<Footer/>
 		</>
 	);
 }

@@ -12,7 +12,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 	return (
 		<section className="bg-[#FAFAFA] mt-[90px]  pb-5 lg:pb-7">
 			<Container className="mb-3 text-center flex flex-col items-center md:text-left">
-				<div className=" flex justify-between  items-center lg:ml-[120px] sm:ml-[80px] w-full">
+				<div className=" flex justify-between  items-center lg:ml-[120px] w-full">
 					<TextAnimation
 						className=" sm:text-[40px] flex-wrap  lg:text-[54px] text-[20px]  lg:font-semibold font-medium text-center flex md:gap-x-3 gap-x-1"
 						text="Upcoming Events"
@@ -23,7 +23,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 						className="inline w-full max-w-[50%] h-full lg:w-auto"
 					/>
 				</div>
-				<div className="mt-7 md:mt-14 lg:mt-[90px] h-full flex flex-col lg:flex-row  gap-x-10  gap-y-8">
+				<div className="mt-7 md:mt-14 w-full lg:mt-[90px] h-full flex flex-col lg:flex-row  gap-x-10  gap-y-8">
 					<img
 						className="object-cover z-0 "
 						src="/assets/event.png"

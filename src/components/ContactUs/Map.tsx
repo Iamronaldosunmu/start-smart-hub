@@ -1,5 +1,6 @@
 import "leaflet/dist/leaflet.css";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import './Map.css'
 
 interface Props {
 	position: [a: number, b: number];
@@ -17,7 +18,7 @@ const Map = ({ position = [43.651070, -79.347015] }: Props) => {
 					zoomControl={false}
 				>
 					<TileLayer
-						attribution="&copy; 2021 Andrew Cooper International, Inc. All rights reserved."
+						attribution=""
 						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 					/>
 					<Marker position={position}>
