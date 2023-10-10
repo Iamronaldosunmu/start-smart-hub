@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import Container from "../../../components/container";
 import TextAnimation from "../../../components/TextAnimation";
 
@@ -5,7 +6,7 @@ interface EventProps {
 	title?: string;
 	tag?: string;
 	status?: string;
-	date?: Date;
+	date?: ReactNode;
 }
 
 const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
@@ -52,7 +53,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 								className="inline mr-2 text-left"
 								alt=""
 							/>
-							{/* {date} */}
+							{date}
 						</p>
 						<p
 							data-aos="fade-up"
