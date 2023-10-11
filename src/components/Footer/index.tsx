@@ -14,7 +14,7 @@ const Footer = () => {
 		],
 		[
 			{ label: "Terms and conditions", link: "/terms-and-conditions" },
-			{ label: "Contact", link: "/contact" },
+			{ label: "Contact", link: "/contact-us" },
 		],
 	];
 
@@ -30,7 +30,7 @@ const Footer = () => {
 					/>
 				</div>
 				<div className="flex flex-col items-center w-full lg:w-auto lg:px-20">
-					<div className="flex flex-col lg:flex-row lg:gap-7 sm:gap-5 gap-2  justify-between w-full">
+					<div className="flex flex-col lg:flex-row  lg:gap-7 sm:gap-5 gap-2  justify-between w-full">
 						<div className="flex lg:gap-7 sm:gap-5 gap-2 flex-wrap lg:mr-10 justify-between w-full">
 							{footerItems.map((footerItem) => (
 								<ul className="lg:leading-7 leading-6 block">
@@ -81,7 +81,7 @@ const Footer = () => {
 								className="flex-shrink-0"
 							>
 								<img
-									src="/src/assets/instagram.png"
+									src="/src/assets/instagram.svg"
 									alt=""
 								/>
 							</Link>
@@ -90,7 +90,7 @@ const Footer = () => {
 				</div>
 			</footer>
 			<div className="flex justify-center items-center mb-5">
-				<p className="text-xs text-center px-5 text-gray-500">©2021 Andrew Cooper International, Inc. All rights reserved.</p>
+				<p className="text-xs text-center px-5 text-gray-500">©2023 Start Smart Hub. All rights reserved</p>
 			</div>
 		</div>
 	);

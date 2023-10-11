@@ -1,6 +1,6 @@
 const FormFooter = () => {
 	return (
-		<div className="mt-4">
+		<div className="mt-4 font-poppins">
 			<div className="flex justify-between lg:text-sm max-w-full text-xs  flex-wrap  gap-y-5">
 				<div className="flex sm:mr-7">
 					<div className="flex justify-center flex-shrink-0 items-center mr-2 ">

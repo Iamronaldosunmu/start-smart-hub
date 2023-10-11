@@ -12,6 +12,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
+import UpcomingEvents from "./components/UpcomingEvents/Events/Events";
 
 function App() {
 	const { pathname } = useLocation();
@@ -69,9 +70,14 @@ function App() {
 						path="/contact-us"
 						element={<ContactUs />}
 					/>
+					<Route
+						path="/upcoming-events"
+						element={<UpcomingEvents />}
+					/>
 				</Routes>
 			</AnimatePresence>
-			{pathname !== "/" && <Footer />}
+			{/* {pathname !== "/" && <Footer />} */}
+			<Footer/>
 		</>
 	);
 }

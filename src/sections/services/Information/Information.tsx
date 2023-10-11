@@ -4,7 +4,12 @@ import { child, container } from "../../../utils/framer-default-animations";
 import ListText from "./ListText";
 
 const Information = () => {
-	const ListTexts = ["Are you’re charting a new course in a different city/country or have rounded up your International studies?", "Feeling stuck in your current job and ready for a career makeover?", "landing interviews feels like a magic trick you can’t quite master?"];
+	const ListTexts = [
+		"Are you’re charting a new course in a different city/country or have rounded up your International studies?",
+		"Feeling stuck in your current job and ready for a career makeover?",
+		"landing interviews feels like a magic trick you can’t quite master?",
+		" High schoolers, it’s time to ignite your passions and explore endless possibilities for your future studies at colleges and universities....",
+	];
 	return (
 		<Container className="mt-14 lg:mt-[100px]">
 			<div className="grid lg:grid-cols-2 w-full gap-6">

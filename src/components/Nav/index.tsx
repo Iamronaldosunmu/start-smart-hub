@@ -6,7 +6,7 @@ const Nav = () => {
 		{ text: "Home", path: "/home" },
 		{ text: "About", path: "/about-us" },
 		{ text: "Services", path: "/services" },
-		{ text: "Events", path: "" },
+		{ text: "Events", path: "/upcoming-events" },
 		{ text: "Contact", path: "/contact-us" },
 	];
 	return (

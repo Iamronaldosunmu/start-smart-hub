@@ -39,7 +39,7 @@ const Hero = () => {
 			>
 				<img
 					className="relative z-10 object-cover w-full h-full"
-					src="/assets/hero.png"
+					src="/assets/doyin.png"
 					alt=""
 				/>
 			</div>
