@@ -1,53 +1,55 @@
+import { AnimatePresence, wrap } from "framer-motion";
 import { useState } from "react";
+import Testimonial from "../../../components/Testimonial";
 import TextAnimation from "../../../components/TextAnimation";
 import Container from "../../../components/container";
 
 const Testimonials = () => {
-	const [pages] = useState([1, 2, 3, 4]);
+	const [page, setPage] = useState(0);
+	const testimonials = [
+		{
+			name: "Zainab Adetona",
+			body: "My resume was built from and scratch and I used it for my admissions into college.                                                       --Rounding up a Marketing Management Program at centennial college in Dec 2023                               ",
+		},
+		{
+			name: "Kimberly Osunde | Project and Communications Assistant @ Tribunals Ontario | Strategic Communications",
+			body: "I had an amazing experience with Doyin's HR services! * Her guidance and support were invaluable, and I feel more confident in my job search now. I highly recommend her services to anyone looking to enhance their career prospects. Thank you, Doyin!  ",
+		},
+		{
+			name: "Sepi Wakama | Certified Scrum Master | Project Analyst and Coordination| Fostering Agile Collaboration and Delivering High-Performing, Customer-Centric Teams",
+			body: "Doyin was really amazing and wonderful in helping me tailor my experience * (existing and upcoming) to what the industry I am transitioning into. I definitely recommend her for everyone to work with. Thank you so much Doyin 😊😊",
+		},
+		{
+			name: "Tiwa Sikuade | Finance Leader | Talent Acquisition Lead |  Talent Management | eople Analytics",
+			body: "Doyin supported me with building my resume * and with interview preparations when I began my job search in Canada. Her recommendations were well researched, detailed and practical and were very helpful in acing interviews and getting offers.",
+		},
+	];
+
+	const contentIndex = wrap(0, testimonials.length, page);
 	return (
-		<Container className="flex flex-col justify-center items-center mt-14 gap-y-[30px] font-poppins lg:mt-[100px]">
+		<Container className="mt-14 lg:mt-[100px] flex flex-col justify-center items-center overflow-hidden">
 			<TextAnimation
-				className="text-[40px] text-center font-medium flex gap-x-2 flex-wrap"
+				className="text-[40px] text-center font-medium flex gap-x-2 flex-wrap justify-center"
 				text="Client Testimonials"
 			/>
-			<div
-				data-aos="zoom-in"
-				data-aos-duration="700"
-				data-aos-delay="300"
-				className="overflow-hidden rounded-full w-[100px] h-[100px]"
+			<AnimatePresence
+				mode="wait"
+				custom={page}
 			>
-				<img
-					src="/assets/profilePic.png"
-					alt=""
+				<Testimonial
+					key={`${page} ${contentIndex}`}
+					forward={() => setPage(page + 1)}
+					backward={() => setPage(page - 1)}
+					name={testimonials[contentIndex].name}
+					body={testimonials[contentIndex].body}
 				/>
-			</div>
-			<p
-				data-aos="fade-up"
-				data-aos-duration="700"
-				data-aos-delay="700"
-				className="text-base leading-8 text-center lg:px-5"
-			>
-				<span className="font-bold">achieving each task without defaulting to avoidance. </span>Grace's guidance helped me practice making small mental shifts when I was going through the most stressful time in my work and personal life. Her lessons both challenged my perspective on forming new habits and behaviors I've previously found challenging, while also helping me with what I already knew
-				about myself.
-			</p>
-			<div
-				data-aos="fade-up"
-				data-aos-duration="700"
-				data-aos-delay="1000"
-				className="text-cnter font-bold text-[18px]"
-			>
-				Tiffany | Sr. Product Designer
-			</div>
-			<div
-				data-aos="zoom-out"
-				data-aos-duration="700"
-				data-aos-delay="1000"
-				className="pt-4 pb-3 flex justify-center gap-x-5"
-			>
-				{pages.map((page) => (
+			</AnimatePresence>
+			<div className="pt-4 pb-3 flex justify-center gap-x-5">
+				{testimonials.map((_, index) => (
 					<button
-						key={page}
-						className="rounded-full opacity-20 h-2 w-2 bg-black focus:opacity-100"
+						key={index}
+						onClick={() => setPage(index)}
+						className={`rounded-full h-2 w-2 bg-black ${contentIndex === index ? "opacity-100" : "opacity-20"} transition-colors duration-200`}
 					></button>
 				))}
 			</div>

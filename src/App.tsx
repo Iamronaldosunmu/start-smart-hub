@@ -33,7 +33,7 @@ function App() {
 	// Automatically scrolls to top whenever pathname changes
 	useEffect(() => {
 		setTimeout(() => {
-			window.scrollTo(0, 0);
+			window.scrollTo({ top: 0, behavior: "smooth" });
 		}, 300);
 	}, [pathname]);
 
@@ -58,7 +58,7 @@ function App() {
 						element={<AboutUs />}
 					/>
 					<Route
-						path="/consultation"
+						path="/consultation/:type"
 						element={<Consultation />}
 					/>
 					<Route
