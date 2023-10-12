@@ -20,7 +20,7 @@ const Testimonials = () => {
 			body: "Doyin was really amazing and wonderful in helping me tailor my experience * (existing and upcoming) to what the industry I am transitioning into. I definitely recommend her for everyone to work with. Thank you so much Doyin 😊😊",
 		},
 		{
-			name: "Tiwa | Finance Leader ",
+			name: "Tiwa | Finance Leader V",
 			body: "Doyin supported me with building my resume * and with interview preparations when I began my job search in Canada. Her recommendations were well researched, detailed and practical and were very helpful in acing interviews and getting offers.",
 		},
 	];

@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Container from "../../../components/container";
 import TextAnimation from "../../../components/TextAnimation";
+import { motion } from "framer-motion"
+import { interactionAnimations } from "../../../utils/framer-default-animations";
  interface Props {
 	date?: string;
  }
 
-const UpcomingEvents = ({date} : Props) => {
+const UpcomingEvents = ({ date }: Props) => {
+	const navigate = useNavigate();
 	return (
 		<section className="bg-[#FAFAFA] pt-14 lg:pt-[100px] pb-5 lg:pb-7">
 			<Container className="mb-3 text-center flex flex-col items-center md:text-left">
@@ -48,14 +51,16 @@ const UpcomingEvents = ({date} : Props) => {
 							Date: {date ? '${date}' : '20-10-2023'}
 						
 						</p>
-						<button
+						<motion.button
+							{...interactionAnimations}
+							onClick={() => navigate("/events")}
 							data-aos="fade-up"
 							data-aos-duration="700"
 							data-aos-delay="1500"
 							className="font-medium md:font-bold lg:text-lg max-w-[200px] px-9 py-4 rounded-xl   hover:text-white hover:bg-black lg:rounded-none border-2 border-black font-inter focus:bg-black focus:text-white transition-colors duration-500"
 						>
 							View Details
-						</button>
+						</motion.button>
 					</div>
 				</div>
 				<Link
