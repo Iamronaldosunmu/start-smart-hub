@@ -4,7 +4,7 @@ import { interactionAnimations } from "../../../utils/framer-default-animations"
 import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
-	const { navigate } = useNavigate();
+	const  navigate  = useNavigate();
 	return (
 		<Container className="flex flex-col lg:flex-row items-center justify-between gap-x-12 text-center lg:text-start">
 			<div className="flex flex-col justify-center items-center lg:items-start gap-y-[18px] max-w-[600px]">
