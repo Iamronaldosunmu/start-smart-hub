@@ -2,9 +2,9 @@ import TextAnimation from "../TextAnimation";
 
 const GridComponent = () => {
 	return (
-		<section className="grid grid-cols-1 lg:grid-cols-2 w-full">
+		<section className="grid grid-cols-1   lg:grid-cols-[53%_47%] w-full">
 			<div className="bg-[url('/assets/Section.png')] py-20 sm:flex flex-col justify-center items-center sm:px-10 px-5  large:px-20">
-				<div className=" text-white flex flex-col justify-center lg:items-start items-center md:text-start">
+				<div className=" text-white flex flex-col justify-center lg:items-start items-center md:text-start xl:pl-[calc((100vw-1280px)/2)]">
 					<TextAnimation
 						text={"Start smart and build bright today!"}
 						className={"sm:text-[48px] text-[40px] font-bold flex flex-wrap gap-x-2"}
@@ -19,7 +19,7 @@ const GridComponent = () => {
 					</p>
 				</div>
 			</div>
-			<div className="relative w-full h-full hidden lg:block overflow-hidden">
+			<div className="relative w-full h-full hidden lg:block overflow-hidden ">
 				<img
 					src="/assets/img1.png"
 					className="object-cover scale-105 w-full h-full"

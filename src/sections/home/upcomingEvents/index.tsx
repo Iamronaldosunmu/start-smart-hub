@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import Container from "../../../components/container";
 import TextAnimation from "../../../components/TextAnimation";
+ interface Props {
+	date?: string;
+ }
 
-const UpcomingEvents = () => {
+const UpcomingEvents = ({date} : Props) => {
 	return (
 		<section className="bg-[#FAFAFA] pt-14 lg:pt-[100px] pb-5 lg:pb-7">
 			<Container className="mb-3 text-center flex flex-col items-center md:text-left">
@@ -31,7 +34,7 @@ const UpcomingEvents = () => {
 							data-aos-delay="1100"
 							className="text-[25px] lg:text-[36px] font-medium leading-[30px] lg:leading-normal tracking-wide"
 						>
-							Learn Secrets to Peak <br className="hidden lg:block" /> Performance
+							Free Resume Clinic
 						</h2>
 						<p
 							data-aos="fade-up"
@@ -39,13 +42,17 @@ const UpcomingEvents = () => {
 							data-aos-delay="1300"
 							className="text-[#606060] font-light leading-5 lg:text-lg"
 						>
-							This program is a set of personal sessions and workshops. It is the quickest and the most effective way to find out all my tips...
+							Join us for an exclusive opportunity to supercharge your resume! Our Free Resume Clinic is designed to empower you with the tools and knowledge to stand out in today’s competitive job market.
+						</p>
+						<p className="text-gray-400 text-xl font-semibold">
+							Date: {date ? '${date}' : '20-10-2023'}
+						
 						</p>
 						<button
 							data-aos="fade-up"
 							data-aos-duration="700"
 							data-aos-delay="1500"
-							className="font-medium md:font-bold lg:text-lg max-w-[200px] px-9 py-4 rounded-xl lg:rounded-none border-2 border-black font-inter focus:bg-black focus:text-white transition-colors duration-500"
+							className="font-medium md:font-bold lg:text-lg max-w-[200px] px-9 py-4 rounded-xl   hover:text-white hover:bg-black lg:rounded-none border-2 border-black font-inter focus:bg-black focus:text-white transition-colors duration-500"
 						>
 							View Details
 						</button>
@@ -55,7 +62,7 @@ const UpcomingEvents = () => {
 					data-aos="zoom-out"
 					data-aos-duration="700"
 					data-aos-delay="1800"
-					to=""
+					to="/upcoming-events"
 					className="border-b border-[#F04956] text-[#F04956] text-[18px] px-2 mt-5 md:mt-10 lg:text-lg flex justify-center max-w-[113px]"
 				>
 					Learn More
