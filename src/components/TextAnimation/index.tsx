@@ -28,6 +28,7 @@ const TextAnimation: React.FC<TextAnimationProps> = ({ text, className }) => {
 						{word.split("").map((letter: string, index: number) => {
 							return (
 								<motion.div
+									key={index}
 									initial={{ y: 90, scale: 0.9 }}
 									animate={
 										isInView

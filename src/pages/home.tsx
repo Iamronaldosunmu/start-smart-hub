@@ -2,7 +2,6 @@ import PageContainer from "../components/PageContainer";
 import Hero from "../sections/home/hero";
 import MeetTheFounder from "../sections/home/meetTheFounder";
 import ReadyToStart from "../sections/home/readyToStart";
-import SeenOn from "../sections/home/seenOn";
 import Subscribe from "../sections/home/subscribe";
 import Testimonials from "../sections/home/testimonials";
 import UnlockYourPotential from "../sections/home/unlockYourPotential";
@@ -15,7 +14,7 @@ const Home: React.FC = () => {
 			<ReadyToStart />
 			<MeetTheFounder />
 			<UnlockYourPotential />
-			<SeenOn />
+			{/* <SeenOn /> */}
 			<UpcomingEvents />
 			<Testimonials />
 			<Subscribe />
