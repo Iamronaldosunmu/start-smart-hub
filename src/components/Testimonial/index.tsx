@@ -70,6 +70,7 @@ const Testimonial: FC<Props> = ({ name, body, forward, backward, page, setPage, 
 			drag="x"
 			dragConstraints={{ left: 0, right: 0 }}
 			dragElastic={1}
+			// @ts-ignore
 			onDragEnd={(e, { offset, velocity }) => {
 				const swipe = swipePower(offset.x, velocity.x);
 

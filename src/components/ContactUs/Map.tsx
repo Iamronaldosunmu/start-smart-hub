@@ -11,9 +11,13 @@ const Map = ({ position = [43.651070, -79.347015] }: Props) => {
 		<div className="relative z-0 h-full">
 			<div className="w-full h-full">
 				<MapContainer
+					// @ts-ignore
 					center={position}
+					// @ts-ignore
 					zoom={13}
+					// @ts-ignore
 					scrollWheelZoom={false}
+					// @ts-ignore
 					style={{ height: "100%" }}
 					zoomControl={false}
 				>
