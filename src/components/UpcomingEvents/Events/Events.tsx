@@ -106,7 +106,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 						<button
 							className="font-medium md:font-bold mt-5 rounded-lg lg:text-lg max-w-[200px] px-9 py-4  border-2 border-black hover:bg-black hover:text-white font-inter focus:bg-black focus:text-white transition-colors duration-500"
 						>
-							Apply Now
+							Book a Slot
 						</button>
 					</div>
 				</div>
