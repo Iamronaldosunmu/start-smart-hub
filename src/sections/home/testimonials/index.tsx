@@ -12,15 +12,15 @@ const Testimonials = () => {
 			body: "My resume was built from and scratch and I used it for my admissions into college.                                                       --Rounding up a Marketing Management Program at centennial college in Dec 2023                               ",
 		},
 		{
-			name: "Kimberly | Project and Communications Assistant @ Tribunals Ontario | Strategic Communications",
+			name: "Kimberly | Project and Communications Assistant ",
 			body: "I had an amazing experience with Doyin's HR services! * Her guidance and support were invaluable, and I feel more confident in my job search now. I highly recommend her services to anyone looking to enhance their career prospects. Thank you, Doyin!  ",
 		},
 		{
-			name: "Sepi | Certified Scrum Master | Project Analyst and Coordination| Fostering Agile Collaboration and Delivering High-Performing, Customer-Centric Teams",
+			name: "Sepi | Certified Scrum Master ",
 			body: "Doyin was really amazing and wonderful in helping me tailor my experience * (existing and upcoming) to what the industry I am transitioning into. I definitely recommend her for everyone to work with. Thank you so much Doyin 😊😊",
 		},
 		{
-			name: "Tiwa | Finance Leader | Talent Acquisition Lead |  Talent Management | eople Analytics",
+			name: "Tiwa | Finance Leader ",
 			body: "Doyin supported me with building my resume * and with interview preparations when I began my job search in Canada. Her recommendations were well researched, detailed and practical and were very helpful in acing interviews and getting offers.",
 		},
 	];
