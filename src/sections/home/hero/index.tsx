@@ -25,7 +25,7 @@ const Hero = () => {
 					data-aos-delay="1000"
 					className="text-[#494949] font-light leading-6 w-[90%]"
 				>
-					Startsmart is a supportive organization that encourages individuals to take the first step in their personal journeys, believing in their potential and offering guidance along the way.
+					Take that first step! Every remarkable journey starts with a single stride forward. At Startsmart, we’re dedicated to working hand-in-hand with you to pave the way. We believe in your potential. Go ahead, take the leap! We’re here to show you the way.
 				</p>
 				<button
 					data-aos="fade-up"
