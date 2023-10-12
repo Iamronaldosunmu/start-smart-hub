@@ -3,6 +3,7 @@ import { easeIn, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Container from "../container";
+import { interactionAnimations } from "../../utils/framer-default-animations";
 
 const Nav = () => {
 	const navItems = [
@@ -54,7 +55,13 @@ const Nav = () => {
 								</Link>
 							))}
 						</div>
-						<button className=" leading-7 py-2 px-5 text-white bg-[#4B8CEA] rounded-[10px] font-medium shadow-[0px_2px_4px_0px_#4b8cea4a]">Book a Call</button>
+						<motion.button
+							onClick={() => navigate("/services")}
+							{...interactionAnimations}
+							className=" leading-7 py-2 px-5 text-white bg-[#4B8CEA] rounded-[10px] font-medium shadow-[0px_2px_4px_0px_#4b8cea4a]"
+						>
+							Book a Call
+						</motion.button>
 					</div>
 				</Container>
 			</nav>

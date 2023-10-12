@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { interactionAnimations } from "../../utils/framer-default-animations";
 
 const Bookings = () => {
 	return (
@@ -26,14 +27,15 @@ const Bookings = () => {
 				>
 					Kickstart your journey to success with a coaching call today. Book now and let’s get started!
 				</p>
-				<button
+				<motion.button
+					{...interactionAnimations}
 					data-aos="zoom-in"
 					data-aos-duration="700"
 					data-aos-delay="1000"
 					className="border-2 border-black px-6 py-2 text-base rounded-[10px] transition-colors hover:bg-black hover:text-white font-bold"
 				>
 					Book a call
-				</button>
+				</motion.button>
 			</div>
 			<img
 				className="object-cover w-full h-full absolute z-0"
