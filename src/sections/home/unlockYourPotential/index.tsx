@@ -8,47 +8,56 @@ const UnlockYourPotential = () => {
 		{
 			title: "Resume building",
 			text: "We craft compelling and tailored resumes that highlight your skills, experiences and achievements to make a lasting impression on employers.",
-			path: "/consultation/resume-services",
+			link: "/consultation/resume-services",
+			image: "/assets/resumeBuilding.jpg",
 		},
 		{
 			title: "Resume review",
 			text: "Get expert feedback on your existing resume to identify areas for improvement and maximize its impact in your job search.",
-			path: "/consultation/resume-services",
+			link: "/consultation/resume-services",
+			image: "/assets/resumeReview.jpg",
 		},
 		{
 			title: "LinkedIn Optimization",
-			text: "We optimize your LinkedIn profile to make it stand out to recruiters, showcasing your professional brand and accomplishments.",
-			path: "/consultation/linkedin-services",
+			text: "We optimize your LinkedIn profile to make it stand out to recruiters, showcasing your professional brand and accomplishments",
+			link: "/consultation/linkedin-services",
+			image: "/assets/linkedinOptimization.png",
 		},
 		{
 			title: "Job application tailoring coaching",
 			text: "Craft tailored job applications that align with your target positions, increasing your chances of getting noticed by employers.",
-			path: "/consultation/job-application",
+			link: "/consultation/job-application",
+			image: "/assets/jobApplicationCoaching.jpg",
 		},
 		{
 			title: "Career Transitioning Coaching",
 			text: "Navigate career transitions with ease. Our coaching helps you to explore new oppurtunities and make successful transitions.",
-			path: "/consultation/career-coaching",
+			link: "/consultation/career-coaching",
+			image: "/assets/careerTransitioning.jpg",
 		},
 		{
 			title: "Career Interest and passion Discovery",
-			text: "Discovery  your true career interests and passions through guided exploration, helping you find a fulfilling career path.",
-			path: "/consultation/career-coaching",
+			text: "Discovery  your true career interests and passions through guided exploration, helping you find a fulfilling career link.",
+			link: "/consultation/career-coaching",
+			image: "/assets/resumeBuilding.jpg",
 		},
 		{
 			title: "Resume Clinic",
 			text: "Join our resume clinic sessions to recieve quick, actionable devices and tips for improving your resume.",
-			path: "/consultation/resume-services",
+			link: "/consultation/resume-services",
+			image: "/assets/resumeBuilding.jpg",
 		},
 		{
 			title: "Career workshops and training",
 			text: "Participate in our workshops and training sessions to build essential job search skills, from networking to negotiation, and stay ahead in your career journey.",
-			path: "/consultation/career-coaching",
+			link: "/consultation/career-coaching",
+			image: "/assets/resumeBuilding.jpg",
 		},
 		{
 			title: "Career/personal development coaching",
 			text: "We offer personalized guidance, unwavering support, and tailored strategies to accelerate your professional growth and help you achieve your career goals and personal breakthroughs.",
-			path: "/consultation/career-coaching",
+			link: "/consultation/career-coaching",
+			image: "/assets/resumeBuilding.jpg",
 		},
 	];
 	return (
@@ -73,19 +82,18 @@ const UnlockYourPotential = () => {
 				data-aos="fade-up"
 				data-aos-duration="700"
 				data-aos-delay="800"
-				className="relative h-full min-w-[2251.94px] scale-90 md:scale-100"
+				className="relative h-full min-w-[2251.94px] scale-90 md:scale-100 mt-4"
 			>
-				<div className="h-full w-5 bg-white absolute left-0"></div>
-				<div className="flex gap-x-[30px] lg:gap-x-5 mt-8 lg:mt-6 text-center w-full animate-scroll">
-					{services.map(({ title, text, path }, index) => (
+				<div className="flex gap-x-[30px] mt-8 lg:mt-6 text-center w-full animate-scroll">
+					{services.map(({ title, text, link, image }, index) => (
 						<div
 							key={index}
 							className="w-[352px] lg:w-[373px] h-full"
 						>
-							<div className="w-[370px] h-[267px]">
+							<div className="w-[370px] h-[267px] scale-105">
 								<img
 									className="w-full h-full object-cover"
-									src="/assets/product.jpeg"
+									src={image}
 									alt=""
 								/>
 							</div>
@@ -93,7 +101,7 @@ const UnlockYourPotential = () => {
 								<h3 className="text-xl font-semibold">{title}</h3>
 								<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{text}</p>
 								<Link
-									to={path}
+									to={link}
 									className="block mx-auto text-sm mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins focus:bg-black focus:text-white transition-colors duration-500"
 								>
 									Start Now
@@ -101,15 +109,15 @@ const UnlockYourPotential = () => {
 							</div>
 						</div>
 					))}
-					{services.map(({ title, text, path }, index) => (
+					{services.map(({ title, text, link, image }, index) => (
 						<div
 							key={index}
 							className="w-[352px] lg:w-[373px] h-full"
 						>
-							<div className="w-[370px] h-[267px]">
+							<div className="w-[370px] h-[267px] scale-105">
 								<img
 									className="w-full h-full object-cover"
-									src="/assets/product.jpeg"
+									src={image}
 									alt=""
 								/>
 							</div>
@@ -117,7 +125,7 @@ const UnlockYourPotential = () => {
 								<h3 className="text-xl font-semibold">{title}</h3>
 								<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{text}</p>
 								<Link
-									to={path}
+									to={link}
 									className="block mx-auto text-sm mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins focus:bg-black focus:text-white transition-colors duration-500"
 								>
 									Start Now
