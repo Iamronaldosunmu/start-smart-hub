@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { interactionAnimations } from "../../utils/framer-default-animations";
+import { useNavigate } from "react-router-dom";
 
 const Bookings = () => {
+	const navigate = useNavigate();
 	return (
 		<div className="relative flex justify-center items-center flex-col bg-red-50 mt-5 py-[66px]">
 			<div className="text-center py-10 px-4 relative z-10">
@@ -29,6 +31,7 @@ const Bookings = () => {
 				</p>
 				<motion.button
 					{...interactionAnimations}
+					onClick={() => navigate("/services")}
 					data-aos="zoom-in"
 					data-aos-duration="700"
 					data-aos-delay="1000"
