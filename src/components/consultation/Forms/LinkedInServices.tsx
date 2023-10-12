@@ -42,26 +42,26 @@ const LinkedInServices = () => {
 							<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
 								<Input
 									name="first Name"
-									placeholder="John"
+									
 								/>
 								<Input
 									name="last Name"
-									placeholder="John"
+									
 								/>
 							</div>
 							<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
 								<Input
 									name="Email"
-									placeholder="hannah.green@test.com"
+									
 								/>
 								<Input
 									name="Phone number"
-									placeholder="+23409018745637"
+									
 								/>
 							</div>
 							<Input
 								name="LinkedIn Profile URL"
-								placeholder="Resume Template"
+								
 							/>
 							<button
 								type="submit"
@@ -87,31 +87,31 @@ const LinkedInServices = () => {
 						>
 							<Input
 								name="What is your current LinkedIn headline?"
-								placeholder="Resume Template"
+								
 							/>
 							<TextArea
 								title="Please describe your current LinkedIn summary"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Have you uploaded a profile picture on LinkedIn? [Yes/No]"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="If yes, please provide a link to your current profile picture."
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Do you have any LinkedIn recommendations or endorsements? [Yes/No]"
-								placeholder="Resume Template"
+								
 							/>
 							<TextArea
 								title="If yes, please list some of them"
-								placeholder="Resume Template"
+								
 							/>
 							<TextArea
 								title="What specific outcomes or improvements do you expect from our LinkedIn optimization services?"
-								placeholder="Resume Template"
+								
 							/>
 							<button
 								type="submit"
@@ -137,36 +137,36 @@ const LinkedInServices = () => {
 						>
 							<Input
 								name="Current Job Title"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Industry"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Desired Job Title"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Target Industry or Audience for LinkedIn"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Years of Professional Experience"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Highest Education Level"
-								placeholder="Resume Template"
+								
 							/>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Additional Comments and Preferences:</h1>
 							<TextArea
 								title="Please share any specific preferences or requirements you have for your LinkedIn profile optimization (e.g., content, branding, keywords):"
-								placeholder="Resume Template"
+								
 							/>
 							<TextArea
 								title="Is there anything else you would like to share or discuss during our LinkedIn optimization process?"
-								placeholder="Resume Template"
+								
 							/>
 							<button
 								type="submit"

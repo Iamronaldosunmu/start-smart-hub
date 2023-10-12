@@ -3,7 +3,7 @@ import { FC, useRef } from "react";
 interface InputProps {
 	name: string /* "firstName" | "lastName" | "email" | "phone" | "jobTitle" | "employer" | "industry" */;
 	// title: string;
-	placeholder: string;
+	placeholder?: string;
 	// register: UseFormRegister<FormData>;
 	// error: FieldErrors<FormData>;
 }
@@ -117,7 +117,7 @@ export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useI
 
 interface TextAreaProps {
 	title: string;
-	placeholder: string;
+	placeholder?: string;
 }
 
 export const TextArea: FC<TextAreaProps> = ({ title, placeholder }) => {

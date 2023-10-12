@@ -41,29 +41,14 @@ const ResumeServices = () => {
 							className="flex flex-col justify-center gap-y-5 md:gap-y-10 mt-5 lg:mt-10"
 						>
 							<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
-								<Input
-									name="first Name"
-									placeholder="John"
-								/>
-								<Input
-									name="last Name"
-									placeholder="John"
-								/>
+								<Input name="first Name" />
+								<Input name="last Name" />
 							</div>
 							<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
-								<Input
-									name="Email"
-									placeholder="hannah.green@test.com"
-								/>
-								<Input
-									name="Phone number"
-									placeholder="+23409018745637"
-								/>
+								<Input name="Email" />
+								<Input name="Phone number" />
 							</div>
-							<Input
-								name="LinkedIn Profile URL"
-								placeholder="Resume Template"
-							/>
+							<Input name="LinkedIn Profile URL" />
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Service Selection</h1>
 							<CheckBoxList
 								title="Please select the service(s) you are interested in"
@@ -94,27 +79,27 @@ const ResumeServices = () => {
 						>
 							<Input
 								name="Current Job Title"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Industry"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Desired Job Title"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Target Industry or Audience for LinkedIn"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Years of Professional Experience"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Highest Education Level"
-								placeholder="Resume Template"
+								
 							/>
 							<button
 								type="submit"
@@ -140,31 +125,31 @@ const ResumeServices = () => {
 						>
 							<Input
 								name="Have you previously created a resume? [Yes/No]"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="If yes, please share your existing resume us by email"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="Do you have a draft or notes for your resume? [Yes/No]"
-								placeholder="Resume Template"
+								
 							/>
 							<TextArea
 								title="If yes, please provide any additional information or notes:"
-								placeholder="Resume Template"
+								
 							/>
 							<TextArea
 								title="Please share any specific preferences or requirements you have for your resume (e.g formatting, style, key accomplishments):"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="What are your primary goals for your resume?"
-								placeholder="Resume Template"
+								
 							/>
 							<Input
 								name="What specific outcomes or improvements do you expect from our resume services?"
-								placeholder="Resume Template"
+								
 							/>
 							<button
 								type="submit"

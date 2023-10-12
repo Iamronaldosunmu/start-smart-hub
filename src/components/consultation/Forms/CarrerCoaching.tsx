@@ -58,38 +58,30 @@ const CareerCoaching = () => {
 						<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
 							<Input
 								name="first Name"
-								placeholder="John"
 							/>
 							<Input
 								name="last Name"
-								placeholder="John"
 							/>
 						</div>
 						<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
 							<Input
 								name="Email"
-								placeholder="John"
 							/>
 							<Input
 								name="Phone number"
-								placeholder="John"
 							/>
 						</div>
 						<Input
-							name="Current Job Title"
-							placeholder="John"
+							name="Current Job Title
 						/>
 						<Input
-							name="Current Employer"
-							placeholder="John"
+							name="Current Employer
 						/>
 						<Input
-							name="Industry/Field"
-							placeholder="John"
+							name="Industry/Field
 						/>
 						<Input
-							name="Years of Experience"
-							placeholder="John"
+							name="Years of Experience
 						/>
 						<button
 							type="submit"
