@@ -34,7 +34,7 @@ function App() {
 	// Automatically scrolls to top whenever pathname changes
 	useEffect(() => {
 		setTimeout(() => {
-			window.scrollTo({ top: 0, behavior: "smooth" });
+			window.scrollTo(0, 0);
 		}, 300);
 	}, [pathname]);
 
@@ -77,7 +77,7 @@ function App() {
 				</Routes>
 			</AnimatePresence>
 			{/* {pathname !== "/" && <Footer />} */}
-			<Footer/>
+			<Footer />
 		</>
 	);
 }
