@@ -44,7 +44,7 @@ const UpcomingEvents = ({date} : Props) => {
 						>
 							Join us for an exclusive opportunity to supercharge your resume! Our Free Resume Clinic is designed to empower you with the tools and knowledge to stand out in today’s competitive job market.
 						</p>
-						<p className="text-gray-400 text-xl font-semibold">
+						<p className="text-gray-400 text-xl font-semibold mt-[45px]">
 							Date: {date ? '${date}' : '20-10-2023'}
 						
 						</p>
