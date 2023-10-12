@@ -11,9 +11,9 @@ interface EventProps {
 
 const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 	return (
-		<section className="bg-[#FAFAFA] mt-[90px]  pb-5 lg:pb-7">
+		<section className="bg-[#FAFAFA] pt-[90px]  pb-5 lg:pb-7">
 			<Container className="mb-3 text-center flex flex-col items-center md:text-left">
-				<div className=" flex justify-between  items-center lg:ml-[120px] w-full">
+				<div className=" flex justify-between items-center lg:ml-[120px] w-full">
 					<TextAnimation
 						className=" sm:text-[40px] flex-wrap  lg:text-[54px] text-[20px]  lg:font-semibold font-medium text-center flex md:gap-x-3 gap-x-1"
 						text="Upcoming Events"
@@ -43,7 +43,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 							{title}
 						</h2>
 						<p
-							data-aos="fade-up"
+							data-aos="zoom-in"
 							data-aos-duration="700"
 							data-aos-delay="1300"
 							className="text-[#606060] text-left font-light leading-5 lg:text-xl"
