@@ -11,14 +11,14 @@ const Map = ({ position = [43.651070, -79.347015] }: Props) => {
 		<div className="relative z-0 h-full">
 			<div className="w-full h-full">
 				<MapContainer
-					center={position}
+					// center={position}
 					zoom={13}
 					scrollWheelZoom={false}
 					style={{ height: "100%" }}
 					zoomControl={false}
 				>
 					<TileLayer
-						attribution=""
+						
 						url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 					/>
 					<Marker position={position}>

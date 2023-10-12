@@ -55,7 +55,7 @@ const Testimonial: FC<Props> = ({ name, body, forward, backward, page, setPage, 
 				console.log(true)
 			},
 			body.split(" ").length * 300
-			// 400
+			
 		);
 	}, [body]);
 
