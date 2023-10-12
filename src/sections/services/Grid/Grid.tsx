@@ -5,7 +5,7 @@ import { child, container } from "../../../utils/framer-default-animations";
 const Grid = () => {
 	return (
 		<div className="grid lg:grid-cols-2 mt-14 lg:mt-[100px]">
-			<div className="bg-[#FFF2EC] py-14">
+			<div className="bg-[#FFF2EC] py-14 xl:pl-[calc((100vw-1280px)/2)]">
 				<Container>
 					<div className="flex gap-x-2 flex-wrap mb-8 text-3xl font-semibold font-DMSans">
 						{"Here's what you can expect from us...".split(" ").map((word, index) => (

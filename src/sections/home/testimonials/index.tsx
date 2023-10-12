@@ -42,6 +42,9 @@ const Testimonials = () => {
 					backward={() => setPage(page - 1)}
 					name={testimonials[contentIndex].name}
 					body={testimonials[contentIndex].body}
+					setPage={setPage}
+					page={page}
+					count={testimonials.length}
 				/>
 			</AnimatePresence>
 			<div className="pt-4 pb-3 flex justify-center gap-x-5">

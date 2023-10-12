@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
-import { FC } from "react";
+import { Dispatch, FC, SetStateAction, useEffect } from "react";
 
 interface Props {
 	name: string;
 	body: string;
 	forward: () => void;
 	backward: () => void;
+	setPage: Dispatch<SetStateAction<number>>;
+	count: number;
+	page: number;
 }
 
 const variants = {
@@ -36,13 +39,25 @@ const stringSplitter = (text: string) => {
 	return ["", text];
 };
 
-const Testimonial: FC<Props> = ({ name, body, forward, backward }) => {
+const Testimonial: FC<Props> = ({ name, body, forward, backward, page, setPage, count }) => {
 	const [bold, regular] = stringSplitter(body);
 
 	const swipeConfidenceThreshold = 1000;
 	const swipePower = (offset: number, velocity: number) => {
 		return Math.abs(offset) * velocity;
 	};
+
+	useEffect(() => {
+		setTimeout(
+			() => {
+				if (page == count - 1) setPage(0);
+				else setPage(page + 1);
+				console.log(true)
+			},
+			body.split(" ").length * 300
+			
+		);
+	}, [body]);
 
 	return (
 		<motion.div
@@ -55,6 +70,7 @@ const Testimonial: FC<Props> = ({ name, body, forward, backward }) => {
 			drag="x"
 			dragConstraints={{ left: 0, right: 0 }}
 			dragElastic={1}
+			// @ts-ignore
 			onDragEnd={(e, { offset, velocity }) => {
 				const swipe = swipePower(offset.x, velocity.x);
 

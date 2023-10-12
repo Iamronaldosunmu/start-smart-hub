@@ -16,6 +16,7 @@ import UpcomingEvents from "./components/UpcomingEvents/Events/Events";
 
 function App() {
 	const { pathname } = useLocation();
+	const location = useLocation();
 	useEffect(() => {
 		AOS.init({ once: true });
 	}, []);
@@ -38,6 +39,8 @@ function App() {
 		}, 300);
 	}, [pathname]);
 
+
+
 	return (
 		<>
 			{pathname !== "/" && <Nav />}
@@ -45,7 +48,10 @@ function App() {
 				mode="wait"
 				initial={true}
 			>
-				<Routes>
+				<Routes
+					key={location.pathname}
+					location={location}
+				>
 					<Route
 						path="/"
 						element={<Loader />}
@@ -76,8 +82,7 @@ function App() {
 					/>
 				</Routes>
 			</AnimatePresence>
-			{/* {pathname !== "/" && <Footer />} */}
-			<Footer />
+			{pathname !== "/" && <Footer />}
 		</>
 	);
 }
