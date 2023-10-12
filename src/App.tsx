@@ -21,16 +21,16 @@ function App() {
 		AOS.init({ once: true });
 	}, []);
 
-	// useEffect(() => {
-	// 	const lenis = new Lenis();
+	useEffect(() => {
+		const lenis = new Lenis();
 
-	// 	function raf(time: any) {
-	// 		lenis.raf(time);
-	// 		requestAnimationFrame(raf);
-	// 	}
+		function raf(time: any) {
+			lenis.raf(time);
+			requestAnimationFrame(raf);
+		}
 
-	// 	requestAnimationFrame(raf);
-	// });
+		requestAnimationFrame(raf);
+	});
 
 	// Automatically scrolls to top whenever pathname changes
 	useEffect(() => {
@@ -39,7 +39,7 @@ function App() {
 		}, 300);
 	}, [pathname]);
 
-	
+
 
 	return (
 		<>
