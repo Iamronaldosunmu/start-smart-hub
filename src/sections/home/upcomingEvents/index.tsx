@@ -53,7 +53,7 @@ const UpcomingEvents = ({ date }: Props) => {
 						</p>
 						<motion.button
 							{...interactionAnimations}
-							onClick={() => navigate("/events")}
+							onClick={() => navigate("/upcoming-events")}
 							data-aos="fade-up"
 							data-aos-duration="700"
 							data-aos-delay="1500"
