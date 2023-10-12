@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Container from "../../../components/container";
 import TextAnimation from "../../../components/TextAnimation";
+import { motion } from "framer-motion"
+import { interactionAnimations } from "../../../utils/framer-default-animations";
 
 const MeetTheFounder = () => {
+	const navigate = useNavigate();
 	return (
 		<Container className="flex flex-col lg:flex-row items-center justify-between gap-x-[112px] mt-14 lg:mt-[100px]">
 			<div
@@ -46,15 +49,16 @@ const MeetTheFounder = () => {
 						Today my sole focus is partnering with you on this transformative expedition toward achieving your dream career. Together, we’ll take that all-important first step, and I’ll be here to provide unwavering support every step of the way!
 					</p>
 				</div>
-				<Link
+				<motion.button
+					{...interactionAnimations}
+					onClick={() => navigate("/about-us")}
 					data-aos="fade-up"
 					data-aos-duration="700"
-					data-aos-delay="1300"
-					to=""
+					data-aos-delay="1300"	
 					className="text-[13px] font-bold font-poppins tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center mt-6 focus:bg-black focus:text-white transition-colors duration-500"
 				>
 					Read My Story
-				</Link>
+				</motion.button>
 				<div className="relative max-w-[353px] max-h-[358px] shrink block lg:hidden mt-12">
 					<img
 						data-aos="zoom-in"

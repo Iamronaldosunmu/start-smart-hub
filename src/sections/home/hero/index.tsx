@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import Container from "../../../components/container";
+import { interactionAnimations } from "../../../utils/framer-default-animations";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+	const { navigate } = useNavigate();
 	return (
 		<Container className="flex flex-col lg:flex-row items-center justify-between gap-x-12 text-center lg:text-start">
 			<div className="flex flex-col justify-center items-center lg:items-start gap-y-[18px] max-w-[600px]">
@@ -27,14 +30,16 @@ const Hero = () => {
 				>
 					Take that first step! Every remarkable journey starts with a single stride forward. At Startsmart, we’re dedicated to working hand-in-hand with you to pave the way. We believe in your potential. Go ahead, take the leap! We’re here to show you the way.
 				</p>
-				<button
+				<motion.button
+					{...interactionAnimations}
+					onClick={() => navigate("/services")}
 					data-aos="fade-up"
 					data-aos-duration="700"
 					data-aos-delay="1200"
 					className="bg-[#4B8CEA] w-full shadow-[0px_2px_4px_0px_#4b8cea4a] text-white py-2 max-w-[200px] rounded-[10px] font-poppins font-medium leading-6"
 				>
 					Book a Call
-				</button>
+				</motion.button>
 			</div>
 			<div
 				data-aos="zoom-in"
