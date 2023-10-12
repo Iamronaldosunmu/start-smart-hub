@@ -16,27 +16,30 @@ import UpcomingEvents from "./components/UpcomingEvents/Events/Events";
 
 function App() {
 	const { pathname } = useLocation();
+	const location = useLocation();
 	useEffect(() => {
 		AOS.init({ once: true });
 	}, []);
 
-	useEffect(() => {
-		const lenis = new Lenis();
+	// useEffect(() => {
+	// 	const lenis = new Lenis();
 
-		function raf(time: any) {
-			lenis.raf(time);
-			requestAnimationFrame(raf);
-		}
+	// 	function raf(time: any) {
+	// 		lenis.raf(time);
+	// 		requestAnimationFrame(raf);
+	// 	}
 
-		requestAnimationFrame(raf);
-	});
+	// 	requestAnimationFrame(raf);
+	// });
 
 	// Automatically scrolls to top whenever pathname changes
 	useEffect(() => {
 		setTimeout(() => {
-			window.scrollTo({ top: 0, behavior: "smooth" });
+			window.scrollTo(0, 0);
 		}, 300);
 	}, [pathname]);
+
+	
 
 	return (
 		<>
@@ -45,7 +48,10 @@ function App() {
 				mode="wait"
 				initial={true}
 			>
-				<Routes>
+				<Routes
+					key={location.pathname}
+					location={location}
+				>
 					<Route
 						path="/"
 						element={<Loader />}
@@ -77,7 +83,7 @@ function App() {
 				</Routes>
 			</AnimatePresence>
 			{/* {pathname !== "/" && <Footer />} */}
-			<Footer/>
+			<Footer />
 		</>
 	);
 }
