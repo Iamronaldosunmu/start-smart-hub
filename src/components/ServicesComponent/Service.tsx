@@ -22,7 +22,7 @@ const Service = ({ title, text, imageUrl, number, path }: ServiceProps) => {
 				<div className="w-full">
 					<h2 className="xl:text-5xl sm:text-4xl text-[28px] font-medium mb-5 w-full">{title}</h2>
 				</div>
-				<div className="lg:ml-20 max-w-[605px]">
+				<div className="lg:ml-20 lg:w-full max-w-[605px]">
 					<p className="lg:leading-7 mb-6 max-w-[800px] text-[#575252]">{text}</p>
 					<button
 						onClick={() => navigate(path)}
