@@ -6,8 +6,21 @@ import Service from "../components/ServicesComponent/Service";
 import Goals from "../sections/services/Goals/Goals";
 import Grid from "../sections/services/Grid/Grid";
 import Information from "../sections/services/Information/Information";
+import useServiceStore from "../store/services";
+
+export const getPathFromFormType = (formType: string) => {
+	if (formType == "Resume") {
+		return "/consultation/resume-services";
+	} else if (formType == "Linkedln") {
+		return "/consultation/linkedin-services";
+	} else if (formType == "Job Application Tailoring") {
+		return "/consultation/job-application";
+	} else if (formType == "Career Coaching") return "/consultation/career-coaching";
+	else return "/consultation/resume-services";
+};
 
 const Services: React.FC = () => {
+	const { services } = useServiceStore();
 	return (
 		<PageContainer className="mt-[96px] lg:mt-[133px]">
 			<Hero />
@@ -15,6 +28,15 @@ const Services: React.FC = () => {
 			<Information />
 			<Grid />
 			<Container>
+				{services?.map((service) => (
+					<Service
+						number={service.id}
+						imageUrl="/assets/service.png"
+						title={service.attributes?.title}
+						text={service.attributes?.description}
+						path={getPathFromFormType(service.attributes.formType)}
+					/>
+				))}
 				<Service
 					number={1}
 					imageUrl="/assets/service.png"
