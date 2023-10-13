@@ -4,30 +4,31 @@ import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
 import FormFooter from "./FormFooter";
 
 const schema = z.object({
-  name: z.string().min(3),
-  email: z.string().email({ message: "This email format is not valid" }),
-  phoneNo: z.string().min(11),
+	name: z.string().min(3),
+	email: z.string().email({ message: "This email format is not valid" }),
+	phoneNo: z.string().min(11),
+	referral: z.string(),
 });
 
-type FormData = z.infer<typeof schema>;
+export type FormData = z.infer<typeof schema>;
 
 const Form = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-    reset,
-  } = useForm<FormData>({ resolver: zodResolver(schema), mode: "onBlur" });
+	const {
+		register,
+		handleSubmit,
+		formState: { errors, isValid },
+		reset,
+	} = useForm<FormData>({ resolver: zodResolver(schema), mode: "onBlur" });
 
-  const handleFormSubmit = (data: FieldValues) => {
-    if (isValid) {
-      reset();
-      console.log(data);
-    }
-  };
+	const handleFormSubmit = (data: FieldValues) => {
+		if (isValid) {
+			reset();
+			console.log(data);
+		}
+	};
 
-  return (
-		<div className="ml-auto font-poppins ">
+	return (
+		<div className="ml-auto font-poppins">
 			<div className="text-center lg:text-left">
 				<h1 className="lg:text-5xl sm:text-4xl text-3xl font-bold mb-7 font-poppins">
 					Get in <span className="text-[#DD5471] ">Touch</span>
@@ -74,6 +75,7 @@ const Form = () => {
 					<select
 						className="border md:py-4 w-full py-2 px-3 border-gray-300 outline-none"
 						id="referralMethod"
+						{...register("referral")}
 					>
 						<option value="">How did you find us?</option>
 						<option value="mos">mosh</option>

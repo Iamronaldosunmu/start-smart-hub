@@ -6,7 +6,7 @@ const FormFooter = () => {
 					<div className="flex justify-center flex-shrink-0 items-center mr-2 ">
 						<img
 							src="/assets/phone.svg"
-							className="flex-shrink-0 lg:h-10 w-full object-cover"
+							className="w-7 h-7 object-cover"
 							alt=""
 						/>
 					</div>
@@ -19,7 +19,7 @@ const FormFooter = () => {
 					<div className="flex justify-center items-center mr-2 flex-shrink-0 ">
 						<img
 							src="/assets/fax.svg"
-							className=" lg:h-10 w-full object-cover"
+							className=" w-7 h-7 object-cover"
 							alt=""
 						/>
 					</div>
@@ -32,7 +32,7 @@ const FormFooter = () => {
 					<div className="flex justify-center items-center mr-2 flex-shrink-0">
 						<img
 							src="/assets/mail.svg"
-							className=" lg:h-10 w-full object-cover"
+							className="w-7 h-7	 object-cover"
 							alt=""
 						/>
 					</div>
