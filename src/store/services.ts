@@ -2,11 +2,10 @@ import { create } from "zustand";
 
 export interface Service {
 	id: number;
-	attributes: {
-		title: string;
-		description: string;
-		formType: "Resume" | "Linkedln" | "Job Application Tailoring" | "Career Coaching";
-	};
+	title: string;
+	description: string;
+    formType: "Resume" | "Linkedln" | "Job Application Tailoring" | "Career Coaching";
+    image?: { url: string }[];
 }
 
 interface ServiceStore {

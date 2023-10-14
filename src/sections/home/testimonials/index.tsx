@@ -28,10 +28,12 @@ const Testimonials = () => {
 	const contentIndex = wrap(0, testimonials.length, page);
 	return (
 		<Container className="mt-14 lg:mt-[100px] flex flex-col justify-center items-center overflow-hidden">
-			<TextAnimation
+			<div
+				data-aos="zoom-in"
+				data-aos-duration="700"
 				className="text-[40px] text-center font-medium flex gap-x-2 flex-wrap justify-center"
-				text="Client Testimonials"
-			/>
+				
+			>Client Testimonials</div>
 			<AnimatePresence
 				mode="wait"
 				custom={page}

@@ -1,21 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
 import Container from "../../../components/container";
 import TextAnimation from "../../../components/TextAnimation";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import { interactionAnimations } from "../../../utils/framer-default-animations";
- interface Props {
+interface Props {
 	date?: string;
- }
+}
 
 const UpcomingEvents = ({ date }: Props) => {
 	const navigate = useNavigate();
 	return (
 		<section className="bg-[#FAFAFA] pt-14 lg:pt-[100px] pb-5 lg:pb-7">
 			<Container className="mb-3 text-center flex flex-col items-center md:text-left">
-				<TextAnimation
+				<div
+					data-aos="zoom-in"
+					data-aos-duration="700"
 					className="text-[40px] sm:text-[48px] lg:text-[54px] lg:font-semibold font-medium text-center flex gap-x-3 justify-center"
-					text="Upcoming Events"
-				/>
+				>
+					Upcoming Events
+				</div>
 				<div className="mt-7 md:mt-14 lg:mt-[90px] flex flex-col md:flex-row items-center gap-x-10 gap-y-8">
 					<div
 						data-aos="zoom-out"
@@ -47,16 +50,13 @@ const UpcomingEvents = ({ date }: Props) => {
 						>
 							Join us for an exclusive opportunity to supercharge your resume! Our Free Resume Clinic is designed to empower you with the tools and knowledge to stand out in today’s competitive job market.
 						</p>
-						<p className="text-gray-400 text-xl font-semibold mt-[45px]">
-							Date: {date ? '${date}' : '20-10-2023'}
-						
-						</p>
+						<p className="text-gray-400 text-xl font-semibold mt-[45px]">Date: {date ? "${date}" : "20-10-2023"}</p>
 						<motion.button
 							{...interactionAnimations}
 							onClick={() => navigate("/upcoming-events")}
-							data-aos="fade-up"
+							data-aos="soom-out"
 							data-aos-duration="700"
-							data-aos-delay="1500"
+							data-aos-delay="800"
 							className="font-medium md:font-bold lg:text-lg max-w-[200px] px-9 py-4 rounded-xl   hover:text-white hover:bg-black lg:rounded-none border-2 border-black font-inter focus:bg-black focus:text-white transition-colors duration-500"
 						>
 							View Details

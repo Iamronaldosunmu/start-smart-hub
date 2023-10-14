@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import Bookings from "../components/Booking";
 import Container from "../components/container";
 import Hero from "../components/HomeHero/Hero";
@@ -7,6 +8,7 @@ import Goals from "../sections/services/Goals/Goals";
 import Grid from "../sections/services/Grid/Grid";
 import Information from "../sections/services/Information/Information";
 import useServiceStore from "../store/services";
+import { useSearchParams } from "react-router-dom";
 
 export const getPathFromFormType = (formType: string) => {
 	if (formType == "Resume") {
@@ -21,23 +23,29 @@ export const getPathFromFormType = (formType: string) => {
 
 const Services: React.FC = () => {
 	const { services } = useServiceStore();
+	const [searchParams, setSearchParams] = useSearchParams();
+	const scrollTo = searchParams.get("scroll_to");
+
+	useEffect(() => {
+		if (scrollTo === "services") document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+	}, [searchParams]);
 	return (
 		<PageContainer className="mt-[96px] lg:mt-[133px]">
 			<Hero />
 			<Goals />
 			<Information />
 			<Grid />
-			<Container>
-				{services?.map((service) => (
+			<Container id="services">
+				{services?.map((service, index) => (
 					<Service
-						number={service.id}
+						number={index}
 						imageUrl="/assets/service.png"
-						title={service.attributes?.title}
-						text={service.attributes?.description}
-						path={getPathFromFormType(service.attributes.formType)}
+						title={service?.title}
+						text={service?.description}
+						path={getPathFromFormType(service?.formType)}
 					/>
 				))}
-				<Service
+				{/* <Service
 					number={1}
 					imageUrl="/assets/service.png"
 					title="Resume building"
@@ -106,7 +114,7 @@ const Services: React.FC = () => {
 					title="Career/personal development coaching"
 					text="We offer personalized guidance, unwavering support, and tailored strategies to accelerate your professional growth and help you achieve your career goals and personal breakthroughs."
 					path="/consultation/career-coaching"
-				/>
+				/> */}
 			</Container>
 			{/* <Billing /> */}
 			<Bookings />

@@ -68,13 +68,16 @@ const UnlockYourPotential = () => {
 	return (
 		<section className="mt-14 lg:mt-[100px] text-center overflow-hidden">
 			<Container>
-				<TextAnimation
+				<div
+					data-aos="zoom-in"
+					data-aos-duration="700"
 					className="text-[44px] lg:text-[56px] font-semibold font-poppins tracking-normal flex flex-wrap gap-x-3 justify-center"
-					text="Unlock your potential!"
-				/>
+				>
+					Unlock your potential!
+				</div>
 				<TextContainer className="flex justify-center">
 					<p
-						data-aos="fade-up"
+						data-aos="zoom-in"
 						data-aos-duration="700"
 						data-aos-delay="300"
 						className="text-[#171717C4] text-sm leading-normal lg:leading-7 mt-5 lg:mt-2 max-w-[778px]"
@@ -90,7 +93,7 @@ const UnlockYourPotential = () => {
 				className="relative h-full min-w-[2251.94px] scale-90 md:scale-100 mt-4"
 			>
 				<div className="flex gap-x-[30px] mt-8 lg:mt-6 text-center w-full animate-scroll">
-					{services?.map(({ attributes: { title, description, formType } }, index) => (
+					{services?.map(({ title, formType, description, image }, index) => (
 						<div
 							key={index}
 							className="w-[352px] lg:w-[373px] h-full"
@@ -98,7 +101,7 @@ const UnlockYourPotential = () => {
 							<div className="w-[370px] h-[267px] scale-105">
 								<img
 									className="w-full h-full object-cover"
-									// src={image}
+									src={image ? image[0].url : ""}
 									alt=""
 								/>
 							</div>

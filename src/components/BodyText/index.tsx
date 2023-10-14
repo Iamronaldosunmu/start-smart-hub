@@ -9,7 +9,7 @@ const TextSection = ({ heading, paragraphs }: Props) => {
 	return (
 		<div className="w-full">
 			<TextAnimation
-				className="font-semibold mb-4 text-[36px] flex gap-x-2"
+				className="font-semibold mb-4 text-[36px] flex gap-x-2 flex-wrap"
 				text={heading}
 			/>
 			{paragraphs.map((text, index) => (

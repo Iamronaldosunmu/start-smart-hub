@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import Container from "../../../components/container";
 import TextAnimation from "../../../components/TextAnimation";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import { interactionAnimations } from "../../../utils/framer-default-animations";
 
 const MeetTheFounder = () => {
@@ -22,14 +22,20 @@ const MeetTheFounder = () => {
 			</div>
 			<div className="flex flex-col items-center lg:items-start lg:max-w-[504px]">
 				<h2 className="text-[44px] lg:text-[48px] text-[#331B3B] font-bold leading-[51px] tracking-tight lg:tracking-[-0.03em]">
-					<TextAnimation
-						className="w-full text-center lg:text-start flex flex-wrap gap-x-[10px]"
-						text="Meet the founder"
-					/>
-					<TextAnimation
-						className="font-light w-full text-center lg:text-start flex flex-wrap gap-x-[10px]"
-						text="Doyin Adetona"
-					/>
+					<div
+						data-aos="zoom-in"
+						data-aos-duration="700"
+						className="w-full text-center lg:text-start  gap-x-[10px]"
+					>
+						Meet the founder
+					</div>
+					<div
+						data-aos-duration="700"
+						data-aos="zoom-in"
+						className="font-light w-full text-center lg:text-start gap-x-[10px]"
+					>
+						Doyin Adetona
+					</div>
 				</h2>
 				<div className="mt-10 sm:mt-6">
 					<p
@@ -54,7 +60,7 @@ const MeetTheFounder = () => {
 					onClick={() => navigate("/about-us")}
 					data-aos="fade-up"
 					data-aos-duration="700"
-					data-aos-delay="1300"	
+					data-aos-delay="1300"
 					className="text-[13px] font-bold font-poppins tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center mt-6 focus:bg-black focus:text-white transition-colors duration-500"
 				>
 					Read My Story
