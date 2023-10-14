@@ -97,7 +97,7 @@ const UnlockYourPotential = () => {
 				>
 					{services.map(({ title, text, link, image }, index) => (
 						<SwiperSlide key={index}>
-							<div className=" h-full">
+							<div className=" h-full ">
 								<div className="w-full h-[200px] lg:h-[267px] md:h-[200px] scale-105">
 									<img
 										className="w-full  h-full  object-cover"
@@ -105,17 +105,22 @@ const UnlockYourPotential = () => {
 										alt=""
 									/>
 								</div>
-								<div className="py-[30px] px-4 h-full">
+								<div className="py-[30px] px-4 h-[300px] flex flex-col justify-between ">
+									<div className="">
+
 									<h3 className="text-xl font-semibold">{title}</h3>
-									<div className="flex flex-col justify-between">
 										<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{text}</p>
-										<Link
-											to={link}
-											className="block mx-auto text-sm mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins hover:bg-black hover:text-white transition-colors duration-500"
-										>
-											Start Now
-										</Link>
 									</div>
+									
+										
+											<Link
+												to={link}
+												className="block mx-auto text-sm  mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins hover:bg-black hover:text-white transition-colors duration-500"
+											>
+												Start Now
+											</Link>
+								
+									
 								</div>
 							</div>
 						</SwiperSlide>
