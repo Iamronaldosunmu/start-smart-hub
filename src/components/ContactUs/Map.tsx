@@ -35,3 +35,7 @@ const Map = ({ position = [43.651070, -79.347015] }: Props) => {
 };
 
 export default Map;
+
+
+
+

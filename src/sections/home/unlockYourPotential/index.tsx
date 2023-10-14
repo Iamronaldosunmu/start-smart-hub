@@ -2,8 +2,16 @@ import { Link } from "react-router-dom";
 import TextAnimation from "../../../components/TextAnimation";
 import Container from "../../../components/container";
 import TextContainer from "../../../components/textContainer";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import useSize from "../../../hooks/useSize";
+import "swiper/css"; 
+import { useState } from "react";
 
 const UnlockYourPotential = () => {
+	const [width] = useSize()
+		const [isEnd, setIsEnd] = useState(false);
+		
+
 	const services = [
 		{
 			title: "Resume building",
@@ -60,8 +68,10 @@ const UnlockYourPotential = () => {
 			image: "/assets/resumeBuilding.jpg",
 		},
 	];
-	return (
-		<section className="mt-14 lg:mt-[100px] text-center overflow-hidden">
+
+
+  return (
+		<section className="mt-14 lg:mt-[100px] text-center overflow-hidden ">
 			<Container>
 				<TextAnimation
 					className="text-[44px] lg:text-[56px] font-semibold font-poppins tracking-normal flex flex-wrap gap-x-3 justify-center"
@@ -78,65 +88,77 @@ const UnlockYourPotential = () => {
 					</p>
 				</TextContainer>
 			</Container>
-			<div
-				data-aos="fade-up"
-				data-aos-duration="700"
-				data-aos-delay="800"
-				className="relative h-full min-w-[2251.94px] scale-90 md:scale-100 mt-4"
-			>
-				<div className="flex gap-x-[30px] mt-8 lg:mt-6 text-center w-full animate-scroll">
+			<Container className="flex gap-x-[30px] justify-center mt-8 lg:mt-6 text-center w-full ">
+				<Swiper
+					onReachEnd={() => setIsEnd(true)}
+					allowTouchMove={false}
+					spaceBetween={width > 767 ? (width > 1024 ? 40 : 40) : 20}
+					slidesPerView={width > 500 ? (width > 1024 ?  3: 2) : 1}
+				>
 					{services.map(({ title, text, link, image }, index) => (
-						<div
-							key={index}
-							className="w-[352px] lg:w-[373px] h-full"
-						>
-							<div className="w-[370px] h-[267px] scale-105">
-								<img
-									className="w-full h-full object-cover"
-									src={image}
-									alt=""
-								/>
+						<SwiperSlide key={index}>
+							<div className=" h-full">
+								<div className="w-full h-[200px] lg:h-[267px] md:h-[200px] scale-105">
+									<img
+										className="w-full  h-full  object-cover"
+										src={image}
+										alt=""
+									/>
+								</div>
+								<div className="py-[30px] px-4 h-full">
+									<h3 className="text-xl font-semibold">{title}</h3>
+									<div className="flex flex-col justify-between">
+										<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{text}</p>
+										<Link
+											to={link}
+											className="block mx-auto text-sm mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins hover:bg-black hover:text-white transition-colors duration-500"
+										>
+											Start Now
+										</Link>
+									</div>
+								</div>
 							</div>
-							<div className="py-[30px] px-4">
-								<h3 className="text-xl font-semibold">{title}</h3>
-								<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{text}</p>
-								<Link
-									to={link}
-									className="block mx-auto text-sm mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins focus:bg-black focus:text-white transition-colors duration-500"
-								>
-									Start Now
-								</Link>
-							</div>
-						</div>
+						</SwiperSlide>
 					))}
-					{services.map(({ title, text, link, image }, index) => (
-						<div
-							key={index}
-							className="w-[352px] lg:w-[373px] h-full"
-						>
-							<div className="w-[370px] h-[267px] scale-105">
-								<img
-									className="w-full h-full object-cover"
-									src={image}
-									alt=""
-								/>
-							</div>
-							<div className="py-[30px] px-4">
-								<h3 className="text-xl font-semibold">{title}</h3>
-								<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{text}</p>
-								<Link
-									to={link}
-									className="block mx-auto text-sm mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins focus:bg-black focus:text-white transition-colors duration-500"
-								>
-									Start Now
-								</Link>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
+
+					<SwiperNav enabled={isEnd} />
+				</Swiper>
+			</Container>
 		</section>
 	);
 };
 
+const SwiperNav = ({ enabled }: { enabled: boolean }) => {
+	const swiper = useSwiper();
+	return (
+		<div className="absolute w-full bottom-[60%] translate-y-[50%] z-10 flex justify-between">
+			<div
+				aria-disabled={enabled}
+				onClick={() => swiper.slidePrev()}
+				className={`bg-[#726f6f99]  p-[4px] md:p-[10px] lg:p-4  left-0 none-select ${enabled && "cursor-pointer"}`}
+			>
+				<img
+					className="w-10 h-10 object-cover"
+					src="/assets/chevron-right.svg"
+					alt=""
+				/>
+			</div>
+			<div
+				aria-disabled={!enabled}
+				onClick={() => swiper.slideNext()}
+				className={`bg-[#726f6f99] p-[4px] md:p-[10px] lg:p-4 right-0 rotate-180 none-select ${!enabled && "cursor-pointer"}`}
+			>
+				<img
+					className="w-10 h-10 object-cover"
+					src="/assets/chevron-right.svg"
+					alt=""
+				/>
+			</div>
+		</div>
+	);
+};
+
+
 export default UnlockYourPotential;
+
+
