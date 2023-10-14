@@ -22,8 +22,9 @@ const UpcomingEvents = () => {
 			</header>
 			<Container className="mb-3 text-center flex flex-col gap-y-7 justify-center items-center md:text-left">
 				{events ? (
-					events?.map(({ date, venue, summary, expectations, title, price }) => (
+					events?.map(({ attributes: { date, venue, summary, expectations, title, price }, id }) => (
 						<Event
+							key={id}
 							date={date}
 							venue={venue}
 							summary={summary}
@@ -34,6 +35,7 @@ const UpcomingEvents = () => {
 					))
 				) : (
 					<img
+						className="w-[120px] h-[120px]"
 						src="/assets/loader.svg"
 						alt=""
 					/>
