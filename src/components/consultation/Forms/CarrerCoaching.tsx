@@ -1,12 +1,14 @@
+import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { PopupButton } from "react-calendly";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { z } from "zod";
+import { useCareerForm } from "../../../hooks/useForms";
 import Container from "../../container";
 import MiniNav from "../MiniNav";
 import { CheckBoxList, Input, TextArea } from "../inputs";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
-import { useCareerForm } from "../../../hooks/useForms";
 
 const shortTermGoals = ["Promotion within current job", "Transition to a new role or industry", "Improve job satisfaction"];
 
@@ -32,7 +34,9 @@ const CareerCoaching = () => {
 	const pages = [1, 2];
 	const [page, setPage] = useState(1);
 
-	const { mutate, isLoading } = useCareerForm();
+	const navigate = useNavigate();
+
+	const { mutate } = useCareerForm();
 
 	const {
 		register,
@@ -72,6 +76,7 @@ const CareerCoaching = () => {
 		console.log(info);
 		mutate(info);
 		reset();
+		navigate("/home");
 	};
 
 	useEffect(() => {
@@ -184,18 +189,13 @@ const CareerCoaching = () => {
 									register={register}
 									error={errors}
 								/>
-								<button
-									type="submit"
-									className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] transition-colors duration-500 font-medium w-full py-2 leading-[44px] rounded-[10px]"
-								>
-									{isLoading ? (
-										<img
-											className="w-10 h-10"
-											src="/assets/loader2.svg"
-										/>
-									) : (
-										"Submit"
-									)}
+								<button type="submit">
+									<PopupButton
+										url="https://calendly.com/startsmarthub"
+										rootElement={document.getElementById("root") as HTMLElement}
+										text="Schedule"
+										className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
+									/>
 								</button>
 							</div>
 						</motion.section>

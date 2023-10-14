@@ -12,7 +12,7 @@ const getService = (formType: string) => {
 	}
 };
 
-const submitForm = async ({ formType, data }: { formType: string; data: any }) => {
+const submitForm = async ({ formType, data }: { formType: string; data: unknown }) => {
 	const res = await axiosInstance.post("/book", {
 		service: getService(formType),
 		formType,
