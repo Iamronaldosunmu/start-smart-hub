@@ -12,9 +12,9 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
-import UpcomingEvents from "./components/UpcomingEvents/Events/Events";
 import useServiceStore from "./store/services";
 import { useServices } from "./hooks/useServices";
+import UpcomingEvents from "./pages/upcomingEvents";
 
 function App() {
 	const { pathname } = useLocation();
@@ -40,17 +40,6 @@ function App() {
 			window.scrollTo(0, 0);
 		}, 300);
 	}, [pathname]);
-
-	// Fetch Data needed for all the pages
-
-	// Data for the services
-	const { setServices } = useServiceStore();
-	const { data: servicesData } = useServices();
-
-	useEffect(() => {
-		setServices(servicesData);
-		console.log(servicesData);
-	}, [servicesData]);
 
 	return (
 		<>

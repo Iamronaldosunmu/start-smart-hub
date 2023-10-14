@@ -1,12 +1,13 @@
-import { FieldValues, useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { useContact } from "../../../hooks/useContact";
 import FormFooter from "./FormFooter";
 
 const schema = z.object({
 	name: z.string().min(3),
 	email: z.string().email({ message: "This email format is not valid" }),
-	phoneNo: z.string().min(11),
+	phone: z.string().min(11),
 	referral: z.string(),
 });
 
@@ -20,10 +21,12 @@ const Form = () => {
 		reset,
 	} = useForm<FormData>({ resolver: zodResolver(schema), mode: "onBlur" });
 
-	const handleFormSubmit = (data: FieldValues) => {
+	const { mutate } = useContact();
+
+	const handleFormSubmit = (data: FormData) => {
 		if (isValid) {
+			mutate(data);
 			reset();
-			console.log(data);
 		}
 	};
 
@@ -65,11 +68,11 @@ const Form = () => {
 					<input
 						type="text"
 						id="phone"
-						{...register("phoneNo")}
+						{...register("phone")}
 						placeholder="Phone number"
 						className="border md:py-4 w-full py-2 px-3 border-gray-300 outline-none"
 					/>
-					{errors.phoneNo && <p className="text-red-500">{errors.phoneNo.message}</p>}
+					{errors.phone && <p className="text-red-500">{errors.phone.message}</p>}
 				</div>
 				<div className="mb-7">
 					<select
