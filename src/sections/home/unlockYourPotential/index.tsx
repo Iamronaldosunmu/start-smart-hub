@@ -4,13 +4,12 @@ import Container from "../../../components/container";
 import TextContainer from "../../../components/textContainer";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import useSize from "../../../hooks/useSize";
-import "swiper/css"; 
+import "swiper/css";
 import { useState } from "react";
 
 const UnlockYourPotential = () => {
-	const [width] = useSize()
-		const [isEnd, setIsEnd] = useState(false);
-		
+	const [width] = useSize();
+	const [isEnd, setIsEnd] = useState(false);
 
 	const services = [
 		{
@@ -69,8 +68,7 @@ const UnlockYourPotential = () => {
 		},
 	];
 
-
-  return (
+	return (
 		<section className="mt-14 lg:mt-[100px] text-center overflow-hidden ">
 			<Container>
 				<TextAnimation
@@ -93,7 +91,7 @@ const UnlockYourPotential = () => {
 					onReachEnd={() => setIsEnd(true)}
 					allowTouchMove={false}
 					spaceBetween={width > 767 ? (width > 1024 ? 40 : 40) : 20}
-					slidesPerView={width > 500 ? (width > 1024 ?  3: 2) : 1}
+					slidesPerView={width > 500 ? (width > 1024 ? 3 : 2) : 1}
 				>
 					{services.map(({ title, text, link, image }, index) => (
 						<SwiperSlide key={index}>
@@ -107,20 +105,16 @@ const UnlockYourPotential = () => {
 								</div>
 								<div className="py-[30px] px-4 h-[300px] flex flex-col justify-between ">
 									<div className="">
-
-									<h3 className="text-xl font-semibold">{title}</h3>
+										<h3 className="text-xl font-semibold">{title}</h3>
 										<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{text}</p>
 									</div>
-									
-										
-											<Link
-												to={link}
-												className="block mx-auto text-sm  mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins hover:bg-black hover:text-white transition-colors duration-500"
-											>
-												Start Now
-											</Link>
-								
-									
+
+									<Link
+										to={link}
+										className="block mx-auto text-sm  mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins hover:bg-black hover:text-white transition-colors duration-500"
+									>
+										Start Now
+									</Link>
 								</div>
 							</div>
 						</SwiperSlide>
@@ -163,7 +157,4 @@ const SwiperNav = ({ enabled }: { enabled: boolean }) => {
 	);
 };
 
-
 export default UnlockYourPotential;
-
-
