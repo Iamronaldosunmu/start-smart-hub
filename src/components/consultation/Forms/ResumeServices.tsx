@@ -128,14 +128,12 @@ const ResumeServices = () => {
 										title="First Name"
 										name="firstName"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 									<Input
 										title="Last Name"
 										name="lastName"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 								</div>
@@ -144,14 +142,12 @@ const ResumeServices = () => {
 										title="Email"
 										name="email"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 									<Input
 										title="Phone Number"
 										name="phone"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 								</div>
@@ -159,7 +155,6 @@ const ResumeServices = () => {
 									title="LinkedIn Profile URL"
 									name="profile"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Service Selection</h1>
@@ -192,28 +187,24 @@ const ResumeServices = () => {
 									title="Current Job Title"
 									name="jobTitle"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="Industry"
 									name="industry"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="Desired Job Title"
 									name="desiredJobTitle"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="Target Industry or Audience for LinkedIn"
 									name="targetIndustry"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
@@ -221,14 +212,12 @@ const ResumeServices = () => {
 									type="number"
 									name="yearsOfExperience"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="Highest Education Level"
 									name="educationLevel"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<button
@@ -253,49 +242,42 @@ const ResumeServices = () => {
 									title="Have you previously created a resume? [Yes/No]"
 									name="isResume"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="If yes, please share your existing resume us by email"
 									name="resume"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="Do you have a draft or notes for your resume? [Yes/No]"
 									name="isResumeDrafts"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<TextArea
 									title="If yes, please provide any additional information or notes:"
 									name="resumeDrafts"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<TextArea
 									title="Please share any specific preferences or requirements you have for your resume (e.g formatting, style, key accomplishments):"
 									name="requirements"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="What are your primary goals for your resume?"
 									name="primaryGoals"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="What specific outcomes or improvements do you expect from our resume services?"
 									name="outcomes"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<button
@@ -304,7 +286,7 @@ const ResumeServices = () => {
 								>
 									{isValid ? (
 										<PopupButton
-											url="https://calendly.com/jason-aghedo/consultation-with-aghedo-jason?hide_gdpr_banner=1"
+											url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
 											rootElement={document.getElementById("root") as HTMLElement}
 											text="Schedule"
 											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"

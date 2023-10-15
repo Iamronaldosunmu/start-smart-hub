@@ -203,7 +203,6 @@ const CareerCoaching = () => {
 								<TextArea
 									title="What challenges or obstacles are you currently facing in your career?"
 									name="challenges"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
@@ -213,7 +212,7 @@ const CareerCoaching = () => {
 								>
 									{isValid ? (
 										<PopupButton
-											url="https://calendly.com/jason-aghedo/consultation-with-aghedo-jason?hide_gdpr_banner=1"
+											url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
 											rootElement={document.getElementById("root") as HTMLElement}
 											text="Schedule"
 											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"

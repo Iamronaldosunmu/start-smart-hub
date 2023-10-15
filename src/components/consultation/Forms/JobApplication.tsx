@@ -136,14 +136,12 @@ const JobApplication = () => {
 										title="First Name"
 										name="firstName"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 									<Input
 										title="Last Name"
 										name="lastName"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 								</div>
@@ -151,14 +149,12 @@ const JobApplication = () => {
 									<Input
 										title="Email"
 										name="email"
-										placeholder="Resume Template"
 										register={register}
 										error={errors}
 									/>
 									<Input
 										title="Phone Number"
 										name="phone"
-										placeholder="Resume Template"
 										register={register}
 										error={errors}
 									/>
@@ -166,7 +162,6 @@ const JobApplication = () => {
 								<Input
 									title="Address"
 									name="address"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
@@ -201,13 +196,11 @@ const JobApplication = () => {
 										title="Current Job Title"
 										name="jobTitle"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 									<Input
 										title="Current Industry"
 										name="industry"
-										placeholder="Resume Template"
 										register={register}
 										error={errors}
 									/>
@@ -242,14 +235,12 @@ const JobApplication = () => {
 								<TextArea
 									title="What are your short-term career goals (next 6-12 months)?"
 									name="shortTermGoal"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
 								<TextArea
 									title="What are your long-term career goals (next 2-5 years)?"
 									name="longTermGoal"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
@@ -274,14 +265,12 @@ const JobApplication = () => {
 								<Input
 									title="Desired Job Title"
 									name="desiredJobTitle"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
 								<Input
 									title="Target Industry"
 									name="targetIndustry"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
@@ -289,7 +278,6 @@ const JobApplication = () => {
 									title="Target Company"
 									name="targetCompany"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Resume and Application Details</h1>
@@ -297,21 +285,18 @@ const JobApplication = () => {
 									title="Please provide a brief summary of your work experience and skills."
 									name="summary"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<TextArea
 									title="Attach your current resume (if available):"
 									name="resume"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<TextArea
 									title="Are there any specific job postings you're interested in? If yes, please provide links or details:"
 									name="jobPostings"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Additional Information</h1>
@@ -319,14 +304,12 @@ const JobApplication = () => {
 									title="Is there any other information you would like to share about your job search or career goals?"
 									name="additionalInfo"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="How did you hear about our Job Application Tailoring Services?"
 									name="referral"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<button
@@ -335,7 +318,7 @@ const JobApplication = () => {
 								>
 									{isValid ? (
 										<PopupButton
-											url="https://calendly.com/jason-aghedo/consultation-with-aghedo-jason?hide_gdpr_banner=1"
+											url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
 											rootElement={document.getElementById("root") as HTMLElement}
 											text="Schedule"
 											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"

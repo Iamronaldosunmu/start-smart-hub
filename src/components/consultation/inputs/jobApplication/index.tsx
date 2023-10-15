@@ -10,7 +10,7 @@ interface JobInputProps {
 interface InputProps extends JobInputProps {
 	title: string;
 	type?: "number" | "text";
-	placeholder: string;
+	placeholder?: string;
 	error: FieldErrors<JobFormData>;
 }
 

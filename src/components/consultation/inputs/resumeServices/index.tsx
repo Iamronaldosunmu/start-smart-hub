@@ -10,7 +10,7 @@ interface ResumeInputProps {
 interface InputProps extends ResumeInputProps {
 	title: string;
 	type?: "number" | "text";
-	placeholder: string;
+	placeholder?: string;
 	error: FieldErrors<ResumeFormData>;
 }
 
