@@ -59,6 +59,7 @@ const Subscribe = () => {
 				<div className="text-[44px] lg:text-[54px] font-bold flex flex-wrap gap-x-2 justify-center">
 					{"Stay in the loop!".split(" ").map((word, index) => (
 						<motion.div
+						key={index}
 							initial={{ y: 45, opacity: 0 }}
 							animate={{
 								y: 0,

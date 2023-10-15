@@ -1,22 +1,84 @@
+import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Container from "../../container";
 import MiniNav from "../MiniNav";
-import { CheckBoxList, Input } from "../inputs";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { CheckBoxList, Input, TextArea } from "../inputs/jobApplication";
 
 const employmentStatus = ["Employed", "Unemployed", "Self-employed", "Student"];
 const services = ["Resume Tailoring", "Cover Letter Writing", "Application Form Assistance", "LinkedIn Profile Optimization", "Interview Coaching"];
 
+const schema = z.object({
+	firstName: z.string().min(3, { message: "First Name must be at least 3 characters" }),
+	lastName: z.string().min(3, { message: "Last Name must be at least 3 characters" }),
+	email: z.string().email({ message: "The email format you entered is invalid" }),
+	phone: z.string().min(11, { message: "Phone number should be at least 11 characters" }),
+	address: z.string(),
+	employmentStatus: z.string(),
+	jobTitle: z.string().min(2, { message: "Job Title should not be less than 2 characters" }),
+	industry: z.string().min(2, { message: "Industry/Field is required" }),
+	service: z.string(),
+	shortTermGoal: z.string(),
+	longTermGoal: z.string(),
+	desiredJobTitle: z.string(),
+	targetIndustry: z.string(),
+	targetCompany: z.string(),
+	summary: z.string(),
+	resume: z.string(),
+	jobPostings: z.string(),
+	additionalInfo: z.string(),
+	referral: z.string(),
+});
+
+export type JobFormData = z.infer<typeof schema>;
+
 const JobApplication = () => {
 	const pages = [1, 2, 3, 4];
 	const [page, setPage] = useState(1);
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<JobFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
+
+	const onSubmit = (data: JobFormData) => {
+		// const info = {
+		// 	formType: "Career Coaching",
+		// 	data: {
+		// 		ClientInformation: {
+		// 			firstName: data.firstName,
+		// 			lastName: data.lastName,
+		// 			email: data.email,
+		// 			yearsOfExperience: data.yearsOfExperience,
+		// 			industry: data.industry,
+		// 			currentEmployer: data.employer,
+		// 			currentJobTitle: data.jobTitle,
+		// 			phone: data.phone,
+		// 		},
+		// 		careerGoals: {
+		// 			shortTerm: data.shortTermGoal,
+		// 			longTerm: data.longTermGoal,
+		// 			// skills: [{ skill: "Typescript" }, { skill: "Problem Solving" }],
+		// 		},
+		// 		challenges: data.challenges,
+		// 	},
+		// };
+		console.log(data);
+		// mutate(info);
+		// reset();
+		// navigate("/home");
+	};
+
 	useEffect(() => {
 		setTimeout(() => {
 			window.scrollTo({ top: 0, behavior: "smooth" });
 		}, 300);
 	}, [page]);
 
-	const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+	const nextPage = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		e.preventDefault();
 		if (page > pages.length - 1) setPage(1);
 		else setPage(page + 1);
@@ -30,200 +92,224 @@ const JobApplication = () => {
 				setPage={(page) => setPage(page)}
 			/>
 			<AnimatePresence mode="wait">
-				{page === 1 && (
-					<motion.section
-						key="page1"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-					>
-						<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Client Information</h1>
-						<form
-							action=""
-							className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5 lg:mt-10"
+				<form onSubmit={handleSubmit(onSubmit)}>
+					{page === 1 && (
+						<motion.section
+							key="page1"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
 						>
-							<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
+							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Client Information</h1>
+							<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5 lg:mt-10">
+								<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
+									<Input
+										title="First Name"
+										name="firstName"
+										register={register}
+										placeholder="Resume Template"
+										error={errors}
+									/>
+									<Input
+										title="Last Name"
+										name="lastName"
+										register={register}
+										placeholder="Resume Template"
+										error={errors}
+									/>
+								</div>
+								<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
+									<Input
+										title="Email"
+										name="email"
+										placeholder="Resume Template"
+										register={register}
+										error={errors}
+									/>
+									<Input
+										title="Phone Number"
+										name="phone"
+										placeholder="Resume Template"
+										register={register}
+										error={errors}
+									/>
+								</div>
 								<Input
-									name="first Name"
-
+									title="Address"
+									name="address"
+									placeholder="Resume Template"
+									register={register}
+									error={errors}
 								/>
-								<Input
-									name="last Name"
-
-								/>
+								<button
+									onClick={nextPage}
+									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
+								>
+									Next
+								</button>
 							</div>
-							<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
-								<Input
-									name="Email"
-									
-								/>
-								<Input
-									name="Phone number"
-									
-								/>
-							</div>
-							<button
-								type="submit"
-								onClick={handleSubmit}
-								className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
-							>
-								Next
-							</button>
-						</form>
-					</motion.section>
-				)}
-				{page === 2 && (
-					<motion.section
-						key="page2"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-					>
-						<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Current Job Status</h1>
-						<form
-							action=""
-							className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-3 lg:mt-10"
+						</motion.section>
+					)}
+					{page === 2 && (
+						<motion.section
+							key="page2"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
 						>
-							<CheckBoxList
-								title="Current Employment Status"
-								name="current-employment-status"
-								options={employmentStatus}
-								useInput={true}
-							/>
-							<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5">
+							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Current Job Status</h1>
+							<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-3 lg:mt-10">
+								<CheckBoxList
+									title="Current Employment Status"
+									name="employmentStatus"
+									options={employmentStatus}
+									useInput={true}
+									register={register}
+									error={errors}
+								/>
+								<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5">
+									<Input
+										title="Current Job Title"
+										name="jobTitle"
+										register={register}
+										placeholder="Resume Template"
+										error={errors}
+									/>
+									<Input
+										title="Current Industry"
+										name="industry"
+										placeholder="Resume Template"
+										register={register}
+										error={errors}
+									/>
+								</div>
+								<button
+									onClick={nextPage}
+									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
+								>
+									Next
+								</button>
+							</div>
+						</motion.section>
+					)}
+					{page === 3 && (
+						<motion.section
+							key="page3"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+						>
+							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Service Selection</h1>
+							<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5 lg:mt-10">
+								<CheckBoxList
+									title="Please select the specific services you are interested in"
+									name="service"
+									options={services}
+									useInput={true}
+									register={register}
+									error={errors}
+								/>
+								<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Career Goals</h1>
+								<TextArea
+									title="What are your short-term career goals (next 6-12 months)?"
+									name="shortTermGoal"
+									placeholder="Resume Template"
+									register={register}
+									error={errors}
+								/>
+								<TextArea
+									title="What are your long-term career goals (next 2-5 years)?"
+									name="longTermGoal"
+									placeholder="Resume Template"
+									register={register}
+									error={errors}
+								/>
+								<button
+									onClick={nextPage}
+									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
+								>
+									Next
+								</button>
+							</div>
+						</motion.section>
+					)}
+					{page === 4 && (
+						<motion.section
+							key="page4"
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0 }}
+						>
+							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Targeted Job Position</h1>
+							<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5 lg:mt-10">
 								<Input
-									name="Current Job Title"
-									
+									title="Desired Job Title"
+									name="desiredJobTitle"
+									placeholder="Resume Template"
+									register={register}
+									error={errors}
 								/>
 								<Input
-									name="Current Industry"
-									
+									title="Target Industry"
+									name="targetIndustry"
+									placeholder="Resume Template"
+									register={register}
+									error={errors}
 								/>
+								<Input
+									title="Target Company"
+									name="targetCompany"
+									register={register}
+									placeholder="Resume Template"
+									error={errors}
+								/>
+								<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Resume and Application Details</h1>
+								<TextArea
+									title="Please provide a brief summary of your work experience and skills."
+									name="summary"
+									register={register}
+									placeholder="Resume Template"
+									error={errors}
+								/>
+								<TextArea
+									title="Attach your current resume (if available):"
+									name="resume"
+									register={register}
+									placeholder="Resume Template"
+									error={errors}
+								/>
+								<TextArea
+									title="Are there any specific job postings you're interested in? If yes, please provide links or details:"
+									name="jobPostings"
+									register={register}
+									placeholder="Resume Template"
+									error={errors}
+								/>
+								<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Additional Information</h1>
+								<TextArea
+									title="Is there any other information you would like to share about your job search or career goals?"
+									name="additionalInfo"
+									register={register}
+									placeholder="Resume Template"
+									error={errors}
+								/>
+								<Input
+									title="How did you hear about our Job Application Tailoring Services?"
+									name="referral"
+									register={register}
+									placeholder="Resume Template"
+									error={errors}
+								/>
+								<button
+									type="submit"
+									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
+								>
+									Submit
+								</button>
 							</div>
-							<button
-								type="submit"
-								onClick={handleSubmit}
-								className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
-							>
-								Next
-							</button>
-						</form>
-					</motion.section>
-				)}
-				{page === 3 && (
-					<motion.section
-						key="page3"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-					>
-						<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Service Selection</h1>
-						<form
-							action=""
-							className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5 lg:mt-10"
-						>
-							<CheckBoxList
-								title="Please select the specific services you are interested in"
-								name="service-selection"
-								options={services}
-								useInput={true}
-							/>
-							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Career Goals</h1>
-							<div>
-								<p className="text-sm lg:text-base leading-5 text-[#331B3BA8] mb-4">What are your short-term career goals (next 6-12 months)?</p>
-								<textarea
-									
-									className="border border-[#575252] lg:placeholder:text-[#1E4178] h-[157px] lg:h-[273px] py-4 px-3 focu:outline-0 placeholder:text-[#71717A] w-full rounded-md"
-								></textarea>
-							</div>
-							<div>
-								<p className="text-sm lg:text-base leading-5 text-[#331B3BA8] mb-4">What are your long-term career goals (next 2-5 years)?</p>
-								<textarea
-									
-									className="border border-[#575252] lg:placeholder:text-[#1E4178] h-[157px] py-4 px-3 focu:outline-0 placeholder:text-[#71717A] w-full rounded-md"
-								></textarea>
-							</div>
-							<button
-								type="submit"
-								onClick={handleSubmit}
-								className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
-							>
-								Next
-							</button>
-						</form>
-					</motion.section>
-				)}
-				{page === 4 && (
-					<motion.section
-						key="page4"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-					>
-						<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Targeted Job Position</h1>
-						<form
-							action=""
-							className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5 lg:mt-10"
-						>
-							<Input
-								name="Desired Job Title"
-								
-							/>
-							<Input
-								name="Target Industry"
-								
-							/>
-							<Input
-								name="Current Industry"
-								
-							/>
-							<Input
-								name="Target Company (if applicable)"
-								
-							/>
-							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Resume and Application Details</h1>
-							<div>
-								<p className="text-sm lg:text-base leading-5 text-[#331B3BA8] mb-4">Please provide a brief summary of your work experience and skills.</p>
-								<textarea
-									
-									className="border border-[#575252] lg:placeholder:text-[#1E4178] h-[157px] py-4 px-3 focu:outline-0 placeholder:text-[#71717A] w-full rounded-md"
-								></textarea>
-							</div>
-							<div>
-								<p className="text-sm lg:text-base leading-5 text-[#331B3BA8] mb-4">Attach your current resume (if available):</p>
-								<textarea
-									
-									className="border border-[#575252] lg:placeholder:text-[#1E4178] h-[157px] py-4 px-3 focu:outline-0 placeholder:text-[#71717A] w-full rounded-md"
-								></textarea>
-							</div>
-							<div>
-								<p className="text-sm lg:text-base leading-5 text-[#331B3BA8] mb-4">Are there any specific job postings you're interested in? If yes, please provide links or details:</p>
-								<textarea
-									
-									className="border border-[#575252] lg:placeholder:text-[#1E4178] h-[157px] py-4 px-3 focu:outline-0 placeholder:text-[#71717A] w-full rounded-md"
-								></textarea>
-							</div>
-							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Additional Information</h1>
-							<div>
-								<p className="text-sm lg:text-base leading-5 text-[#331B3BA8] mb-4">Is there any other information you would like to share about your job search or career goals?</p>
-								<textarea
-									
-									className="border border-[#575252] lg:placeholder:text-[#1E4178] h-[157px] py-4 px-3 focu:outline-0 placeholder:text-[#71717A] w-full rounded-md"
-								></textarea>
-							</div>
-							<Input
-								name="How did you hear about our Job Application Tailoring Services?"
-							/>
-							<button
-								type="submit"
-								onClick={handleSubmit}
-								className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
-							>
-								Next
-							</button>
-						</form>
-					</motion.section>
-				)}
+						</motion.section>
+					)}
+				</form>
 			</AnimatePresence>
 		</Container>
 	);

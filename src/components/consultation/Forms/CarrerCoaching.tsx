@@ -1,14 +1,14 @@
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { PopupButton } from "react-calendly";
+import { PopupButton, useCalendlyEventListener } from "react-calendly";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
 import { useCareerForm } from "../../../hooks/useForms";
 import Container from "../../container";
 import MiniNav from "../MiniNav";
-import { CheckBoxList, Input, TextArea } from "../inputs";
+import { CheckBoxList, Input, TextArea } from "../inputs/careerCoaching";
 
 const shortTermGoals = ["Promotion within current job", "Transition to a new role or industry", "Improve job satisfaction"];
 
@@ -51,7 +51,14 @@ const CareerCoaching = () => {
 		else setPage(page + 1);
 	};
 
-	const onsubmit = (data: CareerFormData) => {
+	useCalendlyEventListener({
+		onEventScheduled: () => {
+			alert("Event Scheduled");
+			handleSubmit(onSubmit)();
+		},
+	});
+
+	const onSubmit = (data: CareerFormData) => {
 		const info = {
 			formType: "Career Coaching",
 			data: {
@@ -91,7 +98,7 @@ const CareerCoaching = () => {
 				setPage={(page) => setPage(page)}
 			/>
 			<AnimatePresence mode="wait">
-				<form onSubmit={handleSubmit(onsubmit)}>
+				<form>
 					{page === 1 && (
 						<motion.section
 							key="page1"
@@ -103,11 +110,13 @@ const CareerCoaching = () => {
 							<h1 className="text-xl lg:text-[32px] font-medium">Client Information</h1>
 							<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
 								<Input
+									title="First Name"
 									name="firstName"
 									register={register}
 									error={errors}
 								/>
 								<Input
+									title="Last Name"
 									name="lastName"
 									register={register}
 									error={errors}
@@ -115,32 +124,38 @@ const CareerCoaching = () => {
 							</div>
 							<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
 								<Input
+									title="Email"
 									name="email"
 									register={register}
 									error={errors}
 								/>
 								<Input
+									title="Phone Number"
 									name="phone"
 									register={register}
 									error={errors}
 								/>
 							</div>
 							<Input
+								title="Current Job Title"
 								name="jobTitle"
 								register={register}
 								error={errors}
 							/>
 							<Input
+								title="Current Employer"
 								name="employer"
 								register={register}
 								error={errors}
 							/>
 							<Input
+								title="Current/Field"
 								name="industry"
 								register={register}
 								error={errors}
 							/>
 							<Input
+								title="Years Of Experience"
 								name="yearsOfExperience"
 								register={register}
 								error={errors}
@@ -189,14 +204,12 @@ const CareerCoaching = () => {
 									register={register}
 									error={errors}
 								/>
-								<button type="submit">
-									<PopupButton
-										url="https://calendly.com/startsmarthub"
-										rootElement={document.getElementById("root") as HTMLElement}
-										text="Schedule"
-										className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
-									/>
-								</button>
+								<PopupButton
+									url="https://calendly.com/jason-aghedo/consultation-with-aghedo-jason?hide_gdpr_banner=1"
+									rootElement={document.getElementById("root") as HTMLElement}
+									text="Schedule"
+									className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
+								/>
 							</div>
 						</motion.section>
 					)}

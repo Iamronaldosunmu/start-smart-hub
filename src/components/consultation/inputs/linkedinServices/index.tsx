@@ -1,26 +1,27 @@
 import { FC, useRef } from "react";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { CareerFormData } from "../Forms/CarrerCoaching";
+import { LinkedinFormData } from "../../Forms/LinkedInServices";
 
-interface CareerInputProps {
-	name: "firstName" | "lastName" | "email" | "phone" | "jobTitle" | "employer" | "industry" | "yearsOfExperience" | "shortTermGoal" | "longTermGoal" | "challenges";
-	register: UseFormRegister<CareerFormData>;
+interface LinkedinInputProps {
+	name: "firstName" | "lastName" | "email" | "phone" | "profile" | "jobTitle" | "industry" | "desiredJobTitle" | "summary" | "additionalInfo" | "profilePicture" | "headline" | "isUploaded" | "profilePicture" | "desiredIndustry" | "requirements" | "yearsOfExperience" | "isUploaded" | "isRecommended" | "recommendations" | "outcomes" | "desiredIndustry" | "yearsOfExperience" | "educationLevel";
+	register: UseFormRegister<LinkedinFormData>;
 }
 
-interface InputProps extends CareerInputProps {
+interface InputProps extends LinkedinInputProps {
+	title: string;
 	type?: "number" | "text";
-	placeholder?: string;
-	error: FieldErrors<CareerFormData>;
+	placeholder: string;
+	error: FieldErrors<LinkedinFormData>;
 }
 
-export const Input: FC<InputProps> = ({ name, placeholder, register, error, type = "text" }) => {
+export const Input: FC<InputProps> = ({ name, placeholder, register, error, type = "text", title }) => {
 	return (
 		<div className="w-full">
 			<label
 				className="text-sm lg:text-base leading-5 lg:leading-normal block text-[#331B3BA8] capitalize"
 				htmlFor={name}
 			>
-				{name}
+				{title}
 			</label>
 			<input
 				id={name}
@@ -34,7 +35,7 @@ export const Input: FC<InputProps> = ({ name, placeholder, register, error, type
 	);
 };
 
-interface InputListProps extends CareerInputProps {
+interface InputListProps extends LinkedinInputProps {
 	title: string;
 }
 
@@ -60,11 +61,11 @@ export const InputList: FC<InputListProps> = ({ title }) => {
 	);
 };
 
-interface CheckBoxListProps extends CareerInputProps {
+interface CheckBoxListProps extends LinkedinInputProps {
 	title: string;
 	options: string[];
 	useInput?: boolean;
-	error: FieldErrors<CareerFormData>;
+	error: FieldErrors<LinkedinFormData>;
 }
 
 export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useInput, register, error }) => {
@@ -123,10 +124,10 @@ export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useI
 	);
 };
 
-interface TextAreaProps extends CareerInputProps {
+interface TextAreaProps extends LinkedinInputProps {
 	title: string;
 	placeholder?: string;
-	error: FieldErrors<CareerFormData>;
+	error: FieldErrors<LinkedinFormData>;
 }
 
 export const TextArea: FC<TextAreaProps> = ({ title, placeholder, register, name, error }) => {
