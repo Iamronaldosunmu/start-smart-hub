@@ -39,17 +39,17 @@ const MeetTheFounder = () => {
 				</h2>
 				<div className="mt-10 sm:mt-6">
 					<p
-						data-aos="fade-up"
+						data-aos="zoom-in"
 						data-aos-duration="700"
-						data-aos-delay="1000"
+						data-aos-delay="200"
 						className="text-[#331B3BA8] leading-5 lg:leading-6 tracking-wide"
 					>
 						Hi, I’m Doyin, and I’m truly delighted to welcome you! Not too long ago, I walked the same path you’re on now- a journey in search of not only the right career but also the best way to embark on that journey.
 					</p>
 					<p
-						data-aos="fade-up"
+						data-aos="zoom-in"
 						data-aos-duration="700"
-						data-aos-delay="1200"
+						data-aos-delay="300"
 						className="text-[#331B3BA8] leading-5 lg:leading-6 tracking-wide mt-6"
 					>
 						Today my sole focus is partnering with you on this transformative expedition toward achieving your dream career. Together, we’ll take that all-important first step, and I’ll be here to provide unwavering support every step of the way!
@@ -58,9 +58,9 @@ const MeetTheFounder = () => {
 				<motion.button
 					{...interactionAnimations}
 					onClick={() => navigate("/about-us")}
-					data-aos="fade-up"
+					data-aos="zoom-in"
 					data-aos-duration="700"
-					data-aos-delay="1300"
+					data-aos-delay="400"
 					className="text-[13px] font-bold font-poppins tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center mt-6 focus:bg-black focus:text-white transition-colors duration-500"
 				>
 					Read My Story
@@ -69,7 +69,7 @@ const MeetTheFounder = () => {
 					<img
 						data-aos="zoom-in"
 						data-aos-duration="700"
-						data-aos-delay="1000"
+						data-aos-delay="500"
 						className="relative z-10 object-cover"
 						src="/assets/hero.png"
 						alt=""

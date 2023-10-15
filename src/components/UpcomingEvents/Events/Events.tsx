@@ -39,7 +39,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 						<h2
 							data-aos="fade-up"
 							data-aos-duration="700"
-							data-aos-delay="1100"
+							data-aos-delay="200"
 							className="text-[25px] lg:text-[36px] text-left font-medium leading-[30px] lg:leading-normal tracking-wide"
 						>
 							Free Resume Clinic
@@ -48,7 +48,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 						<p
 							data-aos="zoom-in"
 							data-aos-duration="700"
-							data-aos-delay="1300"
+							data-aos-delay="400"
 							className="text-[#606060] text-left font-light leading-5 lg:text-xl"
 						>
 							<img
@@ -61,7 +61,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 						<p
 							data-aos="fade-up"
 							data-aos-duration="700"
-							data-aos-delay="1300"
+							data-aos-delay="400"
 							className="text-[#606060] font-light text-left leading-5 lg:text-xl"
 						>
 							<img
@@ -74,7 +74,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 						<p
 							data-aos="fade-up"
 							data-aos-duration="700"
-							data-aos-delay="1300"
+							data-aos-delay="400"
 							className="text-[#606060] text-left font-light leading-5 lg:text-xl"
 						>
 							<img

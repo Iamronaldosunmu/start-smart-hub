@@ -21,7 +21,7 @@ const UpcomingEvents = ({ date }: Props) => {
 				</div>
 				<div className="mt-7 md:mt-14 lg:mt-[90px] flex flex-col md:flex-row items-center gap-x-10 gap-y-8">
 					<div
-						data-aos="zoom-out"
+						data-aos="zoom-in"
 						data-aos-duration="700"
 						className="relative max-w-[400px] md:max-w-[585px] md:max-h-[422px] max-h-[300px] flex shrink"
 					>
@@ -35,17 +35,17 @@ const UpcomingEvents = ({ date }: Props) => {
 					</div>
 					<div className="flex flex-col justify-center items-center md:items-start gap-y-3 max-w-[500px]">
 						<h2
-							data-aos="fade-up"
+							data-aos="zoom-in"
 							data-aos-duration="700"
-							data-aos-delay="1100"
+							data-aos-delay="200"
 							className="text-[25px] lg:text-[36px] font-medium leading-[30px] lg:leading-normal tracking-wide"
 						>
 							Free Resume Clinic
 						</h2>
 						<p
-							data-aos="fade-up"
+							data-aos="zoom-in"
 							data-aos-duration="700"
-							data-aos-delay="1300"
+							data-aos-delay="400"
 							className="text-[#606060] font-light leading-5 lg:text-lg"
 						>
 							Join us for an exclusive opportunity to supercharge your resume! Our Free Resume Clinic is designed to empower you with the tools and knowledge to stand out in today’s competitive job market.
@@ -54,9 +54,9 @@ const UpcomingEvents = ({ date }: Props) => {
 						<motion.button
 							{...interactionAnimations}
 							onClick={() => navigate("/upcoming-events")}
-							data-aos="soom-out"
+							data-aos="zoom-in"
 							data-aos-duration="700"
-							data-aos-delay="800"
+							data-aos-delay="0"
 							className="font-medium md:font-bold lg:text-lg max-w-[200px] px-9 py-4 rounded-xl   hover:text-white hover:bg-black lg:rounded-none border-2 border-black font-inter focus:bg-black focus:text-white transition-colors duration-500"
 						>
 							View Details
@@ -66,7 +66,7 @@ const UpcomingEvents = ({ date }: Props) => {
 				<Link
 					data-aos="zoom-out"
 					data-aos-duration="700"
-					data-aos-delay="1800"
+					data-aos-delay="900"
 					to="/upcoming-events"
 					className="border-b border-[#F04956] text-[#F04956] text-[18px] px-2 mt-5 md:mt-10 lg:text-lg flex justify-center max-w-[113px]"
 				>

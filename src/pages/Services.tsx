@@ -9,6 +9,7 @@ import Grid from "../sections/services/Grid/Grid";
 import Information from "../sections/services/Information/Information";
 import useServiceStore from "../store/services";
 import { useSearchParams } from "react-router-dom";
+import ServiceHeader from "../components/ServicesComponent/Services";
 
 export const getPathFromFormType = (formType: string) => {
 	if (formType == "Resume") {
@@ -36,6 +37,7 @@ const Services: React.FC = () => {
 			<Information />
 			<Grid />
 			<Container id="services">
+				<ServiceHeader />
 				{services?.map((service, index) => (
 					<Service
 						number={index}

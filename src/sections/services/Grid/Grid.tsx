@@ -7,7 +7,7 @@ const Grid = () => {
 		<div className="grid lg:grid-cols-2 mt-14 lg:mt-[100px]">
 			<div className="bg-[#FFF2EC] py-14 xl:pl-[calc((100vw-1280px)/2)]">
 				<Container>
-					<div className="flex gap-x-2 flex-wrap mb-8 text-3xl font-semibold font-DMSans">
+					{/* <div className="flex gap-x-2 flex-wrap mb-8 text-3xl font-semibold font-DMSans">
 						{"Here's what you can expect from us...".split(" ").map((word, index) => (
 							<motion.div
 								initial={{ y: 45, opacity: 0 }}
@@ -20,6 +20,14 @@ const Grid = () => {
 								{word}
 							</motion.div>
 						))}
+					</div> */}
+					<div
+						className="flex gap-x-2 flex-wrap mb-8 text-3xl font-semibold font-DMSans"
+						data-aos-duration="700"
+						data-aos="zoom-in"
+						data-aos-delay="700"
+					>
+						Here's what you can expect from us...
 					</div>
 					<motion.ul
 						variants={container}
@@ -37,8 +45,6 @@ const Grid = () => {
 				</Container>
 			</div>
 			<div
-				data-aos="zoom-in"
-				data-aos-duration="700"
 				className="w-full h-[585px] hidden lg:block"
 			>
 				<img

@@ -4,7 +4,7 @@ import TextAnimation from "../../../components/TextAnimation";
 
 const Hero = () => {
 	return (
-		<Container className="flex flex-col lg:flex-row items-center justify-evenly gap-x-12 text-center lg:text-start">
+		<Container className="flex flex-col lg:flex-row items-center justify-between gap-x-12 text-center lg:text-start">
 			<div className="flex flex-col justify-center items-center lg:items-start gap-y-2 lg:max-w-[500px]">
 				{/* <TextAnimation
 					className="text-2xl font-medium font-poppins flex gap-x-2"
