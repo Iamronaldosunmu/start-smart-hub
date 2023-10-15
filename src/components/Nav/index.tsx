@@ -32,7 +32,7 @@ const Nav = () => {
 	return (
 		<>
 			<nav className={`bg-white fixed z-50 top-0 w-full hidden lg:block ${scrolled ? "shadow-md" : "shadow-none"} transition-shadow duration-300`}>
-				<Container className="hidden lg:flex items-center justify-between">
+				<Container className="hidden lg:flex items-center justify-between h-[64px]">
 					<div className="flex gap-x-2 items-center">
 						<img
 							src="/assets/logo.png"
@@ -78,7 +78,7 @@ const Nav = () => {
 					/>
 					<motion.div
 						// whileTap={{ scale: 0.85 }}
-						className="mobile-nav lg:hidden flex"
+						className="mobile-nav lg:hidden flex cursor-pointer"
 						onClick={() => setMobileNavOpen(!mobileNavOpen)}
 					>
 						<motion.div
@@ -102,7 +102,7 @@ const Nav = () => {
 				>
 					{navItems.map((item, index: number) => (
 						<motion.div
-						key={index}
+							key={index}
 							onClick={() => {
 								navigate(item.path as string);
 								setMobileNavOpen(false);

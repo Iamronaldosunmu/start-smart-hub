@@ -6,6 +6,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { z } from "zod";
 import { Input, TextArea } from "../inputs/linkedinServices";
 import { useForm } from "react-hook-form";
+import { PopupButton, useCalendlyEventListener } from "react-calendly";
+import { useForms } from "../../../hooks/useForms";
+import { useNavigate } from "react-router-dom";
 
 const schema = z.object({
 	firstName: z.string().min(3, { message: "First Name must be at least 3 characters" }),
@@ -36,38 +39,62 @@ const LinkedInServices = () => {
 	const pages = [1, 2, 3];
 	const [page, setPage] = useState(1);
 
+	const navigate = useNavigate();
+
+	const { mutate } = useForms();
+
+	useCalendlyEventListener({
+		onEventScheduled: () => {
+			handleSubmit(onSubmit)();
+			alert("Event Scheduled");
+		},
+	});
+
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isValid },
+		reset,
 	} = useForm<LinkedinFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
 
 	const onSubmit = (data: LinkedinFormData) => {
-		// const info = {
-		// 	formType: "Career Coaching",
-		// 	data: {
-		// 		ClientInformation: {
-		// 			firstName: data.firstName,
-		// 			lastName: data.lastName,
-		// 			email: data.email,
-		// 			yearsOfExperience: data.yearsOfExperience,
-		// 			industry: data.industry,
-		// 			currentEmployer: data.employer,
-		// 			currentJobTitle: data.jobTitle,
-		// 			phone: data.phone,
-		// 		},
-		// 		careerGoals: {
-		// 			shortTerm: data.shortTermGoal,
-		// 			longTerm: data.longTermGoal,
-		// 			// skills: [{ skill: "Typescript" }, { skill: "Problem Solving" }],
-		// 		},
-		// 		challenges: data.challenges,
-		// 	},
-		// };
-		console.log(data);
-		// mutate(info);
-		// reset();
-		// navigate("/home");
+		const info = {
+			formType: "LinkedIn",
+			data: {
+				ClientInformation: {
+					firstName: data.firstName,
+					lastName: data.lastName,
+					email: data.email,
+					phone: data.phone,
+					linkedinUrl: data.profile,
+				},
+				careerGoalsAndBackground: {
+					currentTitle: data.jobTitle,
+					desiredTitle: data.desiredJobTitle,
+					currentIndustry: data.industry,
+					TargetIndustry: data.desiredIndustry,
+					educationalLevel: data.educationLevel,
+					yearsOfExperience: data.yearsOfExperience,
+				},
+				linkedinOptimizationDetails: {
+					currentHeadline: data.headline,
+					currentSummary: data.summary,
+					profilePicture: false,
+					profilePictureLink: data.profilePicture,
+					linkedinRecommendations: true,
+					linkedinRecommendationDetails: data.recommendations,
+					expectations: data.outcomes,
+				},
+				additionalComments: {
+					additionalInfo: data.additionalInfo,
+					specificPreferences: data.requirements,
+				},
+			},
+		};
+		console.log(info);
+		mutate(info);
+		reset();
+		navigate("/home");
 	};
 
 	useEffect(() => {
@@ -284,9 +311,18 @@ const LinkedInServices = () => {
 								/>
 								<button
 									type="submit"
-									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
+									className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
 								>
-									Submit
+									{isValid ? (
+										<PopupButton
+											url="https://calendly.com/jason-aghedo/consultation-with-aghedo-jason?hide_gdpr_banner=1"
+											rootElement={document.getElementById("root") as HTMLElement}
+											text="Schedule"
+											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
+										/>
+									) : (
+										"Schedule"
+									)}
 								</button>
 							</div>
 						</motion.section>

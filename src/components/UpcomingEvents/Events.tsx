@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { FC } from "react";
-import Markdown from 'markdown-to-jsx'
 
 interface Props {
 	date: string;
@@ -58,7 +57,7 @@ const Event: FC<Props> = ({ title, venue, price, date, summary, expectations }) 
 				</div>
 				<div className="lg:text-xl text-left">
 					<h3 className="font-semibold mb-5">What to expect</h3>
-					<Markdown>{expectations}</Markdown>
+					{/* <Markdown>{expectations}</Markdown> */}
 				</div>
 
 				<button className="font-medium md:font-bold mt-5 rounded-lg lg:text-lg max-w-[200px] px-9 py-4  border-2 border-black hover:bg-black hover:text-white font-inter focus:bg-black focus:text-white transition-colors duration-500">Book a Slot</button>

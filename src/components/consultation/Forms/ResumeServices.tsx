@@ -6,6 +6,9 @@ import MiniNav from "../MiniNav";
 import { z } from "zod";
 import { CheckBoxList, Input, TextArea } from "../inputs/resumeServices";
 import { useForm } from "react-hook-form";
+import { useForms } from "../../../hooks/useForms";
+import { PopupButton, useCalendlyEventListener } from "react-calendly";
+import { useNavigate } from "react-router-dom";
 
 const services = ["Resume Building", "Resume Review", "Both"];
 
@@ -37,38 +40,58 @@ const ResumeServices = () => {
 	const pages = [1, 2, 3];
 	const [page, setPage] = useState(1);
 
+	const { mutate } = useForms();
+
+	const navigate = useNavigate();
+
+	useCalendlyEventListener({
+		onEventScheduled: () => {
+			alert("Event Scheduled");
+			handleSubmit(onSubmit)();
+		},
+	});
+
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isValid },
+		reset,
 	} = useForm<ResumeFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
 
 	const onSubmit = (data: ResumeFormData) => {
-		// const info = {
-		// 	formType: "Career Coaching",
-		// 	data: {
-		// 		ClientInformation: {
-		// 			firstName: data.firstName,
-		// 			lastName: data.lastName,
-		// 			email: data.email,
-		// 			yearsOfExperience: data.yearsOfExperience,
-		// 			industry: data.industry,
-		// 			currentEmployer: data.employer,
-		// 			currentJobTitle: data.jobTitle,
-		// 			phone: data.phone,
-		// 		},
-		// 		careerGoals: {
-		// 			shortTerm: data.shortTermGoal,
-		// 			longTerm: data.longTermGoal,
-		// 			// skills: [{ skill: "Typescript" }, { skill: "Problem Solving" }],
-		// 		},
-		// 		challenges: data.challenges,
-		// 	},
-		// };
+		const info = {
+			formType: "Resume",
+			data: {
+				ClientInformation: {
+					firstName: data.firstName,
+					lastName: data.lastName,
+					email: data.email,
+					phone: data.phone,
+					linkedinUrl: data.profile,
+				},
+				careerGoalsAndBackground: {
+					currentTitle: data.jobTitle,
+					desiredTitle: data.desiredJobTitle,
+					currentIndustry: data.industry,
+					TargetIndustry: data.targetIndustry,
+					educationalLevel: data.educationLevel,
+					yearsOfExperience: data.yearsOfExperience,
+				},
+				serviceSelection: data.service,
+				resumeInformation: {
+					createdResume: true,
+					resumeNotes: false,
+					additionalInfo: data.resumeDrafts,
+					specificPreferences: data.requirements,
+					goals: data.primaryGoals,
+					expectations: data.outcomes,
+				},
+			},
+		};
 		console.log(data);
-		// mutate(info);
-		// reset();
-		// navigate("/home");
+		mutate(info);
+		reset();
+		navigate("/home");
 	};
 
 	useEffect(() => {
@@ -277,9 +300,18 @@ const ResumeServices = () => {
 								/>
 								<button
 									type="submit"
-									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
+									className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
 								>
-									Next
+									{isValid ? (
+										<PopupButton
+											url="https://calendly.com/jason-aghedo/consultation-with-aghedo-jason?hide_gdpr_banner=1"
+											rootElement={document.getElementById("root") as HTMLElement}
+											text="Schedule"
+											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
+										/>
+									) : (
+										"Schedule"
+									)}
 								</button>
 							</div>
 						</motion.section>
