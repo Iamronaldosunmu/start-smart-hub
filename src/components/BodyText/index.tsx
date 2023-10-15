@@ -8,10 +8,13 @@ interface Props {
 const TextSection = ({ heading, paragraphs }: Props) => {
 	return (
 		<div className="w-full">
-			<TextAnimation
-				className="font-semibold mb-4 text-[36px] flex gap-x-2"
-				text={heading}
-			/>
+			<div
+				data-aos-duration="700"
+				data-aos="zoom-in"
+				data-aos-delay="700"
+				className="font-semibold mb-4 text-[36px] flex gap-x-2 flex-wrap"
+				
+			>{heading}</div>
 			{paragraphs.map((text, index) => (
 				<p
 					data-aos="fade-up"

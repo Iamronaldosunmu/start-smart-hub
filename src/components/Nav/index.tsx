@@ -56,7 +56,7 @@ const Nav = () => {
 							))}
 						</div>
 						<motion.button
-							onClick={() => navigate("/services")}
+							onClick={() => navigate("/services?scroll_to=services")}
 							{...interactionAnimations}
 							className=" leading-7 py-2 px-5 text-white bg-[#4B8CEA] rounded-[10px] font-medium shadow-[0px_2px_4px_0px_#4b8cea4a]"
 						>

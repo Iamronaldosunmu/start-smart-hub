@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import useSize from "../../../hooks/useSize";
 import "swiper/css";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const UnlockYourPotential = () => {
 	const [width] = useSize();
@@ -71,13 +72,16 @@ const UnlockYourPotential = () => {
 	return (
 		<section className="mt-14 lg:mt-[100px] text-center overflow-hidden ">
 			<Container>
-				<TextAnimation
+				<div
+					data-aos="zoom-in"
+					data-aos-duration="700"
 					className="text-[44px] lg:text-[56px] font-semibold font-poppins tracking-normal flex flex-wrap gap-x-3 justify-center"
-					text="Unlock your potential!"
-				/>
+				>
+					Unlock your potential!
+				</div>
 				<TextContainer className="flex justify-center">
 					<p
-						data-aos="fade-up"
+						data-aos="zoom-in"
 						data-aos-duration="700"
 						data-aos-delay="300"
 						className="text-[#171717C4] text-sm leading-normal lg:leading-7 mt-5 lg:mt-2 max-w-[778px]"
@@ -86,43 +90,49 @@ const UnlockYourPotential = () => {
 					</p>
 				</TextContainer>
 			</Container>
-			<Container className="flex gap-x-[30px] justify-center mt-8 lg:mt-6 text-center w-full ">
-				<Swiper
-					onReachEnd={() => setIsEnd(true)}
-					allowTouchMove={false}
-					spaceBetween={width > 767 ? (width > 1024 ? 40 : 40) : 20}
-					slidesPerView={width > 500 ? (width > 1024 ? 3 : 2) : 1}
-				>
-					{services.map(({ title, text, link, image }, index) => (
-						<SwiperSlide key={index}>
-							<div className=" h-full ">
-								<div className="w-full h-[200px] lg:h-[267px] md:h-[200px] scale-105">
-									<img
-										className="w-full  h-full  object-cover"
-										src={image}
-										alt=""
-									/>
-								</div>
-								<div className="py-[30px] px-4 h-[300px] flex flex-col justify-between ">
-									<div className="">
-										<h3 className="text-xl font-semibold">{title}</h3>
-										<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{text}</p>
+			<div
+				data-aos="zoom-in"
+				data-aos-duration="700"
+				data-aos-delay="300"
+			>
+				<Container className="flex gap-x-[30px] justify-center mt-8 lg:mt-12 text-center w-full ">
+					<Swiper
+						onReachEnd={() => setIsEnd(true)}
+						allowTouchMove={false}
+						spaceBetween={width > 767 ? (width > 1024 ? 40 : 40) : 20}
+						slidesPerView={width > 500 ? (width > 1024 ? 3 : 2) : 1}
+					>
+						{services.map(({ title, text, link, image }, index) => (
+							<SwiperSlide key={index}>
+								<div className=" h-full ">
+									<div className="w-full h-[200px] lg:h-[267px] md:h-[200px] scale-105">
+										<img
+											className="w-full  h-full  object-cover"
+											src={image}
+											alt=""
+										/>
 									</div>
+									<div className="py-[30px] px-4 h-[300px] flex flex-col justify-between ">
+										<div className="">
+											<h3 className="text-xl font-semibold">{title}</h3>
+											<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{text}</p>
+										</div>
 
-									<Link
-										to={link}
-										className="block mx-auto text-sm  mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins hover:bg-black hover:text-white transition-colors duration-500"
-									>
-										Start Now
-									</Link>
+										<Link
+											to={link}
+											className="block mx-auto text-sm  mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins hover:bg-black hover:text-white transition-colors duration-500"
+										>
+											Start Now
+										</Link>
+									</div>
 								</div>
-							</div>
-						</SwiperSlide>
-					))}
+							</SwiperSlide>
+						))}
 
-					<SwiperNav enabled={isEnd} />
-				</Swiper>
-			</Container>
+						<SwiperNav enabled={isEnd} />
+					</Swiper>
+				</Container>
+			</div>
 		</section>
 	);
 };
@@ -131,28 +141,30 @@ const SwiperNav = ({ enabled }: { enabled: boolean }) => {
 	const swiper = useSwiper();
 	return (
 		<div className="absolute w-full bottom-[60%] translate-y-[50%] z-10 flex justify-between">
-			<div
+			<motion.div
+				style={{ opacity: !enabled ? 0.5 : 1 }}
 				aria-disabled={enabled}
 				onClick={() => swiper.slidePrev()}
-				className={`bg-[#726f6f99]  p-[4px] md:p-[10px] lg:p-4  left-0 none-select ${enabled && "cursor-pointer"}`}
+				className={`bg-[black]  p-[4px] md:p-[10px] lg:p-4  left-0 none-select ${enabled && "cursor-pointer"}`}
 			>
 				<img
 					className="w-10 h-10 object-cover"
 					src="/assets/chevron-right.svg"
 					alt=""
 				/>
-			</div>
-			<div
+			</motion.div>
+			<motion.div
+				style={{ opacity: enabled ? 0.5 : 1 }}
 				aria-disabled={!enabled}
 				onClick={() => swiper.slideNext()}
-				className={`bg-[#726f6f99] p-[4px] md:p-[10px] lg:p-4 right-0 rotate-180 none-select ${!enabled && "cursor-pointer"}`}
+				className={`bg-[black] p-[4px] md:p-[10px] lg:p-4 right-0 rotate-180 none-select ${!enabled && "cursor-pointer"}`}
 			>
 				<img
 					className="w-10 h-10 object-cover"
 					src="/assets/chevron-right.svg"
 					alt=""
 				/>
-			</div>
+			</motion.div>
 		</div>
 	);
 };

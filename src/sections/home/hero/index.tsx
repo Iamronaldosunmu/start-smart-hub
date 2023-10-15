@@ -32,7 +32,7 @@ const Hero = () => {
 				</p>
 				<motion.button
 					{...interactionAnimations}
-					onClick={() => navigate("/services")}
+					onClick={() => navigate("/services?scroll_to=services")}
 					data-aos="fade-up"
 					data-aos-duration="700"
 					data-aos-delay="1200"
