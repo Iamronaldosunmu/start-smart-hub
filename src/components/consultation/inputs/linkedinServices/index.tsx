@@ -10,7 +10,7 @@ interface LinkedinInputProps {
 interface InputProps extends LinkedinInputProps {
 	title: string;
 	type?: "number" | "text";
-	placeholder: string;
+	placeholder?: string;
 	error: FieldErrors<LinkedinFormData>;
 }
 

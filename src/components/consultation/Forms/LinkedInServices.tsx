@@ -6,6 +6,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { z } from "zod";
 import { Input, TextArea } from "../inputs/linkedinServices";
 import { useForm } from "react-hook-form";
+import { PopupButton, useCalendlyEventListener } from "react-calendly";
+import { useForms } from "../../../hooks/useForms";
+import { useNavigate } from "react-router-dom";
 
 const schema = z.object({
 	firstName: z.string().min(3, { message: "First Name must be at least 3 characters" }),
@@ -36,38 +39,62 @@ const LinkedInServices = () => {
 	const pages = [1, 2, 3];
 	const [page, setPage] = useState(1);
 
+	const navigate = useNavigate();
+
+	const { mutate } = useForms();
+
+	useCalendlyEventListener({
+		onEventScheduled: () => {
+			handleSubmit(onSubmit)();
+			alert("Event Scheduled");
+		},
+	});
+
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isValid },
+		reset,
 	} = useForm<LinkedinFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
 
 	const onSubmit = (data: LinkedinFormData) => {
-		// const info = {
-		// 	formType: "Career Coaching",
-		// 	data: {
-		// 		ClientInformation: {
-		// 			firstName: data.firstName,
-		// 			lastName: data.lastName,
-		// 			email: data.email,
-		// 			yearsOfExperience: data.yearsOfExperience,
-		// 			industry: data.industry,
-		// 			currentEmployer: data.employer,
-		// 			currentJobTitle: data.jobTitle,
-		// 			phone: data.phone,
-		// 		},
-		// 		careerGoals: {
-		// 			shortTerm: data.shortTermGoal,
-		// 			longTerm: data.longTermGoal,
-		// 			// skills: [{ skill: "Typescript" }, { skill: "Problem Solving" }],
-		// 		},
-		// 		challenges: data.challenges,
-		// 	},
-		// };
-		console.log(data);
-		// mutate(info);
-		// reset();
-		// navigate("/home");
+		const info = {
+			formType: "LinkedIn",
+			data: {
+				ClientInformation: {
+					firstName: data.firstName,
+					lastName: data.lastName,
+					email: data.email,
+					phone: data.phone,
+					linkedinUrl: data.profile,
+				},
+				careerGoalsAndBackground: {
+					currentTitle: data.jobTitle,
+					desiredTitle: data.desiredJobTitle,
+					currentIndustry: data.industry,
+					TargetIndustry: data.desiredIndustry,
+					educationalLevel: data.educationLevel,
+					yearsOfExperience: data.yearsOfExperience,
+				},
+				linkedinOptimizationDetails: {
+					currentHeadline: data.headline,
+					currentSummary: data.summary,
+					profilePicture: false,
+					profilePictureLink: data.profilePicture,
+					linkedinRecommendations: true,
+					linkedinRecommendationDetails: data.recommendations,
+					expectations: data.outcomes,
+				},
+				additionalComments: {
+					additionalInfo: data.additionalInfo,
+					specificPreferences: data.requirements,
+				},
+			},
+		};
+		console.log(info);
+		mutate(info);
+		reset();
+		navigate("/home");
 	};
 
 	useEffect(() => {
@@ -105,14 +132,12 @@ const LinkedInServices = () => {
 										title="First Name"
 										name="firstName"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 									<Input
 										title="Last Name"
 										name="lastName"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 								</div>
@@ -121,14 +146,12 @@ const LinkedInServices = () => {
 										title="Email"
 										name="email"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 									<Input
 										title="Phone number"
 										name="phone"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 								</div>
@@ -136,7 +159,6 @@ const LinkedInServices = () => {
 									title="LinkedIn Profile URL"
 									name="profile"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<button
@@ -161,49 +183,42 @@ const LinkedInServices = () => {
 									title="What is your current LinkedIn headline?"
 									name="headline"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<TextArea
 									title="Please describe your current LinkedIn summary"
 									name="summary"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="Have you uploaded a profile picture on LinkedIn? [Yes/No]"
 									name="isUploaded"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="If yes, please provide a link to your current profile picture."
 									name="profilePicture"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="Do you have any LinkedIn recommendations or endorsements? [Yes/No]"
 									name="isRecommended"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<TextArea
 									title="If yes, please list some of them"
 									name="recommendations"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<TextArea
 									title="What specific outcomes or improvements do you expect from our LinkedIn optimization services?"
 									name="outcomes"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<button
@@ -228,28 +243,24 @@ const LinkedInServices = () => {
 									title="Current Job Title"
 									name="jobTitle"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="Industry"
 									name="industry"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="Desired Job Title"
 									name="desiredJobTitle"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="Target Industry or Audience for LinkedIn"
 									name="desiredIndustry"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
@@ -257,14 +268,12 @@ const LinkedInServices = () => {
 									name="yearsOfExperience"
 									type="number"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="Highest Education Level"
 									name="educationLevel"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Additional Comments and Preferences:</h1>
@@ -272,21 +281,28 @@ const LinkedInServices = () => {
 									title="Please share any specific preferences or requirements you have for your LinkedIn profile optimization (e.g., content, branding, keywords):"
 									name="requirements"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<TextArea
 									title="Is there anything else you would like to share or discuss during our LinkedIn optimization process?"
 									name="additionalInfo"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<button
 									type="submit"
-									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
+									className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
 								>
-									Submit
+									{isValid ? (
+										<PopupButton
+											url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
+											rootElement={document.getElementById("root") as HTMLElement}
+											text="Schedule"
+											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
+										/>
+									) : (
+										"Schedule"
+									)}
 								</button>
 							</div>
 						</motion.section>

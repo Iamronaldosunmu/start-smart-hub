@@ -6,6 +6,9 @@ import MiniNav from "../MiniNav";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { CheckBoxList, Input, TextArea } from "../inputs/jobApplication";
+import { useForms } from "../../../hooks/useForms";
+import { useNavigate } from "react-router-dom";
+import { PopupButton, useCalendlyEventListener } from "react-calendly";
 
 const employmentStatus = ["Employed", "Unemployed", "Self-employed", "Student"];
 const services = ["Resume Tailoring", "Cover Letter Writing", "Application Form Assistance", "LinkedIn Profile Optimization", "Interview Coaching"];
@@ -38,38 +41,64 @@ const JobApplication = () => {
 	const pages = [1, 2, 3, 4];
 	const [page, setPage] = useState(1);
 
+	const navigate = useNavigate();
+
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isValid },
+		reset,
 	} = useForm<JobFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
 
+	const { mutate } = useForms();
+
+	useCalendlyEventListener({
+		onEventScheduled: () => {
+			alert("Event Scheduled");
+			handleSubmit(onSubmit)();
+		},
+	});
+
 	const onSubmit = (data: JobFormData) => {
-		// const info = {
-		// 	formType: "Career Coaching",
-		// 	data: {
-		// 		ClientInformation: {
-		// 			firstName: data.firstName,
-		// 			lastName: data.lastName,
-		// 			email: data.email,
-		// 			yearsOfExperience: data.yearsOfExperience,
-		// 			industry: data.industry,
-		// 			currentEmployer: data.employer,
-		// 			currentJobTitle: data.jobTitle,
-		// 			phone: data.phone,
-		// 		},
-		// 		careerGoals: {
-		// 			shortTerm: data.shortTermGoal,
-		// 			longTerm: data.longTermGoal,
-		// 			// skills: [{ skill: "Typescript" }, { skill: "Problem Solving" }],
-		// 		},
-		// 		challenges: data.challenges,
-		// 	},
-		// };
-		console.log(data);
-		// mutate(info);
-		// reset();
-		// navigate("/home");
+		const info = {
+			formType: "Job Application Tailoring",
+			data: {
+				ClientInformation: {
+					firstName: data.firstName,
+					lastName: data.lastName,
+					email: data.email,
+					phone: data.phone,
+					address: data.address,
+				},
+				currentJobStatus: {
+					currentStatus: data.employmentStatus,
+					currentJob: data.jobTitle,
+					currentIndustry: data.industry,
+				},
+				targetJobPosition: {
+					desiredTitle: data.desiredJobTitle,
+					targetIndustry: data.targetIndustry,
+					targetCompany: data.targetCompany,
+				},
+				serviceSelection: data.service,
+				careerGoals: {
+					shortTerm: data.shortTermGoal,
+					longTerm: data.longTermGoal,
+				},
+				resumeApplicationDetails: {
+					summary: data.summary,
+					potentialJobPostings: data.jobPostings,
+				},
+				additionalInformation: {
+					additionalInfo: data.additionalInfo,
+					referral: data.referral,
+				},
+			},
+		};
+		console.log(info);
+		mutate(info);
+		reset();
+		navigate("/home");
 	};
 
 	useEffect(() => {
@@ -107,14 +136,12 @@ const JobApplication = () => {
 										title="First Name"
 										name="firstName"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 									<Input
 										title="Last Name"
 										name="lastName"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 								</div>
@@ -122,14 +149,12 @@ const JobApplication = () => {
 									<Input
 										title="Email"
 										name="email"
-										placeholder="Resume Template"
 										register={register}
 										error={errors}
 									/>
 									<Input
 										title="Phone Number"
 										name="phone"
-										placeholder="Resume Template"
 										register={register}
 										error={errors}
 									/>
@@ -137,7 +162,6 @@ const JobApplication = () => {
 								<Input
 									title="Address"
 									name="address"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
@@ -172,13 +196,11 @@ const JobApplication = () => {
 										title="Current Job Title"
 										name="jobTitle"
 										register={register}
-										placeholder="Resume Template"
 										error={errors}
 									/>
 									<Input
 										title="Current Industry"
 										name="industry"
-										placeholder="Resume Template"
 										register={register}
 										error={errors}
 									/>
@@ -213,14 +235,12 @@ const JobApplication = () => {
 								<TextArea
 									title="What are your short-term career goals (next 6-12 months)?"
 									name="shortTermGoal"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
 								<TextArea
 									title="What are your long-term career goals (next 2-5 years)?"
 									name="longTermGoal"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
@@ -245,14 +265,12 @@ const JobApplication = () => {
 								<Input
 									title="Desired Job Title"
 									name="desiredJobTitle"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
 								<Input
 									title="Target Industry"
 									name="targetIndustry"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
@@ -260,7 +278,6 @@ const JobApplication = () => {
 									title="Target Company"
 									name="targetCompany"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Resume and Application Details</h1>
@@ -268,21 +285,18 @@ const JobApplication = () => {
 									title="Please provide a brief summary of your work experience and skills."
 									name="summary"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<TextArea
 									title="Attach your current resume (if available):"
 									name="resume"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<TextArea
 									title="Are there any specific job postings you're interested in? If yes, please provide links or details:"
 									name="jobPostings"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Additional Information</h1>
@@ -290,21 +304,28 @@ const JobApplication = () => {
 									title="Is there any other information you would like to share about your job search or career goals?"
 									name="additionalInfo"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<Input
 									title="How did you hear about our Job Application Tailoring Services?"
 									name="referral"
 									register={register}
-									placeholder="Resume Template"
 									error={errors}
 								/>
 								<button
 									type="submit"
-									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
+									className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
 								>
-									Submit
+									{isValid ? (
+										<PopupButton
+											url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
+											rootElement={document.getElementById("root") as HTMLElement}
+											text="Schedule"
+											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
+										/>
+									) : (
+										"Schedule"
+									)}
 								</button>
 							</div>
 						</motion.section>

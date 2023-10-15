@@ -5,7 +5,7 @@ import { PopupButton, useCalendlyEventListener } from "react-calendly";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { z } from "zod";
-import { useCareerForm } from "../../../hooks/useForms";
+import { useForms } from "../../../hooks/useForms";
 import Container from "../../container";
 import MiniNav from "../MiniNav";
 import { CheckBoxList, Input, TextArea } from "../inputs/careerCoaching";
@@ -36,12 +36,12 @@ const CareerCoaching = () => {
 
 	const navigate = useNavigate();
 
-	const { mutate } = useCareerForm();
+	const { mutate } = useForms();
 
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isValid },
 		reset,
 	} = useForm<CareerFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
 
@@ -80,7 +80,6 @@ const CareerCoaching = () => {
 				challenges: data.challenges,
 			},
 		};
-		console.log(info);
 		mutate(info);
 		reset();
 		navigate("/home");
@@ -90,6 +89,10 @@ const CareerCoaching = () => {
 		window.scrollTo(0, 0);
 	}, [page]);
 
+	useEffect(() => {
+		console.log(isValid);
+	}, [isValid]);
+
 	return (
 		<Container>
 			<MiniNav
@@ -97,8 +100,8 @@ const CareerCoaching = () => {
 				currentPage={page}
 				setPage={(page) => setPage(page)}
 			/>
-			<AnimatePresence mode="wait">
-				<form>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<AnimatePresence mode="wait">
 					{page === 1 && (
 						<motion.section
 							key="page1"
@@ -200,21 +203,29 @@ const CareerCoaching = () => {
 								<TextArea
 									title="What challenges or obstacles are you currently facing in your career?"
 									name="challenges"
-									placeholder="Resume Template"
 									register={register}
 									error={errors}
 								/>
-								<PopupButton
-									url="https://calendly.com/jason-aghedo/consultation-with-aghedo-jason?hide_gdpr_banner=1"
-									rootElement={document.getElementById("root") as HTMLElement}
-									text="Schedule"
+								<button
+									type="submit"
 									className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
-								/>
+								>
+									{isValid ? (
+										<PopupButton
+											url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
+											rootElement={document.getElementById("root") as HTMLElement}
+											text="Schedule"
+											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
+										/>
+									) : (
+										"Schedule"
+									)}
+								</button>
 							</div>
 						</motion.section>
 					)}
-				</form>
-			</AnimatePresence>
+				</AnimatePresence>
+			</form>
 		</Container>
 	);
 };
