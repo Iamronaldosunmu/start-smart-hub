@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Container from "../../../components/container";
 import { useState } from "react";
 import { z } from "zod";
+// @ts-ignore 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
@@ -35,7 +36,7 @@ const Subscribe = () => {
 		resolver: zodResolver(newsletterValidationSchema),
 	});
 
-	const onSubscribe = (data) => {
+	const onSubscribe = (data : any) => {
 		subscribeToNewsletterMutation.mutate(
 			{ data: { email: data.email } },
 			{
