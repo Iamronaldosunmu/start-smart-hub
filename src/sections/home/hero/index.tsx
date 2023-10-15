@@ -11,6 +11,7 @@ const Hero = () => {
 				<div className="relative text-[54px] leading-[1.2] lg:text-[62px] xl:text-[70px] text-[#331B3B] font-bold lg:leading-[70px] lg:tracking-[-0.7px] break-words flex flex-wrap gap-x-3 justify-center lg:justify-start">
 					{"Let’s build a path to career success.".split(" ").map((word, index) => (
 						<motion.div
+						key={index}
 							initial={{ y: 45, opacity: 0 }}
 							animate={{
 								y: 0,

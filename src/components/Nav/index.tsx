@@ -102,6 +102,7 @@ const Nav = () => {
 				>
 					{navItems.map((item, index: number) => (
 						<motion.div
+						key={index}
 							onClick={() => {
 								navigate(item.path as string);
 								setMobileNavOpen(false);

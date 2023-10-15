@@ -49,7 +49,7 @@ function App() {
 
 	useEffect(() => {
 		setServices(servicesData);
-		console.log(servicesData);
+		// console.log(servicesData);
 	}, [servicesData]);
 
 	return (
