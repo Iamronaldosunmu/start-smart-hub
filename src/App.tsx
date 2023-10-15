@@ -41,6 +41,17 @@ function App() {
 		}, 300);
 	}, [pathname]);
 
+		// Fetch Data needed for all the pages
+
+	// Data for the services
+	const { setServices } = useServiceStore();
+	const { data: servicesData } = useServices();
+
+	useEffect(() => {
+		setServices(servicesData);
+		// console.log(servicesData);
+	}, [servicesData]);
+
 	return (
 		<>
 			{pathname !== "/" && <Nav />}

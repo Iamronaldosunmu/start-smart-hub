@@ -31,7 +31,7 @@ const Bookings = () => {
 				</p>
 				<motion.button
 					{...interactionAnimations}
-					onClick={() => navigate("/services")}
+					onClick={() => navigate("/services?scroll_to=services")}
 					data-aos="zoom-in"
 					data-aos-duration="700"
 					data-aos-delay="1000"

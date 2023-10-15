@@ -7,8 +7,8 @@ const UpcomingEvents = () => {
 	const { data: events } = useEvents();
 	return (
 		<PageContainer className="pt-[90px] pb-5 lg:pb-7">
-			<header className="w-full relative">
-				<h1 className="hidden lg:block text-[54px] font-bold absolute left-20 top-1/2">Upcoming Events</h1>
+			<header className="w-full relative ">
+				<h1 className="hidden lg:block text-[54px] font-bold absolute left-20 xl:left-[calc((100vw-1220px)/2)] top-1/2">Upcoming Events</h1>
 				<img
 					className="h-[300px] w-full object-cover hidden lg:block"
 					src="/assets/header.png"
