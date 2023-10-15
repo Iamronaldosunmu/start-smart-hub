@@ -1,14 +1,18 @@
+import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import Container from "../../../components/container";
-import TextAnimation from "../../../components/TextAnimation";
-import { motion } from "framer-motion";
 import { interactionAnimations } from "../../../utils/framer-default-animations";
+import useEventStore from "../../../store/events";
+import { format } from "date-fns";
+
 interface Props {
 	date?: string;
 }
 
 const UpcomingEvents = ({ date }: Props) => {
+	const { events } = useEventStore();
 	const navigate = useNavigate();
+	console.log(events);
 	return (
 		<section className="bg-[#FAFAFA] pt-14 lg:pt-[100px] pb-5 lg:pb-7">
 			<Container className="mb-3 text-center flex flex-col items-center md:text-left">
@@ -25,7 +29,7 @@ const UpcomingEvents = ({ date }: Props) => {
 						data-aos-duration="700"
 						className="relative max-w-[400px] md:max-w-[585px] md:max-h-[422px] max-h-[300px] flex shrink"
 					>
-						<div className="absolute top-0 right-0 font-inter text-xs leading-7 font-bold px-5 bg-[#ED847A] rounded-md text-white z-10">Online</div>
+						<div className="absolute top-0 right-0 font-inter text-xs leading-7 font-bold px-5 bg-[#ED847A] rounded-md text-white z-10">{events?.length > 0 ? events[0]?.attributes?.venue : ""}</div>
 						<img
 							className="object-cover z-0"
 							src="/assets/event.png"
@@ -40,7 +44,7 @@ const UpcomingEvents = ({ date }: Props) => {
 							data-aos-delay="200"
 							className="text-[25px] lg:text-[36px] font-medium leading-[30px] lg:leading-normal tracking-wide"
 						>
-							Free Resume Clinic
+							{events?.length > 0 ? events[0]?.attributes?.title : ""}
 						</h2>
 						<p
 							data-aos="zoom-in"
@@ -48,12 +52,12 @@ const UpcomingEvents = ({ date }: Props) => {
 							data-aos-delay="400"
 							className="text-[#606060] font-light leading-5 lg:text-lg"
 						>
-							Join us for an exclusive opportunity to supercharge your resume! Our Free Resume Clinic is designed to empower you with the tools and knowledge to stand out in today’s competitive job market.
+							{events?.length > 0 ? events[0]?.attributes?.summary : ""}
 						</p>
-						<p className="text-gray-400 text-xl font-semibold mt-[45px]">Date: {date ? "${date}" : "20-10-2023"}</p>
+						<p className="text-gray-400 text-xl font-semibold mt-[45px]">Date: {events?.length > 0 ? format(new Date(events[0]?.attributes?.date), "MMMM do yyyy, h:mm:ss a") : ""}</p>
 						<motion.button
 							{...interactionAnimations}
-							onClick={() => navigate("/upcoming-events")}
+							onClick={() => navigate(events?.length > 0 ? events[0]?.attributes?.meetingLink : "")}
 							data-aos="zoom-in"
 							data-aos-duration="700"
 							data-aos-delay="0"

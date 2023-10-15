@@ -15,6 +15,8 @@ import Lenis from "@studio-freight/lenis";
 import useServiceStore from "./store/services";
 import { useServices } from "./hooks/useServices";
 import UpcomingEvents from "./pages/upcomingEvents";
+import useEventStore from "./store/events";
+import useEvents from "./hooks/useEvents";
 
 function App() {
 	const { pathname } = useLocation();
@@ -41,16 +43,21 @@ function App() {
 		}, 300);
 	}, [pathname]);
 
-		// Fetch Data needed for all the pages
+	// Fetch Data needed for all the pages
 
 	// Data for the services
 	const { setServices } = useServiceStore();
+	const { setEvents } = useEventStore();
 	const { data: servicesData } = useServices();
+	const { data: eventsData } = useEvents();
 
 	useEffect(() => {
 		setServices(servicesData);
+		setEvents(eventsData);
+		console.log(eventsData);
+
 		// console.log(servicesData);
-	}, [servicesData]);
+	}, [servicesData, eventsData]);
 
 	return (
 		<>

@@ -1,17 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../services/apiClient";
-
-export interface IEvent {
-	id: number;
-	attributes: {
-		date: string;
-		venue: "online" | "physical";
-		summary: string;
-		expectations: string;
-		title: string;
-		price: string;
-	};
-}
+import { Event } from "../store/events"
 
 const getEvents = async () => {
 	const res = await axiosInstance.get("/events").then((res) => res.data);
@@ -19,7 +8,7 @@ const getEvents = async () => {
 };
 
 const useEvents = () => {
-	return useQuery<IEvent[], Error>({
+	return useQuery<Event[], Error>({
 		queryKey: ["events"],
 		queryFn: getEvents,
 	});

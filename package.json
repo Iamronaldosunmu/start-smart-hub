@@ -16,6 +16,7 @@
     "@tanstack/react-query-devtools": "^4.36.1",
     "aos": "^2.3.4",
     "axios": "^1.5.1",
+    "date-fns": "^2.30.0",
     "framer-motion": "^10.16.4",
     "leaflet": "^1.9.4",
     "markdown-to-jsx": "^7.3.2",
