@@ -15,12 +15,12 @@ export interface Event {
 
 interface EventStore {
 	events: Event[];
-	setEvents: (clients: Event[]) => void;
+	setEvents: (events?: Event[]) => void;
 }
 
 const useEventStore = create<EventStore>((set) => ({
 	events: [],
-	setEvents: (events: Event[]) => set({ events }),
+	setEvents: (events?: Event[]) => set({ events }),
 }));
 
 export default useEventStore;
