@@ -1,14 +1,19 @@
 import { FC, useRef } from "react";
+import { FieldErrors, UseFormRegister } from "react-hook-form";
+import { CareerFormData } from "../Forms/CarrerCoaching";
 
-interface InputProps {
-	name: string /* "firstName" | "lastName" | "email" | "phone" | "jobTitle" | "employer" | "industry" */;
-	// title: string;
-	placeholder?: string;
-	// register: UseFormRegister<FormData>;
-	// error: FieldErrors<FormData>;
+interface CareerInputProps {
+	name: "firstName" | "lastName" | "email" | "phone" | "jobTitle" | "employer" | "industry" | "yearsOfExperience" | "shortTermGoal" | "longTermGoal" | "challenges";
+	register: UseFormRegister<CareerFormData>;
 }
 
-export const Input: FC<InputProps> = ({ name, placeholder }) => {
+interface InputProps extends CareerInputProps {
+	type?: "number" | "text";
+	placeholder?: string;
+	error: FieldErrors<CareerFormData>;
+}
+
+export const Input: FC<InputProps> = ({ name, placeholder, register, error, type = "text" }) => {
 	return (
 		<div className="w-full">
 			<label
@@ -19,17 +24,17 @@ export const Input: FC<InputProps> = ({ name, placeholder }) => {
 			</label>
 			<input
 				id={name}
-				// {...register(name)}
+				{...register(name, { valueAsNumber: type === "number" ? true : false })}
 				type="text"
 				className="p-4 border border-[#575252] rounded-md w-full mt-1 text-sm lg:text-base text-black placeholder:text-[#506fa1]"
 				placeholder={placeholder}
 			/>
-			{/* {error[name] && <p className="text-red-600 mt-2 font-poppins">{error[name]?.message}</p>} */}
+			{error[name] && <p className="text-red-600 mt-2 font-poppins">{error[name]?.message}</p>}
 		</div>
 	);
 };
 
-interface InputListProps {
+interface InputListProps extends CareerInputProps {
 	title: string;
 }
 
@@ -55,14 +60,14 @@ export const InputList: FC<InputListProps> = ({ title }) => {
 	);
 };
 
-interface CheckBoxListProps {
+interface CheckBoxListProps extends CareerInputProps {
 	title: string;
-	name: string;
 	options: string[];
 	useInput?: boolean;
+	error: FieldErrors<CareerFormData>;
 }
 
-export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useInput }) => {
+export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useInput, register, error }) => {
 	const inputRef = useRef<HTMLInputElement | null>(null);
 	return (
 		<div>
@@ -74,6 +79,7 @@ export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useI
 						className="gap-x-[10px] flex items-center cursor-pointer"
 					>
 						<input
+							{...register(name)}
 							type="radio"
 							id={option}
 							name={name}
@@ -93,10 +99,11 @@ export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useI
 					<input
 						id="others"
 						type="radio"
+						{...register(name)}
 						name={name}
-						onFocus={() => {
-							inputRef.current?.focus();
-						}}
+						value={inputRef.current?.value}
+						onFocus={() => inputRef.current?.focus()}
+						onBlur={() => inputRef.current?.blur()}
 					/>
 					<label
 						htmlFor="others"
@@ -111,23 +118,27 @@ export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useI
 					/>
 				</div>
 			)}
+			{error[name] && <p className="text-red-600 mt-2 font-poppins">Must be Filled</p>}
 		</div>
 	);
 };
 
-interface TextAreaProps {
+interface TextAreaProps extends CareerInputProps {
 	title: string;
 	placeholder?: string;
+	error: FieldErrors<CareerFormData>;
 }
 
-export const TextArea: FC<TextAreaProps> = ({ title, placeholder }) => {
+export const TextArea: FC<TextAreaProps> = ({ title, placeholder, register, name, error }) => {
 	return (
 		<div>
 			<p className="text-sm lg:text-base leading-5 text-[#331B3BA8] mb-4">{title}</p>
 			<textarea
+				{...register(name)}
 				placeholder={placeholder}
 				className="border border-[#575252] lg:placeholder:text-[#1E4178] h-[157px] lg:h-[273px] py-4 px-3 focu:outline-0 placeholder:text-[#71717A] w-full rounded-md"
 			></textarea>
+			{error[name] && <p className="text-red-600 mt-2 font-poppins">{error[name]?.message}</p>}
 		</div>
 	);
 };
