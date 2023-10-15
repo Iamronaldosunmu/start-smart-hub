@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Container from "../../../components/container";
 import { useState } from "react";
 import { z } from "zod";
+// @ts-ignore
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
@@ -15,7 +16,7 @@ interface EmailNewsletterPayload {
 
 const Subscribe = () => {
 	const subscribeToNewsletter = async (data: EmailNewsletterPayload) => {
-		const res = await axiosInstance.post("/mailing-lists", data);
+		const res = await axiosInstance.post("/newsletters", data);
 		return res.data;
 	};
 	const subscribeToNewsletterMutation = useMutation(subscribeToNewsletter);
@@ -35,12 +36,12 @@ const Subscribe = () => {
 		resolver: zodResolver(newsletterValidationSchema),
 	});
 
-	const onSubscribe = (data) => {
+	const onSubscribe = (data: any) => {
 		subscribeToNewsletterMutation.mutate(
 			{ data: { email: data.email } },
 			{
 				onSuccess: () => {
-					setFinalMessage("Thanks For Subscribibng!");
+					setFinalMessage("Thanks For Subscribing!");
 				},
 				onError: (error: any) => {
 					if (error.response.status === 400) {
@@ -58,7 +59,7 @@ const Subscribe = () => {
 				<div className="text-[44px] lg:text-[54px] font-bold flex flex-wrap gap-x-2 justify-center">
 					{"Stay in the loop!".split(" ").map((word, index) => (
 						<motion.div
-						key={index}
+							key={index}
 							initial={{ y: 45, opacity: 0 }}
 							animate={{
 								y: 0,
@@ -78,24 +79,26 @@ const Subscribe = () => {
 				>
 					Get the inside scoop, level up your career. Don’t miss out on all the recent updates! Subscribe to our newsletter now!
 				</p>
-				{!finalMessage && <>
-					<form
-						onSubmit={handleSubmit(onSubscribe)}
-						data-aos="fade-up"
-						data-aos-duration="700"
-						data-aos-delay="1000"
-						className="mt-[50px] flex justify-center items-center h-[51px] overflow-hidden rounded-md w-full max-w-[450px]"
-					>
-						<input
-							{...register("email")}
-							className="w-full h-full px-4 placeholder:text-xs placeholder:text-[#757575]"
-							placeholder="Enter your email"
-							type="text"
-						/>
-						<button className="text-sm tracking-widest bg-[#FFA177] h-full max-w-[121px] w-full text-white uppercase leading-4">{subscribeToNewsletterMutation.isLoading ? "Loading..." : "Submit"}</button>
-					</form>
-					<p className="text-[red] mt-[15px]">{errors.email?.message}</p>
-				</>}
+				{!finalMessage && (
+					<>
+						<form
+							onSubmit={handleSubmit(onSubscribe)}
+							data-aos="fade-up"
+							data-aos-duration="700"
+							data-aos-delay="1000"
+							className="mt-[50px] flex justify-center items-center h-[51px] overflow-hidden rounded-md w-full max-w-[450px]"
+						>
+							<input
+								{...register("email")}
+								className="w-full h-full px-4 placeholder:text-xs placeholder:text-[#757575]"
+								placeholder="Enter your email"
+								type="text"
+							/>
+							<button className="text-sm tracking-widest bg-[#FFA177] h-full max-w-[121px] w-full text-white uppercase leading-4">{subscribeToNewsletterMutation.isLoading ? "Loading..." : "Submit"}</button>
+						</form>
+						<p className="text-[red] mt-[15px]">{errors.email?.message}</p>
+					</>
+				)}
 				{finalMessage && (
 					<motion.p
 						initial={{ opacity: 0, scale: 0.9 }}
