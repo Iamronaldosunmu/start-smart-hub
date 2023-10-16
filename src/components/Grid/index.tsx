@@ -6,7 +6,7 @@ const GridComponent = () => {
 			<div className="bg-[url('/assets/Section.png')] py-20 sm:flex flex-col justify-center items-center sm:px-10 px-5  large:px-20">
 				<div className=" text-white flex flex-col justify-center lg:items-start items-center md:text-start xl:pl-[calc((100vw-1280px)/2)]">
 					<TextAnimation
-						text={"Start smart and build bright today!"}
+						text={"Start smart and build right today!"}
 						className={"sm:text-[48px] text-[40px] font-bold flex flex-wrap gap-x-2"}
 					/>
 					<p
