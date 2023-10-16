@@ -35,7 +35,7 @@ const AboutUs = () => {
 				/>
 				<TextSection
 					heading="Our Mission"
-					paragraphs={["At StartSmart Hub, our mission is simple yet impactful: To help you “Start Smart and Build right”. We’re dedicated to providing you with the knowledge, resources and support you need to thrive in your new career, and we’re excited to embark on this journey with you.", "Welcome to StartSmart Hub, where your career success story begins!"]}
+					paragraphs={["At StartSmart Hub, our mission is simple yet impactful: To help you “Start Smart and Build Right”. We’re dedicated to providing you with the knowledge, resources and support you need to thrive in your new career, and we’re excited to embark on this journey with you.", "Welcome to StartSmart Hub, where your career success story begins!"]}
 				/>
 			</Container>
 			<Bookings />
