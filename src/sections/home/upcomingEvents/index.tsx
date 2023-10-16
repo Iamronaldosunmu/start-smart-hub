@@ -57,7 +57,7 @@ const UpcomingEvents = ({ date }: Props) => {
 						<p className="text-gray-400 text-xl font-semibold mt-[45px]">Date: {events?.length > 0 ? format(new Date(events[0]?.attributes?.date), "MMMM do yyyy, h:mm:ss a") : ""}</p>
 						<motion.button
 							{...interactionAnimations}
-							onClick={() => navigate(events?.length > 0 ? events[0]?.attributes?.meetingLink : "")}
+							onClick={() => navigate("/upcoming-events")}
 							data-aos="zoom-in"
 							data-aos-duration="700"
 							data-aos-delay="0"

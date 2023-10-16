@@ -14,7 +14,7 @@ const AboutUs = () => {
 					<TextSection
 						heading="Hello, I'm Doyin!"
 						paragraphs={[
-							"I’m the founder of StartSmart Hub. With over a decade of experience as a senior tech recruiter and career coach, I’ve had the privilege of providing compassionate guidiance to inPageContainerals at every stage of their careers.",
+							"I’m the founder of StartSmart Hub. With over a decade of experience as a senior tech recruiter and career coach, I’ve had the privilege of providing compassionate guidiance to individuals at every stage of their careers.",
 							"Whether you’re a recent graduate embarking on your professional journey, in the midst of a mid-career transition, a high-school student uncertain about your academic path, or a newcomer navigating a new job market, I’m here to be your dediacted partner on your career expedition.",
 						]}
 					/>
