@@ -10,7 +10,7 @@ const AboutUs = () => {
 		<PageContainer className="mt-[96px] lg:mt-[133px]">
 			<Hero />
 			<section className="bg-[#FFF3EE] mt-8 lg:mt-12 py-20">
-				<Container className="grid gap-y-12 lg:gap-y-[90px]">
+				<Container className="grid gap-y-0 lg:gap-y-[0px]">
 					<TextSection
 						heading="Hello, I'm Doyin!"
 						paragraphs={[
