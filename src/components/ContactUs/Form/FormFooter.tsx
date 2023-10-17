@@ -12,7 +12,7 @@ const FormFooter = () => {
 					</div>
 					<div>
 						<p>PHONE</p>
-						<p className="text-[#DD5471] whitespace-nowrap">03 5432 1234</p>
+						<p className="text-[#DD5471] whitespace-nowrap">+1 4379747631</p>
 					</div>
 				</div>
 				<div className="flex mr-7">
