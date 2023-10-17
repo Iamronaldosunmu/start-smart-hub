@@ -25,7 +25,7 @@ const schema = z.object({
 	yearsOfExperience: z.number().min(0, { message: "Value must be greater than 0" }),
 	shortTermGoal: z.string(),
 	longTermGoal: z.string(),
-	challenges: z.string().min(5, { message: "Chanllenges must be at least 5 characters" }),
+	challenges: z.string().min(1, { message: "Required" }),
 });
 
 export type CareerFormData = z.infer<typeof schema>;
@@ -38,19 +38,36 @@ const CareerCoaching = () => {
 
 	const { mutate } = useForms();
 
+	type names = "firstName" | "lastName" | "email" | "phone" | "jobTitle" | "employer" | "industry" | "yearsOfExperience" | "shortTermGoal" | "longTermGoal" | "challenges";
+
+	useEffect(() => {
+		trigger();
+	}, []);
+
+	const Validate = (payload: string[]) => {
+		let valid = true;
+		payload.forEach((item) => {
+			if (errors[item as names]) {
+				valid = false;
+			}
+		});
+		return valid;
+	};
+
 	const {
 		register,
 		handleSubmit,
 		formState: { errors, isValid },
 		reset,
+		trigger,
 	} = useForm<CareerFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
 
-	const nextPage = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-		e.preventDefault();
-		if (page > pages.length - 1) setPage(1);
-		else setPage(page + 1);
+	const nextPage = (payload: names[]) => {
+		if (Validate(payload)) {
+			if (page > pages.length - 1) setPage(1);
+			else setPage(page + 1);
+		}
 	};
-
 	useCalendlyEventListener({
 		onEventScheduled: () => {
 			alert("Event Scheduled");
@@ -165,7 +182,7 @@ const CareerCoaching = () => {
 								type="number"
 							/>
 							<button
-								onClick={nextPage}
+								onClick={() => nextPage(["firstName", "lastName", "email", "industry", "yearsOfExperience"])}
 								className="text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]"
 							>
 								Next
@@ -206,21 +223,21 @@ const CareerCoaching = () => {
 									register={register}
 									error={errors}
 								/>
-								<button
-									type="submit"
-									className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
-								>
-									{isValid ? (
-										<PopupButton
-											url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
-											rootElement={document.getElementById("root") as HTMLElement}
-											text="Schedule"
-											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
-										/>
-									) : (
-										"Schedule"
-									)}
-								</button>
+								{isValid ? (
+									<PopupButton
+										url="https://calendly.com/startsmarthub/coaching-career-personal-development?hide_gdpr_banner=1"
+										rootElement={document.getElementById("root") as HTMLElement}
+										text="Schedule"
+										className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
+									/>
+								) : (
+									<button
+										type="submit"
+										className={`text-2xl flex justify-center lg:text-[32px] text-white ${isValid ? "bg-[#4B8CEA]" : "bg-black"} font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer`}
+									>
+										Schedule
+									</button>
+								)}
 							</div>
 						</motion.section>
 					)}

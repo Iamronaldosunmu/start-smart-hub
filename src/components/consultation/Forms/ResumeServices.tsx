@@ -17,17 +17,17 @@ const schema = z.object({
 	lastName: z.string().min(3, { message: "Last Name must be at least 3 characters" }),
 	email: z.string().email({ message: "The email format you entered is invalid" }),
 	phone: z.string().min(11, { message: "Phone number should be at least 11 characters" }),
-	profile: z.string(),
+	profile: z.string().min(1, { message: "LinkedIn Profile is Required" }),
 	service: z.string(),
 	jobTitle: z.string().min(2, { message: "Job Title should not be less than 2 characters" }),
-	desiredJobTitle: z.string().min(2, { message: "Job Title should not be less than 2 characters" }),
-	industry: z.string().min(2, { message: "Industry/Field is required" }),
-	targetIndustry: z.string().min(2, { message: "Target Industry/Field is required" }),
+	desiredJobTitle: z.string().min(2, { message: "Desired Job Title should not be less than 2 characters" }),
+	industry: z.string().min(1, { message: "Industry/Field is required" }),
+	targetIndustry: z.string().min(1, { message: "Target Industry/Field is required" }),
 	yearsOfExperience: z.number().min(0, { message: "Value must be greater than 0" }),
-	educationLevel: z.string(),
-	isResume: z.string(),
-	resume: z.string(),
-	isResumeDrafts: z.string(),
+	educationLevel: z.string().min(1, { message: "Education level is required" }),
+	resumePresent: z.string().min(1, { message: "Required" }),
+	resumeDetails: z.string().min(1, { message: "Required" }),
+	isResumeDrafts: z.string().min(1, { message: "Required" }),
 	resumeDrafts: z.string(),
 	requirements: z.string(),
 	primaryGoals: z.string(),
@@ -37,7 +37,16 @@ const schema = z.object({
 export type ResumeFormData = z.infer<typeof schema>;
 
 const ResumeServices = () => {
+	const {
+		register,
+		handleSubmit,
+		formState: { errors, isValid },
+		reset,
+		trigger,
+	} = useForm<ResumeFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
+
 	const pages = [1, 2, 3];
+
 	const [page, setPage] = useState(1);
 
 	const { mutate } = useForms();
@@ -51,12 +60,21 @@ const ResumeServices = () => {
 		},
 	});
 
-	const {
-		register,
-		handleSubmit,
-		formState: { errors, isValid },
-		reset,
-	} = useForm<ResumeFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
+	type names = "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent" | "resumeDetails" | "isResumeDrafts" | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
+
+	const Validate = (payload: string[]) => {
+		let valid = true;
+		payload.forEach((item) => {
+			if (errors[item as names]) {
+				valid = false;
+			}
+		});
+		return valid;
+	};
+
+	useEffect(() => {
+		trigger();
+	}, []);
 
 	const onSubmit = (data: ResumeFormData) => {
 		const info = {
@@ -88,7 +106,6 @@ const ResumeServices = () => {
 				},
 			},
 		};
-		console.log(data);
 		mutate(info);
 		reset();
 		navigate("/home");
@@ -100,10 +117,11 @@ const ResumeServices = () => {
 		}, 300);
 	}, [page]);
 
-	const nextPage = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-		e.preventDefault();
-		if (page > pages.length - 1) setPage(1);
-		else setPage(page + 1);
+	const nextPage = (payload: names[]) => {
+		if (Validate(payload)) {
+			if (page > pages.length - 1) setPage(1);
+			else setPage(page + 1);
+		}
 	};
 	return (
 		<Container>
@@ -166,7 +184,8 @@ const ResumeServices = () => {
 									error={errors}
 								/>
 								<button
-									onClick={nextPage}
+									type="button"
+									onClick={() => nextPage(["firstName", "lastName", "email", "phone", "profile"])}
 									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
 								>
 									Next
@@ -221,7 +240,8 @@ const ResumeServices = () => {
 									error={errors}
 								/>
 								<button
-									onClick={nextPage}
+									type="button"
+									onClick={() => nextPage(["jobTitle", "industry", "desiredJobTitle", "targetIndustry", "yearsOfExperience", "educationLevel"])}
 									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
 								>
 									Next
@@ -240,13 +260,13 @@ const ResumeServices = () => {
 							<div className="flex flex-col justify-center gap-y-5 md:gap-y-10 mt-5 lg:mt-10">
 								<Input
 									title="Have you previously created a resume? [Yes/No]"
-									name="isResume"
+									name="resumePresent"
 									register={register}
 									error={errors}
 								/>
 								<Input
 									title="If yes, please share your existing resume us by email"
-									name="resume"
+									name="resumeDetails"
 									register={register}
 									error={errors}
 								/>
@@ -280,21 +300,21 @@ const ResumeServices = () => {
 									register={register}
 									error={errors}
 								/>
-								<button
-									type="submit"
-									className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
-								>
-									{isValid ? (
-										<PopupButton
-											url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
-											rootElement={document.getElementById("root") as HTMLElement}
-											text="Schedule"
-											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
-										/>
-									) : (
-										"Schedule"
-									)}
-								</button>
+								{isValid ? (
+									<PopupButton
+										url="https://calendly.com/startsmarthub/resume-building?hide_gdpr_banner=1"
+										rootElement={document.getElementById("root") as HTMLElement}
+										text="Schedule"
+										className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
+									/>
+								) : (
+									<button
+										type="submit"
+										className={`text-2xl flex justify-center lg:text-[32px] text-white ${isValid ? "bg-[#4B8CEA]" : "bg-black"} font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer`}
+									>
+										Schedule
+									</button>
+								)}
 							</div>
 						</motion.section>
 					)}

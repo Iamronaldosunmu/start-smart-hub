@@ -3,11 +3,13 @@ import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { ResumeFormData } from "../../Forms/ResumeServices";
 
 interface ResumeInputProps {
-	name: "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "isResume" | "resume" | "isResumeDrafts" | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
+	name: "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent" | "resumeDetails" | "isResumeDrafts" | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
 	register: UseFormRegister<ResumeFormData>;
 }
 
-interface InputProps extends ResumeInputProps {
+interface InputProps {
+	name: "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent" | "resumeDetails" | "isResumeDrafts" | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
+	register: UseFormRegister<ResumeFormData>;
 	title: string;
 	type?: "number" | "text";
 	placeholder?: string;
@@ -119,7 +121,7 @@ export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useI
 					/>
 				</div>
 			)}
-			{error[name] && <p className="text-red-600 mt-2 font-poppins">Must be Filled</p>}
+			{error[name] && <p className="text-red-600 mt-2 font-poppins">Required</p>}
 		</div>
 	);
 };
