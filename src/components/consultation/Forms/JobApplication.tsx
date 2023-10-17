@@ -18,21 +18,21 @@ const schema = z.object({
 	lastName: z.string().min(3, { message: "Last Name must be at least 3 characters" }),
 	email: z.string().email({ message: "The email format you entered is invalid" }),
 	phone: z.string().min(11, { message: "Phone number should be at least 11 characters" }),
-	address: z.string(),
+	address: z.string().min(10, { message: "Address should be at least 11 characters" }),
 	employmentStatus: z.string(),
-	jobTitle: z.string().min(2, { message: "Job Title should not be less than 2 characters" }),
-	industry: z.string().min(2, { message: "Industry/Field is required" }),
+	jobTitle: z.string().min(1, { message: "Job Title is Required" }),
+	industry: z.string().min(1, { message: "Industry/Field is required" }),
 	service: z.string(),
-	shortTermGoal: z.string(),
-	longTermGoal: z.string(),
-	desiredJobTitle: z.string(),
-	targetIndustry: z.string(),
-	targetCompany: z.string(),
-	summary: z.string(),
-	resume: z.string(),
+	shortTermGoal: z.string().min(10, { message: "Required" }),
+	longTermGoal: z.string().min(10, { message: "Required" }),
+	desiredJobTitle: z.string().min(1, { message: "Desired Job Title is required" }),
+	targetIndustry: z.string().min(1, { message: "Target Industry is required" }),
+	targetCompany: z.string().min(1, { message: "Target Company is required" }),
+	summary: z.string().min(10, { message: "Summary should be at least 11 characters" }),
+	resume: z.string().min(1, { message: "Resume should be at least 11 characters" }),
 	jobPostings: z.string(),
 	additionalInfo: z.string(),
-	referral: z.string(),
+	referral: z.string().min(1, { message: "Required" }),
 });
 
 export type JobFormData = z.infer<typeof schema>;
@@ -48,7 +48,20 @@ const JobApplication = () => {
 		handleSubmit,
 		formState: { errors, isValid },
 		reset,
-	} = useForm<JobFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
+		trigger,
+	} = useForm<JobFormData>({ resolver: zodResolver(schema), mode: "onChange" });
+
+	type names = "firstName" | "lastName" | "email" | "phone" | "address" | "employmentStatus" | "jobTitle" | "industry" | "service" | "shortTermGoal" | "longTermGoal" | "desiredJobTitle" | "targetIndustry" | "targetCompany" | "summary" | "resume" | "jobPostings" | "additionalInfo" | "referral";
+
+	const Validate = (payload: string[]) => {
+		let valid = true;
+		payload.forEach((item) => {
+			if (errors[item as names]) {
+				valid = false;
+			}
+		});
+		return valid;
+	};
 
 	const { mutate } = useForms();
 
@@ -102,15 +115,20 @@ const JobApplication = () => {
 	};
 
 	useEffect(() => {
+		trigger();
+	}, []);
+
+	useEffect(() => {
 		setTimeout(() => {
 			window.scrollTo({ top: 0, behavior: "smooth" });
 		}, 300);
 	}, [page]);
 
-	const nextPage = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-		e.preventDefault();
-		if (page > pages.length - 1) setPage(1);
-		else setPage(page + 1);
+	const nextPage = (payload: names[]) => {
+		if (Validate(payload)) {
+			if (page > pages.length - 1) setPage(1);
+			else setPage(page + 1);
+		}
 	};
 
 	return (
@@ -166,7 +184,7 @@ const JobApplication = () => {
 									error={errors}
 								/>
 								<button
-									onClick={nextPage}
+									onClick={() => nextPage(["firstName", "lastName", "email", "phone", "address"])}
 									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
 								>
 									Next
@@ -206,7 +224,7 @@ const JobApplication = () => {
 									/>
 								</div>
 								<button
-									onClick={nextPage}
+									onClick={() => nextPage(["employmentStatus", "jobTitle", "industry"])}
 									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
 								>
 									Next
@@ -245,7 +263,7 @@ const JobApplication = () => {
 									error={errors}
 								/>
 								<button
-									onClick={nextPage}
+									onClick={() => nextPage(["service", "shortTermGoal", "longTermGoal"])}
 									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
 								>
 									Next

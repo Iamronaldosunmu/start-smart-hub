@@ -15,22 +15,22 @@ const schema = z.object({
 	lastName: z.string().min(3, { message: "Last Name must be at least 3 characters" }),
 	email: z.string().email({ message: "The email format you entered is invalid" }),
 	phone: z.string().min(11, { message: "Phone number should be at least 11 characters" }),
-	profile: z.string(),
-	headline: z.string(),
-	summary: z.string(),
-	isUploaded: z.string(),
-	profilePicture: z.string(),
-	isRecommended: z.string(),
-	recommendations: z.string(),
-	outcomes: z.string(),
+	profile: z.string().min(1, { message: "Profile Url is Required" }),
+	headline: z.string().min(1, { message: "Required" }),
+	summary: z.string().min(1, { message: "Required" }),
+	isUploaded: z.string().min(1, { message: "Required" }),
+	profilePicture: z.string().min(1, { message: "Required" }),
+	isRecommended: z.string().min(1, { message: "Required" }),
+	recommendations: z.string().min(1, { message: "Required" }),
+	outcomes: z.string().min(1, { message: "Required" }),
 	jobTitle: z.string().min(2, { message: "Job Title should not be less than 2 characters" }),
 	industry: z.string().min(2, { message: "Industry/Field is required" }),
-	desiredJobTitle: z.string(),
+	desiredJobTitle: z.string().min(1, { message: "Required" }),
 	desiredIndustry: z.string().min(2, { message: "Industry/Field is required" }),
 	yearsOfExperience: z.number().min(0, { message: "Value must be greater than 0" }),
-	educationLevel: z.string(),
-	requirements: z.string(),
-	additionalInfo: z.string(),
+	educationLevel: z.string().min(1, { message: "Required" }),
+	requirements: z.string().min(1, { message: "Required" }),
+	additionalInfo: z.string().min(1, { message: "Required" }),
 });
 
 export type LinkedinFormData = z.infer<typeof schema>;
@@ -55,7 +55,48 @@ const LinkedInServices = () => {
 		handleSubmit,
 		formState: { errors, isValid },
 		reset,
+		trigger,
 	} = useForm<LinkedinFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
+
+	type names =
+		| "firstName"
+		| "lastName"
+		| "email"
+		| "phone"
+		| "profile"
+		| "jobTitle"
+		| "industry"
+		| "desiredJobTitle"
+		| "summary"
+		| "additionalInfo"
+		| "profilePicture"
+		| "headline"
+		| "isUploaded"
+		| "profilePicture"
+		| "desiredIndustry"
+		| "requirements"
+		| "yearsOfExperience"
+		| "isUploaded"
+		| "isRecommended"
+		| "recommendations"
+		| "outcomes"
+		| "desiredIndustry"
+		| "yearsOfExperience"
+		| "educationLevel";
+
+	const Validate = (payload: string[]) => {
+		let valid = true;
+		payload.forEach((item) => {
+			if (errors[item as names]) {
+				valid = false;
+			}
+		});
+		return valid;
+	};
+
+	useEffect(() => {
+		trigger();
+	}, []);
 
 	const onSubmit = (data: LinkedinFormData) => {
 		const info = {
@@ -103,10 +144,11 @@ const LinkedInServices = () => {
 		}, 300);
 	}, [page]);
 
-	const nextPage = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-		e.preventDefault();
-		if (page > pages.length - 1) setPage(1);
-		else setPage(page + 1);
+	const nextPage = (payload: names[]) => {
+		if (Validate(payload)) {
+			if (page > pages.length - 1) setPage(1);
+			else setPage(page + 1);
+		}
 	};
 
 	return (
@@ -162,7 +204,8 @@ const LinkedInServices = () => {
 									error={errors}
 								/>
 								<button
-									onClick={nextPage}
+									type="button"
+									onClick={() => nextPage(["firstName", "lastName", "email", "phone", "profile"])}
 									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
 								>
 									Next
@@ -222,7 +265,8 @@ const LinkedInServices = () => {
 									error={errors}
 								/>
 								<button
-									onClick={nextPage}
+									type="button"
+									onClick={() => nextPage(["headline", "summary", "isUploaded", "isRecommended", "profilePicture", "recommendations", "outcomes"])}
 									className={`text-2xl lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px]`}
 								>
 									Next
@@ -289,21 +333,21 @@ const LinkedInServices = () => {
 									register={register}
 									error={errors}
 								/>
-								<button
-									type="submit"
-									className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
-								>
-									{isValid ? (
-										<PopupButton
-											url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
-											rootElement={document.getElementById("root") as HTMLElement}
-											text="Schedule"
-											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
-										/>
-									) : (
-										"Schedule"
-									)}
-								</button>
+								{isValid ? (
+									<PopupButton
+										url="https://calendly.com/startsmarthub/linkedin-optimization?hide_gdpr_banner=1"
+										rootElement={document.getElementById("root") as HTMLElement}
+										text="Schedule"
+										className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
+									/>
+								) : (
+									<button
+										type="submit"
+										className={`text-2xl flex justify-center lg:text-[32px] text-white ${isValid ? "bg-[#4B8CEA]" : "bg-black"} font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer`}
+									>
+										Schedule
+									</button>
+								)}
 							</div>
 						</motion.section>
 					)}
