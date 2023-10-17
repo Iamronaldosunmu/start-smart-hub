@@ -15,8 +15,8 @@ const UpcomingEvents = () => {
 					alt=""
 				/>
 				<img
-					className="h-[142px] w-full object-cover block lg:hidden"
-					src="/assets/header_mobile.png"
+					className="h-[142px] w-full object-cover lg:hidden flex-shrink-0 "
+					src="/assets/upcoming-events.png"
 					alt=""
 				/>
 			</header>

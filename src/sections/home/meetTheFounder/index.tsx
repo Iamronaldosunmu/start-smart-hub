@@ -71,7 +71,7 @@ const MeetTheFounder = () => {
 						data-aos-duration="700"
 						data-aos-delay="500"
 						className="relative z-10 object-cover"
-						src="/assets/hero.png"
+						src="/assets/doyin.png"
 						alt=""
 					/>
 				</div>
