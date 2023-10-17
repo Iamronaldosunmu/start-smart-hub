@@ -25,7 +25,7 @@ const Hero = () => {
 						data-aos="zoom-in"
 						data-aos-duration="700"
 						data-aos-delay="700"
-						className="text-base tracking-normal  text-center lg:text-left mb-6 text-[#444343]"
+						className="tracking-normal  text-center lg:text-left mb-6  text-[#494949] font-light text-sm md:text-base xl:text-xl leading-6"
 					>
 						No matter what stage you are in your career, I've got the strategy to help you unlock the next level of success
 					</p>
