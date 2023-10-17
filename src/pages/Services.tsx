@@ -99,7 +99,7 @@ const Services: React.FC = () => {
 							text="Discovery  your true career interests and passions through guided exploration, helping you find a fulfilling career path."
 							path="/consultation/career-coaching"
 						/>
-						<Service
+						{/* <Service
 							number={8}
 							imageUrl="/assets/service.png"
 							title="Resume Clinic"
@@ -112,7 +112,7 @@ const Services: React.FC = () => {
 							title="Career Workshops And Training"
 							text="Participate in our workshops and training sessions to build essential job search skills, from networking to negotiation, and stay ahead in your career journey."
 							path="/consultation/career-coaching"
-						/>
+						/> */}
 						<Service
 							number={10}
 							imageUrl="/assets/service.png"
