@@ -67,7 +67,7 @@ const Nav = () => {
 							url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
 							rootElement={document.getElementById("root") as HTMLElement}
 							text="Book a call"
-							className=" flex leading-7 py-2 px-5 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
+							className=" flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
 						/>
 					</div>
 				</Container>
