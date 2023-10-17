@@ -105,7 +105,7 @@ const Footer = () => {
 					))}
 				</div>
 				<div className="flex justify-center items-center mb-5 mt-10">
-					<p className="text-xs text-center font-inter opacity-50 px-5 text-[#606060]">© 2021 Andrew Cooper International, Inc. All rights reserved.</p>
+					<p className="text-xs text-center font-inter opacity-50 px-5 text-[#606060]">©2023 Start Smart Hub. All rights reserved</p>
 				</div>
 			</Container>
 		</section>
