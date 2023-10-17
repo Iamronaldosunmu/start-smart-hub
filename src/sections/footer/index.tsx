@@ -19,7 +19,20 @@ const Footer = () => {
 		],
 	];
 
-	const socials = ["facebook.svg", "twitter.svg", "youtube.svg", "instagram.svg"];
+	const socials = [
+		{
+			label: "facebook.svg",
+			link: "https://www.facebook.com/profile.php?id=61551682838397&mibextid=LQQJ4d",
+		},
+		{
+			label: "linkedin.svg",
+			link: "https://www.linkedin.com/company/startsmart-hub/",
+		},
+		{
+			label: "instagram.svg",
+			link: "https://instagram.com/startsmarthub?igshid=NzZlODBkYWE4Ng%3D%3D&utm_source=qr",
+		},
+	];
 
 	return (
 		<section>
@@ -29,8 +42,7 @@ const Footer = () => {
 					<div className="flex-shrink-0 w-[36px] h-[29px]">
 						<img
 							src="/assets/logo.png"
-							className="justify-end "
-							alt=""
+							alt="Logo"
 						/>
 					</div>
 					<div className="flex flex-col items-center w-full lg:w-auto lg:px-20">
@@ -38,7 +50,7 @@ const Footer = () => {
 							<div className="flex lg:gap-7 sm:gap-5 gap-2 flex-wrap lg:mr-10 justify-between w-full">
 								{footerItems.map((footerItem, index) => (
 									<ul
-										key={`${footerItem} ${index}`}
+										key={index}
 										className="lg:leading-7 leading-6 block"
 									>
 										{footerItem.map((item, index) => (
@@ -49,7 +61,6 @@ const Footer = () => {
 												<Link
 													to={item.link}
 													className="text-[#606060] text-sm whitespace-nowrap"
-													key={index}
 												>
 													{item.label}
 												</Link>
@@ -57,44 +68,44 @@ const Footer = () => {
 										))}
 									</ul>
 								))}
-								<div className="w-full mx-auto">
-									<div className="hidden mt-5 lg:mt-0 items-center gap-x-10 lg:gap-x-20 justify-center lg:flex">
-										{socials.map((item, index) => (
-											<Link
-												key={index}
-												to=""
-												className="flex w-7 lg:w-5 lg:h-5 h-7"
-											>
-												<img
-													className="w-full h-full object-cover"
-													src={`/assets/${item}`}
-													alt=""
-												/>
-											</Link>
-										))}
-									</div>
-								</div>
 							</div>
 						</div>
+					</div>
+					<div className="hidden lg:flex items-center gap-x-10 lg:gap-x-20 justify-center">
+						{socials.map((item, index) => (
+							<a
+								key={index}
+								href={item.link}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<img
+									className="w-7 h-7"
+									src={`/assets/${item.label}`}
+									alt={item.label}
+								/>
+							</a>
+						))}
 					</div>
 				</footer>
 				<div className="flex mt-5 lg:mt-0 items-center gap-x-10 lg:gap-x-20 justify-center lg:hidden">
 					{socials.map((item, index) => (
-						<Link
+						<a
 							key={index}
-							to=""
-							className="flex w-7 h-7"
+							href={item.link}
+							target="_blank"
+							rel="noopener noreferrer"
 						>
 							<img
-								className="w-full h-full object-cover"
-								src={`/assets/${item}`}
-								alt=""
+								className="w-7 h-7"
+								src={`/assets/${item.label}`}
+								alt={item.label}
 							/>
-						</Link>
+						</a>
 					))}
 				</div>
 				<div className="flex justify-center items-center mb-5 mt-10">
-					<p className="text-xs text-center font-inter opacity-50 px-5 text-[#606060]">©2021 Andrew Cooper International, Inc. All rights reserved.</p>
+					<p className="text-xs text-center font-inter opacity-50 px-5 text-[#606060]">©2023 Start Smart Hub. All rights reserved</p>
 				</div>
 			</Container>
 		</section>

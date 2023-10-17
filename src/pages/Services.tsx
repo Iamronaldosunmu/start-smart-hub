@@ -53,14 +53,14 @@ const Services: React.FC = () => {
 						<Service
 							number={1}
 							imageUrl="/assets/service.png"
-							title="Resume building"
+							title="Resume Building"
 							text="We craft compelling and tailored resumes that highlight your skills, experiences and achievements to make a lasting impression on employers."
 							path="/consultation/resume-services"
 						/>
 						<Service
 							number={2}
 							imageUrl="/assets/service.png"
-							title="Resume review"
+							title="Resume Review"
 							text="Get expert feedback on your existing resume to identify areas for improvement and maximize its impact in your job search."
 							path="/consultation/resume-services"
 						/>
@@ -74,14 +74,14 @@ const Services: React.FC = () => {
 						<Service
 							number={4}
 							imageUrl="/assets/service.png"
-							title="Interview prep coaching"
+							title="Interview Prep Coaching"
 							text="Prepare for interviews with personalized coaching sessions. Learn efffective strategies and gain the confidence to ace your interviews."
 							path="/consultation/job-application"
 						/>
 						<Service
 							number={5}
 							imageUrl="/assets/service.png"
-							title="Job application tailoring coaching"
+							title="Job Application Tailoring Coaching"
 							text="Craft tailored job applications that align with your target positions, increasing your chances of getting noticed by employers."
 							path="/consultation/job-application"
 						/>
@@ -95,7 +95,7 @@ const Services: React.FC = () => {
 						<Service
 							number={7}
 							imageUrl="/assets/service.png"
-							title="Career Interest and passion Discovery"
+							title="Career Interest And Passion Discovery"
 							text="Discovery  your true career interests and passions through guided exploration, helping you find a fulfilling career path."
 							path="/consultation/career-coaching"
 						/>
@@ -109,14 +109,14 @@ const Services: React.FC = () => {
 						<Service
 							number={9}
 							imageUrl="/assets/service.png"
-							title="Career workshops and training"
+							title="Career Workshops And Training"
 							text="Participate in our workshops and training sessions to build essential job search skills, from networking to negotiation, and stay ahead in your career journey."
 							path="/consultation/career-coaching"
 						/>
 						<Service
 							number={10}
 							imageUrl="/assets/service.png"
-							title="Career/personal development coaching"
+							title="Career/Personal Development Coaching"
 							text="We offer personalized guidance, unwavering support, and tailored strategies to accelerate your professional growth and help you achieve your career goals and personal breakthroughs."
 							path="/consultation/career-coaching"
 						/>

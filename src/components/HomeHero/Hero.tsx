@@ -9,29 +9,32 @@ const Hero = () => {
 						data-aos-duration="700"
 						data-aos="zoom-in"
 						data-aos-delay="700"
-						className="text-2xl font-medium font-poppins flex gap-x-2"
-					>Our services</div>
+						className="text-2xl font-medium flex gap-x-2"
+					>
+						Our services
+					</div>
 					<div
 						data-aos-duration="700"
 						data-aos="zoom-in"
 						data-aos-delay="700"
 						className="lg:text-5xl text-2xl text-center lg:text-left lg:font-bold font-semibold relative mb-5  mt-1 lg:leading-[60px] flex gap-x-3 flex-wrap"
-					>"At StartSmart, we're all about your goals."</div>
+					>
+						"At StartSmart, we're all about your goals."
+					</div>
 					<p
 						data-aos="zoom-in"
 						data-aos-duration="700"
 						data-aos-delay="700"
-						className="text-base tracking-normal text-center lg:text-left mb-6 text-[#606060]"
+						className="tracking-normal  text-center lg:text-left mb-6  text-[#494949] font-light text-sm md:text-base xl:text-xl leading-6"
 					>
-						No matter what stage you are in your career, I’ve got the strategy to help you unlock that next level of success.
+						No matter what stage you are in your career, I've got the strategy to help you unlock the next level of success
 					</p>
 				</div>
 			</div>
 			<div
 				data-aos="zoom-in"
 				data-aos-duration="700"
-				data-aos-delay="800"
-				className="flex shrink mt-10 lg:mt-0 max-w-[352px] xl:max-w-[450px] w-full"
+ 				className="flex shrink mt-10 lg:mt-0 max-w-[352px] xl:max-w-[450px] w-full"
 			>
 				<img
 					className="relative z-10 object-cover w-full h-full"

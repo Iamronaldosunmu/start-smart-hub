@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Container from "../container";
 import { interactionAnimations } from "../../utils/framer-default-animations";
+import { PopupButton } from "react-calendly";
 
 const Nav = () => {
 	const navItems = [
@@ -54,14 +55,20 @@ const Nav = () => {
 									{item.text}
 								</Link>
 							))}
-						</div>
-						<motion.button
+						</div>{" "}
+						{/* <motion.button
 							onClick={() => navigate("/services?scroll_to=services")}
 							{...interactionAnimations}
 							className=" leading-7 py-2 px-5 text-white bg-[#4B8CEA] rounded-[10px] font-medium shadow-[0px_2px_4px_0px_#4b8cea4a]"
 						>
 							Book a Call
-						</motion.button>
+						</motion.button> */}
+						<PopupButton
+							url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
+							rootElement={document.getElementById("root") as HTMLElement}
+							text="Book a call"
+							className=" flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
+						/>
 					</div>
 				</Container>
 			</nav>
