@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Container from "../../../components/container";
 import { interactionAnimations } from "../../../utils/framer-default-animations";
 import { useNavigate } from "react-router-dom";
+import { PopupButton } from "react-calendly";
 
 const Hero = () => {
 	const  navigate  = useNavigate();
@@ -11,7 +12,7 @@ const Hero = () => {
 				<div className="relative text-[54px] leading-[1.2] lg:text-[62px] xl:text-[70px] text-[#331B3B] font-bold lg:leading-[70px] lg:tracking-[-0.7px] break-words flex flex-wrap gap-x-3 justify-center lg:justify-start">
 					{"Let’s build a path to career success.".split(" ").map((word, index) => (
 						<motion.div
-						key={index}
+							key={index}
 							initial={{ y: 45, opacity: 0 }}
 							animate={{
 								y: 0,
@@ -31,7 +32,7 @@ const Hero = () => {
 				>
 					Take that first step! Every remarkable journey starts with a single stride forward. At Startsmart, we’re dedicated to working hand-in-hand with you to pave the way. We believe in your potential. Go ahead, take the leap! We’re here to show you the way.
 				</p>
-				<motion.button
+				{/* <motion.button
 					{...interactionAnimations}
 					onClick={() => navigate("/services?scroll_to=services")}
 					data-aos="fade-up"
@@ -40,7 +41,13 @@ const Hero = () => {
 					className="bg-[#4B8CEA] w-full shadow-[0px_2px_4px_0px_#4b8cea4a] text-white py-2 max-w-[200px] rounded-[10px] font-poppins font-medium leading-6"
 				>
 					Book a Call
-				</motion.button>
+				</motion.button> */}
+				<PopupButton
+					url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
+					rootElement={document.getElementById("root") as HTMLElement}
+					text="Book a call"
+					className=" flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
+				/>
 			</div>
 			<div
 				data-aos="zoom-in"
