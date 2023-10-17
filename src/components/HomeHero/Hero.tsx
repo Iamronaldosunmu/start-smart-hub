@@ -27,7 +27,7 @@ const Hero = () => {
 						data-aos-delay="700"
 						className="text-base tracking-normal  text-center lg:text-left mb-6 text-[#444343]"
 					>
-						At StartSmart, we are more than just your coaches; we’re your dedicated partners in success.
+						No matter what stage you are in your career, I've got the strategy to help you unlock the next level of success
 					</p>
 				</div>
 			</div>
