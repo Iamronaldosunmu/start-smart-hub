@@ -14,7 +14,7 @@ const schema = z.object({
 	firstName: z.string().min(3, { message: "First Name must be at least 3 characters" }),
 	lastName: z.string().min(3, { message: "Last Name must be at least 3 characters" }),
 	email: z.string().email({ message: "The email format you entered is invalid" }),
-	phone: z.string().min(11, { message: "Phone number should be at least 11 characters" }),
+	phone: z.string().min(1, { message: "Phone number is Required" }),
 	profile: z.string().min(1, { message: "Profile Url is Required" }),
 	headline: z.string().min(1, { message: "Required" }),
 	summary: z.string().min(1, { message: "Required" }),
@@ -35,7 +35,7 @@ const schema = z.object({
 
 export type LinkedinFormData = z.infer<typeof schema>;
 
-const LinkedInServices = () => {
+const LinkedInServices = ({calendlyUrl}: {calendlyUrl: string}) => {
 	const pages = [1, 2, 3];
 	const [page, setPage] = useState(1);
 
@@ -335,7 +335,7 @@ const LinkedInServices = () => {
 								/>
 								{isValid ? (
 									<PopupButton
-										url="https://calendly.com/startsmarthub/linkedin-optimization?hide_gdpr_banner=1"
+										url={`https://calendly.com/startsmarthub/${calendlyUrl}?hide_gdpr_banner=1`}
 										rootElement={document.getElementById("root") as HTMLElement}
 										text="Schedule"
 										className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"

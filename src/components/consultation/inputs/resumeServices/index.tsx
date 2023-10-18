@@ -3,12 +3,12 @@ import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { ResumeFormData } from "../../Forms/ResumeServices";
 
 interface ResumeInputProps {
-	name: "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent" | "resumeDetails" | "isResumeDrafts" | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
+	name: "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent"  | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
 	register: UseFormRegister<ResumeFormData>;
 }
 
 interface InputProps {
-	name: "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent" | "resumeDetails" | "isResumeDrafts" | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
+	name: "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent" | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
 	register: UseFormRegister<ResumeFormData>;
 	title: string;
 	type?: "number" | "text";

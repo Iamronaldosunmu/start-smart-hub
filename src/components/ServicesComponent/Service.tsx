@@ -25,7 +25,7 @@ const Service = ({ title, text, imageUrl, number, path }: ServiceProps) => {
 				<div className="lg:ml-20 lg:w-full max-w-[605px]">
 					<p className="lg:leading-7 mb-6 max-w-[800px] text-[#575252]">{text}</p>
 					<button
-						onClick={() => navigate(path + "?scroll_to=services")}
+						onClick={() => navigate(path + `?scroll_to=services&title=${title}`)}
 						className="border border-gray-500 after:content-['_↗'] md:px-7 md:py-3 mt-4 px-5 py-2 rounded-3xl text-gray-500 md:text-xl text-base hover:bg-gray-500 hover:text-white transition duration-300"
 					>
 						Book now

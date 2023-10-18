@@ -3,7 +3,7 @@ import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { JobFormData } from "../../Forms/JobApplication";
 
 interface JobInputProps {
-	name: "firstName" | "lastName" | "email" | "phone" | "address" | "employmentStatus" | "jobTitle" | "industry" | "service" | "shortTermGoal" | "longTermGoal" | "desiredJobTitle" | "targetIndustry" | "targetCompany" | "summary" | "resume" | "jobPostings" | "additionalInfo" | "referral";
+	name: "firstName" | "lastName" | "email" | "phone" | "address" | "employmentStatus" | "jobTitle" | "industry" | "service" | "shortTermGoal" | "longTermGoal" | "desiredJobTitle" | "targetIndustry" | "targetCompany" | "summary" | "jobPostings" | "additionalInfo" | "referral";
 	register: UseFormRegister<JobFormData>;
 }
 

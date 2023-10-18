@@ -41,7 +41,7 @@ const Services: React.FC = () => {
 				{services?.length > 0 &&
 					services?.map((service, index) => (
 						<Service
-							number={index}
+							number={index + 1}
 							imageUrl="/assets/service.png"
 							title={service?.title}
 							text={service?.description}
@@ -114,7 +114,7 @@ const Services: React.FC = () => {
 							path="/consultation/career-coaching"
 						/> */}
 						<Service
-							number={10}
+							number={8}
 							imageUrl="/assets/service.png"
 							title="Career/Personal Development Coaching"
 							text="We offer personalized guidance, unwavering support, and tailored strategies to accelerate your professional growth and help you achieve your career goals and personal breakthroughs."

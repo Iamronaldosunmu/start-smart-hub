@@ -9,6 +9,7 @@ import { CheckBoxList, Input, TextArea } from "../inputs/jobApplication";
 import { useForms } from "../../../hooks/useForms";
 import { useNavigate } from "react-router-dom";
 import { PopupButton, useCalendlyEventListener } from "react-calendly";
+import FileUpload from "../../FileUpload";
 
 const employmentStatus = ["Employed", "Unemployed", "Self-employed", "Student"];
 const services = ["Resume Tailoring", "Cover Letter Writing", "Application Form Assistance", "LinkedIn Profile Optimization", "Interview Coaching"];
@@ -17,7 +18,7 @@ const schema = z.object({
 	firstName: z.string().min(3, { message: "First Name must be at least 3 characters" }),
 	lastName: z.string().min(3, { message: "Last Name must be at least 3 characters" }),
 	email: z.string().email({ message: "The email format you entered is invalid" }),
-	phone: z.string().min(11, { message: "Phone number should be at least 11 characters" }),
+	phone: z.string().min(1, { message: "Phone number is Required" }),
 	address: z.string().min(10, { message: "Address should be at least 11 characters" }),
 	employmentStatus: z.string(),
 	jobTitle: z.string().min(1, { message: "Job Title is Required" }),
@@ -29,17 +30,23 @@ const schema = z.object({
 	targetIndustry: z.string().min(1, { message: "Target Industry is required" }),
 	targetCompany: z.string().min(1, { message: "Target Company is required" }),
 	summary: z.string().min(10, { message: "Summary should be at least 11 characters" }),
-	resume: z.string().min(1, { message: "Resume should be at least 11 characters" }),
+	// resume: z.string().min(1, { message: "Resume should be at least 11 characters" }),
 	jobPostings: z.string(),
 	additionalInfo: z.string(),
 	referral: z.string().min(1, { message: "Required" }),
 });
 
 export type JobFormData = z.infer<typeof schema>;
+const defaultDocument = {
+	secure_url: "",
+	public_id: "",
+};
 
-const JobApplication = () => {
+const JobApplication = ({calendlyUrl}: {calendlyUrl: string}) => {
 	const pages = [1, 2, 3, 4];
 	const [page, setPage] = useState(1);
+	const [resume, setResume] = useState(defaultDocument);
+	console.log(calendlyUrl);
 
 	const navigate = useNavigate();
 
@@ -51,7 +58,7 @@ const JobApplication = () => {
 		trigger,
 	} = useForm<JobFormData>({ resolver: zodResolver(schema), mode: "onChange" });
 
-	type names = "firstName" | "lastName" | "email" | "phone" | "address" | "employmentStatus" | "jobTitle" | "industry" | "service" | "shortTermGoal" | "longTermGoal" | "desiredJobTitle" | "targetIndustry" | "targetCompany" | "summary" | "resume" | "jobPostings" | "additionalInfo" | "referral";
+	type names = "firstName" | "lastName" | "email" | "phone" | "address" | "employmentStatus" | "jobTitle" | "industry" | "service" | "shortTermGoal" | "longTermGoal" | "desiredJobTitle" | "targetIndustry" | "targetCompany" | "summary" | "jobPostings" | "additionalInfo" | "referral";
 
 	const Validate = (payload: string[]) => {
 		let valid = true;
@@ -101,6 +108,7 @@ const JobApplication = () => {
 				resumeApplicationDetails: {
 					summary: data.summary,
 					potentialJobPostings: data.jobPostings,
+					resume: resume.secure_url,
 				},
 				additionalInformation: {
 					additionalInfo: data.additionalInfo,
@@ -305,11 +313,19 @@ const JobApplication = () => {
 									register={register}
 									error={errors}
 								/>
-								<TextArea
+								{/* <TextArea
 									title="Attach your current resume (if available):"
 									name="resume"
 									register={register}
 									error={errors}
+								/> */}
+								<FileUpload
+									label="Attach your current resume (if available) - in pdf format"
+									file={resume}
+									setFile={setResume}
+									error={""}
+									onFileUpload={() => {}}
+									fieldName="resume"
 								/>
 								<TextArea
 									title="Are there any specific job postings you're interested in? If yes, please provide links or details:"
@@ -336,7 +352,7 @@ const JobApplication = () => {
 								>
 									{isValid ? (
 										<PopupButton
-											url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
+											url={`https://calendly.com/startsmarthub/${calendlyUrl}?hide_gdpr_banner=1`}
 											rootElement={document.getElementById("root") as HTMLElement}
 											text="Schedule"
 											className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"

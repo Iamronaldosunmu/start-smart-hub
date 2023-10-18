@@ -149,3 +149,55 @@ poppins-font {
 	max-height: 800px;
 	overflow-y: hidden;
 }
+
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+  }
+  
+  .label {
+	font-size: 18px;
+  }
+  
+  .uploadContainer {
+	width: 100%;
+	max-height: 156px;
+	padding: 40px 20px;
+	border: 0.8px solid rgb(87, 82, 82);
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+	margin-top: 4px;
+	/* background: #fafcfe; */
+	cursor: pointer;
+  }
+  .folderImage {
+	width: 44px;
+  }
+  .text {
+	color: #d9d9d9;
+  }
+  .uploaded {
+	display: flex;
+	gap: 12px;
+	align-items: center;
+	text-align: center;
+  }
+  .error {
+	color: #ff0000;
+	font-size: 14px;
+	position: relative;
+	bottom: 11px;
+  }
+  .fileName {
+	color: black;
+	transition: all 0.2s;
+  }
+  .fileName:hover {
+	color: #8ab4f8;
+  }
+  

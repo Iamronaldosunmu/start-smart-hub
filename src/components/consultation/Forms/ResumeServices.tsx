@@ -9,14 +9,20 @@ import { useForm } from "react-hook-form";
 import { useForms } from "../../../hooks/useForms";
 import { PopupButton, useCalendlyEventListener } from "react-calendly";
 import { useNavigate } from "react-router-dom";
+import FileUpload from "../../FileUpload";
 
 const services = ["Resume Building", "Resume Review", "Both"];
+
+const defaultDocument = {
+	secure_url: "",
+	public_id: "",
+};
 
 const schema = z.object({
 	firstName: z.string().min(3, { message: "First Name must be at least 3 characters" }),
 	lastName: z.string().min(3, { message: "Last Name must be at least 3 characters" }),
 	email: z.string().email({ message: "The email format you entered is invalid" }),
-	phone: z.string().min(11, { message: "Phone number should be at least 11 characters" }),
+	phone: z.string().min(1, { message: "Phone number is Required" }),
 	profile: z.string().min(1, { message: "LinkedIn Profile is Required" }),
 	service: z.string(),
 	jobTitle: z.string().min(2, { message: "Job Title should not be less than 2 characters" }),
@@ -26,8 +32,8 @@ const schema = z.object({
 	yearsOfExperience: z.number().min(0, { message: "Value must be greater than 0" }),
 	educationLevel: z.string().min(1, { message: "Education level is required" }),
 	resumePresent: z.string().min(1, { message: "Required" }),
-	resumeDetails: z.string().min(1, { message: "Required" }),
-	isResumeDrafts: z.string().min(1, { message: "Required" }),
+	// resumeDetails: z.string().min(1, { message: "Required" }),
+	// isResumeDrafts: z.string().min(1, { message: "Required" }),
 	resumeDrafts: z.string(),
 	requirements: z.string(),
 	primaryGoals: z.string(),
@@ -36,7 +42,8 @@ const schema = z.object({
 
 export type ResumeFormData = z.infer<typeof schema>;
 
-const ResumeServices = () => {
+const ResumeServices = ({ calendlyUrl }: { calendlyUrl: string }) => {
+	console.log(calendlyUrl)
 	const {
 		register,
 		handleSubmit,
@@ -44,6 +51,7 @@ const ResumeServices = () => {
 		reset,
 		trigger,
 	} = useForm<ResumeFormData>({ resolver: zodResolver(schema), mode: "onBlur" });
+	const [resume, setResume] = useState(defaultDocument);
 
 	const pages = [1, 2, 3];
 
@@ -60,7 +68,7 @@ const ResumeServices = () => {
 		},
 	});
 
-	type names = "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent" | "resumeDetails" | "isResumeDrafts" | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
+	type names = "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent" |  "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
 
 	const Validate = (payload: string[]) => {
 		let valid = true;
@@ -77,6 +85,7 @@ const ResumeServices = () => {
 	}, []);
 
 	const onSubmit = (data: ResumeFormData) => {
+		console.log(errors);
 		const info = {
 			formType: "Resume",
 			data: {
@@ -97,12 +106,13 @@ const ResumeServices = () => {
 				},
 				serviceSelection: data.service,
 				resumeInformation: {
-					createdResume: true,
-					resumeNotes: false,
+					createdResume: data.resumePresent == "Yes" ? true : false,
+					resumeNotes: true,
 					additionalInfo: data.resumeDrafts,
 					specificPreferences: data.requirements,
 					goals: data.primaryGoals,
 					expectations: data.outcomes,
+					resume: resume.secure_url,
 				},
 			},
 		};
@@ -195,7 +205,7 @@ const ResumeServices = () => {
 					)}
 					{page === 2 && (
 						<motion.section
-							key="page3"
+							key="page2"
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
@@ -258,26 +268,42 @@ const ResumeServices = () => {
 						>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Resume Information:</h1>
 							<div className="flex flex-col justify-center gap-y-5 md:gap-y-10 mt-5 lg:mt-10">
-								<Input
+								{/* <Input
 									title="Have you previously created a resume? [Yes/No]"
 									name="resumePresent"
 									register={register}
 									error={errors}
+								/> */}
+								<CheckBoxList
+									title="Have you previously created a resume? [Yes/No]"
+									name="resumePresent"
+									register={register}
+									options={["Yes", "No"]}
+									error={errors}
 								/>
-								<Input
+								{/* <Input
 									title="If yes, please share your existing resume us by email"
 									name="resumeDetails"
 									register={register}
 									error={errors}
+								/> */}
+								<FileUpload
+									label="If Yes, Please Upload Your Resume Here (pdf format)"
+									file={resume}
+									setFile={setResume}
+									error={""}
+									onFileUpload={() => {}}
+									fieldName="resume"
 								/>
-								<Input
+								{/* <Input
 									title="Do you have a draft or notes for your resume? [Yes/No]"
 									name="isResumeDrafts"
 									register={register}
 									error={errors}
-								/>
+								/> */}
+
 								<TextArea
-									title="If yes, please provide any additional information or notes:"
+									title="Do you have any drafts, notes, or additional information for your resume? If yes, please provide them here:"
 									name="resumeDrafts"
 									register={register}
 									error={errors}
@@ -302,7 +328,7 @@ const ResumeServices = () => {
 								/>
 								{isValid ? (
 									<PopupButton
-										url="https://calendly.com/startsmarthub/resume-building?hide_gdpr_banner=1"
+										url={`https://calendly.com/startsmarthub/${calendlyUrl}?hide_gdpr_banner=1`}
 										rootElement={document.getElementById("root") as HTMLElement}
 										text="Schedule"
 										className="text-2xl flex justify-center lg:text-[32px] text-white bg-[#4B8CEA] font-medium w-full py-2 leading-[44px] rounded-[10px] cursor-pointer"
