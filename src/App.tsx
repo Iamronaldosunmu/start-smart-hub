@@ -53,8 +53,8 @@ function App() {
 
 	useEffect(() => {
 		setServices(servicesData);
-		setEvents(eventsData);
 		console.log(eventsData);
+		setEvents(eventsData);
 
 		// console.log(servicesData);
 	}, [servicesData, eventsData]);

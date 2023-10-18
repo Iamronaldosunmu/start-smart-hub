@@ -63,13 +63,14 @@ const Event: FC<Props> = ({ title, venue, price, date, summary, expectations, me
 					<h3 className="font-semibold mb-5">What to expect</h3>
 					<Markdown options={{ wrapper: "article" }}>{expectations}</Markdown>
 				</div>
-
-				<button
-					onClick={() => navigate(meetingLink)}
-					className="font-medium md:font-bold mt-5 rounded-lg lg:text-lg max-w-[200px] px-9 py-4  border-2 border-black hover:bg-black hover:text-white font-inter focus:bg-black focus:text-white transition-colors duration-500"
-				>
-					Book a Slot
-				</button>
+				<a href={meetingLink}>
+					<button
+						// onClick={() => navigate(meetingLink)}
+						className="font-medium md:font-bold mt-5 rounded-lg lg:text-lg max-w-[200px] px-9 py-4  border-2 border-black hover:bg-black hover:text-white font-inter focus:bg-black focus:text-white transition-colors duration-500"
+					>
+						Book a Slot
+					</button>
+				</a>
 			</div>
 		</motion.div>
 	);

@@ -15,11 +15,6 @@ interface FileUploadProps {
 	onFileUpload?: () => void;
 }
 
-const defaultProofOfWork = {
-	secure_url: "",
-	public_id: "",
-	fileName: "",
-};
 
 const FileUpload: React.FC<FileUploadProps> = ({ label, file, setFile, fieldName, error, onFileUpload }) => {
 	const fileInputRef = useRef<HTMLInputElement>(null);
