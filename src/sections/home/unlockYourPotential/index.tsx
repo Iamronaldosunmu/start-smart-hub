@@ -7,67 +7,80 @@ import useSize from "../../../hooks/useSize";
 import "swiper/css";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import useServiceStore from "../../../store/services";
 
 const UnlockYourPotential = () => {
 	const [width] = useSize();
 	const [isEnd, setIsEnd] = useState(false);
+	const { services } = useServiceStore();
 
-	const services = [
-		{
-			title: "Resume building",
-			text: "We craft compelling and tailored resumes that highlight your skills, experiences and achievements to make a lasting impression on employers.",
-			link: "/consultation/resume-services",
-			image: "/assets/resumeBuilding.jpg",
-		},
-		{
-			title: "Resume review",
-			text: "Get expert feedback on your existing resume to identify areas for improvement and maximize its impact in your job search.",
-			link: "/consultation/resume-services",
-			image: "/assets/resumeReview.jpg",
-		},
-		{
-			title: "LinkedIn Optimization",
-			text: "We optimize your LinkedIn profile to make it stand out to recruiters, showcasing your professional brand and accomplishments",
-			link: "/consultation/linkedin-services",
-			image: "/assets/linkedinOptimization.png",
-		},
-		{
-			title: "Job application tailoring coaching",
-			text: "Craft tailored job applications that align with your target positions, increasing your chances of getting noticed by employers.",
-			link: "/consultation/job-application",
-			image: "/assets/jobApplicationCoaching.jpg",
-		},
-		{
-			title: "Career Transitioning Coaching",
-			text: "Navigate career transitions with ease. Our coaching helps you to explore new oppurtunities and make successful transitions.",
-			link: "/consultation/career-coaching",
-			image: "/assets/careerTransitioning.jpg",
-		},
-		{
-			title: "Career Interest and passion Discovery",
-			text: "Discovery  your true career interests and passions through guided exploration, helping you find a fulfilling career link.",
-			link: "/consultation/career-coaching",
-			image: "/assets/resumeBuilding.jpg",
-		},
-		{
-			title: "Resume Clinic",
-			text: "Join our resume clinic sessions to recieve quick, actionable devices and tips for improving your resume.",
-			link: "/consultation/resume-services",
-			image: "/assets/resumeBuilding.jpg",
-		},
-		{
-			title: "Career workshops and training",
-			text: "Participate in our workshops and training sessions to build essential job search skills, from networking to negotiation, and stay ahead in your career journey.",
-			link: "/consultation/career-coaching",
-			image: "/assets/resumeBuilding.jpg",
-		},
-		{
-			title: "Career/personal development coaching",
-			text: "We offer personalized guidance, unwavering support, and tailored strategies to accelerate your professional growth and help you achieve your career goals and personal breakthroughs.",
-			link: "/consultation/career-coaching",
-			image: "/assets/resumeBuilding.jpg",
-		},
-	];
+	const getLinkFromFormType = (formType: string) => {
+		if (formType == "Resume") {
+			return "/consultation/resume-services";
+		} else if (formType == "Linkedln") {
+			return "/consultation/linkedin-services";
+		} else if (formType == "Job Application Tailoring") {
+			return "/consultation/job-application";
+		} else if (formType == "Career Coaching") return "/consultation/career-coaching";
+		else return "/consultation/resume-services";
+	}
+
+	// const services = [
+	// 	{
+	// 		title: "Resume building",
+	// 		text: "We craft compelling and tailored resumes that highlight your skills, experiences and achievements to make a lasting impression on employers.",
+	// 		link: "/consultation/resume-services",
+	// 		image: "/assets/resumeBuilding.jpg",
+	// 	},
+	// 	{
+	// 		title: "Resume review",
+	// 		text: "Get expert feedback on your existing resume to identify areas for improvement and maximize its impact in your job search.",
+	// 		link: "/consultation/resume-services",
+	// 		image: "/assets/resumeReview.jpg",
+	// 	},
+	// 	{
+	// 		title: "LinkedIn Optimization",
+	// 		text: "We optimize your LinkedIn profile to make it stand out to recruiters, showcasing your professional brand and accomplishments",
+	// 		link: "/consultation/linkedin-services",
+	// 		image: "/assets/linkedinOptimization.png",
+	// 	},
+	// 	{
+	// 		title: "Job application tailoring coaching",
+	// 		text: "Craft tailored job applications that align with your target positions, increasing your chances of getting noticed by employers.",
+	// 		link: "/consultation/job-application",
+	// 		image: "/assets/jobApplicationCoaching.jpg",
+	// 	},
+	// 	{
+	// 		title: "Career Transitioning Coaching",
+	// 		text: "Navigate career transitions with ease. Our coaching helps you to explore new oppurtunities and make successful transitions.",
+	// 		link: "/consultation/career-coaching",
+	// 		image: "/assets/careerTransitioning.jpg",
+	// 	},
+	// 	{
+	// 		title: "Career Interest and passion Discovery",
+	// 		text: "Discovery  your true career interests and passions through guided exploration, helping you find a fulfilling career link.",
+	// 		link: "/consultation/career-coaching",
+	// 		image: "/assets/resumeBuilding.jpg",
+	// 	},
+	// 	{
+	// 		title: "Resume Clinic",
+	// 		text: "Join our resume clinic sessions to recieve quick, actionable devices and tips for improving your resume.",
+	// 		link: "/consultation/resume-services",
+	// 		image: "/assets/resumeBuilding.jpg",
+	// 	},
+	// 	{
+	// 		title: "Career workshops and training",
+	// 		text: "Participate in our workshops and training sessions to build essential job search skills, from networking to negotiation, and stay ahead in your career journey.",
+	// 		link: "/consultation/career-coaching",
+	// 		image: "/assets/resumeBuilding.jpg",
+	// 	},
+	// 	{
+	// 		title: "Career/personal development coaching",
+	// 		text: "We offer personalized guidance, unwavering support, and tailored strategies to accelerate your professional growth and help you achieve your career goals and personal breakthroughs.",
+	// 		link: "/consultation/career-coaching",
+	// 		image: "/assets/resumeBuilding.jpg",
+	// 	},
+	// ];
 
 	return (
 		<section className="mt-14 lg:mt-[100px] text-center overflow-hidden ">
@@ -102,24 +115,24 @@ const UnlockYourPotential = () => {
 						spaceBetween={width > 767 ? (width > 1024 ? 40 : 40) : 20}
 						slidesPerView={width > 500 ? (width > 1024 ? 3 : 2) : 1}
 					>
-						{services.map(({ title, text, link, image }, index) => (
+						{services.map(({ title, description, image, formType }, index) => (
 							<SwiperSlide key={index}>
 								<div className=" h-full ">
 									<div className="w-full h-[200px] lg:h-[267px] md:h-[200px] scale-105">
 										<img
 											className="w-full  h-full  object-cover"
-											src={image}
+											src={image ? image[0].url : ""}
 											alt=""
 										/>
 									</div>
 									<div className="py-[30px] px-4 h-[300px] flex flex-col justify-between ">
 										<div className="">
 											<h3 className="text-xl font-semibold">{title}</h3>
-											<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{text}</p>
+											<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{description}</p>
 										</div>
 
 										<Link
-											to={link}
+											to={`${getLinkFromFormType(formType)}?title=${title}`}
 											className="block mx-auto text-sm  mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins hover:bg-black hover:text-white transition-colors duration-500"
 										>
 											Start Now
