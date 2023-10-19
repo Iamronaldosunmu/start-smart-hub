@@ -44,12 +44,15 @@ const UpcomingEvents = () => {
 				<Event
 					key={1}
 					date={"October 21 - 22"}
-					venue={"Online"}
-					summary={summary}
-					expectations={expectations}
-					title={title}
-					price={price}
-					meetingLink={meetingLink}
+					venue={"online"}
+					summary={"Join us for an exclusive opportunity to supercharge your resume! Our Free Resume Clinic is designed to empower you with the tools and knowledge to stand out in today’s competitive job market."}
+					expectations={`**Personalized Resume Reviews**: Get expert feedback on your resume.
+					**Pro Tips**: Learn the secrets of crafting an attention-grabbing resume from an industry recruiter.
+					**Q&A Session**: Ask our career coach your burning questions.
+					**Networking**: Connect with a like-minded professional and industry recruiter.`}
+					title={"Free Resume Clinic"}
+					price={"free"}
+					meetingLink={"https://calendly.com/startsmarthub/30min"}
 				/>
 			</Container>
 		</PageContainer>
