@@ -44,7 +44,8 @@ const UpcomingEvents = ({ date }: Props) => {
 							data-aos-delay="200"
 							className="text-[25px] lg:text-[36px] font-medium leading-[30px] lg:leading-normal tracking-wide"
 						>
-							{events?.length > 0 ? events[0]?.attributes?.title : ""}
+							{/* {events?.length > 0 ? events[0]?.attributes?.title : ""} */}
+							{"Free Resume Clinic"}
 						</h2>
 						<p
 							data-aos="zoom-in"
@@ -52,9 +53,11 @@ const UpcomingEvents = ({ date }: Props) => {
 							data-aos-delay="400"
 							className="text-[#606060] font-light leading-5 lg:text-lg"
 						>
-							{events?.length > 0 ? events[0]?.attributes?.summary : ""}
+							{/* {events?.length > 0 ? events[0]?.attributes?.summary : ""} */}
+							{"Join us for an exclusive opportunity to supercharge your resume! Our Free Resume Clinic is designed to empower you with the tools and knowledge to stand out in today’s competitive job market."}
 						</p>
-						<p className="text-gray-400 text-xl font-semibold mt-[45px]">Date: {events?.length > 0 ? format(new Date(events[0]?.attributes?.date), "MMMM do yyyy, h:mm:ss a") : ""}</p>
+						{/* <p className="text-gray-400 text-xl font-semibold mt-[45px]">Date: {events?.length > 0 ? format(new Date(events[0]?.attributes?.date), "MMMM do yyyy, h:mm") : ""}</p> */}
+						<p>{"October 20th - 21st, Time: Book available Slots"}</p>
 						<motion.button
 							{...interactionAnimations}
 							onClick={() => navigate("/upcoming-events")}

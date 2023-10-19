@@ -43,7 +43,7 @@ const UpcomingEvents = () => {
 				)} */}
 				<Event
 					key={1}
-					date={"October 21 - 22"}
+					date={"October 20th - 21st, Time: Book available Slots"}
 					venue={"online"}
 					summary={"Join us for an exclusive opportunity to supercharge your resume! Our Free Resume Clinic is designed to empower you with the tools and knowledge to stand out in today’s competitive job market."}
 					expectations={`**Personalized Resume Reviews**: Get expert feedback on your resume.
