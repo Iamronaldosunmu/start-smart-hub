@@ -38,7 +38,7 @@ const FormFooter = () => {
 					</div>
 					<div className="flex flex-col flex-wrap">
 						<p>EMAIL</p>
-						<p className="text-[#DD5471]">info@startsmarthub.ca</p>
+						<p className="text-[#DD5471]">coachdoyin@startsmarthub.ca</p>
 					</div>
 				</div>
 			</div>
