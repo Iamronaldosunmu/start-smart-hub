@@ -115,7 +115,7 @@ const UnlockYourPotential = () => {
 						spaceBetween={width > 767 ? (width > 1024 ? 40 : 40) : 20}
 						slidesPerView={width > 500 ? (width > 1024 ? 3 : 2) : 1}
 					>
-						{services.map(({ title, description, image, formType }, index) => (
+						{services?.map(({ title, description, image, formType }, index) => (
 							<SwiperSlide key={index}>
 								<div className=" h-full ">
 									<div className="w-full h-[200px] lg:h-[267px] md:h-[200px] scale-105">
