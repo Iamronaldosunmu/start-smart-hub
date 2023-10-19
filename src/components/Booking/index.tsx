@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { interactionAnimations } from "../../utils/framer-default-animations";
 import { useNavigate } from "react-router-dom";
+import { PopupButton } from "react-calendly";
 
 const Bookings = () => {
 	const navigate = useNavigate();
@@ -29,7 +30,7 @@ const Bookings = () => {
 				>
 					Kickstart your journey to success with a coaching call today. Book now and let’s get started!
 				</p>
-				<motion.button
+				{/* <motion.button
 					{...interactionAnimations}
 					onClick={() => navigate("/services?scroll_to=services")}
 					data-aos="zoom-in"
@@ -38,7 +39,13 @@ const Bookings = () => {
 					className="border-2 border-black px-6 py-2 text-base rounded-[10px] transition-colors hover:bg-black hover:text-white font-bold"
 				>
 					Book a call
-				</motion.button>
+				</motion.button> */}
+				<PopupButton
+					url={`https://calendly.com/startsmarthub/?hide_gdpr_banner=1`}
+					rootElement={document.getElementById("root") as HTMLElement}
+					text="Book a call"
+					className="border-2 border-black px-6 py-2 text-base rounded-[10px] transition-colors hover:bg-black hover:text-white font-bold"
+				/>
 			</div>
 			<img
 				className="object-cover w-full h-full absolute z-0"

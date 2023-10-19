@@ -56,7 +56,7 @@ function App() {
 		console.log(eventsData);
 		setEvents(eventsData);
 
-		// console.log(servicesData);
+		console.log(servicesData);
 	}, [servicesData, eventsData]);
 
 	return (

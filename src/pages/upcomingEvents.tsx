@@ -21,7 +21,7 @@ const UpcomingEvents = () => {
 				/>
 			</header>
 			<Container className="mb-3 text-center flex flex-col gap-y-7 justify-center items-center md:text-left">
-				{events ? (
+				{/* {events ? (
 					events?.map(({ attributes: { date, venue, summary, expectations, title, price, meetingLink }, id }) => (
 						<Event
 							key={id}
@@ -40,7 +40,17 @@ const UpcomingEvents = () => {
 						src="/assets/loader.svg"
 						alt=""
 					/>
-				)}
+				)} */}
+				<Event
+					key={1}
+					date={"October 21 - 22"}
+					venue={"Online"}
+					summary={summary}
+					expectations={expectations}
+					title={title}
+					price={price}
+					meetingLink={meetingLink}
+				/>
 			</Container>
 		</PageContainer>
 	);

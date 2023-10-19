@@ -14,7 +14,7 @@ const Consultation = () => {
 		switch (title) {
 			case "Resume Building":
 				return "resume-building"
-			case "Resume Review": 
+			case "Resume review": 
 				return "resume-review"
 			case "LinkedIn Optimization":
 				return "linkedin-optimization"
