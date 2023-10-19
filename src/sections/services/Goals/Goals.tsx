@@ -7,7 +7,7 @@ const Goals = () => {
 			<Container className="m">
 				<div className="flex flex-col justify-center items-center">
 					<div
-						className={"text-2xl md:text-3xl text-center lg:w-[750px] mb-5 font-semibold flex flex-wrap gap-x-2"}
+						className={"text-2xl md:text-3xl text-center lg:w-[750px] mb-5 font-semibold flex flex-wrap [&>*:not(:last-child)]:mr-2"}
 						data-aos-duration="700"
 						data-aos="zoom-in"
 					>

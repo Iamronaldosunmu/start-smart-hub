@@ -71,7 +71,7 @@ const Footer = () => {
 							</div>
 						</div>
 					</div>
-					<div className="hidden lg:flex items-center gap-x-10 lg:gap-x-20 justify-center">
+					<div className="hidden lg:flex items-center [&>*:not(:last-child)]:mr-10 lg:[&>*:not(:last-child)]:mr-20 justify-center">
 						{socials.map((item, index) => (
 							<a
 								key={index}
@@ -88,7 +88,7 @@ const Footer = () => {
 						))}
 					</div>
 				</footer>
-				<div className="flex mt-5 lg:mt-0 items-center gap-x-10 lg:gap-x-20 justify-center lg:hidden">
+				<div className="flex mt-5 lg:mt-0 items-center [&>*:not(:last-child)]:mr-10 lg:[&>*:not(:last-child)]:mr-20 justify-center lg:hidden">
 					{socials.map((item, index) => (
 						<a
 							key={index}

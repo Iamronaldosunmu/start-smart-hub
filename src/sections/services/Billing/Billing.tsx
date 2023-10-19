@@ -8,7 +8,7 @@ const Billing = () => {
 				<h1 className="text-5xl text-center font-semibold mb-12 ">
 					Our <br /> Pricing
 				</h1>
-				<div className="text-gray-500 sm:text-sm text-xs flex items-center gap-x-2 mx-auto">
+				<div className="text-gray-500 sm:text-sm text-xs flex items-center [&>*:not(:last-child)]:mr-2 mx-auto">
 					<span className="sm:mr-2 mr-1">Billed Monthly</span>
 					<Toggle /> {/* Fix Later */}
 					<span className="sm:ml-2 ml-1 colored-text">Billed yearly (save 15%)</span>

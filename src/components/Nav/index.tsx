@@ -34,7 +34,7 @@ const Nav = () => {
 		<>
 			<nav className={`bg-white fixed z-50 top-0 w-full hidden lg:block ${scrolled ? "shadow-md" : "shadow-none"} transition-shadow duration-300`}>
 				<Container className="hidden lg:flex items-center justify-between h-[64px]">
-					<div className="flex gap-x-2 items-center">
+					<div className="flex [&>*:not(:last-child)]:mr-2 items-center">
 						<img
 							src="/assets/logo.png"
 							alt=""
@@ -44,8 +44,8 @@ const Nav = () => {
 							alt=""
 						/>
 					</div>
-					<div className="flex items-center gap-x-6">
-						<div className="flex gap-x-6 font-mulish">
+					<div className="flex items-center [&>*:not(:last-child)]:mr-6">
+						<div className="flex [&>*:not(:last-child)]:mr-6 font-mulish">
 							{navItems.map((item, index) => (
 								<Link
 									key={index}

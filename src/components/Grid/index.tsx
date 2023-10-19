@@ -7,7 +7,7 @@ const GridComponent = () => {
 				<div className=" text-white flex flex-col justify-center lg:items-start items-center md:text-start xl:pl-[calc((100vw-1280px)/2)]">
 					<TextAnimation
 						text={"Start smart and build right today!"}
-						className={"sm:text-[48px] text-[40px] font-bold flex flex-wrap gap-x-2"}
+						className={"sm:text-[48px] text-[40px] font-bold flex flex-wrap [&>*:not(:last-child)]:mr-2"}
 					/>
 					<p
 						data-aos="fade-up"

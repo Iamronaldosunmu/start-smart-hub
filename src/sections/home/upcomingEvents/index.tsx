@@ -19,11 +19,11 @@ const UpcomingEvents = ({ date }: Props) => {
 				<div
 					data-aos="zoom-in"
 					data-aos-duration="700"
-					className="text-[40px] sm:text-[48px] lg:text-[54px] lg:font-semibold font-medium text-center flex gap-x-3 justify-center"
+					className="text-[40px] sm:text-[48px] lg:text-[54px] lg:font-semibold font-medium text-center flex [&>*:not(:last-child)]:mr-3 justify-center"
 				>
 					Upcoming Events
 				</div>
-				<div className="mt-7 md:mt-14 lg:mt-[90px] flex flex-col md:flex-row items-center gap-x-10 gap-y-8">
+				<div className="mt-7 md:mt-14 lg:mt-[90px] flex flex-col md:flex-row items-center [&>*:not(:last-child)]:mr-10 gap-y-8">
 					<div
 						data-aos="zoom-in"
 						data-aos-duration="700"

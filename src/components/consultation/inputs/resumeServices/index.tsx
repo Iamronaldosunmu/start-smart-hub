@@ -3,7 +3,7 @@ import { FieldErrors, UseFormRegister } from "react-hook-form";
 import { ResumeFormData } from "../../Forms/ResumeServices";
 
 interface ResumeInputProps {
-	name: "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent"  | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
+	name: "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent" | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
 	register: UseFormRegister<ResumeFormData>;
 }
 
@@ -49,7 +49,7 @@ export const InputList: FC<InputListProps> = ({ title }) => {
 				{[1, 2, 3, 4].map((a, index) => (
 					<div
 						key={index}
-						className="flex items-center gap-x-2 w-[70%]"
+						className="flex items-center [&>*:not(:last-child)]:mr-2 w-[70%]"
 					>
 						<span className="">{`${a}.`}</span>
 						<input
@@ -79,7 +79,7 @@ export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useI
 				{options.map((option) => (
 					<div
 						key={option}
-						className="gap-x-[10px] flex items-center cursor-pointer"
+						className="[&>*:not(:last-child)]:mr-[10px] flex items-center cursor-pointer"
 					>
 						<input
 							{...register(name)}
@@ -98,7 +98,7 @@ export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useI
 				))}
 			</div>
 			{useInput && (
-				<div className="gap-x-[10px] flex items-center cursor-pointer mt-[10px]">
+				<div className="[&>*:not(:last-child)]:mr-[10px] flex items-center cursor-pointer mt-[10px]">
 					<input
 						id="others"
 						type="radio"

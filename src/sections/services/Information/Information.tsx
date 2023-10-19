@@ -25,7 +25,7 @@ const Information = () => {
 					/>
 				</div>
 				<div className="mt-10 order-[-1] lg:order-1">
-					<h2 className="lg:text-4xl text-3xl font-poppins font-semibold mb-5 text-[#331B3B] flex flex-wrap gap-x-2">
+					<h2 className="lg:text-4xl text-3xl font-poppins font-semibold mb-5 text-[#331B3B] flex flex-wrap [&>*:not(:last-child)]:mr-2">
 						{/* {"Are You Someone Who?".split(" ").map((word, index) => (
 							<motion.div
 								initial={{ y: 45, opacity: 0 }}
@@ -41,13 +41,15 @@ const Information = () => {
 						<div
 							data-aos="zoom-in"
 							data-aos-duration="700"
-						>Are You Someone Who?</div>
+						>
+							Are You Someone Who?
+						</div>
 					</h2>
 					<p
 						data-aos="zoom-in"
 						data-aos-duration="700"
 						data-aos-delay="200"
-						className="lg:text-lg text-base mb-4 font-poppins font-medium text-[#705977] flex flex-wrap gap-x-1"
+						className="lg:text-lg text-base mb-4 font-poppins font-medium text-[#705977] flex flex-wrap [&>*:not(:last-child)]:mr-1"
 					>
 						Do any of these sound familiar? Perfect. You’ve found just the help you need!
 					</p>

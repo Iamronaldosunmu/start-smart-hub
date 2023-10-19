@@ -5,7 +5,7 @@ import PageContainer from "../components/PageContainer";
 
 const ContactUs = () => {
 	return (
-		<PageContainer className="w-[100vw] flex justify-center mt-14 lg:mt-[100px]">
+		<PageContainer className="w-full flex justify-center mt-14 lg:mt-[100px]">
 			<div className="w-full max-w-[1440px] self-stretch">
 				<div className="flex justify-center items-center flex-col mb-9 px-5">
 					<h1 className="mb-5 text-4xl font-bold font-poppins mt-14 ">Contact Us</h1>

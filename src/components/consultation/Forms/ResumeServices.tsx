@@ -43,7 +43,7 @@ const schema = z.object({
 export type ResumeFormData = z.infer<typeof schema>;
 
 const ResumeServices = ({ calendlyUrl }: { calendlyUrl: string }) => {
-	console.log(calendlyUrl)
+	console.log(calendlyUrl);
 	const {
 		register,
 		handleSubmit,
@@ -68,7 +68,7 @@ const ResumeServices = ({ calendlyUrl }: { calendlyUrl: string }) => {
 		},
 	});
 
-	type names = "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent" |  "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
+	type names = "firstName" | "lastName" | "email" | "phone" | "profile" | "service" | "jobTitle" | "desiredJobTitle" | "industry" | "targetIndustry" | "yearsOfExperience" | "educationLevel" | "resumePresent" | "resumeDrafts" | "requirements" | "primaryGoals" | "outcomes";
 
 	const Validate = (payload: string[]) => {
 		let valid = true;
@@ -151,7 +151,7 @@ const ResumeServices = ({ calendlyUrl }: { calendlyUrl: string }) => {
 						>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Client Information</h1>
 							<div className="flex flex-col justify-center gap-y-5 md:gap-y-10 mt-5 lg:mt-10">
-								<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
+								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
 									<Input
 										title="First Name"
 										name="firstName"
@@ -165,7 +165,7 @@ const ResumeServices = ({ calendlyUrl }: { calendlyUrl: string }) => {
 										error={errors}
 									/>
 								</div>
-								<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
+								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
 									<Input
 										title="Email"
 										name="email"

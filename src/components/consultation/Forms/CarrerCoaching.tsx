@@ -30,7 +30,7 @@ const schema = z.object({
 
 export type CareerFormData = z.infer<typeof schema>;
 
-const CareerCoaching = ({calendlyUrl}: {calendlyUrl: string}) => {
+const CareerCoaching = ({ calendlyUrl }: { calendlyUrl: string }) => {
 	const pages = [1, 2];
 	const [page, setPage] = useState(1);
 
@@ -128,7 +128,7 @@ const CareerCoaching = ({calendlyUrl}: {calendlyUrl: string}) => {
 							className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mb-5"
 						>
 							<h1 className="text-xl lg:text-[32px] font-medium">Client Information</h1>
-							<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
+							<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
 								<Input
 									title="First Name"
 									name="firstName"
@@ -142,7 +142,7 @@ const CareerCoaching = ({calendlyUrl}: {calendlyUrl: string}) => {
 									error={errors}
 								/>
 							</div>
-							<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
+							<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
 								<Input
 									title="Email"
 									name="email"

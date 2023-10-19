@@ -31,9 +31,10 @@ const Testimonials = () => {
 			<div
 				data-aos="zoom-in"
 				data-aos-duration="700"
-				className="text-[40px] text-center font-medium flex gap-x-2 flex-wrap justify-center"
-				
-			>Client Testimonials</div>
+				className="text-[40px] text-center font-medium flex [&>*:not(:last-child)]:mr-2 flex-wrap justify-center"
+			>
+				Client Testimonials
+			</div>
 			<AnimatePresence
 				mode="wait"
 				custom={page}
@@ -49,7 +50,7 @@ const Testimonials = () => {
 					count={testimonials.length}
 				/>
 			</AnimatePresence>
-			<div className="pt-4 pb-3 flex justify-center gap-x-5">
+			<div className="pt-4 pb-3 flex justify-center [&>*:not(:last-child)]:mr-5">
 				{testimonials.map((_, index) => (
 					<button
 						key={index}

@@ -56,7 +56,7 @@ const Subscribe = () => {
 	return (
 		<section className="relative py-20 text-center bg-[#FFF2EC] mt-14">
 			<Container className="flex flex-col items-center">
-				<div className="text-[44px] lg:text-[54px] font-bold flex flex-wrap gap-x-2 justify-center">
+				<div className="text-[44px] lg:text-[54px] font-bold flex flex-wrap [&>*:not(:last-child)]:mr-2 justify-center">
 					{"Stay in the loop!".split(" ").map((word, index) => (
 						<motion.div
 							key={index}

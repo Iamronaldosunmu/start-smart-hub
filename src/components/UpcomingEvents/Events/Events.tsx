@@ -17,7 +17,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 					<div
 						data-aos="zoom-in"
 						data-aos-duration="700"
-						className=" sm:text-[40px] flex-wrap  lg:text-[54px] text-[20px]  lg:font-semibold font-medium text-center flex md:gap-x-3 gap-x-1"
+						className=" sm:text-[40px] flex-wrap  lg:text-[54px] text-[20px]  lg:font-semibold font-medium text-center flex md:[&>*:not(:last-child)]:mr-3 [&>*:not(:last-child)]:mr-1"
 					>
 						Upcoming Events
 					</div>
@@ -27,7 +27,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 						className="inline w-full max-w-[50%] h-full lg:w-auto"
 					/>
 				</div>
-				<div className="mt-7 md:mt-14 w-full lg:mt-[90px] h-full flex flex-col lg:flex-row  gap-x-10  gap-y-8">
+				<div className="mt-7 md:mt-14 w-full lg:mt-[90px] h-full flex flex-col lg:flex-row  [&>*:not(:last-child)]:mr-10  gap-y-8">
 					<img
 						className="object-cover z-0 "
 						src="/assets/event.png"

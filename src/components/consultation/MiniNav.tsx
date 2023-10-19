@@ -11,7 +11,7 @@ interface Props {
 const MiniNav: FC<Props> = ({ pages, currentPage, setPage }) => {
 	return (
 		<Container className="my-10 lg:my-14">
-			<div className="flex justify-center items-center gap-x-10 sm:gap-x-3">
+			<div className="flex justify-center items-center [&>*:not(:last-child)]:mr-10 sm:[&>*:not(:last-child)]:mr-3">
 				{pages.map((page) => (
 					<React.Fragment key={page}>
 						<div

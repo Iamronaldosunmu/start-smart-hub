@@ -23,7 +23,7 @@ const UnlockYourPotential = () => {
 			return "/consultation/job-application";
 		} else if (formType == "Career Coaching") return "/consultation/career-coaching";
 		else return "/consultation/resume-services";
-	}
+	};
 
 	// const services = [
 	// 	{
@@ -88,7 +88,7 @@ const UnlockYourPotential = () => {
 				<div
 					data-aos="zoom-in"
 					data-aos-duration="700"
-					className="text-[44px] lg:text-[56px] font-semibold font-poppins tracking-normal flex flex-wrap gap-x-3 justify-center"
+					className="text-[44px] lg:text-[56px] font-semibold font-poppins tracking-normal flex flex-wrap [&>*:not(:last-child)]:mr-3 justify-center"
 				>
 					Unlock your potential!
 				</div>
@@ -108,7 +108,7 @@ const UnlockYourPotential = () => {
 				data-aos-duration="700"
 				data-aos-delay="300"
 			>
-				<Container className="flex gap-x-[30px] justify-center mt-8 lg:mt-12 text-center w-full ">
+				<Container className="flex [&>*:not(:last-child)]:mr-[30px] justify-center mt-8 lg:mt-12 text-center w-full ">
 					<Swiper
 						onReachEnd={() => setIsEnd(true)}
 						allowTouchMove={false}

@@ -35,7 +35,7 @@ const schema = z.object({
 
 export type LinkedinFormData = z.infer<typeof schema>;
 
-const LinkedInServices = ({calendlyUrl}: {calendlyUrl: string}) => {
+const LinkedInServices = ({ calendlyUrl }: { calendlyUrl: string }) => {
 	const pages = [1, 2, 3];
 	const [page, setPage] = useState(1);
 
@@ -169,7 +169,7 @@ const LinkedInServices = ({calendlyUrl}: {calendlyUrl: string}) => {
 						>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Client Information</h1>
 							<div className="flex flex-col justify-center gap-y-5 md:gap-y-10 mt-5 lg:mt-10">
-								<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
+								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
 									<Input
 										title="First Name"
 										name="firstName"
@@ -183,7 +183,7 @@ const LinkedInServices = ({calendlyUrl}: {calendlyUrl: string}) => {
 										error={errors}
 									/>
 								</div>
-								<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
+								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
 									<Input
 										title="Email"
 										name="email"

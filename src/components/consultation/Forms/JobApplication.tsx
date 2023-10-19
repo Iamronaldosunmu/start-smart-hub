@@ -42,7 +42,7 @@ const defaultDocument = {
 	public_id: "",
 };
 
-const JobApplication = ({calendlyUrl}: {calendlyUrl: string}) => {
+const JobApplication = ({ calendlyUrl }: { calendlyUrl: string }) => {
 	const pages = [1, 2, 3, 4];
 	const [page, setPage] = useState(1);
 	const [resume, setResume] = useState(defaultDocument);
@@ -157,7 +157,7 @@ const JobApplication = ({calendlyUrl}: {calendlyUrl: string}) => {
 						>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Client Information</h1>
 							<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5 lg:mt-10">
-								<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
+								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
 									<Input
 										title="First Name"
 										name="firstName"
@@ -171,7 +171,7 @@ const JobApplication = ({calendlyUrl}: {calendlyUrl: string}) => {
 										error={errors}
 									/>
 								</div>
-								<div className="flex flex-col md:flex-row w-full gap-x-7 gap-y-5">
+								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
 									<Input
 										title="Email"
 										name="email"

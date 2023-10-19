@@ -7,7 +7,7 @@ import { interactionAnimations } from "../../../utils/framer-default-animations"
 const MeetTheFounder = () => {
 	const navigate = useNavigate();
 	return (
-		<Container className="flex flex-col lg:flex-row items-center justify-between gap-x-[112px] mt-14 lg:mt-[100px]">
+		<Container className="flex flex-col lg:flex-row items-center justify-between [&>*:not(:last-child)]:mr-[112px] mt-14 lg:mt-[100px]">
 			<div
 				data-aos="zoom-in"
 				data-aos-duration="700"
@@ -25,14 +25,14 @@ const MeetTheFounder = () => {
 					<div
 						data-aos="zoom-in"
 						data-aos-duration="700"
-						className="w-full text-center lg:text-start  gap-x-[10px]"
+						className="w-full text-center lg:text-start  [&>*:not(:last-child)]:mr-[10px]"
 					>
 						Meet the founder
 					</div>
 					<div
 						data-aos-duration="700"
 						data-aos="zoom-in"
-						className="font-light w-full text-center lg:text-start gap-x-[10px]"
+						className="font-light w-full text-center lg:text-start [&>*:not(:last-child)]:mr-[10px]"
 					>
 						Doyin Adetona
 					</div>

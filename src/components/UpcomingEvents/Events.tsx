@@ -20,7 +20,7 @@ const Event: FC<Props> = ({ title, venue, price, date, summary, expectations, me
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 1, delay: 0.4 }}
-			className="mt-7 md:mt-14 w-full lg:mt-[90px] h-full flex flex-col lg:flex-row gap-x-10 gap-y-8 mb-3 text-center md:text-left"
+			className="mt-7 md:mt-14 w-full lg:mt-[90px] h-full flex flex-col lg:flex-row [&>*:not(:last-child)]:mr-10 gap-y-8 mb-3 text-center md:text-left"
 		>
 			<img
 				className="object-cover z-0 "
