@@ -12,7 +12,7 @@ const Consultation = () => {
 
 	const getCalendlyServiceNameInUrlFromServiceTitle = (title: string) => {
 		switch (title) {
-			case "Resume Building":
+			case "Resume building":
 				return "resume-building"
 			case "Resume review": 
 				return "resume-review"
