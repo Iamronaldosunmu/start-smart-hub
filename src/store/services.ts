@@ -15,7 +15,7 @@ interface ServiceStore {
 
 const useServiceStore = create<ServiceStore>((set) => ({
 	//
-	services: servicesData.data,
+	services: [],
 	setServices: (services: Service[]) => set({ services }),
 }));
 
