@@ -25,7 +25,7 @@ const Information = () => {
 					/>
 				</div>
 				<div className="mt-10 order-[-1] lg:order-1">
-					<h2 className="lg:text-4xl text-3xl font-poppins font-semibold mb-5 text-[#331B3B] flex flex-wrap [&>*:not(:last-child)]:mr-2">
+					<h2 className="lg:text-4xl text-3xl lg:text-[48px] lg:leading-[54px] font-poppins font-semibold mb-5 text-[#331B3B] flex flex-wrap [&>*:not(:last-child)]:mr-2">
 						{/* {"Are You Someone Who?".split(" ").map((word, index) => (
 							<motion.div
 								initial={{ y: 45, opacity: 0 }}

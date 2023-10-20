@@ -22,7 +22,7 @@ const Grid = () => {
 						))}
 					</div> */}
 					<div
-						className="flex [&>*:not(:last-child)]:mr-2 flex-wrap mb-8 text-3xl font-semibold font-DMSans"
+						className="flex [&>*:not(:last-child)]:mr-2 flex-wrap mb-8 text-3xl lg:text-[48px] lg:leading-[54px] font-semibold font-DMSans"
 						data-aos-duration="700"
 						data-aos="zoom-in"
 						data-aos-delay="700"
