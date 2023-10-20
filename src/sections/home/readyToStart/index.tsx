@@ -3,7 +3,7 @@ import Container from "../../../components/container";
 const ReadyToStart = () => {
 	return (
 		<section className="relative bg-[#00998A] max-h-[482px] py-12 md:py-14 lg:py-20 w-full mt-14 lg:mt-[100px]">
-			<Container className="text-center lg:px-20 flex flex-col justify-center items-center gap-y-2 lg:gap-y-4">
+			<Container className="text-center lg:px-20 flex flex-col justify-center items-center  [&>*:not(:last-child)]:mb-2 lg: [&>*:not(:last-child)]:mb-4">
 				<h2
 					data-aos="zoom-in"
 					data-aos-duration="700"

@@ -150,8 +150,8 @@ const ResumeServices = ({ calendlyUrl }: { calendlyUrl: string }) => {
 							exit={{ opacity: 0 }}
 						>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Client Information</h1>
-							<div className="flex flex-col justify-center gap-y-5 md:gap-y-10 mt-5 lg:mt-10">
-								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
+							<div className="flex flex-col justify-center  [&>*:not(:last-child)]:mb-5 md: [&>*:not(:last-child)]:mb-10 mt-5 lg:mt-10">
+								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7  [&>*:not(:last-child)]:mb-5">
 									<Input
 										title="First Name"
 										name="firstName"
@@ -165,7 +165,7 @@ const ResumeServices = ({ calendlyUrl }: { calendlyUrl: string }) => {
 										error={errors}
 									/>
 								</div>
-								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
+								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7  [&>*:not(:last-child)]:mb-5">
 									<Input
 										title="Email"
 										name="email"
@@ -211,7 +211,7 @@ const ResumeServices = ({ calendlyUrl }: { calendlyUrl: string }) => {
 							exit={{ opacity: 0 }}
 						>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Career Goals and Background</h1>
-							<div className="flex flex-col justify-center gap-y-5 md:gap-y-10 mt-5 lg:mt-10">
+							<div className="flex flex-col justify-center  [&>*:not(:last-child)]:mb-5 md: [&>*:not(:last-child)]:mb-10 mt-5 lg:mt-10">
 								<Input
 									title="Current Job Title"
 									name="jobTitle"
@@ -267,7 +267,7 @@ const ResumeServices = ({ calendlyUrl }: { calendlyUrl: string }) => {
 							exit={{ opacity: 0 }}
 						>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Resume Information:</h1>
-							<div className="flex flex-col justify-center gap-y-5 md:gap-y-10 mt-5 lg:mt-10">
+							<div className="flex flex-col justify-center  [&>*:not(:last-child)]:mb-5 md: [&>*:not(:last-child)]:mb-10 mt-5 lg:mt-10">
 								{/* <Input
 									title="Have you previously created a resume? [Yes/No]"
 									name="resumePresent"

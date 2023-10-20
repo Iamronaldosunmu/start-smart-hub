@@ -156,8 +156,8 @@ const JobApplication = ({ calendlyUrl }: { calendlyUrl: string }) => {
 							exit={{ opacity: 0 }}
 						>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Client Information</h1>
-							<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5 lg:mt-10">
-								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
+							<div className="flex flex-col justify-center  [&>*:not(:last-child)]:mb-5 md: [&>*:not(:last-child)]:mb-[55px] mt-5 lg:mt-10">
+								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7  [&>*:not(:last-child)]:mb-5">
 									<Input
 										title="First Name"
 										name="firstName"
@@ -171,7 +171,7 @@ const JobApplication = ({ calendlyUrl }: { calendlyUrl: string }) => {
 										error={errors}
 									/>
 								</div>
-								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
+								<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7  [&>*:not(:last-child)]:mb-5">
 									<Input
 										title="Email"
 										name="email"
@@ -208,7 +208,7 @@ const JobApplication = ({ calendlyUrl }: { calendlyUrl: string }) => {
 							exit={{ opacity: 0 }}
 						>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Current Job Status</h1>
-							<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-3 lg:mt-10">
+							<div className="flex flex-col justify-center  [&>*:not(:last-child)]:mb-5 md: [&>*:not(:last-child)]:mb-[55px] mt-3 lg:mt-10">
 								<CheckBoxList
 									title="Current Employment Status"
 									name="employmentStatus"
@@ -217,7 +217,7 @@ const JobApplication = ({ calendlyUrl }: { calendlyUrl: string }) => {
 									register={register}
 									error={errors}
 								/>
-								<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5">
+								<div className="flex flex-col justify-center  [&>*:not(:last-child)]:mb-5 md: [&>*:not(:last-child)]:mb-[55px] mt-5">
 									<Input
 										title="Current Job Title"
 										name="jobTitle"
@@ -248,7 +248,7 @@ const JobApplication = ({ calendlyUrl }: { calendlyUrl: string }) => {
 							exit={{ opacity: 0 }}
 						>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Service Selection</h1>
-							<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5 lg:mt-10">
+							<div className="flex flex-col justify-center  [&>*:not(:last-child)]:mb-5 md: [&>*:not(:last-child)]:mb-[55px] mt-5 lg:mt-10">
 								<CheckBoxList
 									title="Please select the specific services you are interested in"
 									name="service"
@@ -287,7 +287,7 @@ const JobApplication = ({ calendlyUrl }: { calendlyUrl: string }) => {
 							exit={{ opacity: 0 }}
 						>
 							<h1 className="text-xl md:text-2xl lg:text-[32px] font-medium">Targeted Job Position</h1>
-							<div className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mt-5 lg:mt-10">
+							<div className="flex flex-col justify-center  [&>*:not(:last-child)]:mb-5 md: [&>*:not(:last-child)]:mb-[55px] mt-5 lg:mt-10">
 								<Input
 									title="Desired Job Title"
 									name="desiredJobTitle"

@@ -105,7 +105,7 @@ const Nav = () => {
 				<motion.div
 					animate={{ height: mobileNavOpen ? "100%" : 0 }}
 					style={{ paddingBottom: mobileNavOpen ? 30 : 0 }}
-					className="w-full h-full lg:hidden overflow-hidden py-[30px] z-40 px-[20px] md:px-[40px] text-[40px] font-semibold flex flex-col gap-y-2"
+					className="w-full h-full lg:hidden overflow-hidden py-[30px] z-40 px-[20px] md:px-[40px] text-[40px] font-semibold flex flex-col  [&>*:not(:last-child)]:mb-2"
 				>
 					{navItems.map((item, index: number) => (
 						<motion.div

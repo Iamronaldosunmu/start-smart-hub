@@ -8,7 +8,7 @@ const Hero = () => {
 	const navigate = useNavigate();
 	return (
 		<Container className="flex flex-col lg:flex-row items-center justify-between  text-center lg:text-start">
-			<div className="flex flex-col justify-center items-center lg:items-start gap-y-[18px] max-w-[600px] ">
+			<div className="flex flex-col justify-center items-center lg:items-start  [&>*:not(:last-child)]:mb-[18px] max-w-[600px] ">
 				<div className="relative text-[46px] md:text-[54px] leading-[1.2] lg:text-[62px] xl:text-[70px] text-[#331B3B] font-bold lg:leading-[70px] lg:tracking-[-0.7px] break-words flex flex-wrap [&>*:not(:last-child)]:mr-3 justify-center lg:justify-start">
 					{"Let’s build a path to career success.".split(" ").map((word, index) => (
 						<motion.div

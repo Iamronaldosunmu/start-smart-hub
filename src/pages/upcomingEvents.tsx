@@ -20,7 +20,7 @@ const UpcomingEvents = () => {
 					alt=""
 				/>
 			</header>
-			<Container className="mb-3 text-center flex flex-col gap-y-7 justify-center items-center md:text-left">
+			<Container className="mb-3 text-center flex flex-col  [&>*:not(:last-child)]:mb-7 justify-center items-center md:text-left">
 				{/* {events ? (
 					events?.map(({ attributes: { date, venue, summary, expectations, title, price, meetingLink }, id }) => (
 						<Event

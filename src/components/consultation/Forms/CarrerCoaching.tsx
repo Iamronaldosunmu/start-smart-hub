@@ -125,10 +125,10 @@ const CareerCoaching = ({ calendlyUrl }: { calendlyUrl: string }) => {
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
-							className="flex flex-col justify-center gap-y-5 md:gap-y-[55px] mb-5"
+							className="flex flex-col justify-center  [&>*:not(:last-child)]:mb-5 md: [&>*:not(:last-child)]:mb-[55px] mb-5"
 						>
 							<h1 className="text-xl lg:text-[32px] font-medium">Client Information</h1>
-							<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
+							<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7  [&>*:not(:last-child)]:mb-5">
 								<Input
 									title="First Name"
 									name="firstName"
@@ -142,7 +142,7 @@ const CareerCoaching = ({ calendlyUrl }: { calendlyUrl: string }) => {
 									error={errors}
 								/>
 							</div>
-							<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7 gap-y-5">
+							<div className="flex flex-col md:flex-row w-full [&>*:not(:last-child)]:mr-7  [&>*:not(:last-child)]:mb-5">
 								<Input
 									title="Email"
 									name="email"
@@ -195,7 +195,7 @@ const CareerCoaching = ({ calendlyUrl }: { calendlyUrl: string }) => {
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
-							className="flex flex-col gap-y-6 lg:gap-y-[55px] justify-center"
+							className="flex flex-col  [&>*:not(:last-child)]:mb-6 lg: [&>*:not(:last-child)]:mb-[55px] justify-center"
 						>
 							<h1 className="text-xl lg:text-[32px] font-medium">Career Goals</h1>
 							<CheckBoxList
@@ -215,7 +215,7 @@ const CareerCoaching = ({ calendlyUrl }: { calendlyUrl: string }) => {
 								error={errors}
 							/>
 							{/* <InputList title="List key skills and competencies you want to develop or enhance:" /> */}
-							<div className="grid gap-y-4 lg:gap-y-[55px]">
+							<div className="grid  [&>*:not(:last-child)]:mb-4 lg: [&>*:not(:last-child)]:mb-[55px]">
 								<h2 className="text-xl lg:text-[32px] font-medium">Challenges and Obstacles</h2>
 								<TextArea
 									title="What challenges or obstacles are you currently facing in your career?"

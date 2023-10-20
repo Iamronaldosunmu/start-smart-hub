@@ -20,7 +20,7 @@ const Event: FC<Props> = ({ title, venue, price, date, summary, expectations, me
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 1, delay: 0.4 }}
-			className="mt-7 md:mt-14 w-full lg:mt-[90px] h-full flex flex-col lg:flex-row [&>*:not(:last-child)]:mr-10 gap-y-8 mb-3 text-center md:text-left"
+			className="mt-7 md:mt-14 w-full lg:mt-[90px] h-full flex flex-col lg:flex-row [&>*:not(:last-child)]:mr-10  [&>*:not(:last-child)]:mb-8 mb-3 text-center md:text-left"
 		>
 			<img
 				className="object-cover z-0 "
@@ -29,7 +29,7 @@ const Event: FC<Props> = ({ title, venue, price, date, summary, expectations, me
 				loading="eager"
 			/>
 
-			<div className="flex flex-col justify-center md:items-start gap-y-3 max-w-[500px] text-[#606060]">
+			<div className="flex flex-col justify-center md:items-start  [&>*:not(:last-child)]:mb-3 max-w-[500px] text-[#606060]">
 				<h2 className="text-[25px] lg:text-[36px] text-left font-medium leading-[30px] lg:leading-normal tracking-wide">{title}</h2>
 				<p className="text-[#606060] text-left font-light leading-5 lg:text-xl">
 					<img

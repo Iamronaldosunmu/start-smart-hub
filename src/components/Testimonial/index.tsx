@@ -48,20 +48,16 @@ const Testimonial: FC<Props> = ({ name, body, forward, backward, page, setPage, 
 	};
 
 	useEffect(() => {
-		setTimeout(
-			() => {
-				if (page == count - 1) setPage(0);
-				else setPage(page + 1);
-				console.log(true)
-			},
-			body.split(" ").length * 300
-			
-		);
+		setTimeout(() => {
+			if (page == count - 1) setPage(0);
+			else setPage(page + 1);
+			console.log(true);
+		}, body.split(" ").length * 300);
 	}, [body]);
 
 	return (
 		<motion.div
-			className="flex flex-col justify-center items-center gap-y-[30px] font-poppins h-[480px] sm:h-[300px]"
+			className="flex flex-col justify-center items-center  [&>*:not(:last-child)]:mb-[30px] font-poppins h-[480px] sm:h-[300px]"
 			variants={variants}
 			initial="initial"
 			animate="enter"

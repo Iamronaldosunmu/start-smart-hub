@@ -43,7 +43,7 @@ export const InputList: FC<InputListProps> = ({ title }) => {
 	return (
 		<div>
 			<h2 className="text-[#331B3BA8] text-sm lg:text-base xl:text-xl">{title}</h2>
-			<div className="grid gap-y-3 mt-1">
+			<div className="grid  [&>*:not(:last-child)]:mb-3 mt-1">
 				{[1, 2, 3, 4].map((a, index) => (
 					<div
 						key={index}
@@ -73,7 +73,7 @@ export const CheckBoxList: FC<CheckBoxListProps> = ({ title, name, options, useI
 	return (
 		<div>
 			<h2 className="text-[#331B3BA8] text-sm lg:text-base xl:text-xl">{title}</h2>
-			<div className="grid gap-y-3 mt-2">
+			<div className="grid  [&>*:not(:last-child)]:mb-3 mt-2">
 				{options.map((option) => (
 					<div
 						key={option}

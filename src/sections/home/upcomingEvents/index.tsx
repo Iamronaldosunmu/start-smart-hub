@@ -14,7 +14,7 @@ const UpcomingEvents = ({ date }: Props) => {
 	const navigate = useNavigate();
 	console.log(events);
 	return (
-		<section className="bg-[#FAFAFA] pt-14 lg:pt-[100px] pb-5 lg:pb-7">
+		<section className="bg-[#FAFAFA] pt-14 lg:pt-[100px] pb-5 lg:pb-7 mt-[20px] lg:mt-[60px]">
 			<Container className="mb-3 text-center flex flex-col items-center md:text-left">
 				<div
 					data-aos="zoom-in"
@@ -23,7 +23,7 @@ const UpcomingEvents = ({ date }: Props) => {
 				>
 					Upcoming Events
 				</div>
-				<div className="mt-7 md:mt-14 lg:mt-[90px] flex flex-col md:flex-row items-center [&>*:not(:last-child)]:mr-10 gap-y-8">
+				<div className="mt-7 md:mt-14 lg:mt-[90px] flex flex-col md:flex-row items-center [&>*:not(:last-child)]:mr-10  [&>*:not(:last-child)]:mb-8">
 					<div
 						data-aos="zoom-in"
 						data-aos-duration="700"
@@ -37,7 +37,7 @@ const UpcomingEvents = ({ date }: Props) => {
 							loading="eager"
 						/>
 					</div>
-					<div className="flex flex-col justify-center items-center md:items-start gap-y-3 max-w-[500px]">
+					<div className="flex flex-col justify-center items-center md:items-start  [&>*:not(:last-child)]:mb-3 max-w-[500px]">
 						<h2
 							data-aos="zoom-in"
 							data-aos-duration="700"

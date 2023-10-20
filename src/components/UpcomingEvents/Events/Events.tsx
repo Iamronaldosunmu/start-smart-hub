@@ -27,7 +27,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 						className="inline w-full max-w-[50%] h-full lg:w-auto"
 					/>
 				</div>
-				<div className="mt-7 md:mt-14 w-full lg:mt-[90px] h-full flex flex-col lg:flex-row  [&>*:not(:last-child)]:mr-10  gap-y-8">
+				<div className="mt-7 md:mt-14 w-full lg:mt-[90px] h-full flex flex-col lg:flex-row  [&>*:not(:last-child)]:mr-10   [&>*:not(:last-child)]:mb-8">
 					<img
 						className="object-cover z-0 "
 						src="/assets/event.png"
@@ -35,7 +35,7 @@ const UpcomingEvents = ({ title, tag, status, date }: EventProps) => {
 						loading="eager"
 					/>
 
-					<div className="flex flex-col justify-center md:items-start gap-y-3 max-w-[500px] text-[#606060]">
+					<div className="flex flex-col justify-center md:items-start  [&>*:not(:last-child)]:mb-3 max-w-[500px] text-[#606060]">
 						<h2
 							data-aos="fade-up"
 							data-aos-duration="700"
