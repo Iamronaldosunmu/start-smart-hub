@@ -1,5 +1,5 @@
 import { create } from "zustand";
-
+import servicesData from "../data/services.json"
 export interface Service {
 	id: number;
 	title: string;
@@ -14,7 +14,8 @@ interface ServiceStore {
 }
 
 const useServiceStore = create<ServiceStore>((set) => ({
-	services: [],
+	//
+	services: servicesData.data,
 	setServices: (services: Service[]) => set({ services }),
 }));
 

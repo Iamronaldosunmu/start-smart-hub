@@ -31,7 +31,7 @@ const Footer = () => {
 				</div>
 				<div className="flex flex-col items-center w-full lg:w-auto lg:px-20">
 					<div className="flex flex-col lg:flex-row  lg:gap-7 sm:gap-5 gap-2  justify-between w-full">
-						<div className="flex lg:gap-7 sm:gap-5 gap-2 flex-wrap lg:mr-10 justify-between w-full">
+						<div className="flex lg:[&>*:not(:last-child)]:mr-7 sm:[&>*:not(:last-child)]:mr-5 [&>*:not(:last-child)]:mr-2 flex-wrap lg:mr-10 justify-between w-full">
 							{footerItems.map((footerItem) => (
 								<ul className="lg:leading-7 leading-6 block">
 									{footerItem.map((item, index) => (

@@ -7,7 +7,7 @@ import FormFooter from "./FormFooter";
 const schema = z.object({
 	name: z.string().min(3),
 	email: z.string().email({ message: "This email format is not valid" }),
-	phone: z.string().min(11),
+	phone: z.string().min(1, "Phone Number is required"),
 	referral: z.string(),
 });
 
