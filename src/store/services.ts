@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import servicesData from "../data/services.json"
+// import servicesData from "../data/services.json"
 export interface Service {
 	id: number;
 	title: string;
