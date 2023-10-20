@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Container from "../../../components/container";
 import { child, container } from "../../../utils/framer-default-animations";
-import ListText from "./ListText";
+// import ListText from "./ListText";
 
 const Information = () => {
 	const ListTexts = [
@@ -57,15 +57,16 @@ const Information = () => {
 						variants={container}
 						initial="hidden"
 						animate="show"
-						className="text-left lg:text-lg sm:text-base text-sm "
+						className="text-sm md:text-base leading-6 list-disc [&>*]:mb-1 [&>*]:ml-5 font-poppins"
 					>
 						{ListTexts.map((text: string) => (
-							<motion.div variants={child}>
-								<ListText
+							<motion.li variants={child}>
+								{/* <ListText
 									key={text}
 									text={text}
-								/>
-							</motion.div>
+								/> */}
+								<motion.li variants={child}>{text}</motion.li>
+							</motion.li>
 						))}
 					</motion.ul>
 				</div>
