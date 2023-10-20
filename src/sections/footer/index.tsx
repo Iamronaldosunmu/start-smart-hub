@@ -5,17 +5,19 @@ const Footer = () => {
 	const footerItems = [
 		[
 			{ label: "Home", link: "/" },
-			{ label: "About", link: "/about" },
+			{ label: "About", link: "/about-us" },
+		],
+		[
 			{ label: "Services", link: "/services" },
 			{ label: "Events", link: "/upcoming-events" },
 		],
-		[
-			{ label: "Job application", link: "/job-applications" },
-			{ label: "Job search", link: "/job-search" },
-		],
+		// [
+		// 	{ label: "Job application", link: "/job-applications" },
+		// 	{ label: "Job search", link: "/job-search" },
+		// ],
 		[
 			{ label: "Terms and conditions", link: "/terms-and-conditions" },
-			{ label: "Contact", link: "/contact" },
+			{ label: "Contact", link: "/contact-us" },
 		],
 	];
 
