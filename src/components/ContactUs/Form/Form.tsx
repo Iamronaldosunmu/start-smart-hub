@@ -81,9 +81,14 @@ const Form = () => {
 						{...register("referral")}
 					>
 						<option value="">How did you find us?</option>
-						<option value="mos">mosh</option>
-						<option value="ronald">ronald</option>
-						<option value="jason">jason</option>
+						<option value="Google">Google</option>
+						<option value="Instagram">Instagram</option>
+						<option value="Facebook">Facebook</option>
+						<option value="LinkedIn">LinkedIn</option>
+						<option value="Referral">Referral</option>
+						<option value="Twitter">Twitter</option>
+						<option value="Ads">Ads</option>
+						<option value="Website">Website</option>
 					</select>
 				</div>
 				<button className=" md:py-4 py-2 w-full bg-[#DD5471] lg:mb-10 mb-5 transition duration-300 ease-in-out text-white">Send</button>
