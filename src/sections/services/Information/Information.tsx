@@ -41,7 +41,9 @@ const Information = () => {
 						<div
 							data-aos="zoom-in"
 							data-aos-duration="700"
-						>Are You Someone Who?</div>
+						>
+							Are You Someone Who?
+						</div>
 					</h2>
 					<p
 						data-aos="zoom-in"
@@ -51,14 +53,20 @@ const Information = () => {
 					>
 						Do any of these sound familiar? Perfect. You’ve found just the help you need!
 					</p>
-					<motion.ul
-						variants={container}
-						initial="hidden"
-						animate="show"
-						className="text-left lg:text-lg sm:text-base text-sm "
-					>
-						{ListTexts.map((text: string) => (
-							<motion.div variants={child}>
+					<motion.ul className="text-left lg:text-lg sm:text-base text-sm ">
+						{ListTexts.map((text: string, index) => (
+							<motion.div
+								initial={{
+									opacity: 0,
+								}}
+								whileInView={{
+									opacity: 1,
+								}}
+								transition={{
+									ease: "linear",
+									delay: index * 0.2,
+								}}
+							>
 								<ListText
 									key={text}
 									text={text}

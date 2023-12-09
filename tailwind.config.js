@@ -28,7 +28,7 @@ export default {
 				"billing-purple": "#9E77ED",
 			},
 			textColor: {
-				black: "#171717",
+				black: "#141414",
 			},
 		},
 	},

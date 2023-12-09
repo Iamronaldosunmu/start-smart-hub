@@ -97,7 +97,7 @@ const Loader = () => {
 				}}
 				className="text-[28px] leading-[28px] absolute top-0 left-0 right-0 bottom-0 flex items-center flex-col justify-center"
 			>
-				<p className="relative font-semibold left-[20px] poppins-font">
+				<p className="relative font-semibold left-[20px] font-poppins">
 					Start <br /> Smart Hub{" "}
 					<motion.span
 						initial={{ opacity: 0 }}
@@ -107,7 +107,7 @@ const Loader = () => {
 						TM
 					</motion.span>
 				</p>
-				<p className="text-[12px] left-[20px] relative leading-[14px] italic">start smart, build right...</p>
+				<p className="text-[12px] left-[20px] relative leading-[14px] italic font-poppins">start smart, build right...</p>
 			</motion.div>
 		</motion.main>
 	);

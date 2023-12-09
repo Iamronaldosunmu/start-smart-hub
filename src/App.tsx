@@ -17,6 +17,8 @@ import { useServices } from "./hooks/useServices";
 import UpcomingEvents from "./pages/upcomingEvents";
 import useEventStore from "./store/events";
 import useEvents from "./hooks/useEvents";
+import Courses from "./pages/Courses";
+import CourseDetails from "./pages/CourseDetails";
 
 function App() {
 	const { pathname } = useLocation();
@@ -97,6 +99,14 @@ function App() {
 					<Route
 						path="/upcoming-events"
 						element={<UpcomingEvents />}
+					/>
+					<Route
+						path="/courses"
+						element={<Courses />}
+					/>
+					<Route
+						path="/courses/:id"
+						element={<CourseDetails />}
 					/>
 				</Routes>
 			</AnimatePresence>

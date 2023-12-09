@@ -1,16 +1,16 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
 import { easeIn, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { PopupButton } from "react-calendly";
 import { Link, useNavigate } from "react-router-dom";
 import Container from "../container";
-import { interactionAnimations } from "../../utils/framer-default-animations";
-import { PopupButton } from "react-calendly";
 
 const Nav = () => {
 	const navItems = [
 		{ text: "Home", path: "/home" },
 		{ text: "About", path: "/about-us" },
 		{ text: "Services", path: "/services" },
+		{ text: "Courses", path: "/courses" },
 		{ text: "Events", path: "/upcoming-events" },
 		{ text: "Contact", path: "/contact-us" },
 	];

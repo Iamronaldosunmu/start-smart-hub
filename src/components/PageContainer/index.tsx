@@ -7,14 +7,14 @@ interface PageContainerProps {
 }
 const PageContainer = ({ className, children }: PageContainerProps) => {
 	return (
-	<motion.main
-		data-scroll-container
-		className={className}
-		{...pageTransition}
-	>
-		{children}
-	</motion.main>
-	)
+		<motion.main
+			data-scroll-containe
+			className={className}
+			{...pageTransition}
+		>
+			{children}
+		</motion.main>
+	);
 };
 
 export default PageContainer;

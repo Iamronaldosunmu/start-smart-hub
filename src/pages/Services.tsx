@@ -48,7 +48,7 @@ const Services: React.FC = () => {
 							path={getPathFromFormType(service?.formType)}
 						/>
 					))}
-				{!(services?.length > 0) &&
+				{!(services?.length > 0) && (
 					<>
 						<Service
 							number={1}
@@ -121,7 +121,7 @@ const Services: React.FC = () => {
 							path="/consultation/career-coaching"
 						/>
 					</>
-				}
+				)}
 			</Container>
 			{/* <Billing /> */}
 			<Bookings />
