@@ -67,7 +67,7 @@ const Nav = () => {
 							url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
 							rootElement={document.getElementById("root") as HTMLElement}
 							text="Book a call"
-							className=" flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
+							className="flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
 						/>
 					</div>
 				</Container>
@@ -105,7 +105,7 @@ const Nav = () => {
 				<motion.div
 					animate={{ height: mobileNavOpen ? "100%" : 0 }}
 					style={{ paddingBottom: mobileNavOpen ? 30 : 0 }}
-					className="w-full h-full lg:hidden overflow-hidden py-[30px] z-40 px-[20px] md:px-[40px] text-[40px] font-semibold flex flex-col gap-y-2"
+					className="w-full h-full lg:hidden overflow-hidden py-[30px] z-40 px-[20px] md:px-[40px] text-[40px] font-poppins font-semibold flex flex-col gap-y-4"
 				>
 					{navItems.map((item, index: number) => (
 						<motion.div

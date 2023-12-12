@@ -19,6 +19,9 @@ import useEventStore from "./store/events";
 import useEvents from "./hooks/useEvents";
 import Courses from "./pages/Courses";
 import CourseDetails from "./pages/CourseDetails";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
 	const { pathname } = useLocation();
@@ -101,16 +104,26 @@ function App() {
 						element={<UpcomingEvents />}
 					/>
 					<Route
-						path="/courses"
-						element={<Courses />}
+						path="/sign-up"
+						element={<SignUp />}
 					/>
 					<Route
-						path="/courses/:id"
-						element={<CourseDetails />}
+						path="/sign-in"
+						element={<SignIn />}
 					/>
+					<Route element={<ProtectedRoutes />}>
+						<Route
+							path="/courses"
+							element={<Courses />}
+						/>
+						<Route
+							path="/courses/:id"
+							element={<CourseDetails />}
+						/>
+					</Route>
 				</Routes>
 			</AnimatePresence>
-			{pathname !== "/" && <Footer />}
+			{/* {pathname !== "/" && <Footer />} */}
 		</>
 	);
 }
