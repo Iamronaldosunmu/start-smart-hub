@@ -1,13 +1,13 @@
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { z } from "zod";
 import PageContainer from "../components/PageContainer";
 import Container from "../components/container";
 import { useLoginUser } from "../hooks/useUser";
 
 const isUsernameOrEmail = (value: string) => {
-	const isUsername = /^[A-Za-z .]+$/.test(value);
+	const isUsername = /^[A-Za-z0-9.]+$/.test(value);
 
 	const isEmail = /\S+@\S+\.\S+/.test(value);
 
@@ -34,14 +34,8 @@ const SignIn = () => {
 
 	const { isLoading, mutate: loginUser } = useLoginUser();
 
-	const navigate = useNavigate();
-
 	const onSubmit = (data: SignInFormData) => {
-		loginUser(data, {
-			onSuccess: () => {
-				navigate("/courses");
-			},
-		});
+		loginUser(data);
 	};
 
 	return (

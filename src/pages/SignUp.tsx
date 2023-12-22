@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { z } from "zod";
 import PageContainer from "../components/PageContainer";
 import Container from "../components/container";
@@ -31,14 +31,8 @@ const SignUp = () => {
 
 	const { isLoading, mutate: createUser } = useCreateUser();
 
-	const navigate = useNavigate();
-
 	const onSubmit = (data: SignUpFormData) => {
-		createUser(data, {
-			onSuccess: () => {
-				navigate("/courses");
-			},
-		});
+		createUser(data);
 	};
 
 	return (

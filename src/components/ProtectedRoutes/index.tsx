@@ -1,10 +1,10 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { useAuth } from "../../store/auth";
+import { useCookies } from "react-cookie";
 
 const ProtectedRoutes = () => {
-	const auth = useAuth();
+	const [cookies] = useCookies(["auth"]);
 	const location = useLocation();
-	return auth ? (
+	return cookies?.auth ? (
 		<Outlet />
 	) : (
 		<Navigate

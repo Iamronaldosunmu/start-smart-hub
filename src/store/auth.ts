@@ -1,33 +1,32 @@
+import { useCookies } from "react-cookie";
 import { create } from "zustand";
-
-export interface AuthData {
-	token: string;
-	user: {
-		id: number;
-		username: string;
-		email: string;
-		blocked: boolean;
-		createdAt: string;
-		updatedAt: string;
-	};
+export interface User {
+	id: number;
+	username: string;
+	email: string;
+	blocked: boolean;
+	createdAt: string;
+	updatedAt: string;
 }
 
 interface AuthStore {
-	auth: AuthData | null;
+	user: User | null;
 	actions: {
-		setAuth: (auth: AuthData | null) => void;
+		setUser: (auth: User | null) => void;
 		logout: () => void;
 	};
 }
 
 const useAuthStore = create<AuthStore>((set) => ({
-	auth: null,
+	user: null,
 	actions: {
-		setAuth: (auth: AuthData | null) => set({ auth }),
-		logout: () => set({ auth: null }),
+		setUser: (user: User | null) => set({ user }),
+		logout: () => {
+			set({ user: null });
+		},
 	},
 }));
 
-export const useAuth = () => useAuthStore((s) => s.auth);
+export const useAuth = () => useAuthStore((s) => s.user);
 
 export const useAuthActions = () => useAuthStore((s) => s.actions);

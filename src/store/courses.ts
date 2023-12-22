@@ -1,83 +1,48 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { create } from "zustand";
 
-type type = "Resume" | "LinkedIn" | "All Courses";
+// type type = "Resume" | "LinkedIn" | "All Courses";
 
-interface Course {
-	id: string;
-	attributes: {
-		title: string;
-		description: string;
-		duration: number;
-		price: number;
-		image?: string;
-		tag: type;
+export interface Course {
+	id: number;
+	name: string;
+	price: string;
+	description: string;
+	thumbnail: {
+		url: string;
+		alt: string;
 	};
+	module: {
+		name: string;
+		sections: any[];
+	}[];
 }
-
-const Courses: Course[] = [
-	{
-		id: "@1",
-		attributes: {
-			title: "Successful Career Development",
-			description: "Life coach your clients to a successful job search, resume, interviewing skills, LinkedIn networking & career they love",
-			duration: 12,
-			price: 140,
-			image: "/assets/courseImg1.jpg",
-			tag: "Resume",
-		},
-	},
-	{
-		id: "@2",
-		attributes: {
-			title: "Successful Career Development",
-			description: "Life coach your clients to a successful job search, resume, interviewing skills, LinkedIn networking & career they love",
-			duration: 12,
-			price: 140,
-			image: "/assets/courseImg1.jpg",
-			tag: "LinkedIn",
-		},
-	},
-	{
-		id: "@3",
-		attributes: {
-			title: "Successful Career Development",
-			description: "Life coach your clients to a successful job search, resume, interviewing skills, LinkedIn networking & career they love",
-			duration: 12,
-			price: 140,
-			image: "/assets/courseImg1.jpg",
-			tag: "LinkedIn",
-		},
-	},
-	{
-		id: "@4",
-		attributes: {
-			title: "Successful Career Development",
-			description: "Life coach your clients to a successful job search, resume, interviewing skills, LinkedIn networking & career they love",
-			duration: 12,
-			price: 140,
-			image: "/assets/courseImg1.jpg",
-			tag: "Resume",
-		},
-	},
-];
 
 interface CourseStore {
 	courses: Course[];
-	filterdCourses: Course[];
-	findCourse: (value: string) => void;
-	findByTag: (value: type | string) => void;
-	// setCourses: (courses: Course[]) => void;
+	filter: string;
+	actions: {
+		setCourses: (courses: Course[]) => void;
+		saveCourses: () => void;
+		setFilter: (query: string) => void;
+		// findByTag: (value: type | string) => void;
+	};
 }
 
-const useCourseStore = create<CourseStore>((set) => ({
-	courses: Courses,
-	filterdCourses: Courses,
-	findCourse: (value) => set({ filterdCourses: value == "" ? Courses : Courses.filter((course) => course.attributes.title.includes(value)) }),
-	findByTag: (value) =>
-		set({
-			filterdCourses: value == "All Courses" ? Courses : Courses.filter((course) => course.attributes.tag == value),
-		}),
-	// setCourses: (courses: Course[]) => set({ courses }),
+const useCourseStore = create<CourseStore>((set, get) => ({
+	courses: JSON.parse(localStorage.getItem("courses")!) ?? [],
+	filter: "",
+	actions: {
+		setCourses: (courses) => set({ courses }),
+		saveCourses: () => localStorage.setItem("courses", JSON.stringify(get().courses)),
+		setFilter: (query) => set({ filter: query }),
+		// findByTag: (value) =>
+		// 	set((state) => ({
+		// 		filterdCourses: value == "All Courses" ? state.courses : state.courses.filter((course) => course.tag == value),
+		// 	})),
+	},
 }));
 
-export default useCourseStore;
+export const useCourses = () => useCourseStore((s) => s.courses);
+export const useCoursesFilter = () => useCourseStore((s) => s.filter);
+export const useCoursesActions = () => useCourseStore((s) => s.actions);

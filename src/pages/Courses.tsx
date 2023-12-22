@@ -1,5 +1,5 @@
 import CourseGrid from "../components/Course/CourseGrid";
-import Filter from "../components/Course/Filter";
+// import Filter from "../components/Course/Filter";
 import SearchBar from "../components/Course/SearchBar";
 import PageContainer from "../components/PageContainer";
 import Container from "../components/container";
@@ -14,7 +14,7 @@ const Courses = () => {
 				</header>
 				<div className="lg:px-12 flex flex-col lg:flex-row lg:items-center gap-4">
 					<SearchBar />
-					<Filter />
+					{/* <Filter /> */}
 				</div>
 				<CourseGrid />
 			</Container>

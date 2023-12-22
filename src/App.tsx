@@ -1,27 +1,22 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import Home from "./pages/home";
-import Services from "./pages/Services";
-import AboutUs from "./pages/AboutUs";
-import Consultation from "./pages/consultation";
-import Nav from "./components/Nav";
-import Footer from "./sections/footer";
-import Loader from "./pages/Loader";
-import ContactUs from "./pages/ContactUs";
+import Lenis from "@studio-freight/lenis";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import Lenis from "@studio-freight/lenis";
-import useServiceStore from "./store/services";
-import { useServices } from "./hooks/useServices";
-import UpcomingEvents from "./pages/upcomingEvents";
-import useEventStore from "./store/events";
-import useEvents from "./hooks/useEvents";
-import Courses from "./pages/Courses";
+import { useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Nav from "./components/Nav";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
 import CourseDetails from "./pages/CourseDetails";
-import SignUp from "./pages/SignUp";
+import Courses from "./pages/Courses";
+import Loader from "./pages/Loader";
+import Services from "./pages/Services";
 import SignIn from "./pages/SignIn";
-import ProtectedRoutes from "./components/ProtectedRoutes";
+import SignUp from "./pages/SignUp";
+import Consultation from "./pages/consultation";
+import Home from "./pages/home";
+import UpcomingEvents from "./pages/upcomingEvents";
+import useInitData from "./hooks/useInitData";
 
 function App() {
 	const { pathname } = useLocation();
@@ -51,19 +46,7 @@ function App() {
 	// Fetch Data needed for all the pages
 
 	// Data for the services
-	const { setServices } = useServiceStore();
-	const { setEvents } = useEventStore();
-	const { data: servicesData } = useServices();
-	const { data: eventsData } = useEvents();
-
-	useEffect(() => {
-		setServices(servicesData);
-		console.log(eventsData);
-		setEvents(eventsData);
-
-		console.log(servicesData);
-	}, [servicesData, eventsData]);
-
+	useInitData();
 	return (
 		<>
 			{pathname !== "/" && <Nav />}
@@ -111,16 +94,16 @@ function App() {
 						path="/sign-in"
 						element={<SignIn />}
 					/>
-					<Route element={<ProtectedRoutes />}>
-						<Route
-							path="/courses"
-							element={<Courses />}
-						/>
-						<Route
-							path="/courses/:id"
-							element={<CourseDetails />}
-						/>
-					</Route>
+					{/* <Route element={<ProtectedRoutes />}> */}
+					<Route
+						path="/courses"
+						element={<Courses />}
+					/>
+					<Route
+						path="/courses/:id"
+						element={<CourseDetails />}
+					/>
+					{/* </Route> */}
 				</Routes>
 			</AnimatePresence>
 			{/* {pathname !== "/" && <Footer />} */}

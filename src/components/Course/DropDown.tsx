@@ -1,21 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AnimatePresence, motion } from "framer-motion";
 import { FC, useState } from "react";
 
 interface Props {
-	title: string;
-	duration: number;
+	name: string;
+	sections: any[];
 }
 
-const DropDown: FC<Props> = ({ title, duration }) => {
+const DropDown: FC<Props> = ({ name, sections }) => {
 	const [open, setOpen] = useState(false);
-	const sections = [
-		{ title: "Welcome", type: "video" },
-		{ title: "Prerequisites", type: "video" },
-		{ title: "Source Code", type: "file" },
-		{ title: "Questions and Support", type: "file" },
-		{ title: "Connect with Me", type: "file" },
-		{ title: "Learning Paths", type: "file" },
-	];
 
 	return (
 		<div className="w-full max-w-[672px]">
@@ -24,7 +17,7 @@ const DropDown: FC<Props> = ({ title, duration }) => {
 				className="flex justify-between w-full items-center cursor-pointer py-2"
 			>
 				<h2 className="text-lg font-semibold inline flex-grow">
-					{title} <span className="text-base">{`(${duration}m)`}</span>
+					{name} <span className="text-base">{`(${120}m)`}</span>
 				</h2>
 				<motion.img
 					initial={{ rotate: 0 }}
@@ -41,19 +34,21 @@ const DropDown: FC<Props> = ({ title, duration }) => {
 						transition={{ duration: 0.3, ease: "easeIn" }}
 						className="mt-2 font-poppins"
 					>
-						{sections.map(({ title, type }, index) => (
-							<li
-								key={index}
-								className="flex items-center space-x-4 w-full mb-2"
-							>
-								<img
-									className="w-4 h-4 object-cover"
-									src={`/assets/${type === "video" ? "camera" : "file"}.svg`}
-									alt=""
-								/>
-								<span>{title}</span>
-							</li>
-						))}
+						{sections?.length &&
+							sections?.map(({ sectionText }, index) => (
+								<li
+									key={index}
+									className={`${sectionText === null ? "hidden" : "flex"} items-center space-x-4 w-full mb-2`}
+								>
+									<img
+										className="w-6 h-6 object-cover"
+										// src={`/assets/${type === "video" ? "camera" : "file"}.svg`}
+										src="/public/assets/camera.svg"
+										alt=""
+									/>
+									<span>{sectionText}</span>
+								</li>
+							))}
 					</motion.ul>
 				)}
 			</AnimatePresence>

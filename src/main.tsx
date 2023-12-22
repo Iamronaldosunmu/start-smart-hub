@@ -11,6 +11,11 @@ import "./index.css";
 import { Toast } from "./utils/toast.ts";
 
 const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			refetchOnWindowFocus: false,
+		},
+	},
 	mutationCache: new MutationCache({
 		onError: (error) => {
 			if (error instanceof AxiosError) {
