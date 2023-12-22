@@ -2,9 +2,9 @@
 import { easeIn, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { PopupButton } from "react-calendly";
+import { useCookies } from "react-cookie";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Container from "../container";
-import { useCookies } from "react-cookie";
 
 const Nav = () => {
 	const navItems = [
@@ -31,7 +31,7 @@ const Nav = () => {
 		};
 	}, []);
 
-	const [cookie, , removeCookie] = useCookies(["auth"]);
+	const [cookies, , removeCookie] = useCookies(["auth"]);
 
 	const { pathname } = useLocation();
 
@@ -68,32 +68,24 @@ const Nav = () => {
 						>
 							Book a Call
 						</motion.button> */}
-						<button
-							onClick={() => removeCookie("auth")}
-							className="flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
-						>
-							{pathname == "/courses" ? (
-								cookie?.auth ? (
-									<div
-										onClick={() => {
-											console.log("first");
-										}}
-										className="w-full h-full"
-									>
-										Logout
-									</div>
-								) : (
-									<div className="w-full h-full">Login</div>
-								)
-							) : (
-								<PopupButton
-									url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
-									rootElement={document.getElementById("root") as HTMLElement}
-									text="Book a call"
-									className="w-full h-full"
-								/>
-							)}
-						</button>
+						{pathname === "/courses" ? (
+							<button
+								onClick={() => {
+									if (!cookies?.auth) navigate("/sign-in");
+									else removeCookie("auth");
+								}}
+								className="flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
+							>
+								{cookies?.auth ? "Logout" : "Login"}
+							</button>
+						) : (
+							<PopupButton
+								url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
+								rootElement={document.getElementById("root") as HTMLElement}
+								text="Book a call"
+								className="flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium rounded-[10px] cursor-pointer"
+							/>
+						)}
 					</div>
 				</Container>
 			</nav>

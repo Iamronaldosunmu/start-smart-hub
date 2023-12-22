@@ -30,7 +30,7 @@ interface CourseStore {
 }
 
 const useCourseStore = create<CourseStore>((set, get) => ({
-	courses: JSON.parse(localStorage.getItem("courses")!) ?? [],
+	courses: localStorage.getItem("courses") ? JSON.parse(localStorage.getItem("courses")!) : [],
 	filter: "",
 	actions: {
 		setCourses: (courses) => set({ courses }),
