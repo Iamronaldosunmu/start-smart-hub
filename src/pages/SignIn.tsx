@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod/dist/zod.js";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { z } from "zod";
@@ -34,6 +35,8 @@ const SignIn = () => {
 
 	const { isLoading, mutate: loginUser } = useLoginUser();
 
+	const [isShown, setIsShown] = useState(false);
+
 	const onSubmit = (data: SignInFormData) => {
 		loginUser(data);
 	};
@@ -49,7 +52,7 @@ const SignIn = () => {
 					/>
 				</div>
 				<section className="bg-white text-black text-center lg:text-left my-auto w-full">
-					<h1 className="text-[36px] lg:text-[40px] xl:text-[54px] font-semibold font-DMSans">Create Account</h1>
+					<h1 className="text-[36px] lg:text-[40px] xl:text-[54px] text-center font-semibold font-DMSans">Login to your Account</h1>
 					<form
 						className="mt-3 mb-2 grid gap-y-4"
 						onSubmit={handleSubmit(onSubmit)}
@@ -65,7 +68,7 @@ const SignIn = () => {
 								{...register("identifier")}
 								id="identifier"
 								type="text"
-								className="w-full border shadow-sm placeholder:text-[#00000066] p-2 rounded-lg text-sm placeholder:text-sm font-poppins"
+								className="w-full border shadow-sm placeholder:text-[#00000066] px-2 py-3 rounded-lg text-sm placeholder:text-sm font-poppins"
 								placeholder="Enter Your Email"
 							/>
 							{errors.identifier && <p className="text-red-500 mt-1 font-poppins text-sm text-left">{errors.identifier.message}</p>}
@@ -77,13 +80,24 @@ const SignIn = () => {
 							>
 								Password
 							</label>
-							<input
-								{...register("password")}
-								id="password"
-								type="text"
-								className="w-full border shadow-sm placeholder:text-[#00000066] p-2 rounded-lg text-sm placeholder:text-sm font-poppins"
-								placeholder="Enter Your Password"
-							/>
+							<div className="w-full flex items-center relative">
+								<input
+									{...register("password")}
+									id="password"
+									type={isShown ? "text" : "password"}
+									className="w-full border shadow-sm placeholder:text-[#00000066] px-2 py-3 rounded-lg text-sm placeholder:text-sm font-poppins"
+									placeholder="Enter Your Password"
+								/>
+								<div
+									onClick={() => setIsShown((prev) => !prev)}
+									className="w-5 h-5 absolute right-5 cursor-pointer"
+								>
+									<img
+										className="w-full h-full object-cover"
+										src={`/assets/eye-${isShown ? "open" : "closed"}.svg`}
+									/>
+								</div>
+							</div>
 							{errors.password && <p className="text-red-500 mt-1 font-poppins text-sm text-left">{errors.password.message}</p>}
 						</div>
 						<button

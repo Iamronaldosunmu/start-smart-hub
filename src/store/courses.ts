@@ -34,7 +34,10 @@ const useCourseStore = create<CourseStore>((set, get) => ({
 	filter: "",
 	actions: {
 		setCourses: (courses) => set({ courses }),
-		saveCourses: () => localStorage.setItem("courses", JSON.stringify(get().courses)),
+		saveCourses: () => {
+			if (JSON.stringify(get().courses)) localStorage.setItem("courses", JSON.stringify(get().courses));
+			else localStorage.setItem("courses", "[]");
+		},
 		setFilter: (query) => set({ filter: query }),
 		// findByTag: (value) =>
 		// 	set((state) => ({

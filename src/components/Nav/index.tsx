@@ -68,7 +68,7 @@ const Nav = () => {
 						>
 							Book a Call
 						</motion.button> */}
-						{pathname === "/courses" ? (
+						{pathname.includes("/courses") ? (
 							<button
 								onClick={() => {
 									if (!cookies?.auth) navigate("/sign-in");

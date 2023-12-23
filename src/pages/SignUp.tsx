@@ -5,6 +5,7 @@ import { z } from "zod";
 import PageContainer from "../components/PageContainer";
 import Container from "../components/container";
 import { useCreateUser } from "../hooks/useUser";
+import { useState } from "react";
 
 const schema = z.object({
 	username: z
@@ -31,6 +32,8 @@ const SignUp = () => {
 
 	const { isLoading, mutate: createUser } = useCreateUser();
 
+	const [isShown, setIsShown] = useState(false);
+
 	const onSubmit = (data: SignUpFormData) => {
 		createUser(data);
 	};
@@ -46,7 +49,7 @@ const SignUp = () => {
 					/>
 				</div>
 				<section className="bg-white text-black text-center lg:text-left my-auto w-full">
-					<h1 className="text-[36px] lg:text-[40px] xl:text-[54px] font-semibold font-DMSans">Create Account</h1>
+					<h1 className="text-[36px] lg:text-[40px] xl:text-[54px] text-center font-semibold font-DMSans">Create Account</h1>
 					<form
 						className="mt-3 mb-2 grid gap-y-4"
 						onSubmit={handleSubmit(onSubmit)}
@@ -62,7 +65,7 @@ const SignUp = () => {
 								{...register("username")}
 								id="username"
 								type="text"
-								className="w-full border shadow-sm placeholder:text-[#00000066] p-2 rounded-lg text-sm placeholder:text-sm font-poppins"
+								className="w-full border shadow-sm placeholder:text-[#00000066] px-2 py-3 rounded-lg text-sm placeholder:text-sm font-poppins"
 								placeholder="Enter Your Username"
 							/>
 							{errors.username && <p className="text-red-500 mt-1 font-poppins text-sm text-left">{errors.username.message}</p>}
@@ -78,7 +81,7 @@ const SignUp = () => {
 								{...register("email")}
 								id="email"
 								type="email"
-								className="w-full border shadow-sm placeholder:text-[#00000066] p-2 rounded-lg text-sm placeholder:text-sm font-poppins"
+								className="w-full border shadow-sm placeholder:text-[#00000066] px-2 py-3 rounded-lg text-sm placeholder:text-sm font-poppins"
 								placeholder="Enter Your Email"
 							/>
 							{errors.email && <p className="text-red-500 mt-1 font-poppins text-sm text-left">{errors.email.message}</p>}
@@ -90,13 +93,24 @@ const SignUp = () => {
 							>
 								Password
 							</label>
-							<input
-								{...register("password")}
-								id="password"
-								type="text"
-								className="w-full border shadow-sm placeholder:text-[#00000066] p-2 rounded-lg text-sm placeholder:text-sm font-poppins"
-								placeholder="Enter Your Password"
-							/>
+							<div className="w-full flex items-center relative">
+								<input
+									{...register("password")}
+									id="password"
+									type={isShown ? "text" : "password"}
+									className="w-full border shadow-sm placeholder:text-[#00000066] px-2 py-3 rounded-lg text-sm placeholder:text-sm font-poppins"
+									placeholder="Enter Your Password"
+								/>
+								<div
+									onClick={() => setIsShown((prev) => !prev)}
+									className="w-5 h-5 absolute right-5 cursor-pointer"
+								>
+									<img
+										className="w-full h-full object-cover"
+										src={`/assets/eye-${isShown ? "open" : "closed"}.svg`}
+									/>
+								</div>
+							</div>
 							{errors.password && <p className="text-red-500 mt-1 font-poppins text-sm text-left">{errors.password.message}</p>}
 						</div>
 						<button

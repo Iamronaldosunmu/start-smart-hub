@@ -49,8 +49,9 @@ const CourseDetails = () => {
 						<span>140 Lessons</span>
 					</div>
 					<div className="mt-4 flex flex-col space-y-4">
-						{course?.module?.map((section: any) => (
+						{course?.module?.map((section: any, index) => (
 							<DropDown
+								key={index}
 								name={section?.name}
 								sections={section?.moduleMedia}
 							/>

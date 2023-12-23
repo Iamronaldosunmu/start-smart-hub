@@ -43,7 +43,7 @@ const DropDown: FC<Props> = ({ name, sections }) => {
 									<img
 										className="w-6 h-6 object-cover"
 										// src={`/assets/${type === "video" ? "camera" : "file"}.svg`}
-										src="/public/assets/camera.svg"
+										src="/assets/camera.svg"
 										alt=""
 									/>
 									<span>{sectionText}</span>
