@@ -49,7 +49,7 @@ const Bookings = () => {
 			</div>
 			<img
 				className="object-cover w-full h-full absolute z-0"
-				src="/public/assets/bubbles2.svg"
+				src="/assets/bubbles2.svg"
 				alt=""
 			/>
 		</div>

@@ -7,6 +7,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Container from "../container";
 
 const Nav = () => {
+	const [cookies, , removeCookie] = useCookies(["auth"]);
+
 	const navItems = [
 		{ text: "Home", path: "/home" },
 		{ text: "About", path: "/about-us" },
@@ -15,6 +17,18 @@ const Nav = () => {
 		{ text: "Events", path: "/upcoming-events" },
 		{ text: "Contact", path: "/contact-us" },
 	];
+
+	const enrolledNavItems = [
+		{ text: "Home", path: "/home" },
+		{ text: "About", path: "/about-us" },
+		{ text: "Services", path: "/services" },
+		{ text: "All Courses", path: "/courses" },
+		{ text: "My Courses", path: "/courses/enrolled" },
+		{ text: "Events", path: "/upcoming-events" },
+		// { text: "Contact", path: "/contact-us" },
+	];
+
+	const currentNavItems = cookies?.auth ? enrolledNavItems : navItems;
 
 	const [scrolled, setScrolled] = useState(false);
 
@@ -30,8 +44,6 @@ const Nav = () => {
 			}
 		};
 	}, []);
-
-	const [cookies, , removeCookie] = useCookies(["auth"]);
 
 	const { pathname } = useLocation();
 
@@ -51,7 +63,7 @@ const Nav = () => {
 					</div>
 					<div className="flex items-center gap-x-6">
 						<div className="flex gap-x-6 font-mulish">
-							{navItems.map((item, index) => (
+							{currentNavItems.map((item, index) => (
 								<Link
 									key={index}
 									to={item.path}
@@ -72,7 +84,10 @@ const Nav = () => {
 							<button
 								onClick={() => {
 									if (!cookies?.auth) navigate("/sign-in");
-									else removeCookie("auth");
+									else {
+										removeCookie("auth");
+										navigate("/courses");
+									}
 								}}
 								className="flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
 							>
@@ -122,9 +137,9 @@ const Nav = () => {
 				<motion.div
 					animate={{ height: mobileNavOpen ? "100%" : 0 }}
 					style={{ paddingBottom: mobileNavOpen ? 30 : 0 }}
-					className="w-full h-full lg:hidden overflow-hidden py-[30px] z-40 px-[20px] md:px-[40px] text-[40px] font-poppins font-semibold flex flex-col gap-y-4"
+					className="w-full h-full lg:hidden overflow-hidden py-[20px] z-40 px-[20px] md:px-[40px] text-[38px] font-poppins font-semibold flex flex-col gap-y-4"
 				>
-					{navItems.map((item, index: number) => (
+					{currentNavItems.map((item, index: number) => (
 						<motion.div
 							key={index}
 							onClick={() => {
@@ -145,6 +160,42 @@ const Nav = () => {
 							{item.text}
 						</motion.div>
 					))}
+					<motion.div
+						onClick={() => setMobileNavOpen(false)}
+						className="w-[150px] py-2 px-4 text-center text-white bg-[#4B8CEA] font-medium rounded-[10px] cursor-pointer text-lg"
+						initial={{ y: 45, opacity: 0 }}
+						animate={
+							mobileNavOpen
+								? {
+										y: 0,
+										opacity: 1,
+										transition: { duration: 0.4, delay: 0.9 + 0.7 },
+								  }
+								: { y: 45, transition: { duration: 0.3 } }
+						}
+					>
+						{pathname.includes("/courses") ? (
+							<button
+								onClick={() => {
+									if (!cookies?.auth) navigate("/sign-in");
+									else {
+										removeCookie("auth");
+										navigate("/courses");
+									}
+								}}
+								className="w-full h-full"
+							>
+								{cookies?.auth ? "Logout" : "Login"}
+							</button>
+						) : (
+							<PopupButton
+								url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
+								rootElement={document.getElementById("root") as HTMLElement}
+								text="Book a call"
+								className="w-full h-full"
+							/>
+						)}
+					</motion.div>
 				</motion.div>
 			</motion.nav>
 		</>

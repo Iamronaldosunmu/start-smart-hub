@@ -4,11 +4,16 @@ import "aos/dist/aos.css";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import Footer from "./components/Footer";
 import Nav from "./components/Nav";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+import useInitData from "./hooks/useInitData";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import CourseDetails from "./pages/CourseDetails";
 import Courses from "./pages/Courses";
+import EnrolledCourseDetails from "./pages/EnrolledCourseDetails";
+import EnrolledCourses from "./pages/EnrolledCourses";
 import Loader from "./pages/Loader";
 import Services from "./pages/Services";
 import SignIn from "./pages/SignIn";
@@ -16,7 +21,6 @@ import SignUp from "./pages/SignUp";
 import Consultation from "./pages/consultation";
 import Home from "./pages/home";
 import UpcomingEvents from "./pages/upcomingEvents";
-import useInitData from "./hooks/useInitData";
 
 function App() {
 	const { pathname } = useLocation();
@@ -94,7 +98,6 @@ function App() {
 						path="/sign-in"
 						element={<SignIn />}
 					/>
-					{/* <Route element={<ProtectedRoutes />}> */}
 					<Route
 						path="/courses"
 						element={<Courses />}
@@ -103,10 +106,19 @@ function App() {
 						path="/courses/:id"
 						element={<CourseDetails />}
 					/>
-					{/* </Route> */}
+					<Route element={<ProtectedRoutes />}>
+						<Route
+							path="/courses/enrolled"
+							element={<EnrolledCourses />}
+						/>
+						<Route
+							path="/courses/enrolled/:id"
+							element={<EnrolledCourseDetails />}
+						/>
+					</Route>
 				</Routes>
 			</AnimatePresence>
-			{/* {pathname !== "/" && <Footer />} */}
+			{pathname !== "/" && <Footer />}
 		</>
 	);
 }
