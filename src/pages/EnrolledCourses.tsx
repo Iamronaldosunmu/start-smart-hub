@@ -1,5 +1,5 @@
 import SearchBar from "../components/Course/SearchBar";
-import MyCourseGrid from "../components/Enrolled/CourseGrid";
+import EnrolledCourseGrid from "../components/Enrolled/CourseGrid";
 import PageContainer from "../components/PageContainer";
 import Container from "../components/container";
 
@@ -14,7 +14,7 @@ const EnrolledCourses = () => {
 				<div className="lg:px-4 flex flex-col lg:flex-row lg:items-center gap-4">
 					<SearchBar />
 				</div>
-				<MyCourseGrid />
+				<EnrolledCourseGrid />
 			</Container>
 		</PageContainer>
 	);

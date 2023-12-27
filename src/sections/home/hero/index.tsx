@@ -1,11 +1,8 @@
 import { motion } from "framer-motion";
-import Container from "../../../components/container";
-import { interactionAnimations } from "../../../utils/framer-default-animations";
-import { useNavigate } from "react-router-dom";
 import { PopupButton } from "react-calendly";
+import Container from "../../../components/container";
 
 const Hero = () => {
-	const navigate = useNavigate();
 	return (
 		<Container className="flex flex-col lg:flex-row items-center justify-between gap-x-12 text-center lg:text-start">
 			<div className="flex flex-col justify-center items-center lg:items-start gap-y-[18px] max-w-[600px]">
@@ -46,7 +43,7 @@ const Hero = () => {
 					url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
 					rootElement={document.getElementById("root") as HTMLElement}
 					text="Book a call"
-					className=" flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
+					className=" flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#007aff] font-medium  rounded-[10px] cursor-pointer"
 				/>
 			</div>
 			<div

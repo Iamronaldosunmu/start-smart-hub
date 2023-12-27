@@ -21,6 +21,7 @@ import SignUp from "./pages/SignUp";
 import Consultation from "./pages/consultation";
 import Home from "./pages/home";
 import UpcomingEvents from "./pages/upcomingEvents";
+import Lessons from "./pages/Lessons";
 
 function App() {
 	const { pathname } = useLocation();
@@ -114,6 +115,10 @@ function App() {
 						<Route
 							path="/courses/enrolled/:id"
 							element={<EnrolledCourseDetails />}
+						/>
+						<Route
+							path="/courses/enrolled/:id/lectures"
+							element={<Lessons />}
 						/>
 					</Route>
 				</Routes>
