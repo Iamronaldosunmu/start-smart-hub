@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
+import EnrolledNav from "./components/Enrolled/Nav";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import useInitData from "./hooks/useInitData";
 import AboutUs from "./pages/AboutUs";
@@ -54,7 +55,7 @@ function App() {
 	useInitData();
 	return (
 		<>
-			{pathname !== "/" && <Nav />}
+			{pathname !== "/" && !pathname.includes("/lectures") ? <Nav /> : <EnrolledNav />}
 			<AnimatePresence
 				mode="wait"
 				initial={true}

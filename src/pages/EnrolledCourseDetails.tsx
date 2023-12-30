@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PageContainer from "../components/PageContainer";
 import Container from "../components/container";
 import { useCourses } from "../store/courses";
@@ -10,7 +10,7 @@ const EnrolledCourseDetails = () => {
 	const courses = useCourses();
 	const course = courses?.filter((course) => course.id === parseInt(id as string))[0];
 	return (
-		<PageContainer className="lg:mt-[133px] mb-20 font-poppins">
+		<PageContainer className="lg:mt-[113px] mb-20 font-poppins">
 			<div className="lg:hidden h-[250px] md:h-[300px] mb-5">
 				<img
 					className="w-full h-full object-cover"
@@ -55,7 +55,12 @@ const EnrolledCourseDetails = () => {
 					<div className="bg-[#007aff] text-white flex flex-col justify-center gap-y-3 items-center text-center px-6 xl:px-14">
 						<span>Global State Management (1h 47m): 5 / 25</span>
 						<h1 className="h-fit text-white rounded-md text-2xl font-bold">5 - Sharing State Using React Context</h1>
-						<button className="bg-[#44303A] text-white py-2 px-7 rounded-md font-semibold">Start Lesson</button>
+						<Link
+							to="/courses/enrolled/1/lectures"
+							className="bg-[#44303A] text-white py-2 px-7 rounded-md font-semibold"
+						>
+							Start Lesson
+						</Link>
 					</div>
 				</header>
 				<section className="grid grid-cols-[60%_auto] xl:grid-cols-[68%_auto] gap-x-8 mt-7">

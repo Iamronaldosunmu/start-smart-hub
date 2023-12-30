@@ -15,7 +15,10 @@ interface Props {
 
 const EnrolledCourseCard: FC<Props> = ({ id, title, image, progress }) => {
 	return (
-		<Link to={`/courses/enrolled/${id}`}>
+		<Link
+			to={`/courses/enrolled/${id}`}
+			className="cursor-pointer"
+		>
 			<motion.div
 				// initial={{ scale: 1 }}
 				// whileHover={{ scale: 1.07 }}

@@ -20,12 +20,9 @@ const Nav = () => {
 
 	const enrolledNavItems = [
 		{ text: "Home", path: "/home" },
-		{ text: "About", path: "/about-us" },
-		{ text: "Services", path: "/services" },
 		{ text: "All Courses", path: "/courses" },
 		{ text: "My Courses", path: "/courses/enrolled" },
-		{ text: "Events", path: "/upcoming-events" },
-		// { text: "Contact", path: "/contact-us" },
+		{ text: "Profile", path: "/" },
 	];
 
 	const currentNavItems = cookies?.auth ? enrolledNavItems : navItems;
@@ -137,7 +134,7 @@ const Nav = () => {
 				<motion.div
 					animate={{ height: mobileNavOpen ? "100%" : 0 }}
 					style={{ paddingBottom: mobileNavOpen ? 30 : 0 }}
-					className="w-full h-full lg:hidden overflow-hidden py-[20px] z-40 px-[20px] md:px-[40px] text-[38px] font-poppins font-semibold flex flex-col gap-y-4"
+					className="w-full h-full lg:hidden overflow-hidden py-[30px] z-40 px-[20px] md:px-[40px] text-[38px] font-poppins font-semibold flex flex-col gap-y-6"
 				>
 					{currentNavItems.map((item, index: number) => (
 						<motion.div
