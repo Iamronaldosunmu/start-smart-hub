@@ -23,6 +23,7 @@ import Consultation from "./pages/consultation";
 import Home from "./pages/home";
 import UpcomingEvents from "./pages/upcomingEvents";
 import Lessons from "./pages/Lessons";
+import Payment from "./pages/Payment";
 
 function App() {
 	const { pathname } = useLocation();
@@ -55,7 +56,7 @@ function App() {
 	useInitData();
 	return (
 		<>
-			{pathname !== "/" && !pathname.includes("/lectures") ? <Nav /> : <EnrolledNav />}
+			{(pathname !== "/" || pathname.includes("lessons")) && <Nav />}
 			<AnimatePresence
 				mode="wait"
 				initial={true}
@@ -118,13 +119,17 @@ function App() {
 							element={<EnrolledCourseDetails />}
 						/>
 						<Route
-							path="/courses/enrolled/:id/lectures"
+							path="/courses/enrolled/lessons/:id"
 							element={<Lessons />}
+						/>
+						<Route
+							path="/courses/payment"
+							element={<Payment />}
 						/>
 					</Route>
 				</Routes>
 			</AnimatePresence>
-			{pathname !== "/" && <Footer />}
+			{/* {pathname !== "/" && <Footer />} */}
 		</>
 	);
 }

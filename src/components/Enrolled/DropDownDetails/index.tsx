@@ -45,10 +45,10 @@ const DropDownDetails: FC<Props> = ({ index, name, sections }) => {
 						className="mt-4 space-y-4"
 					>
 						{sections?.length &&
-							sections?.map(({ title, watched }, index) => (
+							sections?.map(({ sectionText, watched = false, videoId }, index) => (
 								<li
 									key={index}
-									className={`${title === null || title === "" ? "hidden" : "grid"} grid-cols-[20px_auto_80px] sm:grid-cols-[30px_auto_100px] items-center space-x-4 md:space-x-4 w-full mb-2 bg-white px-3 py-3 text-black rounded-md text-sm sm:text-base`}
+									className={`${sectionText === null || sectionText === "" ? "hidden" : "grid"} grid-cols-[20px_auto_80px] sm:grid-cols-[30px_auto_100px] items-center space-x-4 md:space-x-4 w-full mb-2 bg-white px-3 py-3 text-black rounded-md text-sm sm:text-base`}
 								>
 									<img
 										className="w-5 h-5 sm:w-6 sm:h-6 object-cover"
@@ -58,10 +58,10 @@ const DropDownDetails: FC<Props> = ({ index, name, sections }) => {
 									<div className="flex items-center gap-x-2">
 										<img
 											className="w-5 h-5 object-cover"
-											src="/assets/monitor.svg"
+											src={`/assets/${videoId === null ? "monitor" : "file"}.svg`}
 											alt=""
 										/>
-										<span className="text-left w-full font-semibold">{`${title} (1:02)`}</span>
+										<span className="text-left w-full font-semibold">{`${sectionText} (1:02)`}</span>
 									</div>
 									<button className="rounded px-3 font-semibold py-1 text-sm justify-self-end bg-[#723188] text-white">{watched ? "Review" : "Start"}</button>
 								</li>

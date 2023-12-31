@@ -23,6 +23,7 @@ const Nav = () => {
 		{ text: "All Courses", path: "/courses" },
 		{ text: "My Courses", path: "/courses/enrolled" },
 		{ text: "Profile", path: "/" },
+		{ text: "Payment", path: "/enrolled/payment" },
 	];
 
 	const currentNavItems = cookies?.auth ? enrolledNavItems : navItems;
@@ -33,12 +34,17 @@ const Nav = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		window.onscroll = function () {
+		const onScroll = () => {
 			if (window.scrollY > 30) {
 				setScrolled(true);
 			} else {
 				setScrolled(false);
 			}
+		};
+		window.addEventListener("scroll", onScroll);
+
+		return () => {
+			window.removeEventListener("scroll", onScroll);
 		};
 	}, []);
 

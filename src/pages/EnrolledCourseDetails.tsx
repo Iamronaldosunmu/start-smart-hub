@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useParams } from "react-router-dom";
 import PageContainer from "../components/PageContainer";
 import Container from "../components/container";
@@ -27,19 +28,20 @@ const EnrolledCourseDetails = () => {
 					</div>
 				</header>
 				<section className="mt-5 text-center">
-					<h2 className="text-[#331B3B] font-mulish font-semibold mb-3 underline underline-offset-2 cursor-pointer">Next Lesson</h2>
-					<div className="h-fit text-white rounded-md py-5 bg-[#331B3B] mb-3 text-xl font-semibold">5 - Sharing State Using React Context</div>
+					<Link
+						to={`/courses/enrolled/lessons/${course?.id}`}
+						className="text-[#331B3B] font-mulish font-semibold underline underline-offset-4 cursor-pointer"
+					>
+						Start Lesson
+					</Link>
+					<div className="h-fit text-white rounded-md py-5 bg-[#331B3B] mb-3 text-xl font-semibold mt-4">5 - Sharing State Using React Context</div>
 					<div className="flex flex-col gap-y-3">
-						{Array.from({ length: 4 }, (_, i) => i + 1).map((item) => (
+						{course?.module?.map((section: any, index) => (
 							<DropDownDetails
-								key={item}
-								index={item}
-								name={"Getting Started"}
-								sections={[
-									{ title: "Introduction", watched: false },
-									{ title: "Introduction", watched: false },
-									{ title: "Introduction", watched: true },
-								]}
+								key={index}
+								index={index + 1}
+								name={section?.name}
+								sections={section?.moduleMedia}
 							/>
 						))}
 					</div>
@@ -56,7 +58,7 @@ const EnrolledCourseDetails = () => {
 						<span>Global State Management (1h 47m): 5 / 25</span>
 						<h1 className="h-fit text-white rounded-md text-2xl font-bold">5 - Sharing State Using React Context</h1>
 						<Link
-							to="/courses/enrolled/1/lectures"
+							to={`/courses/enrolled/lessons/${course?.id}`}
 							className="bg-[#44303A] text-white py-2 px-7 rounded-md font-semibold"
 						>
 							Start Lesson
@@ -65,16 +67,12 @@ const EnrolledCourseDetails = () => {
 				</header>
 				<section className="grid grid-cols-[60%_auto] xl:grid-cols-[68%_auto] gap-x-8 mt-7">
 					<div className="flex flex-col gap-y-3">
-						{Array.from({ length: 4 }, (_, i) => i + 1).map((item) => (
+						{course?.module.map((section: any, index) => (
 							<DropDownDetails
-								key={item}
-								index={item}
-								name={"Getting Started"}
-								sections={[
-									{ title: "Introduction", watched: false },
-									{ title: "Introduction", watched: false },
-									{ title: "Introduction", watched: true },
-								]}
+								key={index}
+								index={index + 1}
+								name={section?.name}
+								sections={section?.moduleMedia}
 							/>
 						))}
 					</div>
