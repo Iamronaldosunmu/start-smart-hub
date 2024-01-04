@@ -79,7 +79,7 @@ const Nav = () => {
 						/>
 					</Link>
 					<Link
-						to="/courses/enrolled"
+						to="/enrolled/profile"
 						className="cursor-pointer border-r py-4 px-3 sm:px-4 border-[#d7dadb]"
 					>
 						<img
