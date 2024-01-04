@@ -52,7 +52,7 @@ const Nav = () => {
 
 	return (
 		<>
-			<nav className={`bg-white fixed z-50 top-0 w-full hidden lg:block ${scrolled ? "shadow-md" : "shadow-none"} transition-shadow duration-300`}>
+			<nav className={`bg-white fixed z-20 top-0 w-full hidden lg:block ${scrolled ? "shadow-md" : "shadow-none"} transition-shadow duration-300`}>
 				<Container className="hidden lg:flex items-center justify-between h-[64px]">
 					<div className="flex gap-x-2 items-center">
 						<img

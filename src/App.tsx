@@ -4,26 +4,25 @@ import "aos/dist/aos.css";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Footer from "./components/Footer";
 import Nav from "./components/Nav";
-import EnrolledNav from "./components/Enrolled/Nav";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import useInitData from "./hooks/useInitData";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import CourseDetails from "./pages/CourseDetails";
 import Courses from "./pages/Courses";
+import Dashboard from "./pages/Dashboard";
 import EnrolledCourseDetails from "./pages/EnrolledCourseDetails";
 import EnrolledCourses from "./pages/EnrolledCourses";
+import Lessons from "./pages/Lessons";
 import Loader from "./pages/Loader";
+import Payment from "./pages/Payment";
 import Services from "./pages/Services";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Consultation from "./pages/consultation";
 import Home from "./pages/home";
 import UpcomingEvents from "./pages/upcomingEvents";
-import Lessons from "./pages/Lessons";
-import Payment from "./pages/Payment";
 
 function App() {
 	const { pathname } = useLocation();
@@ -123,8 +122,12 @@ function App() {
 							element={<Lessons />}
 						/>
 						<Route
-							path="/courses/payment"
+							path="/enrolled/payment"
 							element={<Payment />}
+						/>
+						<Route
+							path="/enrolled/profile"
+							element={<Dashboard />}
 						/>
 					</Route>
 				</Routes>

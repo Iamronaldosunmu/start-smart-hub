@@ -111,7 +111,7 @@ const SignIn = () => {
 									className="w-7 h-7 object-cover"
 								/>
 							) : (
-								"Register"
+								"Login"
 							)}
 						</button>
 					</form>

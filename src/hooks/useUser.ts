@@ -50,7 +50,7 @@ export const useLoginUser = () => {
 		mutationFn: loginUser,
 		onSuccess: ({ jwt, user }) => {
 			setCookie("auth", jwt, {
-				expires: new Date(Date.now() + 1000 * 60 * 60 * 1),
+				expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
 			});
 			setUser(user); // Test with WIFI
 			Toast.success("Login Successful");
