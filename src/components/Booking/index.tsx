@@ -22,14 +22,14 @@ const Bookings = () => {
 						</motion.div>
 					))}
 				</div>
-				<p
+				{/* <p
 					data-aos="fade-up"
 					data-aos-duration="700"
 					data-aos-delay="700"
 					className="text-[#606060] pb-5"
 				>
 					Kickstart your journey to success with a coaching call today. Book now and let’s get started!
-				</p>
+				</p> */}
 				{/* <motion.button
 					{...interactionAnimations}
 					onClick={() => navigate("/services?scroll_to=services")}
@@ -40,12 +40,7 @@ const Bookings = () => {
 				>
 					Book a call
 				</motion.button> */}
-				<PopupButton
-					url={`https://calendly.com/startsmarthub/?hide_gdpr_banner=1`}
-					rootElement={document.getElementById("root") as HTMLElement}
-					text="Book a call"
-					className="border-2 border-black px-6 py-2 text-base rounded-[10px] transition-colors hover:bg-black hover:text-white font-bold"
-				/>
+				<button onClick={()=> navigate('/contact-us')} className="border-2 border-black px-6 py-2 text-base rounded-[10px] transition-colors hover:bg-black hover:text-white font-bold">Contact us</button>
 			</div>
 			<img
 				className="object-cover w-full h-full absolute z-0"

@@ -12,30 +12,25 @@ const AboutUs = () => {
 			<section className="bg-[#FFF3EE] mt-8 lg:mt-12 py-20">
 				<Container className="grid  [&>*:not(:last-child)]:mb-0 lg: [&>*:not(:last-child)]:mb-[0px]">
 					<TextSection
-						heading="Hello, I'm Doyin!"
-						paragraphs={[
-							"I’m the founder of StartSmart Hub. With over a decade of experience as a senior tech recruiter and career coach, I’ve had the privilege of providing compassionate guidance to individuals at every stage of their careers.",
-							"Whether you’re a recent graduate embarking on your professional journey, in the midst of a mid-career transition, a high-school student uncertain about your academic path, or a newcomer navigating a new job market, We are here to be your dedicated partner on your career expedition.",
-						]}
+						heading="About StartSmartHub"
+						paragraphs={["Welcome to StartSmartHub where human resources is not just a function; it's a transformative journey. At the core of our philosophy is a deep commitment to fostering workplaces that inspire, innovate, and thrive. We are more than an HR company; we are your dedicated partners in building a workplace that reflects your values and fuels your success."]}
 					/>
 					<TextSection
-						heading="Making the start"
-						paragraphs={[
-							"My own journey led me to Canada in the midst of a global pandemic- a challenging time when movement was restricted, opportunities were scarce and uncertainty loomed large. As a result of this experience, I gained a profound understanding of the hurdles newcomers face when transitioning into unfamiliar job markets. I recognized the profound information gap and the scarcity of rescources available to new immigrant job seekers.",
-							"Driven by a passion to do more, I felt the need to create a meaningful resource to empower newcomers and bridge the knowledge gap they often encounter during their career journeys post-relocation. This led to the birth of StartSmart Hub.",
-						]}
+						heading="Who We Are:"
+						paragraphs={["At StartSmartHub, we are a team of seasoned HR professionals, strategists, and consultants united by a common purpose – to redefine the human resources landscape. With a collective passion for people and organizational development, we bring a wealth of expertise to every partnership."]}
 					/>
 				</Container>
 			</section>
-			<GridComponent />
+
 			<Container className="mt-10">
 				<TextSection
-					heading="Fast-forward to today, "
-					paragraphs={[" I’ve had the privilege of collaborating with numerous hiring managers, fellow recruiters, and helping over 50 diverse candidates secure jobs that have not only increased their income but also facilitated their transformative career transitions."]}
-				/>
-				<TextSection
-					heading="Our Mission"
-					paragraphs={["At StartSmart Hub, our mission is simple yet impactful: To help you “Start Smart and Build Right”. We’re dedicated to providing you with the knowledge, resources and support you need to thrive in your new career, and we’re excited to embark on this journey with you.", "Welcome to StartSmart Hub, where your career success story begins!"]}
+					heading="Why Choose StartSmartHub"
+					paragraphs={[
+						"Expertise: Benefit from the extensive knowledge and experience of our HR professionals.",
+						"Tailored Solutions: Every organization is unique, and so are our solutions. We tailor our services to meet your specific needs.",
+						"Innovation: Stay ahead in the HR realm with our innovative approaches and cutting-edge strategies.",
+						"Client-Centric: Your success is our priority. We are dedicated to building lasting partnerships and driving your organization toward excellence.",
+					]}
 				/>
 			</Container>
 			<Bookings />

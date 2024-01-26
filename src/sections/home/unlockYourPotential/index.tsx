@@ -90,7 +90,7 @@ const UnlockYourPotential = () => {
 					data-aos-duration="700"
 					className="text-[44px] lg:text-[56px] font-semibold font-poppins tracking-normal flex flex-wrap [&>*:not(:last-child)]:mr-3 justify-center"
 				>
-					Unlock your potential!
+					Our service offerings
 				</div>
 				<TextContainer className="flex justify-center">
 					<p
