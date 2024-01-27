@@ -26,6 +26,7 @@ const Services: React.FC = () => {
 	const { services } = useServiceStore();
 	const [searchParams, setSearchParams] = useSearchParams();
 	const scrollTo = searchParams.get("scroll_to");
+	
 
 	useEffect(() => {
 		if (scrollTo === "services") document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
@@ -41,6 +42,7 @@ const Services: React.FC = () => {
 				{services?.length > 0 &&
 					services?.map((service, index) => (
 						<Service
+							
 							number={index + 1}
 							imageUrl="/assets/service.png"
 							title={service?.title}
