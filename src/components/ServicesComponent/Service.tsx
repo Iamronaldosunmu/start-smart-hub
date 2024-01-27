@@ -11,7 +11,7 @@ const Service = ({ title, text, imageUrl, number, path }: ServiceProps) => {
 	const navigate = useNavigate();
 	return (
 		<div id="service" className=" font-poppins">
-			<div className="border border-gray-300 mb-7 mt-8 lg:mb-10"></div>
+			<div className="border border-gray-300 mb-7 mt-8 lg:mb-10"/>
 			<div className="text-gray-500 border inline p-2 px-5 mb-10 text-2xl rounded-xl">{`${number > 9 ? "" : "0"}${number}`}</div>
 			<img
 				src={imageUrl}

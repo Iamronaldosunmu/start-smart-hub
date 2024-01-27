@@ -50,7 +50,7 @@ const Services: React.FC = () => {
 					))}
 				{!(services?.length > 0) &&
 					<>
-						<Service
+						{/* <Service
 							number={1}
 							imageUrl="/assets/service.png"
 							title="Resume Building"
@@ -98,7 +98,7 @@ const Services: React.FC = () => {
 							title="Career Interest And Passion Discovery"
 							text="Discovery  your true career interests and passions through guided exploration, helping you find a fulfilling career path."
 							path="/consultation/career-coaching"
-						/>
+						/> */}
 						{/* <Service
 							number={8}
 							imageUrl="/assets/service.png"
@@ -113,13 +113,13 @@ const Services: React.FC = () => {
 							text="Participate in our workshops and training sessions to build essential job search skills, from networking to negotiation, and stay ahead in your career journey."
 							path="/consultation/career-coaching"
 						/> */}
-						<Service
+						{/* <Service
 							number={8}
 							imageUrl="/assets/service.png"
 							title="Career/Personal Development Coaching"
 							text="We offer personalized guidance, unwavering support, and tailored strategies to accelerate your professional growth and help you achieve your career goals and personal breakthroughs."
 							path="/consultation/career-coaching"
-						/>
+						/> */}
 					</>
 				}
 			</Container>
