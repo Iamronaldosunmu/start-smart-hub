@@ -20,6 +20,6 @@
 		"noUnusedParameters": false,
 		"noFallthroughCasesInSwitch": true
 	},
-	"include": ["src", "src/components/ClientLogo", "src/components/ClientLogo"],
+	"include": ["src", "src/components/ClientLogo", "src/components/ClientLogo", "public/assets/index.tsx"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

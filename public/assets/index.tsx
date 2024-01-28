@@ -21,7 +21,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
-import Container from "../container";
+import Container from "../../src/components/container";
 const ClientLogo = () => {
 	return (
 		<Container>
