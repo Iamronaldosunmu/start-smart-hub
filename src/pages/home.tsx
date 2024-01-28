@@ -1,4 +1,4 @@
-import ClientLogo from "../../public/assets";
+import ClientLogo from "../components/ClientLogo";
 import PageContainer from "../components/PageContainer";
 import Hero from "../sections/home/hero";
 import MeetTheFounder from "../sections/home/meetTheFounder";
