@@ -6,7 +6,7 @@ import { PopupButton } from "react-calendly";
 const Bookings = () => {
 	const navigate = useNavigate();
 	return (
-		<div className="relative flex justify-center items-center flex-col bg-red-50 mt-5 py-[66px]">
+		<div className="relative flex justify-center items-center flex-col bg-red-50 mt-12 py-[66px]">
 			<div className="text-center py-10 px-4 relative z-10">
 				<div className="font-semibold text-[36px] justify-center lg:text-[50px] pb-5 leading-10 flex flex-wrap [&>*:not(:last-child)]:mr-2">
 					{"Schedule a Conversation with Us Now".split(" ").map((word, index) => (

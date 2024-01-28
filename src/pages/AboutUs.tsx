@@ -37,7 +37,7 @@ const AboutUs = () => {
 					data-aos-duration="700"
 					data-aos="zoom-in"
 					data-aos-delay="700"
-					className="font-semibold mb-7 justify-center text-[36px] flex [&>*:not(:last-child)]:mr-2 flex-wrap"
+					className="font-semibold mb-7 text-center text-[36px] [&>*:not(:last-child)]:mr-2 flex-wrap"
 				>
 					Why Choose Start Smart Hub
 				</div>
@@ -45,7 +45,7 @@ const AboutUs = () => {
 					data-aos="zoom-in"
 					data-aos-duration="700"
 					data-aos-delay="800"
-					className="sm:flex lg:flex place-items-center flex-col md:grid md:grid-cols-2 items-center justify-center lg:flex-row lg:space-x-9 sm:space-y-5 lg:space-y-0"
+					className="flex lg:flex place-items-center flex-col md:grid md:grid-cols-2 items-center justify-center lg:flex-row lg:space-x-9 space-y-5 lg:space-y-0"
 				>
 					<Card
 						url="/assets/expertise.png"
