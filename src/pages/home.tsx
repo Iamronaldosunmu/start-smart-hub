@@ -6,7 +6,7 @@ import ReadyToStart from "../sections/home/readyToStart";
 import Subscribe from "../sections/home/subscribe";
 import Testimonials from "../sections/home/testimonials";
 import UnlockYourPotential from "../sections/home/unlockYourPotential";
-import UpcomingEvents from "../sections/home/upcomingEvents";
+
 
 const Home: React.FC = () => {
 	return (
@@ -16,10 +16,10 @@ const Home: React.FC = () => {
 			<MeetTheFounder />
 			<UnlockYourPotential />
 			{/* <SeenOn /> */}
-			<UpcomingEvents />
+			{/* <UpcomingEvents /> */}
+			<ClientLogo />
 			<Testimonials />
 			<Subscribe />
-			<ClientLogo/>
 		</PageContainer>
 	);
 };

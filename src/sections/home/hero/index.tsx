@@ -9,6 +9,12 @@ const Hero = () => {
 	return (
 		<Container className="flex flex-col lg:flex-row items-center justify-between  text-center lg:text-start">
 			<div className="flex flex-col justify-center items-center lg:items-start  [&>*:not(:last-child)]:mb-[18px] max-w-[600px] ">
+				<div
+					className="text-2xl font-medium font-poppins text-[#331B3B]  flex [&>*:not(:last-child)]:mr-2"
+					data-aos="zoom-in"
+				>
+					Welcome to Start Smart Hub
+				</div>
 				<div className="relative text-[46px] md:text-[54px] leading-[1.2] lg:text-[62px] xl:text-[70px] text-[#331B3B] font-bold lg:leading-[70px] lg:tracking-[-0.7px] break-words flex flex-wrap [&>*:not(:last-child)]:mr-3 justify-center lg:justify-start">
 					{"Your Partner in HR Excellence".split(" ").map((word, index) => (
 						<motion.div
@@ -42,7 +48,12 @@ const Hero = () => {
 				>
 					Book a Call
 				</motion.button> */}
-				<button onClick={()=>navigate('/contact-us')} className=" flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer">Contact us</button>
+				<button
+					onClick={() => navigate("/contact-us")}
+					className=" flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
+				>
+					Contact us
+				</button>
 			</div>
 			<div
 				data-aos="zoom-in"

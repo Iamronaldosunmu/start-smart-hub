@@ -33,7 +33,7 @@ const Hero = () => {
 						data-aos="fade-up"
 						data-aos-duration="700"
 					>
-						How to start? We’ll show you how
+						About Start Smart Hub
 					</div>
 				</div>
 				<p
@@ -42,7 +42,7 @@ const Hero = () => {
 					data-aos-delay="400"
 					className="text-[#494949] font-light text-sm md:text-base xl:text-xl leading-6"
 				>
-					At StartSmart, we are more than just your coaches; we’re your dedicated partners in success.{" "}
+					Welcome to StartSmartHub where human resources is not just a function; it's a transformative journey. At the core of our philosophy is a deep commitment to fostering workplaces that inspire, innovate, and thrive. We are more than an HR company; we are your dedicated partners in building a workplace that reflects your values and fuels your success.{" "}
 				</p>
 			</div>
 			<div

@@ -132,7 +132,7 @@ const UnlockYourPotential = () => {
 										</div>
 
 										<Link
-											to='/services'
+											to="/services"
 											className="block mx-auto text-sm  mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins hover:bg-black hover:text-white transition-colors duration-500"
 										>
 											Learn more

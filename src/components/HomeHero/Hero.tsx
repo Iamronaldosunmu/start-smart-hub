@@ -13,7 +13,14 @@ const Hero = () => {
 					>
 						Our services
 					</div>
-
+					<div className="relative flex flex-wrap [&>*:not(:last-child)]:mr-3 justify-center lg:justify-start text-[38px] md:text-5xl leading-[1.2] xl:text-[54px] font-bold lg:leading-[68px] lg:tracking-[-0.7px] break-words">
+						<div
+							data-aos="fade-up"
+							data-aos-duration="700"
+						>
+							Transformative solutions, Start Smart Hub services
+						</div>
+					</div>
 					<p
 						data-aos="zoom-in"
 						data-aos-duration="700"

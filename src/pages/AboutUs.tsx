@@ -11,10 +11,10 @@ const AboutUs = () => {
 			<Hero />
 			<section className="bg-[#FFF3EE] mt-8 lg:mt-12 py-20">
 				<Container className="grid  [&>*:not(:last-child)]:mb-0 lg:[&>*:not(:last-child)]:mb-[0px]">
-					<TextSection
+					{/* <TextSection
 						heading="About StartSmartHub"
 						paragraphs={["Welcome to StartSmartHub where human resources is not just a function; it's a transformative journey. At the core of our philosophy is a deep commitment to fostering workplaces that inspire, innovate, and thrive. We are more than an HR company; we are your dedicated partners in building a workplace that reflects your values and fuels your success."]}
-					/>
+					/> */}
 					<TextSection
 						heading="Who We Are:"
 						paragraphs={["At StartSmartHub, we are a team of seasoned HR professionals, strategists, and consultants united by a common purpose – to redefine the human resources landscape. With a collective passion for people and organizational development, we bring a wealth of expertise to every partnership."]}
