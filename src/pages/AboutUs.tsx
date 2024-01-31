@@ -23,7 +23,7 @@ const AboutUs = () => {
 				</Container>
 			</section>
 
-			<Container className="mt-10 mb-12">
+			<Container className="mt-[100px] my-[150px]">
 				{/* <TextSection
 					heading="Why Choose StartSmartHub"
 					paragraphs={[
