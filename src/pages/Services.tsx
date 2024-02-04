@@ -29,7 +29,13 @@ const Services: React.FC = () => {
 	const scrollTo = searchParams.get("scroll_to");
 
 	useEffect(() => {
-		if (scrollTo === "services") document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+		console.log(scrollTo)
+		if (scrollTo) {
+			console.log(scrollTo)
+			setTimeout(() => document.getElementById(scrollTo)?.scrollIntoView({ behavior: "smooth" }), 500);
+			console.log(document.getElementById(scrollTo))
+				// ?.scrollIntoView({ behavior: "smooth" })
+		};
 	}, [searchParams]);
 	return (
 		<PageContainer className="mt-[96px] lg:mt-[133px]">
@@ -40,11 +46,10 @@ const Services: React.FC = () => {
 			<Container id="services">
 				<ServiceHeader />
 				{services?.length > 0 &&
-					services?.map(
+					services?.filter((service) => !service.formType)?.filter((service)=> service.title !== "Coaching Services").map(
 						(service, index) =>
-							!service.formType && (
-								<>
-									<Service
+							<Service
+								id={service.id}
 										number={index + 1}
 										imageUrl="/assets/service.png"
 										title={service?.title}
@@ -52,8 +57,6 @@ const Services: React.FC = () => {
 										subheading={service?.subheading}
 										path={getPathFromFormType(service?.formType)}
 									/>
-								</>
-							)
 					)}
 				{!(services?.length > 0) && (
 					<>

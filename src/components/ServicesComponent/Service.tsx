@@ -7,12 +7,13 @@ interface ServiceProps {
 	imageUrl: string;
 	number: number;
 	path: string;
+	id: number;
 }
-const Service = ({ title, text, imageUrl,subheading, number, path }: ServiceProps) => {
+const Service = ({ title, text, imageUrl,subheading, number, id }: ServiceProps) => {
 	const navigate = useNavigate();
 	return (
 		<div
-			id="service"
+			id={`service-${id}`}
 			className=" font-poppins"
 		>
 			<div className="border border-gray-300 mb-7 mt-8 lg:mb-10" />
@@ -27,7 +28,7 @@ const Service = ({ title, text, imageUrl,subheading, number, path }: ServiceProp
 					<h2 className="xl:text-5xl sm:text-4xl text-[28px] font-medium mb-5 w-full">{title}</h2>
 				</div>
 				<div className="lg:ml-20 lg:w-full max-w-[605px]">
-					<p className="lg:leading-7 mb-6 max-w-[800px] font-medium text-[#575252]">{subheading}</p>
+					<p className="lg:leading-7 max-w-[800px] font-bold text-[#575252]">{subheading}</p>
 					<p className="lg:leading-7 mb-6 max-w-[800px] text-[#575252]">{text}</p>
 					<button
 						onClick={() => navigate('/contact-us')}

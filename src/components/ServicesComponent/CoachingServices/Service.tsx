@@ -16,7 +16,7 @@ const Service = ({ number, Title, Text, url }: Props) => {
 				<p className="md:col-span-1 mb-2 ">{`${number > 9 ? "" : "0"}${number}`}</p>
 				<div className="md:col-span-3 flex flex-col justify-between lg:flex-row ">
 					<div className="lg:w-3/4 max-w-[605px]">
-						<p className="text-xl font-semibold mb-1">{Title}</p>
+						<p className="text-xl font-medium mb-1">{Title}</p>
 						<p>{Text}</p>
 					</div>
 					<div className="">

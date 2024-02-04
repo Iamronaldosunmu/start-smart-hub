@@ -7,7 +7,7 @@ interface Props{
 
 const Card = ({url, title, text}: Props ) => {
   return (
-		<div className="bg-white p-4 shadow-xl rounded-xl md:h-[300px] md:w-[300px] h-[250px] w-[250px]">
+		<div className="bg-white p-4 shadow-xl rounded-xl md:h-[300px] md:w-[300px] h-[250px] w-[300px]">
 			<img
 				src={url}
 				alt=""
