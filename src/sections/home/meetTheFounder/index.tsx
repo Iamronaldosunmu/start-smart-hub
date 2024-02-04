@@ -27,7 +27,7 @@ const MeetTheFounder = () => {
 						data-aos-duration="700"
 						className="w-full text-center lg:text-start  [&>*:not(:last-child)]:mr-[10px]"
 					>
-						Meet the founder
+						Meet the CEO
 					</div>
 					<div
 						data-aos-duration="700"
