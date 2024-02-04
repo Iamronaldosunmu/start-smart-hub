@@ -3,6 +3,7 @@ import { create } from "zustand";
 export interface Service {
 	id: number;
 	title: string;
+	subheading: string;
 	description: string;
     formType: "Resume" | "Linkedln" | "Job Application Tailoring" | "Career Coaching";
     image?: { url: string }[];

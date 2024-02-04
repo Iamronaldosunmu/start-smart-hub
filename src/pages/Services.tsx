@@ -10,6 +10,7 @@ import Information from "../sections/services/Information/Information";
 import useServiceStore from "../store/services";
 import { useSearchParams } from "react-router-dom";
 import ServiceHeader from "../components/ServicesComponent/Services";
+import CoachingServices from "../components/ServicesComponent/CoachingServices/CoachingServices";
 
 export const getPathFromFormType = (formType: string) => {
 	if (formType == "Resume") {
@@ -26,7 +27,6 @@ const Services: React.FC = () => {
 	const { services } = useServiceStore();
 	const [searchParams, setSearchParams] = useSearchParams();
 	const scrollTo = searchParams.get("scroll_to");
-	
 
 	useEffect(() => {
 		if (scrollTo === "services") document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
@@ -40,17 +40,22 @@ const Services: React.FC = () => {
 			<Container id="services">
 				<ServiceHeader />
 				{services?.length > 0 &&
-					services?.map((service, index) => (
-						<Service
-							
-							number={index + 1}
-							imageUrl="/assets/service.png"
-							title={service?.title}
-							text={service?.description}
-							path={getPathFromFormType(service?.formType)}
-						/>
-					))}
-				{!(services?.length > 0) &&
+					services?.map(
+						(service, index) =>
+							!service.formType && (
+								<>
+									<Service
+										number={index + 1}
+										imageUrl="/assets/service.png"
+										title={service?.title}
+										text={service?.description}
+										subheading={service?.subheading}
+										path={getPathFromFormType(service?.formType)}
+									/>
+								</>
+							)
+					)}
+				{!(services?.length > 0) && (
 					<>
 						{/* <Service
 							number={1}
@@ -123,8 +128,9 @@ const Services: React.FC = () => {
 							path="/consultation/career-coaching"
 						/> */}
 					</>
-				}
+				)}
 			</Container>
+			<CoachingServices />
 			{/* <Billing /> */}
 			<Bookings />
 		</PageContainer>

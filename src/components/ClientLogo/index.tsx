@@ -24,9 +24,9 @@ import Marquee from "react-fast-marquee";
 import Container from "../container";
 const ClientLogo = () => {
 	return (
-		<Container className="mt-[70px] mb-[150px]">
+		<Container className="mt-[70px] mb-[175px]">
 			<div className="h-[175px] pt-8">
-				<p className="text-[40px] text-center font-medium flex [&>*:not(:last-child)]:mr-2 flex-wrap justify-center">These are our clients</p>
+				<p className="text-[40px] text-center font-medium flex [&>*:not(:last-child)]:mr-2 flex-wrap justify-center mb-[40px]">Our Clients</p>
 				<Marquee
 					speed={100}
 					className="h-full flex space-x-5 items-center w-50"
