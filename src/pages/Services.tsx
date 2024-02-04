@@ -10,6 +10,7 @@ import Information from "../sections/services/Information/Information";
 import useServiceStore from "../store/services";
 import { useSearchParams } from "react-router-dom";
 import ServiceHeader from "../components/ServicesComponent/Services";
+import CoachingServices from "../components/ServicesComponent/CoachingServices/CoachingServices";
 
 export const getPathFromFormType = (formType: string) => {
 	if (formType == "Resume") {
@@ -28,7 +29,13 @@ const Services: React.FC = () => {
 	const scrollTo = searchParams.get("scroll_to");
 
 	useEffect(() => {
-		if (scrollTo === "services") document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+		console.log(scrollTo)
+		if (scrollTo) {
+			console.log(scrollTo)
+			setTimeout(() => document.getElementById(scrollTo)?.scrollIntoView({ behavior: "smooth" }), 500);
+			console.log(document.getElementById(scrollTo))
+				// ?.scrollIntoView({ behavior: "smooth" })
+		};
 	}, [searchParams]);
 	return (
 		<PageContainer className="mt-[96px] lg:mt-[133px]">
@@ -39,18 +46,21 @@ const Services: React.FC = () => {
 			<Container id="services">
 				<ServiceHeader />
 				{services?.length > 0 &&
-					services?.map((service, index) => (
-						<Service
-							number={index + 1}
-							imageUrl="/assets/service.png"
-							title={service?.title}
-							text={service?.description}
-							path={getPathFromFormType(service?.formType)}
-						/>
-					))}
-				{!(services?.length > 0) &&
+					services?.filter((service) => !service.formType)?.filter((service)=> service.title !== "Coaching Services").map(
+						(service, index) =>
+							<Service
+								id={service.id}
+										number={index + 1}
+										imageUrl="/assets/service.png"
+										title={service?.title}
+										text={service?.description}
+										subheading={service?.subheading}
+										path={getPathFromFormType(service?.formType)}
+									/>
+					)}
+				{!(services?.length > 0) && (
 					<>
-						<Service
+						{/* <Service
 							number={1}
 							imageUrl="/assets/service.png"
 							title="Resume Building"
@@ -98,7 +108,7 @@ const Services: React.FC = () => {
 							title="Career Interest And Passion Discovery"
 							text="Discovery  your true career interests and passions through guided exploration, helping you find a fulfilling career path."
 							path="/consultation/career-coaching"
-						/>
+						/> */}
 						{/* <Service
 							number={8}
 							imageUrl="/assets/service.png"
@@ -113,16 +123,17 @@ const Services: React.FC = () => {
 							text="Participate in our workshops and training sessions to build essential job search skills, from networking to negotiation, and stay ahead in your career journey."
 							path="/consultation/career-coaching"
 						/> */}
-						<Service
+						{/* <Service
 							number={8}
 							imageUrl="/assets/service.png"
 							title="Career/Personal Development Coaching"
 							text="We offer personalized guidance, unwavering support, and tailored strategies to accelerate your professional growth and help you achieve your career goals and personal breakthroughs."
 							path="/consultation/career-coaching"
-						/>
+						/> */}
 					</>
-				}
+				)}
 			</Container>
+			<CoachingServices />
 			{/* <Billing /> */}
 			<Bookings />
 		</PageContainer>

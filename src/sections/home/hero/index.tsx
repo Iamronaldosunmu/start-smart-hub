@@ -9,8 +9,14 @@ const Hero = () => {
 	return (
 		<Container className="flex flex-col lg:flex-row items-center justify-between  text-center lg:text-start">
 			<div className="flex flex-col justify-center items-center lg:items-start  [&>*:not(:last-child)]:mb-[18px] max-w-[600px] ">
+				<div
+					className="text-2xl font-medium font-poppins text-[#331B3B]  flex [&>*:not(:last-child)]:mr-2"
+					data-aos="zoom-in"
+				>
+					Welcome to Start Smart Hub
+				</div>
 				<div className="relative text-[46px] md:text-[54px] leading-[1.2] lg:text-[62px] xl:text-[70px] text-[#331B3B] font-bold lg:leading-[70px] lg:tracking-[-0.7px] break-words flex flex-wrap [&>*:not(:last-child)]:mr-3 justify-center lg:justify-start">
-					{"Let’s build a path to career success.".split(" ").map((word, index) => (
+					{"Your Partner in HR Excellence".split(" ").map((word, index) => (
 						<motion.div
 							key={index}
 							initial={{ y: 45, opacity: 0 }}
@@ -30,7 +36,7 @@ const Hero = () => {
 					data-aos-delay="1000"
 					className="text-[#494949] font-light leading-6 w-[90%]"
 				>
-					Take that first step! Every remarkable journey starts with a single stride forward. At Startsmart, we’re dedicated to working hand-in-hand with you to pave the way. We believe in your potential. Go ahead, take the leap! We’re here to show you the way.
+					At StartSmartHub, we redefine Human Resources by offering a suite of comprehensive services designed to empower your organization. With a commitment to Diversity, Equity, and Inclusion (DEI), strategic consulting, recruitment services, program management and coaching consulting, we are your trusted ally in building a thriving workplace.
 				</p>
 				{/* <motion.button
 					{...interactionAnimations}
@@ -42,12 +48,12 @@ const Hero = () => {
 				>
 					Book a Call
 				</motion.button> */}
-				<PopupButton
-					url="https://calendly.com/startsmarthub?hide_gdpr_banner=1"
-					rootElement={document.getElementById("root") as HTMLElement}
-					text="Book a call"
+				<button
+					onClick={() => navigate("/contact-us")}
 					className=" flex leading-7 py-2 px-8 justify-center shadow-[0px_2px_4px_0px_#4b8cea4a] text-white bg-[#4B8CEA] font-medium  rounded-[10px] cursor-pointer"
-				/>
+				>
+					Contact us
+				</button>
 			</div>
 			<div
 				data-aos="zoom-in"

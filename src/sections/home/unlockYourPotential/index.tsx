@@ -90,7 +90,7 @@ const UnlockYourPotential = () => {
 					data-aos-duration="700"
 					className="text-[44px] lg:text-[56px] font-semibold font-poppins tracking-normal flex flex-wrap [&>*:not(:last-child)]:mr-3 justify-center"
 				>
-					Unlock your potential!
+					Our service offerings
 				</div>
 				<TextContainer className="flex justify-center">
 					<p
@@ -115,32 +115,39 @@ const UnlockYourPotential = () => {
 						spaceBetween={width > 767 ? (width > 1024 ? 40 : 40) : 20}
 						slidesPerView={width > 500 ? (width > 1024 ? 3 : 2) : 1}
 					>
-						{services?.map(({ title, description, image, formType }, index) => (
-							<SwiperSlide key={index}>
-								<div className=" h-full ">
-									<div className="w-full h-[200px] lg:h-[267px] md:h-[200px] scale-105">
-										<img
-											className="w-full  h-full  object-cover"
-											src={image ? image[0].url : ""}
-											alt=""
-										/>
-									</div>
-									<div className="py-[30px] px-4 h-[300px] flex flex-col justify-between ">
-										<div className="">
-											<h3 className="text-xl font-semibold">{title}</h3>
-											<p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{description}</p>
-										</div>
+						{services?.map(
+							({ title, image, formType, id }, index) =>
+								!formType && (
+									<>
+										(
+										<SwiperSlide key={index}>
+											<div className=" h-full ">
+												<div className="w-full h-[200px] lg:h-[267px] md:h-[200px] scale-105">
+													<img
+														className="w-full  h-full  object-cover"
+														src={image ? image[0].url : ""}
+														alt=""
+													/>
+												</div>
+												<div className="py-[30px] px-4 h-[200px] flex flex-col justify-between ">
+													<div className="">
+														<h3 className="text-xl font-semibold">{title}</h3>
+														{/* <p className="text-[#606060] text-sm leading-normal lg:leading-7 mt-4">{description}</p> */}
+													</div>
 
-										<Link
-											to={`${getLinkFromFormType(formType)}?title=${title}`}
-											className="block mx-auto text-sm  mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins hover:bg-black hover:text-white transition-colors duration-500"
-										>
-											Start Now
-										</Link>
-									</div>
-								</div>
-							</SwiperSlide>
-						))}
+													<Link
+														to={`/services?scroll_to=service-${id}`}
+														className="block mx-auto text-sm  mt-5 font-bold tracking-widest uppercase border-2 border-black rounded-[10px] w-[182px] py-[18.5px] text-center font-poppins hover:bg-black hover:text-white transition-colors duration-500"
+													>
+														Learn more
+													</Link>
+												</div>
+											</div>
+										</SwiperSlide>
+										)
+									</>
+								)
+						)}
 
 						<SwiperNav enabled={isEnd} />
 					</Swiper>

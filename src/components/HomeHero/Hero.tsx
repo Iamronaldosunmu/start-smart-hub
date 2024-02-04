@@ -13,13 +13,13 @@ const Hero = () => {
 					>
 						Our services
 					</div>
-					<div
-						data-aos-duration="700"
-						data-aos="zoom-in"
-						data-aos-delay="700"
-						className="lg:text-5xl text-2xl text-center lg:text-left lg:font-bold font-semibold relative mb-5  mt-1 lg:leading-[60px] flex [&>*:not(:last-child)]:mr-3 flex-wrap"
-					>
-						"At StartSmart, we're all about your goals."
+					<div className="relative flex flex-wrap [&>*:not(:last-child)]:mr-3 justify-center lg:justify-start text-[38px] md:text-5xl leading-[1.2] xl:text-[54px] font-bold lg:leading-[68px] lg:tracking-[-0.7px] break-words">
+						<div
+							data-aos="fade-up"
+							data-aos-duration="700"
+						>
+							Transformative solutions, Start Smart Hub services
+						</div>
 					</div>
 					<p
 						data-aos="zoom-in"
@@ -27,7 +27,7 @@ const Hero = () => {
 						data-aos-delay="700"
 						className="tracking-normal  text-center lg:text-left mb-6  text-[#494949] font-light text-sm md:text-base xl:text-xl leading-6"
 					>
-						No matter what stage you are in your career, I've got the strategy to help you unlock the next level of success
+						Welcome to StartSmartHub, where we bring a fresh and strategic approach to human resources. Our comprehensive services are designed to elevate your organization, foster inclusivity, and drive sustainable growth. Explore how our tailored solutions can make a difference in your workplace.
 					</p>
 				</div>
 			</div>
