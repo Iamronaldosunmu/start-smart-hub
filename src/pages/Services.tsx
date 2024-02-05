@@ -41,8 +41,8 @@ const Services: React.FC = () => {
 		<PageContainer className="mt-[96px] lg:mt-[133px]">
 			<Hero />
 			<Goals />
-			<Information />
-			<Grid />
+			{/* <Information /> */}
+			{/* <Grid /> */}
 			<Container id="services">
 				<ServiceHeader />
 				{services?.length > 0 &&

@@ -27,7 +27,7 @@ const MeetTheFounder = () => {
 						data-aos-duration="700"
 						className="w-full text-center lg:text-start  [&>*:not(:last-child)]:mr-[10px]"
 					>
-						Meet the founder
+						Meet Our Visionary CEO
 					</div>
 					<div
 						data-aos-duration="700"
@@ -44,16 +44,16 @@ const MeetTheFounder = () => {
 						data-aos-delay="200"
 						className="text-[#331B3BA8] leading-5 lg:leading-6 tracking-wide"
 					>
-						Hi, I’m Doyin, and I’m truly delighted to welcome you! Not too long ago, I walked the same path you’re on now- a journey in search of not only the right career but also the best way to embark on that journey.
+						Welcome to the heart of our organization, where leadership meets innovation. As the CEO of StartSmartHub, Doyin Adetona brings a wealth of experience and a transformative vision to our dynamic team.
 					</p>
-					<p
+					{/* <p
 						data-aos="zoom-in"
 						data-aos-duration="700"
 						data-aos-delay="300"
 						className="text-[#331B3BA8] leading-5 lg:leading-6 tracking-wide mt-6"
 					>
 						Today my sole focus is partnering with you on this transformative expedition toward achieving your dream career. Together, we’ll take that all-important first step, and I’ll be here to provide unwavering support every step of the way!
-					</p>
+					</p> */}
 				</div>
 				<motion.button
 					{...interactionAnimations}
