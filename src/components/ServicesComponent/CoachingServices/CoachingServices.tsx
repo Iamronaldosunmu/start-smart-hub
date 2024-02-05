@@ -1,7 +1,7 @@
 import { getPathFromFormType } from "../../../pages/Services";
 import useServiceStore from "../../../store/services";
 import Container from "../../container";
-import Service from "./service";
+import Service from "./Service";
 
 const CoachingServices = () => {
 	const { services } = useServiceStore();
