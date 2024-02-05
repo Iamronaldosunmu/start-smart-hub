@@ -17,6 +17,12 @@ const AboutUs = () => {
 						paragraphs={["Welcome to StartSmartHub where human resources is not just a function; it's a transformative journey. At the core of our philosophy is a deep commitment to fostering workplaces that inspire, innovate, and thrive. We are more than an HR company; we are your dedicated partners in building a workplace that reflects your values and fuels your success."]}
 					/> */}
 					<TextSection
+						heading="About Doyin Adetona"
+						paragraphs={[
+							"With a decade-long journey in the realms of Human Resources, Talent Acquisition, Diversity, Equity, and Inclusion (DEI), and Consulting, Doyin is a seasoned professional renowned for crafting and implementing strategic workforce solutions. Having spent several years at KPMG, a global leader in professional services, Doyin honed a comprehensive skill set and strategic mindset that continues to drive success in every venture",
+						]}
+					/>
+					<TextSection
 						heading="Who We Are"
 						paragraphs={["At StartSmartHub, we are a team of seasoned HR professionals, strategists, and consultants united by a common purpose – to redefine the human resources landscape. With a collective passion for people and organizational development, we bring a wealth of expertise to every partnership."]}
 					/>
@@ -33,11 +39,16 @@ const AboutUs = () => {
 						"Client-Centric: Your success is our priority. We are dedicated to building lasting partnerships and driving your organization toward excellence.",
 					]}
 				/> */}
+				<TextSection
+					heading="KPMG Legacy and Consultative Approach"
+					paragraphs={["Having been an integral part of the KPMG family, Doyin imbibed the values of excellence, integrity, and innovation. The consultative approach cultivated during this tenure forms the cornerstone of StartSmartHub’s methodology. Doyin believes in not just meeting but exceeding client expectations by understanding their unique needs and crafting tailored solutions."]}
+				/>
+				<TextSection heading="Vision for StartSmartHub" paragraphs={["At StartSmartHub, Doyin’s vision is to be a trailblazer in HR, talent acquisition, and DEI consulting. The commitment to delivering transformative solutions, combined with an unwavering dedication to client success, defines Doyin’s leadership."]} />
 				<div
 					data-aos-duration="700"
 					data-aos="zoom-in"
 					data-aos-delay="700"
-					className="font-semibold mb-7 text-center text-[36px] [&>*:not(:last-child)]:mr-2 flex-wrap"
+					className="font-semibold mb-7 text-center text-[36px] mt-10 [&>*:not(:last-child)]:mr-2 flex-wrap"
 				>
 					Why Choose Start Smart Hub
 				</div>
